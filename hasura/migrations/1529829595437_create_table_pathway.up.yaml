@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "pathway"("id" serial NOT NULL, "name" text NOT NULL, "data"
+      text NOT NULL, "external_id" text NOT NULL, "source" text NOT NULL, PRIMARY
+      KEY ("id") )
+  type: run_sql
+- args:
+    name: pathway
+  type: add_existing_table_or_view

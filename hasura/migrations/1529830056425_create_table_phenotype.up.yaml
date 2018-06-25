@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "phenotype"("id" serial NOT NULL, "name" text NOT NULL, "marker_symbol"
+      text NOT NULL, "mgi_accession_id" text NOT NULL, "phenotype" text NOT NULL,
+      "term" text NOT NULL, "definition" text , PRIMARY KEY ("id") )
+  type: run_sql
+- args:
+    name: phenotype
+  type: add_existing_table_or_view
