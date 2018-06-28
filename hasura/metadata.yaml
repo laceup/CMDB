@@ -1,0 +1,51 @@
+query_templates: []
+tables:
+- array_relationships:
+  - comment: null
+    name: pathways
+    using:
+      manual_configuration:
+        column_mapping:
+          name: name
+        remote_table: pathway
+  - comment: null
+    name: phenotypes
+    using:
+      manual_configuration:
+        column_mapping:
+          name: name
+        remote_table: phenotype
+  - comment: null
+    name: exac
+    using:
+      manual_configuration:
+        column_mapping:
+          ensembl_id: ensembl_id
+        remote_table: exac
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: ensembl
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: phenotype
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: pathway
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: exac
+  update_permissions: []
