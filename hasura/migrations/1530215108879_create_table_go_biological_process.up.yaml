@@ -1,0 +1,7 @@
+- args:
+    sql: CREATE TABLE "go_biological_process"("name" text NOT NULL, "go_id" text NOT
+      NULL, PRIMARY KEY ("name","go_id") )
+  type: run_sql
+- args:
+    name: go_biological_process
+  type: add_existing_table_or_view

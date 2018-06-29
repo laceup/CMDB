@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "go_molecular_function" ADD FOREIGN KEY ("go_id") REFERENCES
+      "gene_ontology" ("id")
+  type: run_sql

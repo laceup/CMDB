@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "go_biological_process"
+  type: run_sql
