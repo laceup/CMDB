@@ -22,11 +22,50 @@ tables:
         column_mapping:
           ensembl_id: ensembl_id
         remote_table: exac
+  - comment: null
+    name: go_biological_process
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_biological_process
+  - comment: null
+    name: go_cellular_component
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_cellular_component
+  - comment: null
+    name: go_molecular_function
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_molecular_function
   delete_permissions: []
   insert_permissions: []
   object_relationships: []
   select_permissions: []
   table: ensembl
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: go_cellular_component
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: gene_ontology
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: go_biological_process
   update_permissions: []
 - array_relationships: []
   delete_permissions: []
@@ -48,4 +87,11 @@ tables:
   object_relationships: []
   select_permissions: []
   table: exac
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: go_molecular_function
   update_permissions: []

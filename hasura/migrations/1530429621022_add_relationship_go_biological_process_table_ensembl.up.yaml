@@ -1,0 +1,8 @@
+- args:
+    name: go_biological_process
+    table: ensembl
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_biological_process
+  type: create_array_relationship
