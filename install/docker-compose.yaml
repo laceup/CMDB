@@ -1,5 +1,12 @@
 version: '3.6'
 services:
+  server:
+    image: nebelungcat/cmdb-server:v1.1
+    ports:
+    - "9000:9000"
+    restart: always
+    volumes:
+    - ../server/src:/app/src
   postgres:
     image: postgres
     environment:

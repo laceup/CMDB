@@ -1,14 +1,15 @@
 import requests, json
 from flask import jsonify, request, render_template
 from src import app
+from .hasura import query
 
-@app.route("/info")
-def info():
-    return render_template(
-        'info.html',
-        **{
-            'base_domain': 'X-Hasura-Base-Domain',
-            'user_id': 'X-Hasura-User-Id',
-            'roles': 'X-Hasura-Allowed-Roles'
-        }
-    )
+@app.route("/api/genes")
+def json_message():
+    result=query('''
+    query {
+      ensembl {
+        name
+      }
+    }
+    ''')
+    return jsonify(result=result)

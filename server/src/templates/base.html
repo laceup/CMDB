@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Cardiomyopath Database</title>
+    <title>{% block title %}{% endblock %} - Cardiomyopathy Database</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">    <!-- Custom styles for this template -->
     <link href="static/styles.css" rel="stylesheet">
@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container-fluid">
 
-        <a class="navbar-brand" href="#page-top">CM Database</a>
+        <a class="navbar-brand" href="/">CM Database</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,24 +35,9 @@
 
       </div>
     </nav>
-    <div class="container">
-    	<div class="row">
-            <div class="col-md-12" align="center">
-        		<h2>Custom search field</h2>
-                <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg" placeholder="Buscar" />
-                        <span class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button">
-                              <i class="fa fa-search"></i>
-                          </button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-    	</div>
-    </div>
-
+    <section class="content">
+      {% block content %}{% endblock %}
+    </section>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
