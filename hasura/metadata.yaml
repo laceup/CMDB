@@ -1,45 +1,6 @@
 query_templates: []
 tables:
-- array_relationships:
-  - comment: null
-    name: pathways
-    using:
-      manual_configuration:
-        column_mapping:
-          name: name
-        remote_table: pathway
-  - comment: null
-    name: phenotypes
-    using:
-      manual_configuration:
-        column_mapping:
-          name: name
-        remote_table: phenotype
-  - comment: null
-    name: exac
-    using:
-      manual_configuration:
-        column_mapping:
-          ensembl_id: ensembl_id
-        remote_table: exac
-  - comment: null
-    name: go_biological_process
-    using:
-      foreign_key_constraint_on:
-        column: name
-        table: go_biological_process
-  - comment: null
-    name: go_cellular_component
-    using:
-      foreign_key_constraint_on:
-        column: name
-        table: go_cellular_component
-  - comment: null
-    name: go_molecular_function
-    using:
-      foreign_key_constraint_on:
-        column: name
-        table: go_molecular_function
+- array_relationships: []
   delete_permissions: []
   insert_permissions: []
   object_relationships: []
@@ -49,7 +10,11 @@ tables:
 - array_relationships: []
   delete_permissions: []
   insert_permissions: []
-  object_relationships: []
+  object_relationships:
+  - comment: null
+    name: go
+    using:
+      foreign_key_constraint_on: go_id
   select_permissions: []
   table: go_cellular_component
   update_permissions: []
@@ -63,7 +28,11 @@ tables:
 - array_relationships: []
   delete_permissions: []
   insert_permissions: []
-  object_relationships: []
+  object_relationships:
+  - comment: null
+    name: go
+    using:
+      foreign_key_constraint_on: go_id
   select_permissions: []
   table: go_biological_process
   update_permissions: []
@@ -73,6 +42,50 @@ tables:
   object_relationships: []
   select_permissions: []
   table: phenotype
+  update_permissions: []
+- array_relationships:
+  - comment: null
+    name: pathways
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: pathway
+  - comment: null
+    name: phenotypes
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: phenotype
+  - comment: null
+    name: go_molecular_function
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_molecular_function
+  - comment: null
+    name: go_cellular_component
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_cellular_component
+  - comment: null
+    name: go_biological_process
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_biological_process
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships:
+  - comment: null
+    name: ensembl
+    using:
+      manual_configuration:
+        column_mapping:
+          name: name
+        remote_table: ensembl
+  select_permissions: []
+  table: gene
   update_permissions: []
 - array_relationships: []
   delete_permissions: []
@@ -91,7 +104,11 @@ tables:
 - array_relationships: []
   delete_permissions: []
   insert_permissions: []
-  object_relationships: []
+  object_relationships:
+  - comment: null
+    name: go
+    using:
+      foreign_key_constraint_on: go_id
   select_permissions: []
   table: go_molecular_function
   update_permissions: []

@@ -3,7 +3,7 @@
 --
 
 -- Dumped from database version 10.4 (Debian 10.4-2.pgdg90+1)
--- Dumped by pg_dump version 10.4 (Ubuntu 10.4-2.pgdg16.04+1)
+-- Dumped by pg_dump version 10.4 (Debian 10.4-2.pgdg90+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -93,6 +93,22 @@ ALTER TABLE public.exac_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE public.exac_id_seq OWNED BY public.exac.id;
 
+
+--
+-- Name: gene; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.gene (
+    name text NOT NULL,
+    uniprot_id text NOT NULL,
+    ncbi_id integer NOT NULL,
+    ensembl_id text NOT NULL,
+    mgi_id text,
+    protein_name text
+);
+
+
+ALTER TABLE public.gene OWNER TO postgres;
 
 --
 -- Name: gene_ontology; Type: TABLE; Schema: public; Owner: postgres
@@ -264,6 +280,14 @@ ALTER TABLE ONLY public.gene_ontology
 
 
 --
+-- Name: gene gene_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.gene
+    ADD CONSTRAINT gene_pkey PRIMARY KEY (name);
+
+
+--
 -- Name: go_biological_process go_biological_process_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -316,7 +340,7 @@ ALTER TABLE ONLY public.go_biological_process
 --
 
 ALTER TABLE ONLY public.go_biological_process
-    ADD CONSTRAINT go_biological_process_name_fkey FOREIGN KEY (name) REFERENCES public.ensembl(name);
+    ADD CONSTRAINT go_biological_process_name_fkey FOREIGN KEY (name) REFERENCES public.gene(name);
 
 
 --
@@ -332,7 +356,7 @@ ALTER TABLE ONLY public.go_cellular_component
 --
 
 ALTER TABLE ONLY public.go_cellular_component
-    ADD CONSTRAINT go_cellular_component_name_fkey FOREIGN KEY (name) REFERENCES public.ensembl(name);
+    ADD CONSTRAINT go_cellular_component_name_fkey FOREIGN KEY (name) REFERENCES public.gene(name);
 
 
 --
@@ -348,7 +372,23 @@ ALTER TABLE ONLY public.go_molecular_function
 --
 
 ALTER TABLE ONLY public.go_molecular_function
-    ADD CONSTRAINT go_molecular_function_name_fkey FOREIGN KEY (name) REFERENCES public.ensembl(name);
+    ADD CONSTRAINT go_molecular_function_name_fkey FOREIGN KEY (name) REFERENCES public.gene(name);
+
+
+--
+-- Name: pathway pathway_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pathway
+    ADD CONSTRAINT pathway_name_fkey FOREIGN KEY (name) REFERENCES public.gene(name);
+
+
+--
+-- Name: phenotype phenotype_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phenotype
+    ADD CONSTRAINT phenotype_name_fkey FOREIGN KEY (name) REFERENCES public.gene(name);
 
 
 --
