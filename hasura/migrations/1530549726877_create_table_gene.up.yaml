@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "gene"("name" text NOT NULL, "uniprot_id" text NOT NULL, "ncbi_id"
+      integer NOT NULL, "ensembl_id" text NOT NULL, "mgi_id" text , "protein_name"
+      text , PRIMARY KEY ("name") )
+  type: run_sql
+- args:
+    name: gene
+  type: add_existing_table_or_view

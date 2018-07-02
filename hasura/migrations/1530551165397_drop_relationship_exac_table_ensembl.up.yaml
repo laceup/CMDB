@@ -1,0 +1,4 @@
+- args:
+    relationship: exac
+    table: ensembl
+  type: drop_relationship

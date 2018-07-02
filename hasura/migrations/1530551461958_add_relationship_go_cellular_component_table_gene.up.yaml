@@ -1,0 +1,8 @@
+- args:
+    name: go_cellular_component
+    table: gene
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: go_cellular_component
+  type: create_array_relationship

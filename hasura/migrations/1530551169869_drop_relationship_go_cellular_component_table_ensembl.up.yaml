@@ -1,0 +1,4 @@
+- args:
+    relationship: go_cellular_component
+    table: ensembl
+  type: drop_relationship

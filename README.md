@@ -52,3 +52,20 @@ To see server logs, use:
 docker logs install_server_1
 # use -f to follow logs
 ```
+
+## Adding new table
+
+- Create new table with required columns using Hasura console
+- Prepare a csv file with the same column structure, without headers
+- Copy the csv file into the postgres container:
+  ```bash
+  docker cp data.csv install_postgres_1:/data.csv
+  ```
+- Execute psql command inside the container to import data from csv file into the table: 
+  ```bash
+  docker exec install_postgres_1 psql -h localhost -p 5432 -d postgres -U postgres -c "copy <table-name> from '/data.csv' delimiter ',' quote '"' null 'NULL' csv;"
+  ```
+- Successfull copy should show the following output:
+  ```bash
+  COPY <number-of-rows-imported>
+  ```

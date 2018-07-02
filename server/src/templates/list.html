@@ -23,10 +23,11 @@
             <thead>
               <tr>
                 <th>Gene name</th>
+                <th>Protein</th>
                 <th>Ensembl ID</th>
-                <th>Start BP</th>
-                <th>End BP</th>
-                <th>Chromosome</th>
+                <th>Uniprot ID</th>
+                <th>MGI ID</th>
+                <th>NCBI ID</th>
                 <th></th>
               </tr>
             </thead>
@@ -34,10 +35,11 @@
               {% for gene in genes %}
               <tr>
                 <td>{{gene.name}}</td>
+                <td>{{gene.protein_name}}</td>
                 <td>{{gene.ensembl_id}}</td>
-                <td>{{gene.start_bp}}</td>
-                <td>{{gene.start_bp}}</td>
-                <td>{{gene.chromosome_scaffold_name}}</td>
+                <td>{{gene.uniprot_id}}</td>
+                <td>{{gene.mgi_id}}</td>
+                <td>{{gene.ncbi_id}}</td>
                 <td> <a href="#"  class="btn btn-xs btn-warning"  >View</a> </td>
               </tr>
               {% endfor %}

@@ -1,0 +1,8 @@
+- args:
+    name: phenotypes
+    table: gene
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table: phenotype
+  type: create_array_relationship

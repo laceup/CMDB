@@ -14,7 +14,7 @@ def home():
         result = query('''
             query {
               ensembl (where: {name: {_ilike: $ARG}}) {
-                name,
+                name
                 ensembl_id
                 start_bp
                 end_bp
@@ -30,22 +30,23 @@ def home():
         }
     )
 
-@app.route("/genes")
+@app.route("/genes/")
 def genes():
     data = query('''
     query {
-      ensembl {
-        name
-        ensembl_id
-        start_bp
-        end_bp
-        chromosome_scaffold_name
-      }
+        gene {
+            name
+            protein_name
+            ensembl_id
+            uniprot_id
+            mgi_id
+            ncbi_id
+        }
     }
     ''')
 
     return render_template(
-        'list.html', genes=data['ensembl']
+        'list.html', genes=data['gene']
     )
 
 @app.route("/gene/<name>")
@@ -66,7 +67,7 @@ def gene_details(name):
         gene = {}
     else:
         gene = data['ensembl'][0]
-    
+
     return render_template(
         'details.html',
         gene=gene

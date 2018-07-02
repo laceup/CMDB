@@ -11,7 +11,13 @@ body {
    padding-top: 70px;
    height: 100%;
 }
- }
+
+/* section.content {
+    padding-top: 70px;
+}
+nav.navbar {
+    background: #f2f2f2
+} */
 .container-fluid {
     height: 100%;
     overflow: hidden; /* don't show content that exceeds my height */

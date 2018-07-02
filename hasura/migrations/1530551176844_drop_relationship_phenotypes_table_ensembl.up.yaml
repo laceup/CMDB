@@ -1,0 +1,4 @@
+- args:
+    relationship: phenotypes
+    table: ensembl
+  type: drop_relationship
