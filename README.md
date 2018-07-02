@@ -69,3 +69,38 @@ docker logs install_server_1
   ```bash
   COPY <number-of-rows-imported>
   ```
+
+## Backing up the database
+
+- Backup the postgres schema:
+  ```bash
+  docker exec install_postgres_1 pg_dump -h localhost -p 5432 -U postgres -d postgres --schema public --schema-only > public-schema.sql
+  ```
+- Backup Hasura metadata:
+  ```bash
+  hasura metadata export
+  ```
+- Backup the postgres data:
+  ```bash
+  docker exec install_postgres_1 pg_dump -h localhost -p 5432 -U postgres -d postgres --schema public --data-only -Z9 -Fc > public-data.sql.gz
+  ```
+## Restoring the database
+
+- Restore schema:
+  ```bash
+  # using hasura migrations (recommended)
+  hasura migrate apply
+  ```
+  OR
+
+  ```bash
+  # using postgres backups
+  docker exec install_postgres_1 pg_restore -h localhost -p 5432 -U postgres -d postgres --schema public --schema-only < public-schema.sql
+
+  hasura metadata apply
+  ```
+
+- Restore the data:
+  ```bash
+  docker exec install_postgres_1 pg_restore -h localhost -p 5432 -U postgres -d postgres --schema public --data-only -Fc < public-data.sql.gz
+  ```
