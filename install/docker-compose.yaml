@@ -28,5 +28,10 @@ services:
       /bin/sh -c "
       raven --database-url postgres://postgres:$${POSTGRES_PASSWORD}@postgres:5432/postgres serve;
       "
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 7000:8080
 volumes:
   db_data:

@@ -97,8 +97,8 @@ $ cd microservices/app
 # install dependencies
 $ pip install -r src/requirements.txt
 
-# Optional: set an environment variable to run Hasura examples 
-# otherwise, remove Hasura examples, 
+# Optional: set an environment variable to run Hasura examples
+# otherwise, remove Hasura examples,
 #   delete lines 5-8 from `src/__init__.py`
 #   remove file `src/hasura.py`
 $ export CLUSTER_NAME=[your-hasura-cluster-name]
@@ -144,9 +144,9 @@ $ docker build -t hello-python-flask-app .
 $ docker run --rm -it -p 8080:8080 \
              -e CLUSTER_NAME=[your-hasura-cluster-name] \
              -v $(pwd):/app \
-             hello-python-flask-app \ 
+             hello-python-flask-app \
              gunicorn --reload --bind "0.0.0.0:8080" src:app
-             
+
 # app will be available at `http://localhost:8080`
 # press Ctrl+C to stop the running container
 ```

@@ -10,15 +10,28 @@
         		<h2>Custom search field</h2>
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                        <input type="text" class="form-control input-lg" placeholder="Gene" id="searchTextBox" />
                         <span class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button">
+                          <button class="btn btn-outline-secondary" id="searchButton" type="button">
                               <i class="fa fa-search"></i>
                           </button>
                         </span>
                     </div>
                 </div>
             </div>
+            {% if search %}
+            <div class="search_results">
+              {% if results %}
+                <ul>
+                {% for r in results %}
+                  <li><a href="/gene/{{r.name}}">{{r.name}}, {{r.chromosome_scaffold_name}}</a></li>
+                {% endfor %}
+              </ul>
+              {% else %}
+              No results
+              {% endif %}
+            </div>
+            {% endif %}
     	</div>
     </div>
 {% endblock %}
