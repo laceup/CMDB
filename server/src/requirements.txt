@@ -1,6 +1,5 @@
 flask
 requests
 gunicorn
-graphqlclient
 
 # add new packages one per each line

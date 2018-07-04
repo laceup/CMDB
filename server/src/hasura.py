@@ -1,14 +1,25 @@
 import requests
 import json
-import urllib
-from graphqlclient import GraphQLClient
 
-client = GraphQLClient('http://raven:8080/v1alpha1/graphql')
+HASURA_URL = 'http://raven:8080/v1alpha1/graphql'
 
 def query(q, v=None):
-    result=""
-    try:
-        result= client.execute(q, v)
-    except urllib.error.HTTPError as e:
-        print(e.code, e.reason)
-    return json.loads(result)['data']
+    payload = {
+        "query": q,
+        "variables": v
+    }
+    
+    print("===============================================")
+    print("query: ", q)
+    print("variables: ", v)
+    r = requests.post(HASURA_URL, data=json.dumps(payload).encode('utf-8'))
+    if r.status_code != 200:
+        print("request failed: ", r.status_code) 
+        print("response text: ", r.text)
+        print("===============================================")
+        return None
+    else:
+        print("response code: ", r.status_code)
+        print("response text: ", r.text)
+        print("===============================================")
+        return r.json()['data']

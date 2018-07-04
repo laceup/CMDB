@@ -52,8 +52,8 @@ def genes():
 @app.route("/gene/<name>")
 def gene_details(name):
     data = query('''
-        query {
-            gene (where: {name: {_eq: $NAME}}) {
+        query getGeneDetails ($NAME: String) {
+            gene (where: {name: {_eq: "$NAME"}}) {
                 name
                 protein_name
                 ensembl_id
@@ -61,44 +61,47 @@ def gene_details(name):
                 mgi_id
                 ncbi_id
                 
-                ensembl{
-                chromosome_scaffold_name
-                start_bp
-                end_bp
-                transcript_count
-                percentage_gc_content
+                ensembl {
+                    chromosome_scaffold_name
+                    start_bp
+                    end_bp
+                    transcript_count
+                    percentage_gc_content
                 }
-                go_cellular_component{
-                go{
-                    id
-                    text
+                go_cellular_component {
+                    go {
+                        id
+                        text
+                    }
                 }
+                go_molecular_function {
+                    go {
+                        id
+                        text
+                    }
                 }
-                go_molecular_function{
-                go{
-                    id
-                    text
+                go_biological_process {
+                    go {
+                        id
+                        text
+                    }
                 }
-                }
-                go_biological_process{
-                go{
-                    id
-                    text
-                }
-                }
-                phenotypes{
-                phenotype
-                term
-                definition
+                phenotypes {
+                    phenotype
+                    term
+                    definition
                 }
             }
         }
     ''', {'NAME': name})
 
-    if len(data['gene']) == 0:
-        gene = {}
+    if data != None:
+        if len(data['gene']) == 0:
+            gene = {}
+        else:
+            gene = data['gene'][0]
     else:
-        gene = data['gene'][0]
+        gene = {}
 
     return render_template(
         'details.html',

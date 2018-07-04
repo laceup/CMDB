@@ -9,6 +9,7 @@ services:
     - ../server/src:/app/src
   postgres:
     image: postgres
+    restart: always
     environment:
     - "POSTGRES_PASSWORD:mysecretpassword"
     ports:
