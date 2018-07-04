@@ -16,7 +16,7 @@ services:
     volumes:
     - db_data:/var/lib/postgresql/data
   raven:
-    image: hasura/graphql-engine:4d2d2ca
+    image: hasura/graphql-engine:v1.0.0-alpha01
     ports:
     - "8080:8080"
     depends_on:
@@ -26,7 +26,7 @@ services:
     - "POSTGRES_PASSWORD:mysecretpassword"
     command: >
       /bin/sh -c "
-      raven --database-url postgres://postgres:$${POSTGRES_PASSWORD}@postgres:5432/postgres serve;
+      graphql-engine --database-url postgres://postgres:$${POSTGRES_PASSWORD}@postgres:5432/postgres serve;
       "
   # adminer:
   #   image: adminer

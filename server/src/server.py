@@ -53,20 +53,52 @@ def genes():
 def gene_details(name):
     data = query('''
         query {
-          ensembl (where: {name: {_eq: $NAME}}) {
-            name,
-            ensembl_id
-            start_bp
-            end_bp
-            chromosome_scaffold_name
-          }
+            gene (where: {name: {_eq: $NAME}}) {
+                name
+                protein_name
+                ensembl_id
+                uniprot_id
+                mgi_id
+                ncbi_id
+                
+                ensembl{
+                chromosome_scaffold_name
+                start_bp
+                end_bp
+                transcript_count
+                percentage_gc_content
+                }
+                go_cellular_component{
+                go{
+                    id
+                    text
+                }
+                }
+                go_molecular_function{
+                go{
+                    id
+                    text
+                }
+                }
+                go_biological_process{
+                go{
+                    id
+                    text
+                }
+                }
+                phenotypes{
+                phenotype
+                term
+                definition
+                }
+            }
         }
     ''', {'NAME': name})
 
-    if len(data['ensembl']) == 0:
+    if len(data['gene']) == 0:
         gene = {}
     else:
-        gene = data['ensembl'][0]
+        gene = data['gene'][0]
 
     return render_template(
         'details.html',

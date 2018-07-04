@@ -28,7 +28,7 @@
                 <th>Uniprot ID</th>
                 <th>MGI ID</th>
                 <th>NCBI ID</th>
-                <th></th>
+                <th>Page</th>
               </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
                 <td>{{gene.uniprot_id}}</td>
                 <td>{{gene.mgi_id}}</td>
                 <td>{{gene.ncbi_id}}</td>
-                <td> <a href="#"  class="btn btn-xs btn-warning"  >View</a> </td>
+                <td> <a href="{{ url_for('gene_details',name=gene.name) }}"  class="btn btn-xs btn-warning"  >View</a> </td>
               </tr>
               {% endfor %}
             </tbody>
