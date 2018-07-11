@@ -12,7 +12,7 @@ def home():
     if search_arg:
         is_search_page = True
         result = query('''
-            query {
+            query getEnsembl ($ARG: String){
               ensembl (where: {name: {_ilike: $ARG}}) {
                 name
                 ensembl_id
@@ -53,7 +53,7 @@ def genes():
 def gene_details(name):
     data = query('''
         query getGeneDetails ($NAME: String) {
-            gene (where: {name: {_eq: "$NAME"}}) {
+            gene (where: {name: {_eq: $NAME}}) {
                 name
                 protein_name
                 ensembl_id
@@ -90,6 +90,19 @@ def gene_details(name):
                     phenotype
                     term
                     definition
+                }
+                exac{
+                    variant_id
+                    allele_freq
+                    allele_num
+                    allele_count
+                    major_consequence
+                
+                }
+                pathways{
+                    data
+                    external_id
+                    source
                 }
             }
         }

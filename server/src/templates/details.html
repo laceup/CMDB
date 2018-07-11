@@ -4,10 +4,13 @@
 
 
 {% block content %}
-<div class="container">
+<div class="gene-heading-div">
+    <h1 class=gene-heading>{{gene.name}}</h1>
+</div>
+<div style="margin-top: -41px;" class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="go" aria-selected="false">Basic</a>
+            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="go" aria-selected="false">Basic</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="go-tab" data-toggle="tab" href="#go" role="tab" aria-controls="go" aria-selected="false">Gene Ontology</a>
@@ -26,7 +29,8 @@
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+        <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+            <br>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                   <thead>
@@ -37,7 +41,7 @@
                       <th>Uniprot ID</th>
                       <th>MGI ID</th>
                       <th>NCBI ID</th>
-                      <th></th>
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -45,25 +49,64 @@
                     <tr>
                       <td>{{gene.name}}</td>
                       <td>{{gene.protein_name}}</td>
-                      <td>{{gene.ensembl_id}}</td>
-                      <td>{{gene.uniprot_id}}</td>
-                      <td>{{gene.mgi_id}}</td>
-                      <td>{{gene.ncbi_id}}</td>
-                      <td> <a href="#"  class="btn btn-xs btn-warning"  >View</a> </td>
+                      <!-- <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td> -->
+                      <td><a href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}" style="color:black">{{gene.ensembl_id}}</a></td>
+                      <td><a href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a></td>
+                      <td><a href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a></td>
+                      <td><a href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a></td>
+                      
                     </tr>
                     {% endif %}
                   </tbody>
                 </table>
             </div>
+            <div>
+                <hr>
+                <h4>Ensemble Info</h4>
+                <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                          <thead>
+                            <tr>
+                              <th>Chromosome Name</th>
+                              <th>Start BP</th>
+                              <th>End BP</th>
+                              <th>Transcript Count</th>
+                              <th>GC Content(%)</th>
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                           
+                            <tr>
+                              <td>{{gene.ensembl.chromosome_scaffold_name}}</td>
+                              <td>{{gene.ensembl.start_bp}}</td>
+                              <td>{{gene.ensembl.end_bp}}</td>
+                              <td>{{gene.ensembl.transcript_count}}</td>
+                              <td>{{gene.ensembl.percentage_gc_content}}</td>
+                              
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                    </div>
+                <hr>
+                <h3>Subcellular Location</h3>
+                <hr>
+                
+            </div>
         </div>
         <div class="tab-pane fade" id="go" role="tabpanel" aria-labelledby="go-tab">
+            <br>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
+                <table class="download_table cell-border hover stripe" class="table">
                   <thead>
                       <tr>
-                          <th>GO ID</th>
-                          <th>GO Definition</th>
-                          <th>Category</th>
+                          <th class="left-head">GO ID</th>
+                          <th class="middle-head">GO Definition</th>
+                          <th class="right-head">Category</th>
                       </tr>
                   </thead>
                       <tbody>
@@ -92,32 +135,82 @@
                 </table>
             </div>
         </div>
+        <!-- ExAC -->
         <div class="tab-pane fade" id="exac" role="tabpanel" aria-labelledby="exac-tab">
-          ...
-        </div>
-        <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
+                <br>    
                 <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                          <thead>
-                              <tr>
-                                  <th>Mammalian Phenotype ID</th>
-                                  <th>Term</th>
-                                  <th>Definition</th>
-                              </tr>
-                          </thead>
-                              <tbody>
-                              {% for ph in gene.phenotype %}
+                    <table class="download_table cell-border hover stripe" class="table ">
+                                <thead>
+                                    <tr>
+                                        <th class="left-head">Variant</th>
+                                        <th class="middle-head">Allele Frequency</th>
+                                        <th class="middle-head">Allele Count</th>
+                                        <th class="middle-head">Allele Number</th>
+                                        <th class="right-head">Major Consequence</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  {% for ex in gene.exac %}
+                                  <tr>
+                                      <td>{{ex.variant_id}}</td>
+                                      <td>{{ex.allele_freq}}</td>
+                                      <td>{{ex.allele_count}}</td>
+                                      <td>{{ex.allele_num}}</td>
+                                      <td>{{ex.major_consequence}}</td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                    </table>
+                </div>
+        </div>
+        <!-- PHENOTYPE -->
+        <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
+            <br>    
+            <div class="table-responsive">
+                        <table  class="download_table row-border cell-border hover stripe" class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="left-head">Mammalian Phenotype ID</th>
+                                    <th class="middle-head">Term</th>
+                                    <th class="right-head" >Definition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for ph in gene.phenotypes %}
                               <tr>
                                   <td>{{ph.phenotype}}</td>
                                   <td>{{ph.term}}</td>
                                   <td>{{ph.definition}}</td>
                               </tr>
                               {% endfor %}
-                              </tbody>
+                            </tbody>
                         </table>
-                    </div>
+            </div>
         </div>
-        <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">...</div>
+        <!-- PATHWAYS -->
+        <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">
+                <br>    
+                <div class="table-responsive">
+                    <table class="download_table cell-border hover stripe" class="table ">
+                                <thead>
+                                    <tr>
+                                        <th class="left-head">Pathways</th>
+                                        <th class="middle-head">External ID</th>
+                                        <th class="right-head">Source</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  {% for pa in gene.pathways %}
+                                  <tr>
+                                      <td>{{pa.data}}</td>
+                                      <td>{{pa.external_id}}</td>
+                                      <td>{{pa.source}}</td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                    </table>
+                </div>
+        </div>
         <div class="tab-pane fade" id="drugs" role="tabpanel" aria-labelledby="drugs-tab">...</div>
       </div>
 </div>

@@ -1,27 +1,28 @@
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-  background-color: #fff;
+  background-color: #011627;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
+
 body {
    padding-top: 70px;
    height: 100%;
 }
-
-/* section.content {
-    padding-top: 70px;
-}
-nav.navbar {
-    background: #f2f2f2
-} */
 .container-fluid {
     height: 100%;
     overflow: hidden; /* don't show content that exceeds my height */
 }
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link{
+    color: #f6f7f8
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
+    color: #2ec4b6
+}
+/* PAGE ONE - SEARCH BOX */
  #custom-search-input{
     padding: 3px;
     border: solid 1px #E4E4E4;
@@ -49,7 +50,7 @@ nav.navbar {
      border-left: solid 1px #ccc;
  }
 
-
+/* ---------------------------------------------- */
  .sidebar {
    position: fixed;
    top: 51px;
@@ -65,3 +66,54 @@ nav.navbar {
 .bg-faded{
   background-color: rgba(247, 247, 247, 0.5)
 }
+/* ----------------------------------------------- */
+
+/* Changing the colour of tab heading */
+a.nav-link{
+    color: aliceblue;
+
+/* Pink Bar */
+}
+.gene-heading-div{
+    background-color:#ff3366;
+    padding-top:20px ;
+    padding-bottom:40px;
+    padding-left: 50px;
+    z-index:-2;
+    margin-top: -13px;
+}
+.gene-heading{
+    color:#f6f7f8;
+}
+/* DATA TABLES */
+div.dataTables_wrapper {
+    margin-bottom: 3em;
+}
+  
+/*--------------------- th style -------------------*/
+th{
+    border-style: solid; 
+    border-color: #e8e8e8;
+}
+th.left-head{
+    
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-top-left-radius: 5px;
+    
+}
+th.right-head{
+   
+    border-right-width: 1px;
+    border-left-width: 0px;
+    border-top-width: 1px;
+    border-top-right-radius: 5px;
+    
+}
+th.middle-head{
+    border-right-width: 1px;
+    border-left-width: 0px;
+    border-top-width: 1px;
+}
+/* -------------------------------------------------- */

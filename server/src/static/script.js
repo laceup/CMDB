@@ -1,5 +1,6 @@
 $(document).ready(function () {
   console.log('document loaded')
+  
   $('#searchTextBox').keyup(function (e) {
     console.log('keyup: ', e.which)
     if (e.which == 13) {
@@ -14,4 +15,16 @@ $(document).ready(function () {
     e.preventDefault();
     window.location.replace("/?search="+$('#searchTextBox').val())
   });
+
+  $('table.download_table').DataTable({});
+
+  var cy = cytoscape({
+    container: $('#cy')
+  });
+
+
+
 });
+// CYTOSCAPE
+
+// -----------
