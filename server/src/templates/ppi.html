@@ -1,29 +1,28 @@
-<!doctype html>
-<meta charset="utf-8">
+{% extends 'base.html' %}
 
+{% block title %}{{gene.name}}{% endblock %}
+
+{% block content %}
 <!-- load D3js -->
 <script src="https://d3plus.org/js/d3.js"></script>
 
 <!-- load D3plus after D3js -->
 <script src="https://d3plus.org/js/d3plus.js"></script>
 
-<body>
+
 <!-- create container element for visualization -->
 <div id="viz"></div>
-</body>
+
+
 <script>
-  // create sample dataset
-    var data={
+  // create sample dataset;
+    var data={{my_sample_data}};
 
-    }
+    
   // create list of node positions
-  var positions = [
-   
-  ]
+  //var positions = ;
   // create list of node connections
-  var connections = [
-
-  ]
+  var connections = {{my_connections}};
   // instantiate d3plus
   var visualization = d3plus.viz()
     .container("#viz")  // container DIV to hold the visualization
@@ -35,3 +34,4 @@
     .id("name")         // key for which our data is unique on
     .draw()             // finally, draw the visualization!
 </script>
+{% endblock %}

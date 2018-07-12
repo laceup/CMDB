@@ -20,6 +20,7 @@
                 </div>
             </div>
         </div>
+        <br>
             {% if search %}
         <div class="row">
             <div class="search_results col-md-12 justify-content-center" style="width:100%">
@@ -36,10 +37,10 @@
                       <tbody>
                         {% for r in results %}
                         <tr>
-                          <td><a href="/gene/{{r.name}}"></a>{{r.name}}</td>
+                          <td><a href="/gene/{{r.name}}">{{r.name}}</a></td>
                           <td> {{r.protein_name}}</td>
-                        {% endfor %}
                         </tr>
+                        {% endfor %}
                       </tbody>
                     </table>
               {% else %}

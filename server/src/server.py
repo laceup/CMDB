@@ -132,15 +132,25 @@ def ppi_a(name):
             }
         }
     ''', {'NAME': name})
+    
+    gene = name
+    result = data['gene'][0]
+    my_sample_data = [{"name": gene}]
+    my_connections = []
+    interactors = []
 
+    for g in result['ppi_b']:
+        interactors.append(g["interactor_a"])
 
-    if data != None:
-        if len(data['gene']) == 0:
-            gene = {}
-        else:
-            gene = data['gene'][0]
-    else:
-        gene = {}
+    for g in result['ppi_a']:
+        interactors.append(g["interactor_b"])
+
+    # remove duplicates
+    interactors = list(set(interactors))
+
+    for interactor in interactors:
+        my_sample_data.append({"name": interactor})
+        my_connections.append({"source": gene, "target": interactor})
 
     return render_template(
         'ppi.html',
