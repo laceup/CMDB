@@ -7,18 +7,15 @@ from .hasura import query
 @app.route("/")
 def home():
     search_arg = request.args.get('search')
-    result = {"ensembl":[]}
+    result = {"gene":[]}
     is_search_page = False
     if search_arg:
         is_search_page = True
         result = query('''
             query getEnsembl ($ARG: String){
-              ensembl (where: {name: {_ilike: $ARG}}) {
+              gene (where: {name: {_ilike: $ARG}}) {
                 name
-                ensembl_id
-                start_bp
-                end_bp
-                chromosome_scaffold_name
+                protein_name
               }
             }
         ''', {"ARG": "%"+search_arg+"%"})
@@ -26,7 +23,7 @@ def home():
         'home.html',
         **{
             "search": is_search_page,
-            "results": result['ensembl'],
+            "results": result['gene'],
         }
     )
 
@@ -118,5 +115,34 @@ def gene_details(name):
 
     return render_template(
         'details.html',
+        gene=gene
+    )
+# --------------------------------------------------------------
+@app.route("/ppi/<name>")
+def ppi_a(name):
+    data = query('''
+        query getPpi ($NAME: String) {
+            gene (where: {name: {_eq: $NAME}}) {
+                 ppi_a{
+                    interactor_b
+                }
+                ppi_b{
+                    interactor_a
+                }
+            }
+        }
+    ''', {'NAME': name})
+
+
+    if data != None:
+        if len(data['gene']) == 0:
+            gene = {}
+        else:
+            gene = data['gene'][0]
+    else:
+        gene = {}
+
+    return render_template(
+        'ppi.html',
         gene=gene
     )

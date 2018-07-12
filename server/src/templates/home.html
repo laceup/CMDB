@@ -19,19 +19,35 @@
                     </div>
                 </div>
             </div>
+        </div>
             {% if search %}
-            <div class="search_results">
+        <div class="row">
+            <div class="search_results col-md-12 justify-content-center" style="width:100%">
               {% if results %}
-                <ul>
-                {% for r in results %}
-                  <li><a href="/gene/{{r.name}}">{{r.name}}, {{r.chromosome_scaffold_name}}</a></li>
-                {% endfor %}
-              </ul>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>Gene name</th>
+                          <th>Protein</th>
+                    
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for r in results %}
+                        <tr>
+                          <td><a href="/gene/{{r.name}}"></a>{{r.name}}</td>
+                          <td> {{r.protein_name}}</td>
+                        {% endfor %}
+                        </tr>
+                      </tbody>
+                    </table>
               {% else %}
               No results
               {% endif %}
             </div>
-            {% endif %}
-    	</div>
+           {% endif %}
+           </div>
+        </div>
     </div>
 {% endblock %}

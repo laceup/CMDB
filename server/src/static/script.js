@@ -18,9 +18,6 @@ $(document).ready(function () {
 
   $('table.download_table').DataTable({});
 
-  var cy = cytoscape({
-    container: $('#cy')
-  });
 
 
 
