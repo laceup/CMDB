@@ -16,21 +16,19 @@
 
 <script>
   // create sample dataset;
-    var data={{my_sample_data}};
+    var data={{my_sample_data|tojson|safe}};
 
     
   // create list of node positions
   //var positions = ;
   // create list of node connections
-  var connections = {{my_connections}};
+  var connections = {{my_connections|tojson|safe}};
   // instantiate d3plus
   var visualization = d3plus.viz()
     .container("#viz")  // container DIV to hold the visualization
     .type("network")    // visualization type
     .data(data)  // sample dataset to attach to nodes
-    .nodes(positions)   // x and y position of nodes
     .edges(connections) // list of node connections
-    .size("size")       // key to size the nodes
     .id("name")         // key for which our data is unique on
     .draw()             // finally, draw the visualization!
 </script>

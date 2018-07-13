@@ -120,7 +120,7 @@ def gene_details(name):
         gene = {}
     
     # result = data['gene'][0]
-    my_sample_data = [{"name": name,"size":50}]
+    my_sample_data = [{"name": name,"size":10}]
     my_connections = []
     interactors = []
 
@@ -134,7 +134,7 @@ def gene_details(name):
     interactors = list(set(interactors))
 
     for interactor in interactors:
-        my_sample_data.append({"name": interactor,"size":20})
+        my_sample_data.append({"name": interactor,"size":10})
         my_connections.append({"source": name, "target": interactor})
 
     return render_template(

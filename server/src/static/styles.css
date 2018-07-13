@@ -117,3 +117,7 @@ th.middle-head{
     border-top-width: 1px;
 }
 /* -------------------------------------------------- */
+
+div.ppi-viz {
+  height: 500px;
+}

@@ -5,233 +5,243 @@
 
 {% block content %}
 <div class="gene-heading-div">
-    <h1 class=gene-heading>{{gene.name}}</h1>
+  <h1 class=gene-heading>{{gene.name}}</h1>
 </div>
 <div style="margin-top: -41px;" class="container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="go" aria-selected="false">Basic</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="go-tab" data-toggle="tab" href="#go" role="tab" aria-controls="go" aria-selected="false">Gene Ontology</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="exac-tab" data-toggle="tab" href="#exac" role="tab" aria-controls="exac" aria-selected="false">ExAC</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " id="phenotype-tab" data-toggle="tab" href="#phenotype" role="tab" aria-controls="phenotype" aria-selected="false">Phenotype</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pathways-tab" data-toggle="tab" href="#pathways" role="tab" aria-controls="pathways" aria-selected="false">Pathways</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="ppi-tab" data-toggle="tab" href="#ppi" role="tab" aria-controls="ppi" aria-selected="false">PPI</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
-            <br>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>Gene name</th>
-                      <th>Protein</th>
-                      <th>Ensembl ID</th>
-                      <th>Uniprot ID</th>
-                      <th>MGI ID</th>
-                      <th>NCBI ID</th>
-                     
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% if gene %}
-                    <tr>
-                      <td>{{gene.name}}</td>
-                      <td>{{gene.protein_name}}</td>
-                      <td><a href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}" style="color:black">{{gene.ensembl_id}}</a></td>
-                      <td><a href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a></td>
-                      <td><a href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a></td>
-                      <td><a href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a></td>
-                      
-                    </tr>
-                    {% endif %}
-                  </tbody>
-                </table>
-            </div>
-            <div>
-                <hr>
-                <h4>Ensemble Info</h4>
-                <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                          <thead>
-                            <tr>
-                              <th>Chromosome Name</th>
-                              <th>Start BP</th>
-                              <th>End BP</th>
-                              <th>Transcript Count</th>
-                              <th>GC Content(%)</th>
-                             
-                            </tr>
-                          </thead>
-                          <tbody>
-                           
-                            <tr>
-                              <td>{{gene.ensembl.chromosome_scaffold_name}}</td>
-                              <td>{{gene.ensembl.start_bp}}</td>
-                              <td>{{gene.ensembl.end_bp}}</td>
-                              <td>{{gene.ensembl.transcript_count}}</td>
-                              <td>{{gene.ensembl.percentage_gc_content}}</td>
-                              
-                            </tr>
-                            
-                          </tbody>
-                        </table>
-                    </div>
-                <hr>
-                <h3>Subcellular Location</h3>
-                <hr>
-                
-            </div>
-        </div>
-        <div class="tab-pane fade" id="go" role="tabpanel" aria-labelledby="go-tab">
-            <br>
-            <div class="table-responsive">
-                <table class="download_table cell-border hover stripe" class="table">
-                  <thead>
-                      <tr>
-                          <th class="left-head">GO ID</th>
-                          <th class="middle-head">GO Definition</th>
-                          <th class="right-head">Category</th>
-                      </tr>
-                  </thead>
-                      <tbody>
-                      {% for cc in gene.go_cellular_component %}
-                      <tr>
-                          <td>{{cc.go.id}}</td>
-                          <td>{{cc.go.text}}</td>
-                          <td>Cellular component</td>
-                      </tr>
-                      {% endfor %}
-                      {% for mf in gene.go_molecular_function %}
-                      <tr>
-                          <td>{{mf.go.id}}</td>
-                          <td>{{mf.go.text}}</td>
-                          <td>Molecular Function</td>
-                      </tr>
-                      {% endfor %}
-                      {% for bp in gene.go_biological_process %}
-                      <tr>
-                          <td>{{bp.go.id}}</td>
-                          <td>{{bp.go.text}}</td>
-                          <td>Biological Process</td>
-                      </tr>
-                      {% endfor %}
-                      </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- ExAC -->
-        <div class="tab-pane fade" id="exac" role="tabpanel" aria-labelledby="exac-tab">
-                <br>    
-                <div class="table-responsive">
-                    <table class="download_table cell-border hover stripe" class="table ">
-                                <thead>
-                                    <tr>
-                                        <th class="left-head">Variant</th>
-                                        <th class="middle-head">Allele Frequency</th>
-                                        <th class="middle-head">Allele Count</th>
-                                        <th class="middle-head">Allele Number</th>
-                                        <th class="right-head">Major Consequence</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  {% for ex in gene.exac %}
-                                  <tr>
-                                      <td>{{ex.variant_id}}</td>
-                                      <td>{{ex.allele_freq}}</td>
-                                      <td>{{ex.allele_count}}</td>
-                                      <td>{{ex.allele_num}}</td>
-                                      <td>{{ex.major_consequence}}</td>
-                                  </tr>
-                                  {% endfor %}
-                                </tbody>
-                    </table>
-                </div>
-        </div>
-        <!-- PHENOTYPE -->
-        <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
-            <br>    
-            <div class="table-responsive">
-                        <table  class="download_table row-border cell-border hover stripe" class="table ">
-                            <thead>
-                                <tr>
-                                    <th class="left-head">Mammalian Phenotype ID</th>
-                                    <th class="middle-head">Term</th>
-                                    <th class="right-head" >Definition</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              {% for ph in gene.phenotypes %}
-                              <tr>
-                                  <td>{{ph.phenotype}}</td>
-                                  <td>{{ph.term}}</td>
-                                  <td>{{ph.definition}}</td>
-                              </tr>
-                              {% endfor %}
-                            </tbody>
-                        </table>
-            </div>
-        </div>
-        <!-- PATHWAYS -->
-        <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">
-                <br>    
-                <div class="table-responsive">
-                    <table class="download_table cell-border hover stripe" class="table ">
-                                <thead>
-                                    <tr>
-                                        <th class="left-head">Pathways</th>
-                                        <th class="middle-head">External ID</th>
-                                        <th class="right-head">Source</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  {% for pa in gene.pathways %}
-                                  <tr>
-                                      <td>{{pa.data}}</td>
-                                      <td>{{pa.external_id}}</td>
-                                      <td>{{pa.source}}</td>
-                                  </tr>
-                                  {% endfor %}
-                                </tbody>
-                    </table>
-                </div>
-        </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="go" aria-selected="false">Basic</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="go-tab" data-toggle="tab" href="#go" role="tab" aria-controls="go" aria-selected="false">Gene Ontology</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="exac-tab" data-toggle="tab" href="#exac" role="tab" aria-controls="exac" aria-selected="false">ExAC</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " id="phenotype-tab" data-toggle="tab" href="#phenotype" role="tab" aria-controls="phenotype" aria-selected="false">Phenotype</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pathways-tab" data-toggle="tab" href="#pathways" role="tab" aria-controls="pathways" aria-selected="false">Pathways</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="ppi-tab" data-toggle="tab" href="#ppi" role="tab" aria-controls="ppi" aria-selected="false">PPI</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+      <br>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Gene name</th>
+              <th>Protein</th>
+              <th>Ensembl ID</th>
+              <th>Uniprot ID</th>
+              <th>MGI ID</th>
+              <th>NCBI ID</th>
 
-        <!-- PPI -->
-        <div class="tab-pane fade" id="ppi" role="tabpanel" aria-labelledby="ppi-tab">
-            <div id="viz"></div>
-            <script>
-	//	$(document).ready(function () {
-		document.addEventListener("DOMContentLoaded", function()  {
-			// create sample dataset;
-			var data={{my_sample_data|tojson|safe}};    
-			// create list of node positions
-			//var positions = ;
-			// create list of node connections
-			var connections = {{my_connections|tojson|safe}};
-			// instantiate d3plus
-			var visualization = d3plus.viz()
-			    .container("#viz")  // container DIV to hold the visualization
-			    .type("network")    // visualization type
-			    .data(data)  // sample dataset to attach to nodes
-			    .edges(connections) // list of node connections
-			    .size("size")       // key to size the nodes
-			    .id("name")         // key for which our data is unique on
-			    .draw()             // finally, draw the visualization!
-            	});
-            </script>
-        </div>
+            </tr>
+          </thead>
+          <tbody>
+            {% if gene %}
+            <tr>
+              <td>{{gene.name}}</td>
+              <td>{{gene.protein_name}}</td>
+              <td><a href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}" style="color:black">{{gene.ensembl_id}}</a></td>
+              <td><a href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a></td>
+              <td><a href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a></td>
+              <td><a href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a></td>
+
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
       </div>
+      <div>
+        <hr>
+        <h4>Ensemble Info</h4>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Chromosome Name</th>
+                <th>Start BP</th>
+                <th>End BP</th>
+                <th>Transcript Count</th>
+                <th>GC Content(%)</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>{{gene.ensembl.chromosome_scaffold_name}}</td>
+                <td>{{gene.ensembl.start_bp}}</td>
+                <td>{{gene.ensembl.end_bp}}</td>
+                <td>{{gene.ensembl.transcript_count}}</td>
+                <td>{{gene.ensembl.percentage_gc_content}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <hr>
+        <h3>Subcellular Location</h3>
+        <hr>
+
+      </div>
+    </div>
+    <div class="tab-pane fade" id="go" role="tabpanel" aria-labelledby="go-tab">
+      <br>
+      <div class="table-responsive">
+        <table class="download_table cell-border hover stripe" class="table">
+          <thead>
+            <tr>
+              <th class="left-head">GO ID</th>
+              <th class="middle-head">GO Definition</th>
+              <th class="right-head">Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cc in gene.go_cellular_component %}
+            <tr>
+              <td>{{cc.go.id}}</td>
+              <td>{{cc.go.text}}</td>
+              <td>Cellular component</td>
+            </tr>
+            {% endfor %}
+            {% for mf in gene.go_molecular_function %}
+            <tr>
+              <td>{{mf.go.id}}</td>
+              <td>{{mf.go.text}}</td>
+              <td>Molecular Function</td>
+            </tr>
+            {% endfor %}
+            {% for bp in gene.go_biological_process %}
+            <tr>
+              <td>{{bp.go.id}}</td>
+              <td>{{bp.go.text}}</td>
+              <td>Biological Process</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- ExAC -->
+    <div class="tab-pane fade" id="exac" role="tabpanel" aria-labelledby="exac-tab">
+      <br>    
+      <div class="table-responsive">
+        <table class="download_table cell-border hover stripe" class="table ">
+          <thead>
+            <tr>
+              <th class="left-head">Variant</th>
+              <th class="middle-head">Allele Frequency</th>
+              <th class="middle-head">Allele Count</th>
+              <th class="middle-head">Allele Number</th>
+              <th class="right-head">Major Consequence</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ex in gene.exac %}
+            <tr>
+              <td>{{ex.variant_id}}</td>
+              <td>{{ex.allele_freq}}</td>
+              <td>{{ex.allele_count}}</td>
+              <td>{{ex.allele_num}}</td>
+              <td>{{ex.major_consequence}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- PHENOTYPE -->
+    <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
+      <br>    
+      <div class="table-responsive">
+        <table  class="download_table row-border cell-border hover stripe" class="table ">
+          <thead>
+            <tr>
+              <th class="left-head">Mammalian Phenotype ID</th>
+              <th class="middle-head">Term</th>
+              <th class="right-head" >Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ph in gene.phenotypes %}
+            <tr>
+              <td>{{ph.phenotype}}</td>
+              <td>{{ph.term}}</td>
+              <td>{{ph.definition}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- PATHWAYS -->
+    <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">
+      <br>    
+      <div class="table-responsive">
+        <table class="download_table cell-border hover stripe" class="table ">
+          <thead>
+            <tr>
+              <th class="left-head">Pathways</th>
+              <th class="middle-head">External ID</th>
+              <th class="right-head">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for pa in gene.pathways %}
+            <tr>
+              <td>{{pa.data}}</td>
+              <td>{{pa.external_id}}</td>
+              <td>{{pa.source}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PPI -->
+    <div class="tab-pane fade" id="ppi" role="tabpanel" aria-labelledby="ppi-tab">
+      <div id="viz" class="ppi-viz"></div>
+      <span id="viz-loading-message">Loading visualisation</span>
+    </div>
+  </div>
 </div>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+  var data={{my_sample_data|tojson|safe}};    
+  var connections = {{my_connections|tojson|safe}};
+
+  function renderNetwork() {
+    var visualization = d3plus.viz()
+    .container("#viz")
+    .type("network")
+    .data(data)
+    .edges(connections)
+    .size("size")
+    .id("name")
+    .draw()
+  }
+
+  $(document).ready(function(){
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      if (e.target.id == "ppi-tab") {
+        renderNetwork()
+        $('span#viz-loading-message').hide()
+      }
+    });
+
+  });
+</script>
 {% endblock %}
