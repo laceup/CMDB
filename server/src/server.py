@@ -101,6 +101,12 @@ def gene_details(name):
                     external_id
                     source
                 }
+                ppi_a{
+                    interactor_b
+                }
+                ppi_b{
+                    interactor_a
+                }
             }
         }
     ''', {'NAME': name})
@@ -112,10 +118,30 @@ def gene_details(name):
             gene = data['gene'][0]
     else:
         gene = {}
+    
+    # result = data['gene'][0]
+    my_sample_data = [{"name": name,"size":50}]
+    my_connections = []
+    interactors = []
+
+    for g in gene['ppi_b']:
+        interactors.append(g["interactor_a"])
+
+    for g in gene['ppi_a']:
+        interactors.append(g["interactor_b"])
+
+    # remove duplicates
+    interactors = list(set(interactors))
+
+    for interactor in interactors:
+        my_sample_data.append({"name": interactor,"size":20})
+        my_connections.append({"source": name, "target": interactor})
 
     return render_template(
         'details.html',
-        gene=gene
+        gene=gene,
+        my_sample_data= my_sample_data,
+        my_connections=my_connections
     )
 # --------------------------------------------------------------
 @app.route("/ppi/<name>")
@@ -135,7 +161,7 @@ def ppi_a(name):
     
     gene = name
     result = data['gene'][0]
-    my_sample_data = [{"name": gene}]
+    my_sample_data = [{"name": gene,"size":2}]
     my_connections = []
     interactors = []
 
@@ -149,10 +175,12 @@ def ppi_a(name):
     interactors = list(set(interactors))
 
     for interactor in interactors:
-        my_sample_data.append({"name": interactor})
+        my_sample_data.append({"name": interactor,"size":1})
         my_connections.append({"source": gene, "target": interactor})
 
     return render_template(
         'ppi.html',
-        gene=gene
+        gene=gene,
+        my_sample_data= my_sample_data,
+        my_connections=my_connections
     )
