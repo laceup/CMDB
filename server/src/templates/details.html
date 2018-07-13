@@ -210,31 +210,25 @@
 
         <!-- PPI -->
         <div class="tab-pane fade" id="ppi" role="tabpanel" aria-labelledby="ppi-tab">
-            <!-- load D3js -->
-            <script src="https://d3plus.org/js/d3.js"></script>
-
-            <!-- load D3plus after D3js -->
-            <script src="https://d3plus.org/js/d3plus.js"></script>
-
             <div id="viz"></div>
             <script>
-            document.addEventListener("DOMContentLoaded", function()  {
-                // create sample dataset;
-                var data={{my_sample_data|tojson|safe}};    
-                // create list of node positions
-                //var positions = ;
-                // create list of node connections
-                var connections = {{my_connections|tojson|safe}};
-                // instantiate d3plus
-                var visualization = d3plus.viz()
-                    .container("#viz")  // container DIV to hold the visualization
-                    .type("network")    // visualization type
-                    .data(data)  // sample dataset to attach to nodes
-                    .edges(connections) // list of node connections
-                    .size("size")       // key to size the nodes
-                    .id("name")         // key for which our data is unique on
-                    .draw()             // finally, draw the visualization!
-            });
+		$(document).ready(function () {
+			// create sample dataset;
+			var data={{my_sample_data|tojson|safe}};    
+			// create list of node positions
+			//var positions = ;
+			// create list of node connections
+			var connections = {{my_connections|tojson|safe}};
+			// instantiate d3plus
+			var visualization = d3plus.viz()
+			    .container("#viz")  // container DIV to hold the visualization
+			    .type("network")    // visualization type
+			    .data(data)  // sample dataset to attach to nodes
+			    .edges(connections) // list of node connections
+			    .size("size")       // key to size the nodes
+			    .id("name")         // key for which our data is unique on
+			    .draw()             // finally, draw the visualization!
+            	});
             </script>
         </div>
       </div>

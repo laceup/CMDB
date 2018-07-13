@@ -161,7 +161,7 @@ def ppi_a(name):
     
     gene = name
     result = data['gene'][0]
-    my_sample_data = [{"name": gene,"size":2}]
+    my_sample_data = [{"name": gene,"size":10}]
     my_connections = []
     interactors = []
 
@@ -175,7 +175,7 @@ def ppi_a(name):
     interactors = list(set(interactors))
 
     for interactor in interactors:
-        my_sample_data.append({"name": interactor,"size":1})
+        my_sample_data.append({"name": interactor,"size":10})
         my_connections.append({"source": gene, "target": interactor})
 
     return render_template(
