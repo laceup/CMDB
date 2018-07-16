@@ -74,6 +74,27 @@ tables:
       foreign_key_constraint_on:
         column: name
         table: go_biological_process
+  - comment: null
+    name: exac
+    using:
+      manual_configuration:
+        column_mapping:
+          ensembl_id: ensembl_id
+        remote_table: exac
+  - comment: null
+    name: ppi_a
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: interactor_a
+        remote_table: ppi
+  - comment: null
+    name: ppi_b
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: interactor_b
+        remote_table: ppi
   delete_permissions: []
   insert_permissions: []
   object_relationships:
@@ -86,6 +107,13 @@ tables:
         remote_table: ensembl
   select_permissions: []
   table: gene
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: ppi
   update_permissions: []
 - array_relationships: []
   delete_permissions: []
