@@ -1,0 +1,46 @@
+Anticoagulants,Rivaroxaban,Xarelto,DB06228
+Anticoagulants,Dabigatran etexilate,Pradaxa,DB06695
+Anticoagulants,Apixaban,Eliquis,DB06605
+Anticoagulants,Heparin,various,DB01109
+Anticoagulants,Warfarin,Coumadin,DB00682
+Calcium Blockers,Amlodipine,"Norvasc, Lotrel",DB00381
+Calcium Blockers,Diltiazem,"Cardizem, Tiazac",DB00343
+Calcium Blockers,Felodipine,Plendil,DB01023
+Calcium Blockers,Nifedipine,"Adalat, Procardia",DB01115
+Calcium Blockers,Nimodipine,Nimotop,DB00393
+Calcium Blockers,Nisoldipine,Sular,DB00401
+Calcium Blockers,Verapamil,"Calan, Verelan",DB00661
+Beta Blockers (Beta-Adrenergic Blocking Agents),Acebutolol,Sectral,DB01193
+Beta Blockers (Beta-Adrenergic Blocking Agents),Atenolol,Tenormin,DB00335
+Beta Blockers (Beta-Adrenergic Blocking Agents),Betaxolol,Kerlone,DB00195
+Beta Blockers (Beta-Adrenergic Blocking Agents),Bisoprolol,Ziac,DB00612
+Beta Blockers (Beta-Adrenergic Blocking Agents),Metoprolol,"Lopressor, Toprol XL",DB00264
+Beta Blockers (Beta-Adrenergic Blocking Agents),Nadolol,Corgard,DB01203
+Beta Blockers (Beta-Adrenergic Blocking Agents),Propranolol,Inderal,DB00571
+Beta Blockers (Beta-Adrenergic Blocking Agents),Sotalol,Betapace,DB00489
+Diuretics (Water Pills),Amiloride,Midamor,DB00594
+Diuretics (Water Pills),Bumetanide,Bumex,DB00887
+Diuretics (Water Pills),Chlorothiazide,Diuril,DB00880
+Diuretics (Water Pills),Chlorthalidone,Hygroton,DB00310
+Diuretics (Water Pills),Furosemide,Lasix,DB00695
+Diuretics (Water Pills),Hydrochlorothiazide,"Esidrix, Hydrodiuril",DB00999
+Diuretics (Water Pills),Indapamide,Lozol,DB00808
+Diuretics (Water Pills),Spironolactone,Aldactone,DB00421
+ACE inhibitor,Benazepril,Lotensin,DB00542
+ACE inhibitor,Captopril,Capoten,DB01197
+ACE inhibitor,Enalapril,Vasotec,DB00584
+ACE inhibitor,Fosinopril,Monopril,DB00492
+ACE inhibitor,Lisinopril,"Prinivil, Zestril",DB00722
+ACE inhibitor,Moexipril,Univasc,DB00691
+ACE inhibitor,Perindopril,Aceon,DB00790
+ACE inhibitor,Quinapril,Accupril,DB00881
+ACE inhibitor,Ramipril,Altace,DB00178
+ACE inhibitor,Trandolapril,Mavik,DB00519
+Statin,Atorvastatin,Lipitor,DB01076
+Statin,Rosuvastatin,Crestor,DB01098
+Angiotensin II receptor blockers (ARBs or Angiotensin-2 Receptor Antagonists),Candesartan,Atacand,DB13919
+Angiotensin II receptor blockers (ARBs or Angiotensin-2 Receptor Antagonists),Eprosartan,Teveten,DB00876
+Angiotensin II receptor blockers (ARBs or Angiotensin-2 Receptor Antagonists),Irbesartan,Avapro,DB01029
+Angiotensin II receptor blockers (ARBs or Angiotensin-2 Receptor Antagonists),Losartan,Cozaar,DB00678
+Angiotensin II receptor blockers (ARBs or Angiotensin-2 Receptor Antagonists),Telmisartan,Micardis,DB00966
+Angiotensin II receptor blockers (ARBs or Angiotensin-2 Receptor Antagonists),Valsartan,Diovan,DB00177

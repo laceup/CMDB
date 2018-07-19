@@ -1,0 +1,9 @@
+- args:
+    sql: CREATE TABLE public."drug"("drug_type" text NOT NULL, "drug_name" text NOT
+      NULL, "drug_product" text NOT NULL, "drugbank_id" text NOT NULL, PRIMARY KEY
+      ("drugbank_id") )
+  type: run_sql
+- args:
+    name: drug
+    schema: public
+  type: add_existing_table_or_view

@@ -6,7 +6,7 @@
 
 import csv
 data=[]
-with open('CPDB_pathways_genes.csv') as f:
+with open('drug_target.csv') as f:
     data=[]
     reader = csv.reader(f, delimiter=',')
     for row in reader:
@@ -18,14 +18,14 @@ with open('CPDB_pathways_genes.csv') as f:
 
 newdata=[]
 for row in data:
-    genes = row[3]
-    for gene in genes.split(','):
+    genes = row[9]
+    for gene in genes.split(';'):
         newrow = [gene]
         newrow.extend(row[:-1])
         newdata.append(newrow)
 print newdata
 
-with open('pathways_new.csv', 'wb') as csvfile:
+with open('drug_target_new.csv', 'wb') as csvfile:
     writer = csv.writer(csvfile, delimiter=',', quotechar='"')
     for row in newdata:
         writer.writerow(row)
