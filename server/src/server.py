@@ -144,43 +144,29 @@ def gene_details(name):
         my_connections=my_connections
     )
 # --------------------------------------------------------------
-@app.route("/ppi/<name>")
-def ppi_a(name):
+@app.route("/drug/<name>")
+def drug(name):
     data = query('''
-        query getPpi ($NAME: String) {
+        query getDrug ($NAME: String) {
             gene (where: {name: {_eq: $NAME}}) {
-                 ppi_a{
-                    interactor_b
-                }
-                ppi_b{
-                    interactor_a
+                 drug_target{
+                  drug_id
+                  gene_name
                 }
             }
         }
     ''', {'NAME': name})
+
+    if data != None:
+        if len(data['gene']) == 0:
+            link = {}
+        else:
+            link = data['gene'][0]['drug_target']
+    else:
+        link = {}
     
-    gene = name
-    result = data['gene'][0]
-    my_sample_data = [{"name": gene,"size":10}]
-    my_connections = []
-    interactors = []
-
-    for g in result['ppi_b']:
-        interactors.append(g["interactor_a"])
-
-    for g in result['ppi_a']:
-        interactors.append(g["interactor_b"])
-
-    # remove duplicates
-    interactors = list(set(interactors))
-
-    for interactor in interactors:
-        my_sample_data.append({"name": interactor,"size":10})
-        my_connections.append({"source": gene, "target": interactor})
-
     return render_template(
-        'ppi.html',
-        gene=gene,
-        my_sample_data= my_sample_data,
-        my_connections=my_connections
+        'drug.html',
+        link=link,
+        name=name
     )

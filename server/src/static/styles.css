@@ -49,6 +49,17 @@ body {
      box-shadow: none;
      border-left: solid 1px #ccc;
  }
+/* FOOTER */
+#footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #08b8a6 !important;}
+
+#footer ul.social li{
+        padding: 3px 0;
+    }
 
 /* ---------------------------------------------- */
  .sidebar {

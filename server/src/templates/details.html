@@ -27,6 +27,9 @@
     <li class="nav-item">
       <a class="nav-link" id="ppi-tab" data-toggle="tab" href="#ppi" role="tab" aria-controls="ppi" aria-selected="false">PPI</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" id="drug-tab" data-toggle="tab" href="#drug" role="tab" aria-controls="drug-tab" aria-selected="false">Drug</a>
+      </li>
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
@@ -49,10 +52,10 @@
             <tr>
               <td>{{gene.name}}</td>
               <td>{{gene.protein_name}}</td>
-              <td><a href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}" style="color:black">{{gene.ensembl_id}}</a></td>
-              <td><a href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a></td>
-              <td><a href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a></td>
-              <td><a href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a></td>
+              <td><a target="_blank" href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}" style="color:black">{{gene.ensembl_id}}</a></td>
+              <td><a target="_blank" href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a></td>
+              <td><a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a></td>
+              <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a></td>
 
             </tr>
             {% endif %}
@@ -213,6 +216,87 @@
       <div id="viz" class="ppi-viz"></div>
       <span id="viz-loading-message">Loading visualisation</span>
     </div>
+
+    <!-- DRUG -->
+    <div class="tab-pane fade" id="drug" role="tabpanel" aria-labelledby="drug-tab">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script>
+      
+          var width = 960,
+              height = 600;
+          var svg = d3.select("div#drug").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+      
+          var force = d3.layout.force()
+            .size([width, height]);
+      
+      
+          var links = {{ link| tojson | safe}};
+          var nodesByName = {};
+      
+          // Create nodes for each unique source and target.
+          links.forEach(function (link) {
+            link.source = nodeByName(link.gene_name);
+            link.target = nodeByName(link.drug_id);
+          });
+      
+          var nodes = d3.values(nodesByName);
+      
+          var link = svg.selectAll(".link")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "link");
+      
+          // Create the node circles.
+          var node = svg.selectAll(".node")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            //.attr("r", function(d) {return d.weight * 999990;})
+            .style("fill",function(d){return d.name.substring(0, 2)== "DB" ? "#324e73" : "#479794"})
+            .call(force.drag);
+      
+          var label = svg.selectAll(".mytext")
+            .data(nodes)
+            .enter()
+            .append("text")
+              .text(function (d) { return d.name; })
+              .style("text-anchor", "middle")
+              .style("fill", "#332d2d")
+              .style("font-family", "Arial")
+              .style("font-size", 10);
+          // Start the force layout.
+          force
+            .nodes(nodes)
+            .links(links)
+            .on("tick", tick)
+            .linkDistance(100)
+            .charge([-800])
+            .start();
+      
+          function tick() {
+            link.attr("x1", function (d) { return d.source.x; })
+              .attr("y1", function (d) { return d.source.y; })
+              .attr("x2", function (d) { return d.target.x; })
+              .attr("y2", function (d) { return d.target.y; });
+      
+            node.attr("r", function (d) { return d.name.substring(0, 2)== "DB" ? 15 : 18; })
+              .attr("cx", function (d) { return d.x; })
+              .attr("cy", function (d) { return d.y; });
+      
+            label.attr("x", function (d) { return d.x; })
+              .attr("y", function (d) { return d.y-15; });
+          }
+        
+          function nodeByName(name) {
+            return nodesByName[name] || (nodesByName[name] = { name: name });
+          }
+        </script>
+        
+    </div>
+
+
   </div>
 </div>
 {% endblock %}
@@ -221,23 +305,27 @@
 <script>
   var data={{my_sample_data|tojson|safe}};    
   var connections = {{my_connections|tojson|safe}};
-
+  var isNetworkRendered = false;
   function renderNetwork() {
     var visualization = d3plus.viz()
     .container("#viz")
     .type("network")
     .data(data)
     .edges(connections)
+    .edges({"size": {"scale": 1}})
     .size("size")
     .id("name")
     .draw()
+    isNetworkRendered = true;
   }
 
   $(document).ready(function(){
-
+    $('table.download_table').DataTable({});
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       if (e.target.id == "ppi-tab") {
-        renderNetwork()
+        if (!isNetworkRendered) {
+          renderNetwork()
+        }
         // break here
         $('span#viz-loading-message').hide()
       }

@@ -15,12 +15,6 @@ $(document).ready(function () {
     e.preventDefault();
     window.location.replace("/?search="+$('#searchTextBox').val())
   });
-
-  $('table.download_table').DataTable({});
-
-
-
-
 });
 // CYTOSCAPE
 
