@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |
+      ALTER TABLE protein
+         ADD PRIMARY KEY (gene_synonyms);
+  type: run_sql

@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |
+      ALTER TABLE protein
+         DROP CONSTRAINT protein_pkey;
+  type: run_sql
