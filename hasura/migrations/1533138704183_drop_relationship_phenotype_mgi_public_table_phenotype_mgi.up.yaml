@@ -1,0 +1,6 @@
+- args:
+    relationship: phenotype_mgi
+    table:
+      name: phenotype_mgi
+      schema: public
+  type: drop_relationship

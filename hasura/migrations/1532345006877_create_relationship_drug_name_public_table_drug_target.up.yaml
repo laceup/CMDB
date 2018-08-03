@@ -1,0 +1,13 @@
+- args:
+    name: drug_name
+    table:
+      name: drug_target
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          drug_id: drugbank_id
+        remote_table:
+          name: drug
+          schema: public
+  type: create_object_relationship

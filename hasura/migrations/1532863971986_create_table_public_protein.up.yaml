@@ -1,0 +1,9 @@
+- args:
+    sql: CREATE TABLE public."protein"("ensemble_id" text NOT NULL, "uniprot_id" text
+      NOT NULL, "entry_name" text NOT NULL, "protein" text NOT NULL, "gene_synonyms"
+      text NOT NULL, PRIMARY KEY ("uniprot_id") )
+  type: run_sql
+- args:
+    name: protein
+    schema: public
+  type: add_existing_table_or_view

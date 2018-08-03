@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE public."phenotype_def"("mp_id" text NOT NULL, "term" text NOT
+      NULL, "definition" text NOT NULL, PRIMARY KEY ("mp_id") )
+  type: run_sql
+- args:
+    name: phenotype_def
+    schema: public
+  type: add_existing_table_or_view

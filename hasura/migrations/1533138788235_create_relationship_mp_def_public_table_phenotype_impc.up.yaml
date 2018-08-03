@@ -1,0 +1,13 @@
+- args:
+    name: mp_def
+    table:
+      name: phenotype_impc
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          mp_id: mp_id
+        remote_table:
+          name: phenotype_def
+          schema: public
+  type: create_object_relationship
