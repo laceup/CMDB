@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    sql: |-
+      create view gene_mp_id as (select distinct gene, mp_id from (
+          select human_gene_symbol as gene, mp_id from phenotype_impc where mp_id is not null and mp_id != ''
+                  union
+          select human_marker_symbol as gene, mp_id from phenotype_mgi where mp_id is not null and mp_id != ''
+      ) as gene_mp_id)
+  type: run_sql
+- args:
+    name: gene_mp_id
+    schema: public
+  type: add_existing_table_or_view
