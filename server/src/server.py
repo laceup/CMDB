@@ -107,6 +107,13 @@ def gene_details(name):
                 ppi_b{
                     interactor_a
                 }
+                drug_target{
+                  drug_id
+                  gene_name
+                  drug_name{
+                    drug_name
+                  }
+                }
             }
         }
     ''', {'NAME': name})
@@ -119,8 +126,8 @@ def gene_details(name):
     else:
         gene = {}
     
-    # result = data['gene'][0]
-    my_sample_data = [{"name": name,"size":10}]
+    # for ppi
+    my_sample_data = [{"name": name,"size":12}]
     my_connections = []
     interactors = []
 
@@ -130,16 +137,27 @@ def gene_details(name):
     for g in gene['ppi_a']:
         interactors.append(g["interactor_b"])
 
-    # remove duplicates
+        # remove duplicates
     interactors = list(set(interactors))
 
     for interactor in interactors:
         my_sample_data.append({"name": interactor,"size":10})
         my_connections.append({"source": name, "target": interactor})
 
+    # for drug d3 network
+    if data != None:
+        if len(data['gene']) == 0:
+            link = {}
+        else:
+            link = data['gene'][0]['drug_target']
+    else:
+        link = {}
+
     return render_template(
         'details.html',
         gene=gene,
+        link=link,
+        name=name,
         my_sample_data= my_sample_data,
         my_connections=my_connections
     )
@@ -152,6 +170,9 @@ def drug(name):
                  drug_target{
                   drug_id
                   gene_name
+                  drug_name{
+                    drug_name
+                  }
                 }
             }
         }

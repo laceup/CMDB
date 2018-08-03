@@ -1,9 +1,4 @@
-{% extends 'base.html' %}
-
-{% block title %}{{gene.name}}{% endblock %}
-
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}{{gene.name}}{% endblock %} {% block content %}
 <div class="gene-heading-div">
   <h1 class=gene-heading>{{gene.name}}</h1>
 </div>
@@ -28,8 +23,8 @@
       <a class="nav-link" id="ppi-tab" data-toggle="tab" href="#ppi" role="tab" aria-controls="ppi" aria-selected="false">PPI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="drug-tab" data-toggle="tab" href="#drug" role="tab" aria-controls="drug-tab" aria-selected="false">Drug</a>
-      </li>
+      <a class="nav-link" id="drug-tab" data-toggle="tab" href="#drug" role="tab" aria-controls="drug-tab" aria-selected="false">Drug</a>
+    </li>
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
@@ -52,10 +47,19 @@
             <tr>
               <td>{{gene.name}}</td>
               <td>{{gene.protein_name}}</td>
-              <td><a target="_blank" href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}" style="color:black">{{gene.ensembl_id}}</a></td>
-              <td><a target="_blank" href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a></td>
-              <td><a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a></td>
-              <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a></td>
+              <td>
+                <a target="_blank" href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}"
+                  style="color:black">{{gene.ensembl_id}}</a>
+              </td>
+              <td>
+                <a target="_blank" href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a>
+              </td>
+              <td>
+                <a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a>
+              </td>
+              <td>
+                <a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a>
+              </td>
 
             </tr>
             {% endif %}
@@ -115,15 +119,13 @@
               <td>{{cc.go.text}}</td>
               <td>Cellular component</td>
             </tr>
-            {% endfor %}
-            {% for mf in gene.go_molecular_function %}
+            {% endfor %} {% for mf in gene.go_molecular_function %}
             <tr>
               <td>{{mf.go.id}}</td>
               <td>{{mf.go.text}}</td>
               <td>Molecular Function</td>
             </tr>
-            {% endfor %}
-            {% for bp in gene.go_biological_process %}
+            {% endfor %} {% for bp in gene.go_biological_process %}
             <tr>
               <td>{{bp.go.id}}</td>
               <td>{{bp.go.text}}</td>
@@ -136,7 +138,7 @@
     </div>
     <!-- ExAC -->
     <div class="tab-pane fade" id="exac" role="tabpanel" aria-labelledby="exac-tab">
-      <br>    
+      <br>
       <div class="table-responsive">
         <table class="download_table cell-border hover stripe" class="table ">
           <thead>
@@ -164,14 +166,14 @@
     </div>
     <!-- PHENOTYPE -->
     <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
-      <br>    
+      <br>
       <div class="table-responsive">
-        <table  class="download_table row-border cell-border hover stripe" class="table ">
+        <table class="download_table row-border cell-border hover stripe" class="table ">
           <thead>
             <tr>
               <th class="left-head">Mammalian Phenotype ID</th>
               <th class="middle-head">Term</th>
-              <th class="right-head" >Definition</th>
+              <th class="right-head">Definition</th>
             </tr>
           </thead>
           <tbody>
@@ -188,7 +190,7 @@
     </div>
     <!-- PATHWAYS -->
     <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">
-      <br>    
+      <br>
       <div class="table-responsive">
         <table class="download_table cell-border hover stripe" class="table ">
           <thead>
@@ -219,107 +221,32 @@
 
     <!-- DRUG -->
     <div class="tab-pane fade" id="drug" role="tabpanel" aria-labelledby="drug-tab">
-        <script src="https://d3js.org/d3.v3.min.js"></script>
-        <script>
-      
-          var width = 960,
-              height = 600;
-          var svg = d3.select("div#drug").append("svg")
-            .attr("width", width)
-            .attr("height", height);
-      
-          var force = d3.layout.force()
-            .size([width, height]);
-      
-      
-          var links = {{ link| tojson | safe}};
-          var nodesByName = {};
-      
-          // Create nodes for each unique source and target.
-          links.forEach(function (link) {
-            link.source = nodeByName(link.gene_name);
-            link.target = nodeByName(link.drug_id);
-          });
-      
-          var nodes = d3.values(nodesByName);
-      
-          var link = svg.selectAll(".link")
-            .data(links)
-            .enter().append("line")
-            .attr("class", "link");
-      
-          // Create the node circles.
-          var node = svg.selectAll(".node")
-            .data(nodes)
-            .enter().append("circle")
-            .attr("class", "node")
-            //.attr("r", function(d) {return d.weight * 999990;})
-            .style("fill",function(d){return d.name.substring(0, 2)== "DB" ? "#324e73" : "#479794"})
-            .call(force.drag);
-      
-          var label = svg.selectAll(".mytext")
-            .data(nodes)
-            .enter()
-            .append("text")
-              .text(function (d) { return d.name; })
-              .style("text-anchor", "middle")
-              .style("fill", "#332d2d")
-              .style("font-family", "Arial")
-              .style("font-size", 10);
-          // Start the force layout.
-          force
-            .nodes(nodes)
-            .links(links)
-            .on("tick", tick)
-            .linkDistance(100)
-            .charge([-800])
-            .start();
-      
-          function tick() {
-            link.attr("x1", function (d) { return d.source.x; })
-              .attr("y1", function (d) { return d.source.y; })
-              .attr("x2", function (d) { return d.target.x; })
-              .attr("y2", function (d) { return d.target.y; });
-      
-            node.attr("r", function (d) { return d.name.substring(0, 2)== "DB" ? 15 : 18; })
-              .attr("cx", function (d) { return d.x; })
-              .attr("cy", function (d) { return d.y; });
-      
-            label.attr("x", function (d) { return d.x; })
-              .attr("y", function (d) { return d.y-15; });
-          }
-        
-          function nodeByName(name) {
-            return nodesByName[name] || (nodesByName[name] = { name: name });
-          }
-        </script>
-        
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+
     </div>
 
 
   </div>
 </div>
-{% endblock %}
-
-{% block extrajs %}
+{% endblock %} {% block extrajs %}
 <script>
-  var data={{my_sample_data|tojson|safe}};    
-  var connections = {{my_connections|tojson|safe}};
+  var data = {{ my_sample_data| tojson | safe}};
+  var connections = {{ my_connections| tojson | safe}};
   var isNetworkRendered = false;
   function renderNetwork() {
     var visualization = d3plus.viz()
-    .container("#viz")
-    .type("network")
-    .data(data)
-    .edges(connections)
-    .edges({"size": {"scale": 1}})
-    .size("size")
-    .id("name")
-    .draw()
+      .container("#viz")
+      .type("network")
+      .data(data)
+      .edges(connections)
+      .edges({ "size": { "scale": 1 } })
+      .size("size")
+      .id("name")
+      .draw()
     isNetworkRendered = true;
   }
 
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('table.download_table').DataTable({});
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       if (e.target.id == "ppi-tab") {
@@ -332,5 +259,75 @@
     });
 
   });
-</script>
-{% endblock %}
+
+  var width = 960,
+    height = 600;
+  var svg = d3.select("div#drug").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  var force = d3.layout.force()
+    .size([width, height]);
+
+
+  var links = {{ link| tojson | safe}};
+  var nodesByName = {};
+
+  // Create nodes for each unique source and target.
+  links.forEach(function (link) {
+    link.source = nodeByName(link.gene_name);
+    link.target = nodeByName(link.drug_id);
+  });
+
+  var nodes = d3.values(nodesByName);
+
+  var link = svg.selectAll(".link")
+    .data(links)
+    .enter().append("line")
+    .attr("class", "link");
+
+  // Create the node circles.
+  var node = svg.selectAll(".node")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("class", "node")
+    //.attr("r", function(d) {return d.weight * 999990;})
+    .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#479794" })
+    .call(force.drag);
+
+  var label = svg.selectAll(".mytext")
+    .data(nodes)
+    .enter()
+    .append("text")
+    .text(function (d) { return d.name; })
+    .style("text-anchor", "middle")
+    .style("fill", "#332d2d")
+    .style("font-family", "Arial")
+    .style("font-size", 10);
+  // Start the force layout.
+  force
+    .nodes(nodes)
+    .links(links)
+    .on("tick", tick)
+    .linkDistance(100)
+    .charge([-800])
+    .start();
+
+  function tick() {
+    link.attr("x1", function (d) { return d.source.x; })
+      .attr("y1", function (d) { return d.source.y; })
+      .attr("x2", function (d) { return d.target.x; })
+      .attr("y2", function (d) { return d.target.y; });
+
+    node.attr("r", function (d) { return d.name.substring(0, 2) == "DB" ? 15 : 18; })
+      .attr("cx", function (d) { return d.x; })
+      .attr("cy", function (d) { return d.y; });
+
+    label.attr("x", function (d) { return d.x; })
+      .attr("y", function (d) { return d.y - 15; });
+  }
+
+  function nodeByName(name) {
+    return nodesByName[name] || (nodesByName[name] = { name: name });
+  }
+</script> {% endblock %}
