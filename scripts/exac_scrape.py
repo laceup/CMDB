@@ -17,16 +17,26 @@ def getEnsemblIds():
     q = {
         "type": "select",
         "args": {
-            "table": "ensembl",
-            "columns": ["ensembl_id"],
-            "where": {"has_exac": False}
+            "table": "gene",
+            "columns": ["ensembl_id", {"name": "exac", 'columns':['id']}]
         }
     }
     r = requests.post(HASURA_URL, data=json.dumps(q))
-    return r.json()
+    if r.status_code != 200:
+        print 'error: ', r.status_code, r.json()
+        return None
+    data = r.json()
+    ret_data = []
+    for row in data:
+        if len(row['exac']) == 0:
+            ret_data.append(row)
+    return ret_data
 
 def getExacDataForEnsemblId(id):
     r = requests.get(getUrlForEnsemblId(id))
+    if r.status_code != 200:
+        print 'failed getting exac data for', id, r.status_code
+        return None
     return r.json()
 
 def split(arr, size):
@@ -57,20 +67,20 @@ def insertDataForEnsemblId(id, data):
                 }
             }
         )
-    q["args"].append(
-        {
-            "type": "update",
-            "args": {
-                "table": "ensembl",
-                "$set": {
-                    "has_exac": True
-                },
-                "where": {
-                    "ensembl_id": id
-                }
-            }
-        }
-    )
+    # q["args"].append(
+    #     {
+    #         "type": "update",
+    #         "args": {
+    #             "table": "ensembl",
+    #             "$set": {
+    #                 "has_exac": True
+    #             },
+    #             "where": {
+    #                 "ensembl_id": id
+    #             }
+    #         }
+    #     }
+    # )
     r = requests.post(HASURA_URL, data=json.dumps(q))
     return r.status_code, r.json()
 
@@ -80,20 +90,22 @@ def run():
         id = obj["ensembl_id"]
         print "processing ", id
         data = getExacDataForEnsemblId(id)
-        code, resp = insertDataForEnsemblId(id, data)
-        if code != 200:
-            print "failed ", id
-            print id, code, data, resp
-            return
-        else:
-            print "processed ", id
-            time.sleep(2)
+        if data is not None:
+            code, resp = insertDataForEnsemblId(id, data)
+            if code != 200:
+                print "failed ", id
+                print id, code, data, resp
+            else:
+                print "processed ", id
+                time.sleep(2)
 
 
 
 # In[24]:
 
 
-run()
-# print len(getEnsemblIds())
+# run()
+
+x = [e['ensembl_id'] for e in getEnsemblIds()]
+print str(x)
 
