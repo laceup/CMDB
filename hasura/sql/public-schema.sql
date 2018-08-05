@@ -20,6 +20,63 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: drug; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.drug (
+    drug_type text NOT NULL,
+    drug_name text NOT NULL,
+    drug_product text NOT NULL,
+    drugbank_id text NOT NULL
+);
+
+
+ALTER TABLE public.drug OWNER TO postgres;
+
+--
+-- Name: drug_target; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.drug_target (
+    uniprot_id text NOT NULL,
+    protein_name text NOT NULL,
+    gene_name text,
+    genebank_protein_id text,
+    genebank_gene_id text,
+    uniprot_title text NOT NULL,
+    pbd_id text,
+    geneatlas_id text,
+    hgnc_id text,
+    drug_id text NOT NULL,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.drug_target OWNER TO postgres;
+
+--
+-- Name: drug_target_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.drug_target_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.drug_target_id_seq OWNER TO postgres;
+
+--
+-- Name: drug_target_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.drug_target_id_seq OWNED BY public.drug_target.id;
+
+
+--
 -- Name: ensembl; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -101,14 +158,70 @@ ALTER SEQUENCE public.exac_id_seq OWNED BY public.exac.id;
 CREATE TABLE public.gene (
     name text NOT NULL,
     uniprot_id text NOT NULL,
-    ncbi_id integer NOT NULL,
+    ncbi_id integer,
     ensembl_id text NOT NULL,
     mgi_id text,
-    protein_name text
+    protein_name text,
+    hgnc_id text
 );
 
 
 ALTER TABLE public.gene OWNER TO postgres;
+
+--
+-- Name: phenotype_impc; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.phenotype_impc (
+    mgi_accession_id text NOT NULL,
+    marker_symbol text NOT NULL,
+    human_gene_symbol text NOT NULL,
+    marker_synonym text NOT NULL,
+    marker_name text NOT NULL,
+    mp_id text NOT NULL,
+    no integer NOT NULL
+);
+
+
+ALTER TABLE public.phenotype_impc OWNER TO postgres;
+
+--
+-- Name: phenotype_mgi; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.phenotype_mgi (
+    human_marker_symbol text NOT NULL,
+    human_entrenz_gene_id text NOT NULL,
+    homologene_id text,
+    hgnc_association text NOT NULL,
+    mouse_marker_symbol text NOT NULL,
+    mgi_marker_accession_id text NOT NULL,
+    mp_id text,
+    no integer NOT NULL
+);
+
+
+ALTER TABLE public.phenotype_mgi OWNER TO postgres;
+
+--
+-- Name: gene_mp_id; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.gene_mp_id AS
+ SELECT DISTINCT gene_mp_id.gene,
+    gene_mp_id.mp_id
+   FROM ( SELECT phenotype_impc.human_gene_symbol AS gene,
+            phenotype_impc.mp_id
+           FROM public.phenotype_impc
+          WHERE ((phenotype_impc.mp_id IS NOT NULL) AND (phenotype_impc.mp_id <> ''::text))
+        UNION
+         SELECT phenotype_mgi.human_marker_symbol AS gene,
+            phenotype_mgi.mp_id
+           FROM public.phenotype_mgi
+          WHERE ((phenotype_mgi.mp_id IS NOT NULL) AND (phenotype_mgi.mp_id <> ''::text))) gene_mp_id;
+
+
+ALTER TABLE public.gene_mp_id OWNER TO postgres;
 
 --
 -- Name: gene_ontology; Type: TABLE; Schema: public; Owner: postgres
@@ -213,6 +326,19 @@ CREATE TABLE public.phenotype (
 ALTER TABLE public.phenotype OWNER TO postgres;
 
 --
+-- Name: phenotype_def; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.phenotype_def (
+    mp_id text NOT NULL,
+    term text NOT NULL,
+    definition text NOT NULL
+);
+
+
+ALTER TABLE public.phenotype_def OWNER TO postgres;
+
+--
 -- Name: phenotype_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -235,6 +361,136 @@ ALTER SEQUENCE public.phenotype_id_seq OWNED BY public.phenotype.id;
 
 
 --
+-- Name: phenotype_impc_no_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.phenotype_impc_no_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phenotype_impc_no_seq OWNER TO postgres;
+
+--
+-- Name: phenotype_impc_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.phenotype_impc_no_seq OWNED BY public.phenotype_impc.no;
+
+
+--
+-- Name: phenotype_mgi_no_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.phenotype_mgi_no_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.phenotype_mgi_no_seq OWNER TO postgres;
+
+--
+-- Name: phenotype_mgi_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.phenotype_mgi_no_seq OWNED BY public.phenotype_mgi.no;
+
+
+--
+-- Name: ppi; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.ppi (
+    interactor_a text NOT NULL,
+    a_extra text,
+    interactor_b text NOT NULL,
+    b_extra text,
+    interaction_detection_method text NOT NULL,
+    idm_definition text NOT NULL,
+    publication_1st_author text NOT NULL,
+    publication_id text NOT NULL,
+    ppi_id integer NOT NULL
+);
+
+
+ALTER TABLE public.ppi OWNER TO postgres;
+
+--
+-- Name: ppi_ppi_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.ppi_ppi_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.ppi_ppi_id_seq OWNER TO postgres;
+
+--
+-- Name: ppi_ppi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.ppi_ppi_id_seq OWNED BY public.ppi.ppi_id;
+
+
+--
+-- Name: protein; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.protein (
+    ensemble_id text NOT NULL,
+    uniprot_id text NOT NULL,
+    entry_name text NOT NULL,
+    protein text NOT NULL,
+    gene_synonyms text NOT NULL,
+    no integer NOT NULL
+);
+
+
+ALTER TABLE public.protein OWNER TO postgres;
+
+--
+-- Name: protein_no_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.protein_no_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.protein_no_seq OWNER TO postgres;
+
+--
+-- Name: protein_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.protein_no_seq OWNED BY public.protein.no;
+
+
+--
+-- Name: drug_target id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.drug_target ALTER COLUMN id SET DEFAULT nextval('public.drug_target_id_seq'::regclass);
+
+
+--
 -- Name: exac id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -253,6 +509,50 @@ ALTER TABLE ONLY public.pathway ALTER COLUMN id SET DEFAULT nextval('public.path
 --
 
 ALTER TABLE ONLY public.phenotype ALTER COLUMN id SET DEFAULT nextval('public.phenotype_id_seq'::regclass);
+
+
+--
+-- Name: phenotype_impc no; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phenotype_impc ALTER COLUMN no SET DEFAULT nextval('public.phenotype_impc_no_seq'::regclass);
+
+
+--
+-- Name: phenotype_mgi no; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phenotype_mgi ALTER COLUMN no SET DEFAULT nextval('public.phenotype_mgi_no_seq'::regclass);
+
+
+--
+-- Name: ppi ppi_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.ppi ALTER COLUMN ppi_id SET DEFAULT nextval('public.ppi_ppi_id_seq'::regclass);
+
+
+--
+-- Name: protein no; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.protein ALTER COLUMN no SET DEFAULT nextval('public.protein_no_seq'::regclass);
+
+
+--
+-- Name: drug drug_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.drug
+    ADD CONSTRAINT drug_pkey PRIMARY KEY (drugbank_id);
+
+
+--
+-- Name: drug_target drug_target_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.drug_target
+    ADD CONSTRAINT drug_target_pkey PRIMARY KEY (id);
 
 
 --
@@ -320,11 +620,58 @@ ALTER TABLE ONLY public.pathway
 
 
 --
+-- Name: phenotype_def phenotype_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phenotype_def
+    ADD CONSTRAINT phenotype_def_pkey PRIMARY KEY (mp_id);
+
+
+--
+-- Name: phenotype_impc phenotype_impc_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phenotype_impc
+    ADD CONSTRAINT phenotype_impc_pkey PRIMARY KEY (no);
+
+
+--
+-- Name: phenotype_mgi phenotype_mgi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phenotype_mgi
+    ADD CONSTRAINT phenotype_mgi_pkey PRIMARY KEY (no);
+
+
+--
 -- Name: phenotype phenotype_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.phenotype
     ADD CONSTRAINT phenotype_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ppi ppi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.ppi
+    ADD CONSTRAINT ppi_pkey PRIMARY KEY (ppi_id);
+
+
+--
+-- Name: protein protein_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.protein
+    ADD CONSTRAINT protein_pkey PRIMARY KEY (no);
+
+
+--
+-- Name: exac_ensembl_id_index; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX exac_ensembl_id_index ON public.exac USING btree (ensembl_id);
 
 
 --

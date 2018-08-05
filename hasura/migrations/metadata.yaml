@@ -28,7 +28,14 @@ tables:
 - array_relationships: []
   delete_permissions: []
   insert_permissions: []
-  object_relationships: []
+  object_relationships:
+  - comment: null
+    name: mp_def
+    using:
+      manual_configuration:
+        column_mapping:
+          mp_id: mp_id
+        remote_table: phenotype_def
   select_permissions: []
   table: phenotype_impc
   update_permissions: []
@@ -167,6 +174,20 @@ tables:
 - array_relationships: []
   delete_permissions: []
   insert_permissions: []
+  object_relationships:
+  - comment: null
+    name: mp_def
+    using:
+      manual_configuration:
+        column_mapping:
+          mp_id: mp_id
+        remote_table: phenotype_def
+  select_permissions: []
+  table: gene_mp_id
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
   object_relationships: []
   select_permissions: []
   table: pathway
@@ -192,7 +213,14 @@ tables:
 - array_relationships: []
   delete_permissions: []
   insert_permissions: []
-  object_relationships: []
+  object_relationships:
+  - comment: null
+    name: mp_def
+    using:
+      manual_configuration:
+        column_mapping:
+          mp_id: mp_id
+        remote_table: phenotype_def
   select_permissions: []
   table: phenotype_mgi
   update_permissions: []
