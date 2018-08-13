@@ -1,7 +1,0 @@
-- args:
-    sql: CREATE TABLE "gene_ontology"("id" text NOT NULL, "text" text NOT NULL, PRIMARY
-      KEY ("id") )
-  type: run_sql
-- args:
-    name: gene_ontology
-  type: add_existing_table_or_view

@@ -1,4 +1,0 @@
-- args:
-    relationship: go_molecular_function
-    table: ensembl
-  type: drop_relationship

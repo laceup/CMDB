@@ -1,6 +1,0 @@
-- args:
-    name: go
-    table: go_molecular_function
-    using:
-      foreign_key_constraint_on: go_id
-  type: create_object_relationship

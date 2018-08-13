@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "pathway" ADD FOREIGN KEY ("name") REFERENCES "gene" ("name")
-  type: run_sql

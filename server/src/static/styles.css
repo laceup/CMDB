@@ -61,7 +61,7 @@ body {
     }
 
 /* ---------------------------------------------- */
- .sidebar {
+ /* .sidebar {
    position: fixed;
    top: 51px;
    bottom: 0;
@@ -69,13 +69,13 @@ body {
    z-index: 1000;
    padding: 20px;
    overflow-x: hidden;
-   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+   overflow-y: auto; Scrollable contents if viewport is shorter than content.
    border-right: 1px solid #eee;
  }
 
 .bg-faded{
   background-color: rgba(247, 247, 247, 0.5)
-}
+} */
 /* ----------------------------------------------- */
 
 /* Changing the colour of tab heading */
@@ -131,3 +131,12 @@ th.middle-head{
 div.ppi-viz {
   height: 500px;
 }
+/* Drug network */
+.link {
+    stroke: rgba(125, 125, 126, 0.418);
+  }
+
+  .node {
+    stroke: #fff;
+  }
+  /* -------------------------------------------------- */

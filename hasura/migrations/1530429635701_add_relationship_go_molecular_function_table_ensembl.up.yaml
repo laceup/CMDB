@@ -1,8 +1,0 @@
-- args:
-    name: go_molecular_function
-    table: ensembl
-    using:
-      foreign_key_constraint_on:
-        column: name
-        table: go_molecular_function
-  type: create_array_relationship

@@ -1,0 +1,415 @@
+MGI:2444854,Amigo3,AMIGO3,E430002N15Rik,adhesion molecule with Ig like domain 3,MP:0000274,1
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0001258,2
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0002764,3
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0003961,4
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0010124,5
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0010025,6
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0003795,7
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0002591,8
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0000063,9
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0010392,10
+MGI:1918177,Setd2,SETD2,"KMT3A, 4921524K10Rik",SET domain containing 2,MP:0009142,11
+MGI:1298387,Fhl1,FHL1,"KyoT2, KyoT1, KyoT",four and a half LIM domains 1,MP:0001262,12
+MGI:1346867,Map2k2,MAP2K2,"Prkmk2, MEK2, MAP kinase/Erk kinase",mitogen-activated protein kinase kinase 2,MP:0001262,13
+MGI:1346867,Map2k2,MAP2K2,"Prkmk2, MEK2, MAP kinase/Erk kinase",mitogen-activated protein kinase kinase 2,MP:0001406,14
+MGI:95476,Fabp3,FABP3,"Fabph-4, Fabph-1, Fabp3, Fabph1, Mdgi, Fabph4, H-FABP","fatty acid binding protein 3, muscle and heart",MP:0001304,15
+MGI:95476,Fabp3,FABP3,"Fabph-4, Fabph-1, Fabp3, Fabph1, Mdgi, Fabph4, H-FABP","fatty acid binding protein 3, muscle and heart",MP:0001303,16
+MGI:104738,Cdkn2a,CDKN2A,"ARF-INK4a, Pctr1, Arf, INK4a-ARF, p16INK4a, p19ARF, MTS1, p16, Ink4a/Arf, p19<ARF>",cyclin dependent kinase inhibitor 2A,MP:0001304,17
+MGI:104738,Cdkn2a,CDKN2A,"ARF-INK4a, Pctr1, Arf, INK4a-ARF, p16INK4a, p19ARF, MTS1, p16, Ink4a/Arf, p19<ARF>",cyclin dependent kinase inhibitor 2A,MP:0001303,18
+MGI:104738,Cdkn2a,CDKN2A,"ARF-INK4a, Pctr1, Arf, INK4a-ARF, p16INK4a, p19ARF, MTS1, p16, Ink4a/Arf, p19<ARF>",cyclin dependent kinase inhibitor 2A,MP:0002092,19
+MGI:103221,Dsc2,DSC2,"Dsc2b, Dsc2a",desmocollin 2,MP:0001312,20
+MGI:103221,Dsc2,DSC2,"Dsc2b, Dsc2a",desmocollin 2,MP:0001314,21
+MGI:103221,Dsc2,DSC2,"Dsc2b, Dsc2a",desmocollin 2,MP:0005542,22
+MGI:103221,Dsc2,DSC2,"Dsc2b, Dsc2a",desmocollin 2,MP:0005287,23
+MGI:1934606,Alms1,ALMS1,Alstrom syndrome 1,"ALMS1, centrosome and basal body associated",MP:0001392,24
+MGI:2443011,Sun2,SUN2,"Unc84b, B230369L08Rik",Sad1 and UNC84 domain containing 2,MP:0001402,25
+MGI:98809,Tpm1,TPM1,"Tpm-1, Tm3, alpha-TM, TM2","tropomyosin 1, alpha",MP:0001488,26
+MGI:98809,Tpm1,TPM1,"Tpm-1, Tm3, alpha-TM, TM2","tropomyosin 1, alpha",MP:0001262,27
+MGI:95777,Gnas,GNAS,"Gs alpha, SCG6, G alpha s, Galphas, Nesp, Nespl, Gnasxl, Nesp55, P1, P3, P2, Gsa, Gs-alpha, Oedsml, XLalphas, Gnas1, neuroendocrine-specific Golgi protein p55 isoform 1","GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus",MP:0001488,28
+MGI:95777,Gnas,GNAS,"Gs alpha, SCG6, G alpha s, Galphas, Nesp, Nespl, Gnasxl, Nesp55, P1, P3, P2, Gsa, Gs-alpha, Oedsml, XLalphas, Gnas1, neuroendocrine-specific Golgi protein p55 isoform 1","GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus",MP:0002896,29
+MGI:95777,Gnas,GNAS,"Gs alpha, SCG6, G alpha s, Galphas, Nesp, Nespl, Gnasxl, Nesp55, P1, P3, P2, Gsa, Gs-alpha, Oedsml, XLalphas, Gnas1, neuroendocrine-specific Golgi protein p55 isoform 1","GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus",MP:0002833,30
+MGI:95777,Gnas,GNAS,"Gs alpha, SCG6, G alpha s, Galphas, Nesp, Nespl, Gnasxl, Nesp55, P1, P3, P2, Gsa, Gs-alpha, Oedsml, XLalphas, Gnas1, neuroendocrine-specific Golgi protein p55 isoform 1","GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus",MP:0003795,31
+MGI:1097717,Ankrd1,ANKRD1,"Alrp, MARP1, CARP, Crap",ankyrin repeat domain 1 (cardiac muscle),MP:0001489,32
+MGI:1097717,Ankrd1,ANKRD1,"Alrp, MARP1, CARP, Crap",ankyrin repeat domain 1 (cardiac muscle),MP:0002757,33
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0001489,34
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0010088,35
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0005505,36
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0000220,37
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0005554,38
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0005343,39
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0001392,40
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0005553,41
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0000745,42
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0001406,43
+MGI:96074,Hexb,HEXB,info not available,hexosaminidase B,MP:0002968,44
+MGI:1915813,Dpm3,DPM3,1110001H19Rik,dolichyl-phosphate mannosyltransferase polypeptide 3,MP:0001489,45
+MGI:1915813,Dpm3,DPM3,1110001H19Rik,dolichyl-phosphate mannosyltransferase polypeptide 3,MP:0011100,46
+MGI:1915813,Dpm3,DPM3,1110001H19Rik,dolichyl-phosphate mannosyltransferase polypeptide 3,MP:0002059,47
+MGI:1915813,Dpm3,DPM3,1110001H19Rik,dolichyl-phosphate mannosyltransferase polypeptide 3,MP:0008854,48
+MGI:1915813,Dpm3,DPM3,1110001H19Rik,dolichyl-phosphate mannosyltransferase polypeptide 3,MP:0013292,49
+MGI:1915813,Dpm3,DPM3,1110001H19Rik,dolichyl-phosphate mannosyltransferase polypeptide 3,MP:0013293,50
+MGI:109176,Cpt2,CPT2,"CPT II, CPTII",carnitine palmitoyltransferase 2,MP:0001566,51
+MGI:109176,Cpt2,CPT2,"CPT II, CPTII",carnitine palmitoyltransferase 2,MP:0000137,52
+MGI:109176,Cpt2,CPT2,"CPT II, CPTII",carnitine palmitoyltransferase 2,MP:0011110,53
+MGI:104564,Cdkn1c,CDKN1C,"Kip2, CDKI, p57Kip2",cyclin-dependent kinase inhibitor 1C (P57),MP:0001785,54
+MGI:104564,Cdkn1c,CDKN1C,"Kip2, CDKI, p57Kip2",cyclin-dependent kinase inhibitor 1C (P57),MP:0001697,55
+MGI:104564,Cdkn1c,CDKN1C,"Kip2, CDKI, p57Kip2",cyclin-dependent kinase inhibitor 1C (P57),MP:0000266,56
+MGI:2443598,Maats1,MAATS1,"4932425I24Rik, Spata26","MYCBP-associated, testis expressed 1",MP:0001925,57
+MGI:1196466,Dsg2,DSG2,D18Ertd293e,desmoglein 2,MP:0002753,58
+MGI:1196466,Dsg2,DSG2,D18Ertd293e,desmoglein 2,MP:0001510,59
+MGI:1196466,Dsg2,DSG2,D18Ertd293e,desmoglein 2,MP:0011967,60
+MGI:1196466,Dsg2,DSG2,D18Ertd293e,desmoglein 2,MP:0005140,61
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0002753,62
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0002833,63
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0010123,64
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0010025,65
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0011967,66
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0000062,67
+MGI:88468,Col1a2,COL1A2,"Cola2, Col1a-2, Cola-2","collagen, type I, alpha 2",MP:0000559,68
+MGI:99954,Ighmbp2,IGHMBP2,"p110 subunit, Smubp2, AEP, Smbp-2, sma, RIPE3b1, Catf1, Smbp2",immunoglobulin mu binding protein 2,MP:0002757,69
+MGI:1924809,Agl,AGL,"1110061O17Rik, 9430004C13Rik, 9630046L06Rik","amylo-1,6-glucosidase, 4-alpha-glucanotransferase",MP:0002764,70
+MGI:1924809,Agl,AGL,"1110061O17Rik, 9430004C13Rik, 9630046L06Rik","amylo-1,6-glucosidase, 4-alpha-glucanotransferase",MP:0001304,71
+MGI:1924809,Agl,AGL,"1110061O17Rik, 9430004C13Rik, 9630046L06Rik","amylo-1,6-glucosidase, 4-alpha-glucanotransferase",MP:0011110,72
+MGI:1924809,Agl,AGL,"1110061O17Rik, 9430004C13Rik, 9630046L06Rik","amylo-1,6-glucosidase, 4-alpha-glucanotransferase",MP:0004357,73
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0002764,74
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0004953,75
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0001325,76
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0004952,77
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0000438,78
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0005419,79
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0013293,80
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0002968,81
+MGI:106211,Cdc42,CDC42,info not available,cell division cycle 42,MP:0000219,82
+MGI:102844,Mybpc3,MYBPC3,cardiac C-protein,"myosin binding protein C, cardiac",MP:0002833,83
+MGI:102844,Mybpc3,MYBPC3,cardiac C-protein,"myosin binding protein C, cardiac",MP:0001413,84
+MGI:102844,Mybpc3,MYBPC3,cardiac C-protein,"myosin binding protein C, cardiac",MP:0003019,85
+MGI:102844,Mybpc3,MYBPC3,cardiac C-protein,"myosin binding protein C, cardiac",MP:0000266,86
+MGI:102844,Mybpc3,MYBPC3,cardiac C-protein,"myosin binding protein C, cardiac",MP:0008805,87
+MGI:109321,Lama4,LAMA4,laminin a4,"laminin, alpha 4",MP:0002833,88
+MGI:109321,Lama4,LAMA4,laminin a4,"laminin, alpha 4",MP:0002075,89
+MGI:109321,Lama4,LAMA4,laminin a4,"laminin, alpha 4",MP:0002060,90
+MGI:109321,Lama4,LAMA4,laminin a4,"laminin, alpha 4",MP:0002968,91
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0002874,92
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0011396,93
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0005642,94
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0010025,95
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0002591,96
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0005562,97
+MGI:88476,Cp,CP,D3Ertd555e,ceruloplasmin,MP:0004151,98
+MGI:1917297,Trnt1,TRNT1,"2610044E04Rik, 2410043H24Rik, CGI-47","tRNA nucleotidyl transferase, CCA-adding, 1",MP:0002965,99
+MGI:1917297,Trnt1,TRNT1,"2610044E04Rik, 2410043H24Rik, CGI-47","tRNA nucleotidyl transferase, CCA-adding, 1",MP:0005642,100
+MGI:1917297,Trnt1,TRNT1,"2610044E04Rik, 2410043H24Rik, CGI-47","tRNA nucleotidyl transferase, CCA-adding, 1",MP:0001260,101
+MGI:1344412,Ldb3,LDB3,"ZASP, cypher",LIM domain binding 3,MP:0003068,102
+MGI:1344412,Ldb3,LDB3,"ZASP, cypher",LIM domain binding 3,MP:0001157,103
+MGI:1344412,Ldb3,LDB3,"ZASP, cypher",LIM domain binding 3,MP:0010392,104
+MGI:3036269,Trim55,TRIM55,"Murf2, D830041C10Rik",tripartite motif-containing 55,MP:0003900,105
+MGI:3036269,Trim55,TRIM55,"Murf2, D830041C10Rik",tripartite motif-containing 55,MP:0013278,106
+MGI:3036269,Trim55,TRIM55,"Murf2, D830041C10Rik",tripartite motif-containing 55,MP:0005333,107
+MGI:96414,Idh2,IDH2,"Idh-2, IDPm","isocitrate dehydrogenase 2 (NADP+), mitochondrial",MP:0004357,108
+MGI:103569,Xk,XK,"1810038K19Rik, Xk",X-linked Kx blood group,MP:0004931,109
+MGI:103569,Xk,XK,"1810038K19Rik, Xk",X-linked Kx blood group,MP:0002631,110
+MGI:103569,Xk,XK,"1810038K19Rik, Xk",X-linked Kx blood group,MP:0002060,111
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0005292,112
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0010024,113
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0010068,114
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0010124,115
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0001926,116
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0001925,117
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0008935,118
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0010580,119
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0003961,120
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0000221,121
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0005016,122
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0000222,123
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0011967,124
+MGI:2153072,Trim37,TRIM37,"1110032A10Rik, TEF3, MUL, 2810004E07Rik",tripartite motif-containing 37,MP:0000280,125
+MGI:98752,Timp1,TIMP1,"Clgi, TIMP-1",tissue inhibitor of metalloproteinase 1,MP:0005296,126
+MGI:98752,Timp1,TIMP1,"Clgi, TIMP-1",tissue inhibitor of metalloproteinase 1,MP:0000559,127
+MGI:1333797,Ccr6,CCR6,Cmkbr6,chemokine (C-C motif) receptor 6,MP:0005333,128
+MGI:1333797,Ccr6,CCR6,Cmkbr6,chemokine (C-C motif) receptor 6,MP:0010506,129
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0005419,130
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0002968,131
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0002875,132
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0001554,133
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0002100,134
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0005634,135
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0001552,136
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0005178,137
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0000182,138
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0005344,139
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0005641,140
+MGI:88057,Apoe,APOE,info not available,apolipoprotein E,MP:0005560,141
+MGI:1914963,Dnajc19,DNAJC19,1810055D05Rik,DnaJ heat shock protein family (Hsp40) member C19,MP:0005559,142
+MGI:1914963,Dnajc19,DNAJC19,1810055D05Rik,DnaJ heat shock protein family (Hsp40) member C19,MP:0003961,143
+MGI:1914963,Dnajc19,DNAJC19,1810055D05Rik,DnaJ heat shock protein family (Hsp40) member C19,MP:0001262,144
+MGI:1921353,Nebl,NEBL,"D830029A09Rik, A630080F05Rik, Lnebl, 1200007O21Rik",nebulette,MP:0005560,145
+MGI:1921353,Nebl,NEBL,"D830029A09Rik, A630080F05Rik, Lnebl, 1200007O21Rik",nebulette,MP:0002160,146
+MGI:96795,Lmnb1,LMNB1,info not available,lamin B1,MP:0005561,147
+MGI:96795,Lmnb1,LMNB1,info not available,lamin B1,MP:0000195,148
+MGI:96795,Lmnb1,LMNB1,info not available,lamin B1,MP:0001262,149
+MGI:96795,Lmnb1,LMNB1,info not available,lamin B1,MP:0002966,150
+MGI:107570,Cav3,CAV3,"Cav-3, M-caveolin",caveolin 3,MP:0009141,151
+MGI:1321394,Gdf2,GDF2,Bmp9,growth differentiation factor 2,MP:0009709,152
+MGI:1321394,Gdf2,GDF2,Bmp9,growth differentiation factor 2,MP:0002942,153
+MGI:1321394,Gdf2,GDF2,Bmp9,growth differentiation factor 2,MP:0000274,154
+MGI:1321394,Gdf2,GDF2,Bmp9,growth differentiation factor 2,MP:0002757,155
+MGI:103556,Cxcl12,CXCL12,"Sdf1, Scyb12, TPAR1, TLSF-a, TLSF-b, PBSF, Sdf1a, Sdf1b, PBSF/SDF-1, SDF-1",chemokine (C-X-C motif) ligand 12,MP:0009709,156
+MGI:103556,Cxcl12,CXCL12,"Sdf1, Scyb12, TPAR1, TLSF-a, TLSF-b, PBSF, Sdf1a, Sdf1b, PBSF/SDF-1, SDF-1",chemokine (C-X-C motif) ligand 12,MP:0011100,157
+MGI:103556,Cxcl12,CXCL12,"Sdf1, Scyb12, TPAR1, TLSF-a, TLSF-b, PBSF, Sdf1a, Sdf1b, PBSF/SDF-1, SDF-1",chemokine (C-X-C motif) ligand 12,MP:0001102,158
+MGI:103556,Cxcl12,CXCL12,"Sdf1, Scyb12, TPAR1, TLSF-a, TLSF-b, PBSF, Sdf1a, Sdf1b, PBSF/SDF-1, SDF-1",chemokine (C-X-C motif) ligand 12,MP:0004906,159
+MGI:103556,Cxcl12,CXCL12,"Sdf1, Scyb12, TPAR1, TLSF-a, TLSF-b, PBSF, Sdf1a, Sdf1b, PBSF/SDF-1, SDF-1",chemokine (C-X-C motif) ligand 12,MP:0013292,160
+MGI:103556,Cxcl12,CXCL12,"Sdf1, Scyb12, TPAR1, TLSF-a, TLSF-b, PBSF, Sdf1a, Sdf1b, PBSF/SDF-1, SDF-1",chemokine (C-X-C motif) ligand 12,MP:0013293,161
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0010024,162
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0000001,163
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0000063,164
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0001296,165
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0004924,166
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0001566,167
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0002896,168
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0001402,169
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0003961,170
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0002078,171
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0003960,172
+MGI:1914256,Cisd2,CISD2,"1500031D15Rik, 1500026J14Rik, B630006A20Rik, 1500009M05Rik, Miner1, Zcd2",CDGSH iron sulfur domain 2,MP:0001262,173
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0010024,174
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0002644,175
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0001258,176
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0005178,177
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0000182,178
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0005179,179
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0000183,180
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0000063,181
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0010053,182
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0002968,183
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0005505,184
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0002896,185
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0003961,186
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0002078,187
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0003960,188
+MGI:104874,Akt2,AKT2,"PKB, PKBbeta, 2410016A19Rik",thymoma viral proto-oncogene 2,MP:0001262,189
+MGI:99907,Plod1,PLOD1,"2410042F05Rik, lysyl hydroxylase 1, LH1","procollagen-lysine, 2-oxoglutarate 5-dioxygenase 1",MP:0010053,190
+MGI:99907,Plod1,PLOD1,"2410042F05Rik, lysyl hydroxylase 1, LH1","procollagen-lysine, 2-oxoglutarate 5-dioxygenase 1",MP:0010124,191
+MGI:99907,Plod1,PLOD1,"2410042F05Rik, lysyl hydroxylase 1, LH1","procollagen-lysine, 2-oxoglutarate 5-dioxygenase 1",MP:0000063,192
+MGI:1860086,Crlf3,CRLF3,"Creme9, cytor4",cytokine receptor-like factor 3,MP:0010067,193
+MGI:1860086,Crlf3,CRLF3,"Creme9, cytor4",cytokine receptor-like factor 3,MP:0003179,194
+MGI:1860086,Crlf3,CRLF3,"Creme9, cytor4",cytokine receptor-like factor 3,MP:0002591,195
+MGI:1860086,Crlf3,CRLF3,"Creme9, cytor4",cytokine receptor-like factor 3,MP:0001262,196
+MGI:1860086,Crlf3,CRLF3,"Creme9, cytor4",cytokine receptor-like factor 3,MP:0010093,197
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0010067,198
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0010124,199
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0013279,200
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0008805,201
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0002644,202
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0002764,203
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0000063,204
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0004609,205
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0004924,206
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0000208,207
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0002875,208
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0001488,209
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0002874,210
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0002896,211
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0005567,212
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0000198,213
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0000194,214
+MGI:95766,Gna11,GNA11,Dsk7,"guanine nucleotide binding protein, alpha 11",MP:0001262,215
+MGI:95802,Gpt,GPT,"2310022B03Rik, ALT, 1300007J06Rik, Gpt1, Gpt-1","glutamic pyruvic transaminase, soluble",MP:0010123,216
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0010124,217
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0010025,218
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0004924,219
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0001258,220
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0003961,221
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0001399,222
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0005333,223
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0005344,224
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0000063,225
+MGI:1916043,Rab3gap2,RAB3GAP2,1110059F07Rik,RAB3 GTPase activating protein subunit 2,MP:0010506,226
+MGI:98775,Tmod1,TMOD1,"E-Tmod, erythrocyte tropomodulin",tropomodulin 1,MP:0010169,227
+MGI:98775,Tmod1,TMOD1,"E-Tmod, erythrocyte tropomodulin",tropomodulin 1,MP:0010168,228
+MGI:98775,Tmod1,TMOD1,"E-Tmod, erythrocyte tropomodulin",tropomodulin 1,MP:0010844,229
+MGI:98775,Tmod1,TMOD1,"E-Tmod, erythrocyte tropomodulin",tropomodulin 1,MP:0010845,230
+MGI:1261422,Naga,NAGA,info not available,"N-acetyl galactosaminidase, alpha",MP:0010850,231
+MGI:1261422,Naga,NAGA,info not available,"N-acetyl galactosaminidase, alpha",MP:0002968,232
+MGI:1350924,Irf5,IRF5,mirf5,interferon regulatory factor 5,MP:0010851,233
+MGI:1350924,Irf5,IRF5,mirf5,interferon regulatory factor 5,MP:0010845,234
+MGI:105923,Ednra,EDNRA,"Mhdaaea1, AEA001, ET-AR, ETa, Gpcr10",endothelin receptor type A,MP:0011100,235
+MGI:1890496,Elac2,ELAC2,"D11Wsu80e, tRNase Z(L), 1110017O07Rik",elaC ribonuclease Z 2,MP:0011100,236
+MGI:104566,Fgd1,FGD1,"faciogenital dysplasia, ZFYVE3","FYVE, RhoGEF and PH domain containing 1",MP:0011100,237
+MGI:1921435,Gbe1,GBE1,"D16Ertd536e, 2810426P10Rik, 2310045H19Rik","glucan (1,4-alpha-), branching enzyme 1",MP:0011100,238
+MGI:96794,Lmna,LMNA,"Dhe, lamin A/C",lamin A,MP:0011100,239
+MGI:1914154,Pccb,PCCB,1300012P06Rik,"propionyl Coenzyme A carboxylase, beta polypeptide",MP:0011100,240
+MGI:1914724,Snap29,SNAP29,1300018G05Rik,synaptosomal-associated protein 29,MP:0011100,241
+MGI:1915068,Tmem70,TMEM70,"1110020A09Rik, 2210416J16Rik",transmembrane protein 70,MP:0011100,242
+MGI:98797,Tpi1,TPI1,Tpi-1,triosephosphate isomerase 1,MP:0011100,243
+MGI:104871,Ppp1cb,PPP1CB,info not available,"protein phosphatase 1, catalytic subunit, beta isoform",MP:0011100,244
+MGI:97363,Notch1,NOTCH1,"lin-12, Mis6, Tan1, Motch A, N1, 9930111A19Rik",notch 1,MP:0011100,245
+MGI:97363,Notch1,NOTCH1,"lin-12, Mis6, Tan1, Motch A, N1, 9930111A19Rik",notch 1,MP:0000137,246
+MGI:97860,Rasa1,RASA1,"p120-rasGAP, Gap",RAS p21 protein activator 1,MP:0011100,247
+MGI:97860,Rasa1,RASA1,"p120-rasGAP, Gap",RAS p21 protein activator 1,MP:0001257,248
+MGI:97860,Rasa1,RASA1,"p120-rasGAP, Gap",RAS p21 protein activator 1,MP:0003960,249
+MGI:97860,Rasa1,RASA1,"p120-rasGAP, Gap",RAS p21 protein activator 1,MP:0003795,250
+MGI:97860,Rasa1,RASA1,"p120-rasGAP, Gap",RAS p21 protein activator 1,MP:0002792,251
+MGI:1346877,Map3k7,MAP3K7,"TGF-beta activated kinase 1, TAK1, transforming growth factor-beta-activated kinase 1, Tak1, transforming growth factor beta-activated kinase 1",mitogen-activated protein kinase kinase kinase 7,MP:0011100,252
+MGI:1346877,Map3k7,MAP3K7,"TGF-beta activated kinase 1, TAK1, transforming growth factor-beta-activated kinase 1, Tak1, transforming growth factor beta-activated kinase 1",mitogen-activated protein kinase kinase kinase 7,MP:0001303,253
+MGI:1914930,Sdhb,SDHB,0710008N11Rik,"succinate dehydrogenase complex, subunit B, iron sulfur (Ip)",MP:0011100,254
+MGI:1914930,Sdhb,SDHB,0710008N11Rik,"succinate dehydrogenase complex, subunit B, iron sulfur (Ip)",MP:0001303,255
+MGI:1914930,Sdhb,SDHB,0710008N11Rik,"succinate dehydrogenase complex, subunit B, iron sulfur (Ip)",MP:0002135,256
+MGI:1914930,Sdhb,SDHB,0710008N11Rik,"succinate dehydrogenase complex, subunit B, iron sulfur (Ip)",MP:0004924,257
+MGI:97847,Raf1,RAF1,"6430402F14Rik, Craf1, Raf-1, v-Raf, c-Raf, sarcoma 3611 oncogene",v-raf-leukemia viral oncogene 1,MP:0011100,258
+MGI:97847,Raf1,RAF1,"6430402F14Rik, Craf1, Raf-1, v-Raf, c-Raf, sarcoma 3611 oncogene",v-raf-leukemia viral oncogene 1,MP:0001304,259
+MGI:97847,Raf1,RAF1,"6430402F14Rik, Craf1, Raf-1, v-Raf, c-Raf, sarcoma 3611 oncogene",v-raf-leukemia viral oncogene 1,MP:0001303,260
+MGI:1913649,Tsfm,TSFM,"EF-TS, 2310050B20Rik, 9430024O13Rik, EF-Tsmt","Ts translation elongation factor, mitochondrial",MP:0011100,261
+MGI:1913649,Tsfm,TSFM,"EF-TS, 2310050B20Rik, 9430024O13Rik, EF-Tsmt","Ts translation elongation factor, mitochondrial",MP:0001325,262
+MGI:1194993,Dsc3,DSC3,5430426I24Rik,desmocollin 3,MP:0011100,263
+MGI:1194993,Dsc3,DSC3,5430426I24Rik,desmocollin 3,MP:0001333,264
+MGI:1194993,Dsc3,DSC3,5430426I24Rik,desmocollin 3,MP:0004924,265
+MGI:99685,Ryr2,RYR2,9330127I20Rik,"ryanodine receptor 2, cardiac",MP:0011100,266
+MGI:99685,Ryr2,RYR2,9330127I20Rik,"ryanodine receptor 2, cardiac",MP:0001488,267
+MGI:96650,Jup,JUP,"gamma-catenin, PG, Ctnng, plakoglobin, D930025P04Rik",junction plakoglobin,MP:0011100,268
+MGI:96650,Jup,JUP,"gamma-catenin, PG, Ctnng, plakoglobin, D930025P04Rik",junction plakoglobin,MP:0001697,269
+MGI:96650,Jup,JUP,"gamma-catenin, PG, Ctnng, plakoglobin, D930025P04Rik",junction plakoglobin,MP:0002080,270
+MGI:96650,Jup,JUP,"gamma-catenin, PG, Ctnng, plakoglobin, D930025P04Rik",junction plakoglobin,MP:0013278,271
+MGI:96650,Jup,JUP,"gamma-catenin, PG, Ctnng, plakoglobin, D930025P04Rik",junction plakoglobin,MP:0003064,272
+MGI:96650,Jup,JUP,"gamma-catenin, PG, Ctnng, plakoglobin, D930025P04Rik",junction plakoglobin,MP:0005564,273
+MGI:2677836,Dolk,DOLK,Tmem15,dolichol kinase,MP:0011100,274
+MGI:2677836,Dolk,DOLK,Tmem15,dolichol kinase,MP:0001697,275
+MGI:2677836,Dolk,DOLK,Tmem15,dolichol kinase,MP:0003961,276
+MGI:2677836,Dolk,DOLK,Tmem15,dolichol kinase,MP:0003984,277
+MGI:2677836,Dolk,DOLK,Tmem15,dolichol kinase,MP:0010124,278
+MGI:2677836,Dolk,DOLK,Tmem15,dolichol kinase,MP:0000063,279
+MGI:1096879,Fxn,FXN,Frda,frataxin,MP:0011100,280
+MGI:1096879,Fxn,FXN,Frda,frataxin,MP:0001697,281
+MGI:1096879,Fxn,FXN,Frda,frataxin,MP:0003984,282
+MGI:1096879,Fxn,FXN,Frda,frataxin,MP:0013292,283
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0011100,284
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0001785,285
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0001697,286
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0000274,287
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0001297,288
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0001102,289
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0013294,290
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0004906,291
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0001944,292
+MGI:1351351,Casr,CASR,"cation sensing receptor, Gprc2a, CaR",calcium-sensing receptor,MP:0013293,293
+MGI:1309469,Casq2,CASQ2,"Csq2, cCSQ, cardiac calsequestrin, ESTM52",calsequestrin 2,MP:0011100,294
+MGI:1309469,Casq2,CASQ2,"Csq2, cCSQ, cardiac calsequestrin, ESTM52",calsequestrin 2,MP:0001785,295
+MGI:1309469,Casq2,CASQ2,"Csq2, cCSQ, cardiac calsequestrin, ESTM52",calsequestrin 2,MP:0001697,296
+MGI:1309469,Casq2,CASQ2,"Csq2, cCSQ, cardiac calsequestrin, ESTM52",calsequestrin 2,MP:0003929,297
+MGI:1309469,Casq2,CASQ2,"Csq2, cCSQ, cardiac calsequestrin, ESTM52",calsequestrin 2,MP:0005385,298
+MGI:1337104,Eya4,EYA4,B130023L16Rik,EYA transcriptional coactivator and phosphatase 4,MP:0011100,299
+MGI:1337104,Eya4,EYA4,B130023L16Rik,EYA transcriptional coactivator and phosphatase 4,MP:0001785,300
+MGI:1337104,Eya4,EYA4,B130023L16Rik,EYA transcriptional coactivator and phosphatase 4,MP:0001697,301
+MGI:1337104,Eya4,EYA4,B130023L16Rik,EYA transcriptional coactivator and phosphatase 4,MP:0011967,302
+MGI:1337104,Eya4,EYA4,B130023L16Rik,EYA transcriptional coactivator and phosphatase 4,MP:0002768,303
+MGI:2151064,Strn3,STRN3,SG2NA,"striatin, calmodulin binding protein 3",MP:0011100,304
+MGI:2151064,Strn3,STRN3,SG2NA,"striatin, calmodulin binding protein 3",MP:0001785,305
+MGI:2151064,Strn3,STRN3,SG2NA,"striatin, calmodulin binding protein 3",MP:0001914,306
+MGI:2151064,Strn3,STRN3,SG2NA,"striatin, calmodulin binding protein 3",MP:0005560,307
+MGI:102519,Cst3,CST3,CysC,cystatin C,MP:0011100,308
+MGI:102519,Cst3,CST3,CysC,cystatin C,MP:0002059,309
+MGI:102519,Cst3,CST3,CysC,cystatin C,MP:0001102,310
+MGI:88110,Atp2a2,ATP2A2,"SERCA2B, SERCA2, D5Wsu150e, sarco/endoplasmic reticulum Ca2+-ATPase 2, Serca2a, 9530097L16Rik","ATPase, Ca++ transporting, cardiac muscle, slow twitch 2",MP:0011100,311
+MGI:88110,Atp2a2,ATP2A2,"SERCA2B, SERCA2, D5Wsu150e, sarco/endoplasmic reticulum Ca2+-ATPase 2, Serca2a, 9530097L16Rik","ATPase, Ca++ transporting, cardiac muscle, slow twitch 2",MP:0002067,312
+MGI:88110,Atp2a2,ATP2A2,"SERCA2B, SERCA2, D5Wsu150e, sarco/endoplasmic reticulum Ca2+-ATPase 2, Serca2a, 9530097L16Rik","ATPase, Ca++ transporting, cardiac muscle, slow twitch 2",MP:0005012,313
+MGI:88110,Atp2a2,ATP2A2,"SERCA2B, SERCA2, D5Wsu150e, sarco/endoplasmic reticulum Ca2+-ATPase 2, Serca2a, 9530097L16Rik","ATPase, Ca++ transporting, cardiac muscle, slow twitch 2",MP:0008935,314
+MGI:88110,Atp2a2,ATP2A2,"SERCA2B, SERCA2, D5Wsu150e, sarco/endoplasmic reticulum Ca2+-ATPase 2, Serca2a, 9530097L16Rik","ATPase, Ca++ transporting, cardiac muscle, slow twitch 2",MP:0002966,315
+MGI:88110,Atp2a2,ATP2A2,"SERCA2B, SERCA2, D5Wsu150e, sarco/endoplasmic reticulum Ca2+-ATPase 2, Serca2a, 9530097L16Rik","ATPase, Ca++ transporting, cardiac muscle, slow twitch 2",MP:0009142,316
+MGI:2384774,Alg1,ALG1,"HMAT1, HMT1","asparagine-linked glycosylation 1 (beta-1,4-mannosyltransferase)",MP:0011100,317
+MGI:2384774,Alg1,ALG1,"HMAT1, HMT1","asparagine-linked glycosylation 1 (beta-1,4-mannosyltransferase)",MP:0002075,318
+MGI:97272,Myl2,MYL2,"MLC-2, MLC-2v, Mlc2v, Mylpc","myosin, light polypeptide 2, regulatory, cardiac, slow",MP:0011100,319
+MGI:97272,Myl2,MYL2,"MLC-2, MLC-2v, Mlc2v, Mylpc","myosin, light polypeptide 2, regulatory, cardiac, slow",MP:0002591,320
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0011100,321
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0002607,322
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0001914,323
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0002109,324
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0002757,325
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0001785,326
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0002111,327
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0001575,328
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0005388,329
+MGI:1202717,Psen1,PSEN1,"presenilin-1, PS1, PS-1, Ad3h, S182",presenilin 1,MP:0005012,330
+MGI:97376,Nras,NRAS,N-ras,neuroblastoma ras oncogene,MP:0011100,331
+MGI:97376,Nras,NRAS,N-ras,neuroblastoma ras oncogene,MP:0002764,332
+MGI:97376,Nras,NRAS,N-ras,neuroblastoma ras oncogene,MP:0002080,333
+MGI:97376,Nras,NRAS,N-ras,neuroblastoma ras oncogene,MP:0005559,334
+MGI:97306,Nf1,NF1,"Dsk9, Mhdadsk9, Nf-1, neurofibromin",neurofibromin 1,MP:0011100,335
+MGI:97306,Nf1,NF1,"Dsk9, Mhdadsk9, Nf-1, neurofibromin",neurofibromin 1,MP:0002942,336
+MGI:97306,Nf1,NF1,"Dsk9, Mhdadsk9, Nf-1, neurofibromin",neurofibromin 1,MP:0005632,337
+MGI:97306,Nf1,NF1,"Dsk9, Mhdadsk9, Nf-1, neurofibromin",neurofibromin 1,MP:0005571,338
+MGI:98250,Scn4a,SCN4A,"Nav1.4, SkM1, mH2","sodium channel, voltage-gated, type IV, alpha",MP:0011100,339
+MGI:98250,Scn4a,SCN4A,"Nav1.4, SkM1, mH2","sodium channel, voltage-gated, type IV, alpha",MP:0002966,340
+MGI:1914113,Lztr1,LZTR1,"1200003E21Rik, TCFL2","leucine-zipper-like transcriptional regulator, 1",MP:0011100,341
+MGI:1914113,Lztr1,LZTR1,"1200003E21Rik, TCFL2","leucine-zipper-like transcriptional regulator, 1",MP:0002968,342
+MGI:1352493,Bag3,BAG3,"Bis, Bcl-2-interacting death suppressor",BCL2-associated athanogene 3,MP:0011100,343
+MGI:1352493,Bag3,BAG3,"Bis, Bcl-2-interacting death suppressor",BCL2-associated athanogene 3,MP:0003961,344
+MGI:1352493,Bag3,BAG3,"Bis, Bcl-2-interacting death suppressor",BCL2-associated athanogene 3,MP:0001260,345
+MGI:1352493,Bag3,BAG3,"Bis, Bcl-2-interacting death suppressor",BCL2-associated athanogene 3,MP:0000745,346
+MGI:1352493,Bag3,BAG3,"Bis, Bcl-2-interacting death suppressor",BCL2-associated athanogene 3,MP:0010052,347
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0011100,348
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0004906,349
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0003717,350
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0013292,351
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0013293,352
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0009709,353
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0001697,354
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0001722,355
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0004258,356
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0000274,357
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0003984,358
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0003720,359
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0001102,360
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0003795,361
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0000266,362
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0003232,363
+MGI:1100846,Med1,MED1,"DRIP205, TRAP 220, Pparbp, TRAP220, PBP, l11Jus15, CRSP210",mediator complex subunit 1,MP:0002092,364
+MGI:96796,Lmnb2,LMNB2,lamin B3,lamin B2,MP:0011100,365
+MGI:96796,Lmnb2,LMNB2,lamin B3,lamin B2,MP:0005553,366
+MGI:98821,Trf,TF,"HP, Tfn",transferrin,MP:0011100,367
+MGI:98821,Trf,TF,"HP, Tfn",transferrin,MP:0005564,368
+MGI:98821,Trf,TF,"HP, Tfn",transferrin,MP:0005561,369
+MGI:98821,Trf,TF,"HP, Tfn",transferrin,MP:0004151,370
+MGI:1859214,Pmm2,PMM2,info not available,phosphomannomutase 2,MP:0011100,371
+MGI:1859214,Pmm2,PMM2,info not available,phosphomannomutase 2,MP:0005565,372
+MGI:1859214,Pmm2,PMM2,info not available,phosphomannomutase 2,MP:0013292,373
+MGI:1859214,Pmm2,PMM2,info not available,phosphomannomutase 2,MP:0000702,374
+MGI:1859214,Pmm2,PMM2,info not available,phosphomannomutase 2,MP:0013293,375
+MGI:1928738,Slc25a20,SLC25A20,"mCAC, Cact, 1110007P09Rik","solute carrier family 25 (mitochondrial carnitine/acylcarnitine translocase), member 20",MP:0011100,376
+MGI:1928738,Slc25a20,SLC25A20,"mCAC, Cact, 1110007P09Rik","solute carrier family 25 (mitochondrial carnitine/acylcarnitine translocase), member 20",MP:0005633,377
+MGI:1914195,Sdha,SDHA,"SDHF, FP, 2310034D06Rik, SDH2","succinate dehydrogenase complex, subunit A, flavoprotein (Fp)",MP:0011100,378
+MGI:1914195,Sdha,SDHA,"SDHF, FP, 2310034D06Rik, SDH2","succinate dehydrogenase complex, subunit A, flavoprotein (Fp)",MP:0005633,379
+MGI:1914195,Sdha,SDHA,"SDHF, FP, 2310034D06Rik, SDH2","succinate dehydrogenase complex, subunit A, flavoprotein (Fp)",MP:0013292,380
+MGI:104897,Rest,REST,"NRSF, 2610008J04Rik",RE1-silencing transcription factor,MP:0011100,381
+MGI:104897,Rest,REST,"NRSF, 2610008J04Rik",RE1-silencing transcription factor,MP:0010574,382
+MGI:104897,Rest,REST,"NRSF, 2610008J04Rik",RE1-silencing transcription factor,MP:0005333,383
+MGI:104897,Rest,REST,"NRSF, 2610008J04Rik",RE1-silencing transcription factor,MP:0011968,384
+MGI:104897,Rest,REST,"NRSF, 2610008J04Rik",RE1-silencing transcription factor,MP:0010506,385
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0011100,386
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0011275,387
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0011495,388
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0001914,389
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0002109,390
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0001697,391
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0003743,392
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0003019,393
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0005559,394
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0005633,395
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0002177,396
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0001399,397
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0001575,398
+MGI:108426,Kif1b,KIF1B,"KIF1Bp204, KIF1Bp130, Kif1b beta, Kif1b alpha, N-3 kinesin, D4Mil1e, A530096N05Rik",kinesin family member 1B,MP:0005560,399
+MGI:87968,Ahcy,AHCY,"SAHH, CuBP",S-adenosylhomocysteine hydrolase,MP:0011100,400
+MGI:87968,Ahcy,AHCY,"SAHH, CuBP",S-adenosylhomocysteine hydrolase,MP:0013292,401
+MGI:87968,Ahcy,AHCY,"SAHH, CuBP",S-adenosylhomocysteine hydrolase,MP:0013293,402
+MGI:1917609,Gtpbp3,GTPBP3,"2410009F13Rik, Gtpbp3",GTP binding protein 3,MP:0011110,403
+MGI:88279,Cbl,CBL,"c-Cbl, 4732447J05Rik, Cbl-2",Casitas B-lineage lymphoma,MP:0011110,404
+MGI:1276535,Ncoa3,NCOA3,"bHLHe42, KAT13B, TRAM1, TRAM-1, AIB1, 2010305B15Rik, RAC3, Src3, pCIP",nuclear receptor coactivator 3,MP:0011110,405
+MGI:1276535,Ncoa3,NCOA3,"bHLHe42, KAT13B, TRAM1, TRAM-1, AIB1, 2010305B15Rik, RAC3, Src3, pCIP",nuclear receptor coactivator 3,MP:0002100,406
+MGI:1276535,Ncoa3,NCOA3,"bHLHe42, KAT13B, TRAM1, TRAM-1, AIB1, 2010305B15Rik, RAC3, Src3, pCIP",nuclear receptor coactivator 3,MP:0001289,407
+MGI:1276535,Ncoa3,NCOA3,"bHLHe42, KAT13B, TRAM1, TRAM-1, AIB1, 2010305B15Rik, RAC3, Src3, pCIP",nuclear receptor coactivator 3,MP:0005293,408
+MGI:1916452,Ptms,PTMS,2610009E16Rik,parathymosin,MP:0011275,409
+MGI:1916452,Ptms,PTMS,2610009E16Rik,parathymosin,MP:0011110,410
+MGI:1916452,Ptms,PTMS,2610009E16Rik,parathymosin,MP:0003961,411
+MGI:1916452,Ptms,PTMS,2610009E16Rik,parathymosin,MP:0001399,412
+MGI:1916452,Ptms,PTMS,2610009E16Rik,parathymosin,MP:0010025,413
+MGI:1916452,Ptms,PTMS,2610009E16Rik,parathymosin,MP:0004924,414
+MGI:1921372,Tmem43,TMEM43,"LUMA, 1200015A22Rik",transmembrane protein 43,MP:0011967,415

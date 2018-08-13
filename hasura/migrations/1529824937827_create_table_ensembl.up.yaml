@@ -1,9 +1,0 @@
-- args:
-    sql: CREATE TABLE "ensembl"("name" text NOT NULL, "ensembl_id" text NOT NULL,
-      "start_bp" numeric NOT NULL, "end_bp" numeric NOT NULL, "chromosome_scaffold_name"
-      text NOT NULL, "transcript_count" numeric NOT NULL, "percentage_gc_content"
-      numeric NOT NULL, PRIMARY KEY ("name") )
-  type: run_sql
-- args:
-    name: ensembl
-  type: add_existing_table_or_view

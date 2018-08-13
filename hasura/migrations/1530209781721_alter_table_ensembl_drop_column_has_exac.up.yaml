@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "ensembl" DROP COLUMN "has_exac"
-  type: run_sql

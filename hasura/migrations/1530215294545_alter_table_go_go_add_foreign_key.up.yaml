@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "go_go" ADD FOREIGN KEY ("name") REFERENCES "ensembl" ("name")
-  type: run_sql

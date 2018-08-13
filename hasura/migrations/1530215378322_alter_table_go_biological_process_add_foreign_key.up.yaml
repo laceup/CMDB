@@ -1,4 +1,0 @@
-- args:
-    sql: ALTER TABLE "go_biological_process" ADD FOREIGN KEY ("name") REFERENCES "ensembl"
-      ("name")
-  type: run_sql

@@ -1,0 +1,368 @@
+name,uniprot_id,ncbi_id,ensemble_id,mgi_id,protien_name,hgnc_id
+ZGLP1,P0C6A0,100125288,ENSG00000220201,MGI:3696042,GATA-type zinc finger protein 1 (GATA-like protein 1) (GLP-1),HGNC:37245
+EGF,P01133,1950,ENSG00000138798,MGI:95290,Pro-epidermal growth factor (EGF) [Cleaved into: Epidermal growth factor (Urogastrone)],HGNC:3229
+CXCL12,P48061,6387,ENSG00000107562,MGI:103556,Stromal cell-derived factor 1 (SDF-1) (hSDF-1) (C-X-C motif chemokine 12) (Intercrine reduced in hepatomas) (IRH) (hIRH) (Pre-B cell growth-stimulating factor) (PBSF) [Cleaved into: SDF-1-beta(3-72); SDF-1-alpha(3-67)],HGNC:10672
+VEGFA,P15692,7422,ENSG00000112715,MGI:103178,Vascular endothelial growth factor A (VEGF-A) (Vascular permeability factor) (VPF),HGNC:12680
+PPARA,Q07869,5465,ENSG00000186951,MGI:104740,Peroxisome proliferator-activated receptor alpha (PPAR-alpha) (Nuclear receptor subfamily 1 group C member 1),HGNC:9232
+ANXA2,P07355,302,ENSG00000182718,MGI:88246,Annexin A2 (Annexin II) (Annexin-2) (Calpactin I heavy chain) (Calpactin-1 heavy chain) (Chromobindin-8) (Lipocortin II) (Placental anticoagulant protein IV) (PAP-IV) (Protein I) (p36),HGNC:537
+GAPDH,P04406,2597,ENSG00000111640,MGI:95640,Glyceraldehyde-3-phosphate dehydrogenase (GAPDH) (EC 1.2.1.12) (Peptidyl-cysteine S-nitrosylase GAPDH) (EC 2.6.99.-),HGNC:4141
+SLC33A1,O00400,9197,ENSG00000169359,MGI:1332247,Acetyl-coenzyme A transporter 1 (AT-1) (Acetyl-CoA transporter 1) (Solute carrier family 33 member 1),HGNC:95
+NOVA2,Q9UNW9,4858,ENSG00000104967,MGI:104296,RNA-binding protein Nova-2 (Astrocytic NOVA1-like RNA-binding protein) (Neuro-oncological ventral antigen 2),HGNC:7887
+MYOCD,Q8IZQ8,93649,ENSG00000141052,MGI:2137495,Myocardin,HGNC:16067
+LDB3,O75112,11155,ENSG00000122367,MGI:1344412,LIM domain-binding protein 3 (Protein cypher) (Z-band alternatively spliced PDZ-motif protein),HGNC:15710
+IGF1,P05019,3479,ENSG00000017427,MGI:96432,Insulin-like growth factor I (IGF-I) (Mechano growth factor) (MGF) (Somatomedin-C),HGNC:5464
+IGFBP1,P08833,3484,ENSG00000146678,MGI:96436,Insulin-like growth factor-binding protein 1 (IBP-1) (IGF-binding protein 1) (IGFBP-1) (Placental protein 12) (PP12),HGNC:5469
+IGBP1,P78318,3476,ENSG00000089289,MGI:1346500,Immunoglobulin-binding protein 1 (B-cell signal transduction molecule alpha 4) (Protein alpha-4) (CD79a-binding protein 1) (Protein phosphatase 2/4/6 regulatory subunit) (Renal carcinoma antigen NY-REN-16),HGNC:5461
+BCL2,P10415,596,ENSG00000171791,MGI:88138,Apoptosis regulator Bcl-2,HGNC:990
+EMD,P50402,2010,ENSG00000102119,MGI:108117,Emerin,HGNC:3331
+CTGF,P29279,1490,ENSG00000118523,MGI:95537,Connective tissue growth factor (CCN family member 2) (Hypertrophic chondrocyte-specific protein 24) (Insulin-like growth factor-binding protein 8) (IBP-8) (IGF-binding protein 8) (IGFBP-8),HGNC:2500
+ACTC1,P68032,70,ENSG00000159251,MGI:87905,"Actin, alpha cardiac muscle 1 (Alpha-cardiac actin) [Cleaved into: Actin, alpha cardiac muscle 1, intermediate form]",HGNC:143
+C1orf52,Q8N6N3,148423,ENSG00000162642,MGI:1913671,UPF0690 protein C1orf52 (BCL10-associated gene protein),HGNC:24871
+LRRC4,Q9HBW1,64101,ENSG00000128594,MGI:2182081,Leucine-rich repeat-containing protein 4 (Brain tumor-associated protein BAG) (Nasopharyngeal carcinoma-associated gene 14 protein) (Netrin-G2 ligand) (NGL-2),HGNC:15586
+CAV3,P56539,859,ENSG00000182533,MGI:107570,Caveolin-3 (M-caveolin),HGNC:1529
+EDN1,P05305,1906,ENSG00000078401,MGI:95283,Endothelin-1 (Preproendothelin-1) (PPET1) [Cleaved into: Endothelin-1 (ET-1); Big endothelin-1],HGNC:3176
+GDF15,Q99988,9518,ENSG00000130513,MGI:1346047,Growth/differentiation factor 15 (GDF-15) (Macrophage inhibitory cytokine 1) (MIC-1) (NSAID-activated gene 1 protein) (NAG-1) (NSAID-regulated gene 1 protein) (NRG-1) (Placental TGF-beta) (Placental bone morphogenetic protein) (Prostate differentiation factor),HGNC:30142
+ATP7A,Q04656,538,ENSG00000165240,MGI:99400,Copper-transporting ATPase 1 (EC 3.6.3.54) (Copper pump 1) (Menkes disease-associated protein),HGNC:869
+FSD1L,Q9BXM9,83856,ENSG00000106701,MGI:2442443,FSD1-like protein (Coiled-coil domain-containing protein 10) (FSD1 N-terminal-like protein),HGNC:13753
+PSEN1,P49768,5663,ENSG00000080815,MGI:1202717,Presenilin-1 (PS-1) (EC 3.4.23.-) (Protein S182) [Cleaved into: Presenilin-1 NTF subunit; Presenilin-1 CTF subunit; Presenilin-1 CTF12 (PS1-CTF12)],HGNC:9508
+PPARGC1A,Q9UBK2,10891,ENSG00000109819,MGI:1342774,Peroxisome proliferator-activated receptor gamma coactivator 1-alpha (PGC-1-alpha) (PPAR-gamma coactivator 1-alpha) (PPARGC-1-alpha) (Ligand effect modulator 6),HGNC:9237
+CCL2,P13500,6347,ENSG00000108691,MGI:98259,C-C motif chemokine 2 (HC11) (Monocyte chemoattractant protein 1) (Monocyte chemotactic and activating factor) (MCAF) (Monocyte chemotactic protein 1) (MCP-1) (Monocyte secretory protein JE) (Small-inducible cytokine A2),HGNC:10618
+SUN2,Q9UH99,25777,ENSG00000100242,MGI:2443011,SUN domain-containing protein 2 (Protein unc-84 homolog B) (Rab5-interacting protein) (Rab5IP) (Sad1/unc-84 protein-like 2),HGNC:14210
+RBM20,Q5T481,282996,ENSG00000203867,MGI:1920963,RNA-binding protein 20 (RNA-binding motif protein 20),HGNC:27424
+FUT1,P19526,2523,ENSG00000174951,MGI:109375,"Galactoside 2-alpha-L-fucosyltransferase 1 (EC 2.4.1.344) (Alpha(1,2)FT 1) (Blood group H alpha 2-fucosyltransferase) (Fucosyltransferase 1) (GDP-L-fucose:beta-D-galactoside 2-alpha-L-fucosyltransferase 1)",HGNC:4012
+FKRP,Q9H9S5,79147,ENSG00000181027,MGI:2447586,Fukutin-related protein (EC 2.-.-.-),HGNC:17997
+CAV1,Q03135,857,ENSG00000105974,MGI:102709,Caveolin-1,HGNC:1527
+ATP2A2,P16615,488,ENSG00000174437,MGI:88110,"Sarcoplasmic/endoplasmic reticulum calcium ATPase 2 (SERCA2) (SR Ca(2+)-ATPase 2) (EC 3.6.3.8) (Calcium pump 2) (Calcium-transporting ATPase sarcoplasmic reticulum type, slow twitch skeletal muscle isoform) (Endoplasmic reticulum class 1/2 Ca(2+) ATPase)",HGNC:812
+OBSCN,Q5VST9,84033,ENSG00000154358,MGI:2681862,Obscurin (EC 2.7.11.1) (Obscurin-RhoGEF) (Obscurin-myosin light chain kinase) (Obscurin-MLCK),HGNC:15719
+JUP,P14923,3728,ENSG00000173801,MGI:96650,Junction plakoglobin (Catenin gamma) (Desmoplakin III) (Desmoplakin-3),HGNC:6207
+DNAJC19,Q96DA6,131118,ENSG00000205981,MGI:1914963,Mitochondrial import inner membrane translocase subunit TIM14 (DnaJ homolog subfamily C member 19),HGNC:30528
+TMOD1,P28289,7111,ENSG00000136842,MGI:98775,Tropomodulin-1 (Erythrocyte tropomodulin) (E-Tmod),HGNC:11871 UTRN,P46939,7402,ENSG00000152818,MGI:104631,Utrophin (Dystrophin-related protein 1) (DRP-1),HGNC:12635
+ADRB1,P08588,153,ENSG00000043591,MGI:87937,Beta-1 adrenergic receptor (Beta-1 adrenoreceptor) (Beta-1 adrenoceptor),HGNC:285
+ACE2,Q9BYF1,59272,ENSG00000130234,MGI:1917258,Angiotensin-converting enzyme 2 (EC 3.4.17.23) (ACE-related carboxypeptidase) (Angiotensin-converting enzyme homolog) (ACEH) (Metalloprotease MPROT15) [Cleaved into: Processed angiotensin-converting enzyme 2],HGNC:13557
+MSTN,O14793,2660,ENSG00000138379,MGI:95691,Growth/differentiation factor 8 (GDF-8) (Myostatin),HGNC:4223
+APLN,Q9ULZ1,8862,ENSG00000171388,MGI:1353624,Apelin (APJ endogenous ligand) [Cleaved into: Apelin-36; Apelin-31; Apelin-28; Apelin-13],HGNC:16665
+SETD2,Q9BYW2,29072,ENSG00000181555,MGI:1918177,Histone-lysine N-methyltransferase SETD2 (EC 2.1.1.43) (HIF-1) (Huntingtin yeast partner B) (Huntingtin-interacting protein 1) (HIP-1) (Huntingtin-interacting protein B) (Lysine N-methyltransferase 3A) (Protein-lysine N-methyltransferase SETD2) (EC 2.1.1.-) (SET domain-containing protein 2) (hSET2) (p231HBP),HGNC:18420
+TIMP1,P01033,7076,ENSG00000102265,MGI:98752,Metalloproteinase inhibitor 1 (Erythroid-potentiating activity) (EPA) (Fibroblast collagenase inhibitor) (Collagenase inhibitor) (Tissue inhibitor of metalloproteinases 1) (TIMP-1),HGNC:11820
+STK4,Q13043,6789,ENSG00000101109,MGI:1929004,Serine/threonine-protein kinase 4 (EC 2.7.11.1) (Mammalian STE20-like protein kinase 1) (MST-1) (STE20-like kinase MST1) (Serine/threonine-protein kinase Krs-2) [Cleaved into: Serine/threonine-protein kinase 4 37kDa subunit (MST1/N); Serine/threonine-protein kinase 4 18kDa subunit (MST1/C)],HGNC:11408
+SLC2A4,P14672,6517,ENSG00000181856,MGI:95758,"Solute carrier family 2, facilitated glucose transporter member 4 (Glucose transporter type 4, insulin-responsive) (GLUT-4)",HGNC:11009
+MYOD1,P15172,4654,ENSG00000129152,MGI:97275,Myoblast determination protein 1 (Class C basic helix-loop-helix protein 1) (bHLHc1) (Myogenic factor 3) (Myf-3),HGNC:7611
+LPAR3,Q9UBY5,23566,ENSG00000171517,MGI:1929469,Lysophosphatidic acid receptor 3 (LPA receptor 3) (LPA-3) (Lysophosphatidic acid receptor Edg-7),HGNC:14298
+LTBP4,Q8N2S1,8425,ENSG00000090006,MGI:1321395,Latent-transforming growth factor beta-binding protein 4 (LTBP-4),HGNC:6717
+SPP1,P10451,6696,ENSG00000118785,MGI:98389,Osteopontin (Bone sialoprotein 1) (Nephropontin) (Secreted phosphoprotein 1) (SPP-1) (Urinary stone protein) (Uropontin),HGNC:11255
+IBSP,P21815,3381,ENSG00000029559,MGI:96389,Bone sialoprotein 2 (Bone sialoprotein II) (BSP II) (Cell-binding sialoprotein) (Integrin-binding sialoprotein),HGNC:5341
+DYSF,O75923,8291,ENSG00000135636,MGI:1349385,Dysferlin (Dystrophy-associated fer-1-like protein) (Fer-1-like protein 1),HGNC:3097
+GCNT2,Q8N0V5,2651,ENSG00000111846,MGI:1100870,"N-acetyllactosaminide beta-1,6-N-acetylglucosaminyl-transferase (N-acetylglucosaminyltransferase) (EC 2.4.1.150) (I-branching enzyme) (IGNT)",HGNC:4204
+HSPA4,P34932,3308,ENSG00000170606,MGI:1342292,Heat shock 70 kDa protein 4 (HSP70RY) (Heat shock 70-related protein APG-2),HGNC:5237
+FABP3,P05413,2170,ENSG00000121769,MGI:95476,"Fatty acid-binding protein, heart (Fatty acid-binding protein 3) (Heart-type fatty acid-binding protein) (H-FABP) (Mammary-derived growth inhibitor) (MDGI) (Muscle fatty acid-binding protein) (M-FABP)",HGNC:3557
+KCNH2,Q12809,3757,ENSG00000055118,MGI:1341722,Potassium voltage-gated channel subfamily H member 2 (Eag homolog) (Ether-a-go-go-related gene potassium channel 1) (ERG-1) (Eag-related protein 1) (Ether-a-go-go-related protein 1) (H-ERG) (hERG-1) (hERG1) (Voltage-gated potassium channel subunit Kv11.1),HGNC:6251
+CACNA1C,Q13936,775,ENSG00000151067,MGI:103013,"Voltage-dependent L-type calcium channel subunit alpha-1C (Calcium channel, L type, alpha-1 polypeptide, isoform 1, cardiac muscle) (Voltage-gated calcium channel subunit alpha Cav1.2)",HGNC:1390
+TBXT,O15178,6862,ENSG00000164458,MGI:98472,Brachyury protein (Protein T),HGNC:11515
+RHOA,P61586,387,ENSG00000067560,MGI:1096342,Transforming protein RhoA (Rho cDNA clone 12) (h12),HGNC:667
+FKTN,O75072,2218,ENSG00000106692,MGI:2179507,Fukutin (EC 2.-.-.-) (Fukuyama-type congenital muscular dystrophy protein),HGNC:3622
+EP300,Q09472,2033,ENSG00000100393,MGI:1276116,Histone acetyltransferase p300 (p300 HAT) (EC 2.3.1.48) (E1A-associated protein p300) (Histone butyryltransferase p300) (EC 2.3.1.-) (Histone crotonyltransferase p300) (EC 2.3.1.-) (Protein propionyltransferase p300) (EC 2.3.1.-),HGNC:3373
+FGF21,Q9NSA1,26291,ENSG00000105550,MGI:1861377,Fibroblast growth factor 21 (FGF-21),HGNC:3678
+GRK2,P25098,156,ENSG00000173020,MGI:87940,Beta-adrenergic receptor kinase 1 (Beta-ARK-1) (EC 2.7.11.15) (G-protein coupled receptor kinase 2),HGNC:289
+ERBB4,Q15303,2066,ENSG00000178568,MGI:104771,Receptor tyrosine-protein kinase erbB-4 (EC 2.7.10.1) (Proto-oncogene-like protein c-ErbB-4) (Tyrosine kinase-type cell surface receptor HER4) (p180erbB4) [Cleaved into: ERBB4 intracellular domain (4ICD) (E4ICD) (s80HER4)],HGNC:3432
+DROSHA,Q9NRR4,29102,ENSG00000113360,MGI:1261425,Ribonuclease 3 (EC 3.1.26.3) (Protein Drosha) (Ribonuclease III) (RNase III) (p241),HGNC:17904
+ALMS1,Q8TCU4,7840,ENSG00000116127,MGI:1934606,Alstrom syndrome protein 1,HGNC:428
+CDC42,P60953,998,ENSG00000070831,MGI:106211,Cell division control protein 42 homolog (G25K GTP-binding protein),HGNC:1736
+LMNB1,P20700,4001,ENSG00000113368,MGI:96795,Lamin-B1,HGNC:6637
+LMNB2,Q03252,84823,ENSG00000176619,MGI:96796,Lamin-B2,HGNC:6638
+KCTD6,Q8NC69,200845,ENSG00000168301,MGI:1918643,BTB/POZ domain-containing protein KCTD6 (KCASH3 protein) (Potassium channel tetramerization domain-containing protein 6),HGNC:22235
+PDCD1LG2,Q9BQ51,80380,ENSG00000197646,MGI:1930125,Programmed cell death 1 ligand 2 (PD-1 ligand 2) (PD-L2) (PDCD1 ligand 2) (Programmed death ligand 2) (Butyrophilin B7-DC) (B7-DC) (CD antigen CD273),HGNC:18731
+PTMS,P20962,5763,ENSG00000159335,MGI:1916452,Parathymosin,HGNC:9629
+MEF2C,Q06413,4208,ENSG00000081189,MGI:99458,Myocyte-specific enhancer factor 2C (Myocyte enhancer factor 2C),HGNC:6996
+OPA1,O60313,4976,ENSG00000198836,MGI:1921393,"Dynamin-like 120 kDa protein, mitochondrial (EC 3.6.5.5) (Optic atrophy protein 1) [Cleaved into: Dynamin-like 120 kDa protein, form S1]",HGNC:8140
+ZNF10,P21506,7556,ENSG00000256223,No associated gene,Zinc finger protein 10 (Zinc finger protein KOX1),HGNC:12879
+TRIM55,Q9BYV6,84675,ENSG00000147573,MGI:3036269,Tripartite motif-containing protein 55 (Muscle-specific RING finger protein 2) (MuRF-2) (MuRF2) (RING finger protein 29),HGNC:14215
+ACTN2,P35609,88,ENSG00000077522,MGI:109192,Alpha-actinin-2 (Alpha-actinin skeletal muscle isoform 2) (F-actin cross-linking protein),HGNC:164
+ADRB2,P07550,154,ENSG00000169252,MGI:87938,Beta-2 adrenergic receptor (Beta-2 adrenoreceptor) (Beta-2 adrenoceptor),HGNC:286
+JPH2,Q9BR39,57158,ENSG00000149596,MGI:1891496,Junctophilin-2 (JP-2) (Junctophilin type 2),HGNC:14202
+CTRL,P40313,1506,ENSG00000141086,MGI:88558,Chymotrypsin-like protease CTRL-1 (EC 3.4.21.-),HGNC:2524
+CLGN,O14967,1047,ENSG00000153132,MGI:107472,Calmegin,HGNC:2060
+FASLG,P48023,356,ENSG00000117560,MGI:99255,"Tumor necrosis factor ligand superfamily member 6 (Apoptosis antigen ligand) (APTL) (CD95 ligand) (CD95-L) (Fas antigen ligand) (Fas ligand) (FasL) (CD antigen CD178) [Cleaved into: Tumor necrosis factor ligand superfamily member 6, membrane form; Tumor necrosis factor ligand superfamily member 6, soluble form (Receptor-binding FasL ectodomain) (Soluble Fas ligand) (sFasL); ADAM10-processed FasL form (APL); FasL intracellular domain (FasL ICD) (SPPL2A-processed FasL form) (SPA)]",HGNC:11936
+MYC,P01106,4609,ENSG00000136997,MGI:97250,Myc proto-oncogene protein (Class E basic helix-loop-helix protein 39) (bHLHe39) (Proto-oncogene c-Myc) (Transcription factor p64),HGNC:7553
+DGCR8,Q8WYQ5,54487,ENSG00000128191,MGI:2151114,Microprocessor complex subunit DGCR8 (DiGeorge syndrome critical region 8),HGNC:2847
+MAP3K7,O43318,6885,ENSG00000135341,MGI:1346877,Mitogen-activated protein kinase kinase kinase 7 (EC 2.7.11.25) (Transforming growth factor-beta-activated kinase 1) (TGF-beta-activated kinase 1),HGNC:6859
+DNAJB6,O75190,10049,ENSG00000105993,MGI:1344381,DnaJ homolog subfamily B member 6 (HHDJ1) (Heat shock protein J2) (HSJ-2) (MRJ) (MSJ-1),HGNC:14888
+BCL2L1,Q07817,598,ENSG00000171552,MGI:88139,Bcl-2-like protein 1 (Bcl2-L-1) (Apoptosis regulator Bcl-X),HGNC:992
+IGHMBP2,P38935,3508,ENSG00000132740,MGI:99954,DNA-binding protein SMUBP-2 (EC 3.6.4.12) (EC 3.6.4.13) (ATP-dependent helicase IGHMBP2) (Glial factor 1) (GF-1) (Immunoglobulin mu-binding protein 2),HGNC:5542
+CD34,P28906,947,ENSG00000174059,MGI:88329,Hematopoietic progenitor cell antigen CD34 (CD antigen CD34),HGNC:1662
+ANXA5,P08758,308,ENSG00000164111,MGI:106008,Annexin A5 (Anchorin CII) (Annexin V) (Annexin-5) (Calphobindin I) (CBP-I) (Endonexin II) (Lipocortin V) (Placental anticoagulant protein 4) (PP4) (Placental anticoagulant protein I) (PAP-I) (Thromboplastin inhibitor) (Vascular anticoagulant-alpha) (VAC-alpha),HGNC:543
+ZMYM3,Q14202,9203,ENSG00000147130,MGI:1927231,Zinc finger MYM-type protein 3 (Zinc finger protein 261),HGNC:13054
+RAC3,P60763,5881,ENSG00000169750,MGI:2180784,Ras-related C3 botulinum toxin substrate 3 (p21-Rac3),HGNC:9803
+NCOA3,Q9Y6Q9,8202,ENSG00000124151,MGI:1276535,Nuclear receptor coactivator 3 (NCoA-3) (EC 2.3.1.48) (ACTR) (Amplified in breast cancer 1 protein) (AIB-1) (CBP-interacting protein) (pCIP) (Class E basic helix-loop-helix protein 42) (bHLHe42) (Receptor-associated coactivator 3) (RAC-3) (Steroid receptor coactivator protein 3) (SRC-3) (Thyroid hormone receptor activator molecule 1) (TRAM-1),HGNC:7670
+RANGRF,Q9HD47,29098,ENSG00000108961,MGI:1889073,Ran guanine nucleotide release factor (RanGNRF) (Ran-binding protein MOG1),HGNC:17679
+CRLF3,Q8IUI8,51379,ENSG00000176390,MGI:1860086,Cytokine receptor-like factor 3 (Cytokine receptor-like molecule 9) (CREME-9) (Cytokine receptor-related protein 4) (Type I cytokine receptor-like factor p48),HGNC:17177
+CASQ2,O14958,845,ENSG00000118729,MGI:1309469,"Calsequestrin-2 (Calsequestrin, cardiac muscle isoform)",HGNC:1513
+SMARCA4,P51532,6597,ENSG00000127616,MGI:88192,Transcription activator BRG1 (EC 3.6.4.-) (ATP-dependent helicase SMARCA4) (BRG1-associated factor 190A) (BAF190A) (Mitotic growth and transcription activator) (Protein BRG-1) (Protein brahma homolog 1) (SNF2-beta) (SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A member 4),HGNC:11100
+STRN3,Q13033,29966,ENSG00000196792,MGI:2151064,Striatin-3 (Cell cycle autoantigen SG2NA) (S/G2 antigen),HGNC:15720
+BCAR3,O75815,8412,ENSG00000137936,MGI:1352501,Breast cancer anti-estrogen resistance protein 3 (Novel SH2-containing protein 2) (SH2 domain-containing protein 3B),HGNC:973
+LAMC1,P11047,3915,ENSG00000135862,MGI:99914,Laminin subunit gamma-1 (Laminin B2 chain) (Laminin-1 subunit gamma) (Laminin-10 subunit gamma) (Laminin-11 subunit gamma) (Laminin-2 subunit gamma) (Laminin-3 subunit gamma) (Laminin-4 subunit gamma) (Laminin-6 subunit gamma) (Laminin-7 subunit gamma) (Laminin-8 subunit gamma) (Laminin-9 subunit gamma) (S-laminin subunit gamma) (S-LAM gamma),HGNC:6492
+LAMB2,P55268,3913,ENSG00000172037,MGI:99916,Laminin subunit beta-2 (Laminin B1s chain) (Laminin-11 subunit beta) (Laminin-14 subunit beta) (Laminin-15 subunit beta) (Laminin-3 subunit beta) (Laminin-4 subunit beta) (Laminin-7 subunit beta) (Laminin-9 subunit beta) (S-laminin subunit beta) (S-LAM beta),HGNC:6487
+APOE,P02649,348,ENSG00000130203,MGI:88057,Apolipoprotein E (Apo-E),HGNC:613
+SREBF1,P36956,6720,ENSG00000072310,MGI:107606,Sterol regulatory element-binding protein 1 (SREBP-1) (Class D basic helix-loop-helix protein 1) (bHLHd1) (Sterol regulatory element-binding transcription factor 1) [Cleaved into: Processed sterol regulatory element-binding protein 1],HGNC:11289
+CD36,P16671,948,ENSG00000135218,MGI:107899,Platelet glycoprotein 4 (Fatty acid translocase) (FAT) (Glycoprotein IIIb) (GPIIIB) (Leukocyte differentiation antigen CD36) (PAS IV) (PAS-4) (Platelet collagen receptor) (Platelet glycoprotein IV) (GPIV) (Thrombospondin receptor) (CD antigen CD36),HGNC:1663
+CAMK2G,Q13555,818,ENSG00000148660,MGI:88259,Calcium/calmodulin-dependent protein kinase type II subunit gamma (CaM kinase II subunit gamma) (CaMK-II subunit gamma) (EC 2.7.11.17),HGNC:1463
+CAMK4,Q16566,814,ENSG00000152495,MGI:88258,Calcium/calmodulin-dependent protein kinase type IV (CaMK IV) (EC 2.7.11.17) (CaM kinase-GR),HGNC:1464
+HMOX1,P09601,3162,ENSG00000100292,MGI:96163,Heme oxygenase 1 (HO-1) (EC 1.14.14.18),HGNC:5013
+HDAC7,Q8WUI4,51564,ENSG00000061273,MGI:1891835,Histone deacetylase 7 (HD7) (EC 3.5.1.98) (Histone deacetylase 7A) (HD7a),HGNC:14067
+HDAC9,Q9UKV0,9734,ENSG00000048052,MGI:1931221,Histone deacetylase 9 (HD9) (EC 3.5.1.98) (Histone deacetylase 7B) (HD7) (HD7b) (Histone deacetylase-related protein) (MEF2-interacting transcription repressor MITR),HGNC:14065
+HERC5,Q9UII4,51191,ENSG00000138646,,E3 ISG15--protein ligase HERC5 (EC 2.3.2.-) (Cyclin-E-binding protein 1) (HECT domain and RCC1-like domain-containing protein 5),HGNC:24368
+HAND1,O96004,9421,ENSG00000113196,MGI:103577,"Heart- and neural crest derivatives-expressed protein 1 (Class A basic helix-loop-helix protein 27) (bHLHa27) (Extraembryonic tissues, heart, autonomic nervous system and neural crest derivatives-expressed protein 1) (eHAND)",HGNC:4807
+NANOS3,P60323,342977,ENSG00000187556,MGI:2675387,Nanos homolog 3 (NOS-3),HGNC:22048
+TJP1,Q07157,7082,ENSG00000104067,MGI:98759,Tight junction protein ZO-1 (Tight junction protein 1) (Zona occludens protein 1) (Zonula occludens protein 1),HGNC:11827
+FOS,P01100,2353,ENSG00000170345,MGI:95574,Proto-oncogene c-Fos (Cellular oncogene fos) (G0/G1 switch regulatory protein 7),HGNC:3796
+XDH,P47989,7498,ENSG00000158125,MGI:98973,Xanthine dehydrogenase/oxidase [Includes: Xanthine dehydrogenase (XD) (EC 1.17.1.4); Xanthine oxidase (XO) (EC 1.17.3.2) (Xanthine oxidoreductase) (XOR)],HGNC:12805
+RASA1,P20936,5921,ENSG00000145715,MGI:97860,Ras GTPase-activating protein 1 (GAP) (GTPase-activating protein) (RasGAP) (Ras p21 protein activator) (p120GAP),HGNC:9871
+QDPR,P09417,5860,ENSG00000151552,MGI:97836,Dihydropteridine reductase (EC 1.5.1.34) (HDHPR) (Quinoid dihydropteridine reductase) (Short chain dehydrogenase/reductase family 33C member 1),HGNC:9752
+VCAN,P13611,1462,ENSG00000038427,MGI:102889,Versican core protein (Chondroitin sulfate proteoglycan core protein 2) (Chondroitin sulfate proteoglycan 2) (Glial hyaluronate-binding protein) (GHAP) (Large fibroblast proteoglycan) (PG-M),HGNC:2464
+MT-CYB,P00156,4519,ENSG00000198727,No associated gene,Cytochrome b (Complex III subunit 3) (Complex III subunit III) (Cytochrome b-c1 complex subunit 3) (Ubiquinol-cytochrome-c reductase complex cytochrome b subunit),HGNC:7427
+MYOG,P15173,4656,ENSG00000122180,MGI:97276,Myogenin (Class C basic helix-loop-helix protein 3) (bHLHc3) (Myogenic factor 4) (Myf-4),HGNC:7612
+MT-CO2,P00403,4513,ENSG00000198712,MGI:102503,Cytochrome c oxidase subunit 2 (Cytochrome c oxidase polypeptide II),HGNC:7421
+PTGS2,P35354,5743,ENSG00000073756,MGI:97798,Prostaglandin G/H synthase 2 (EC 1.14.99.1) (Cyclooxygenase-2) (COX-2) (PHS II) (Prostaglandin H2 synthase 2) (PGH synthase 2) (PGHS-2) (Prostaglandin-endoperoxide synthase 2),HGNC:9605
+ATF6,P18850,22926,ENSG00000118217,MGI:1926157,Cyclic AMP-dependent transcription factor ATF-6 alpha (cAMP-dependent transcription factor ATF-6 alpha) (Activating transcription factor 6 alpha) (ATF6-alpha) [Cleaved into: Processed cyclic AMP-dependent transcription factor ATF-6 alpha],HGNC:791
+CTLA4,P16410,1493,ENSG00000163599,MGI:88556,Cytotoxic T-lymphocyte protein 4 (Cytotoxic T-lymphocyte-associated antigen 4) (CTLA-4) (CD antigen CD152),HGNC:2505
+CST3,P01034,1471,ENSG00000101439,MGI:102519,Cystatin-C (Cystatin-3) (Gamma-trace) (Neuroendocrine basic polypeptide) (Post-gamma-globulin),HGNC:2475
+PRDX5,P30044,25824,ENSG00000126432,MGI:1859821,"Peroxiredoxin-5, mitochondrial (EC 1.11.1.15) (Alu corepressor 1) (Antioxidant enzyme B166) (AOEB166) (Liver tissue 2D-page spot 71B) (PLP) (Peroxiredoxin V) (Prx-V) (Peroxisomal antioxidant enzyme) (TPx type VI) (Thioredoxin peroxidase PMP20)",HGNC:9355
+GPT,P24298,2875,ENSG00000167701,MGI:95802,Alanine aminotransferase 1 (ALT1) (EC 2.6.1.2) (Glutamate pyruvate transaminase 1) (GPT 1) (Glutamic--alanine transaminase 1) (Glutamic--pyruvic transaminase 1),HGNC:4552
+MAATS1,Q7Z4T9,89876,ENSG00000183833,MGI:2443598,Cilia- and flagella-associated protein 91 (CFAP91) (AMY-1-associating protein expressed in testis 1) (AAT-1) (MYCBP/AMY-1-associated testis-expressed protein 1) (Protein MAATS1),HGNC:24010
+EDNRA,P25101,1909,ENSG00000151617,MGI:105923,Endothelin-1 receptor (Endothelin receptor type A) (ET-A) (ETA-R) (hET-AR),HGNC:3179
+NOTCH1,P46531,4851,ENSG00000148400,MGI:97363,Neurogenic locus notch homolog protein 1 (Notch 1) (hN1) (Translocation-associated notch protein TAN-1) [Cleaved into: Notch 1 extracellular truncation (NEXT); Notch 1 intracellular domain (NICD)],HGNC:7881
+HAND2,P61296,9464,ENSG00000164107,MGI:103580,"Heart- and neural crest derivatives-expressed protein 2 (Class A basic helix-loop-helix protein 26) (bHLHa26) (Deciduum, heart, autonomic nervous system and neural crest derivatives-expressed protein 2) (dHAND)",HGNC:4808
+PIM1,P11309,5292,ENSG00000137193,MGI:97584,Serine/threonine-protein kinase pim-1 (EC 2.7.11.1),HGNC:8986
+REST,Q13127,5978,ENSG00000084093,MGI:104897,RE1-silencing transcription factor (Neural-restrictive silencer factor) (X2 box repressor),HGNC:9966
+DSC3,Q14574,1825,ENSG00000134762,MGI:1194993,Desmocollin-3 (Cadherin family member 3) (Desmocollin-4) (HT-CP),HGNC:3037
+FAM111B,Q6SJ93,374393,ENSG00000189057,No associated gene,Protein FAM111B (Cancer-associated nucleoprotein),HGNC:24200
+TMEM43,Q9BTV4,79188,ENSG00000170876,MGI:1921372,Transmembrane protein 43 (Protein LUMA),HGNC:28472
+S100A4,P26447,6275,ENSG00000196154,MGI:1330282,Protein S100-A4 (Calvasculin) (Metastasin) (Placental calcium-binding protein) (Protein Mts1) (S100 calcium-binding protein A4),HGNC:10494
+CDKN2A,Q8N726,1029,ENSG00000147889,MGI:104738,Tumor suppressor ARF (Alternative reading frame) (ARF) (Cyclin-dependent kinase inhibitor 2A) (p14ARF),HGNC:1787
+OLR1,P78380,4973,ENSG00000173391,MGI:1261434,"Oxidized low-density lipoprotein receptor 1 (Ox-LDL receptor 1) (C-type lectin domain family 8 member A) (Lectin-like oxidized LDL receptor 1) (LOX-1) (Lectin-like oxLDL receptor 1) (hLOX-1) (Lectin-type oxidized LDL receptor 1) [Cleaved into: Oxidized low-density lipoprotein receptor 1, soluble form]",HGNC:8133
+MED1,Q15648,5469,ENSG00000125686,MGI:1100846,Mediator of RNA polymerase II transcription subunit 1 (Activator-recruited cofactor 205 kDa component) (ARC205) (Mediator complex subunit 1) (Peroxisome proliferator-activated receptor-binding protein) (PBP) (PPAR-binding protein) (Thyroid hormone receptor-associated protein complex 220 kDa component) (Trap220) (Thyroid receptor-interacting protein 2) (TR-interacting protein 2) (TRIP-2) (Vitamin D receptor-interacting protein complex component DRIP205) (p53 regulatory protein RB18A),HGNC:9234
+HAMP,P81172,57817,ENSG00000105697,MGI:1933533,Hepcidin (Liver-expressed antimicrobial peptide 1) (LEAP-1) (Putative liver tumor regressor) (PLTR) [Cleaved into: Hepcidin-25 (Hepc25); Hepcidin-20 (Hepc20)],HGNC:15598
+PRDM16,Q9HAZ2,63976,ENSG00000142611,MGI:1917923,PR domain zinc finger protein 16 (PR domain-containing protein 16) (Transcription factor MEL1) (MDS1/EVI1-like gene 1),HGNC:14000
+MAPK7,Q13164,5598,ENSG00000166484,MGI:1346347,Mitogen-activated protein kinase 7 (MAP kinase 7) (MAPK 7) (EC 2.7.11.24) (Big MAP kinase 1) (BMK-1) (Extracellular signal-regulated kinase 5) (ERK-5),HGNC:6880
+GADD45GIP1,Q8TAE8,90480,ENSG00000179271,MGI:1914947,"Growth arrest and DNA damage-inducible proteins-interacting protein 1 (39S ribosomal protein L59, mitochondrial) (MRP-L59) (CKII beta-associating protein) (CR6-interacting factor 1) (CRIF1) (Mitochondrial large ribosomal subunit protein mL64) (Papillomavirus L2-interacting nuclear protein 1) (PLINP) (PLINP-1) (p53-responsive gene 6 protein)",HGNC:29996
+TRIM54,Q9BYV2,57159,ENSG00000138100,MGI:1889623,Tripartite motif-containing protein 54 (Muscle-specific RING finger protein) (MuRF) (Muscle-specific RING finger protein 3) (MuRF-3) (MuRF3) (RING finger protein 30),HGNC:16008
+ABCC6,O95255,105369239,ENSG00000091262,MGI:1351634,Multidrug resistance-associated protein 6 (ATP-binding cassette sub-family C member 6) (Anthracycline resistance-associated protein) (Multi-specific organic anion transporter E) (MOAT-E),HGNC:57
+ABCC9,O60706,10060,ENSG00000069431,MGI:1352630,ATP-binding cassette sub-family C member 9 (Sulfonylurea receptor 2),HGNC:60
+ACAD8,Q9UKU7,27034,ENSG00000151498,MGI:1914198,"Isobutyryl-CoA dehydrogenase, mitochondrial (EC 1.3.99.-) (Activator-recruited cofactor 42 kDa component) (ARC42) (Acyl-CoA dehydrogenase family member 8) (ACAD-8)",HGNC:87
+ACAD9,Q9H845,28976,ENSG00000177646,MGI:1914272,"Acyl-CoA dehydrogenase family member 9, mitochondrial (ACAD-9) (EC 1.3.99.-)",HGNC:21497
+ACADS,P16219,35,ENSG00000122971,MGI:87868,"Short-chain specific acyl-CoA dehydrogenase, mitochondrial (SCAD) (EC 1.3.8.1) (Butyryl-CoA dehydrogenase)",HGNC:90
+ACTA1,P68133,58,ENSG00000143632,MGI:87902,"Actin, alpha skeletal muscle (Alpha-actin-1) [Cleaved into: Actin, alpha skeletal muscle, intermediate form]",HGNC:129
+ACVRL1,P37023,94,ENSG00000139567,MGI:1338946,Serine/threonine-protein kinase receptor R3 (SKR3) (EC 2.7.11.30) (Activin receptor-like kinase 1) (ALK-1) (TGF-B superfamily receptor type I) (TSR-I),HGNC:175
+ADAMTSL2,Q86TH1,9719,ENSG00000197859,MGI:1925044,ADAMTS-like protein 2 (ADAMTSL-2),HGNC:14631
+ADCY5,O95622,111,ENSG00000173175,MGI:99673,Adenylate cyclase type 5 (EC 4.6.1.1) (ATP pyrophosphate-lyase 5) (Adenylate cyclase type V) (Adenylyl cyclase 5) (AC5),HGNC:236
+AGL,P35573,178,ENSG00000162688,MGI:1924809,"Glycogen debranching enzyme (Glycogen debrancher) [Includes: 4-alpha-glucanotransferase (EC 2.4.1.25) (Oligo-1,4-1,4-glucantransferase); Amylo-alpha-1,6-glucosidase (Amylo-1,6-glucosidase) (EC 3.2.1.33) (Dextrin 6-alpha-D-glucosidase)]",HGNC:321
+AHCY,P23526,191,ENSG00000101444,MGI:87968,Adenosylhomocysteinase (AdoHcyase) (EC 3.3.1.1) (S-adenosyl-L-homocysteine hydrolase),HGNC:343
+AIP,O00170,9049,ENSG00000110711,MGI:109622,AH receptor-interacting protein (AIP) (Aryl-hydrocarbon receptor-interacting protein) (HBV X-associated protein 2) (XAP-2) (Immunophilin homolog ARA9),HGNC:358
+AKT2,P31751,208,ENSG00000105221,MGI:104874,RAC-beta serine/threonine-protein kinase (EC 2.7.11.1) (Protein kinase Akt-2) (Protein kinase B beta) (PKB beta) (RAC-PK-beta),HGNC:392
+ALG1,Q9BT22,56052,ENSG00000033011,MGI:2384774,"Chitobiosyldiphosphodolichol beta-mannosyltransferase (EC 2.4.1.142) (Asparagine-linked glycosylation protein 1 homolog) (Beta-1,4-mannosyltransferase) (GDP-Man:GlcNAc2-PP-dolichol mannosyltransferase) (GDP-mannose-dolichol diphosphochitobiose mannosyltransferase) (Mannosyltransferase-1) (MT-1) (hMat-1)",HGNC:18294
+AMIGO3,Q86WK7,386724,ENSG00000176020,MGI:2444854,Amphoterin-induced protein 3 (AMIGO-3) (Alivin-3),HGNC:24075
+AP002884.2,,,ENSG00000254638,No associated gene,,
+APOA1,P02647,335,ENSG00000118137,MGI:88049,Apolipoprotein A-I (Apo-AI) (ApoA-I) (Apolipoprotein A1) [Cleaved into: Proapolipoprotein A-I (ProapoA-I); Truncated apolipoprotein A-I (Apolipoprotein A-I(1-242))],HGNC:600
+ARSB,P15848,411,ENSG00000113273,MGI:88075,Arylsulfatase B (ASB) (EC 3.1.6.12) (N-acetylgalactosamine-4-sulfatase) (G4S),HGNC:714
+B3GAT3,O94766,26229,ENSG00000149541,MGI:1919977,"Galactosylgalactosylxylosylprotein 3-beta-glucuronosyltransferase 3 (EC 2.4.1.135) (Beta-1,3-glucuronyltransferase 3) (Glucuronosyltransferase I) (GlcAT-I) (UDP-GlcUA:Gal beta-1,3-Gal-R glucuronyltransferase) (GlcUAT-I)",HGNC:923
+BAG3,O95817,9531,ENSG00000151929,MGI:1352493,BAG family molecular chaperone regulator 3 (BAG-3) (Bcl-2-associated athanogene 3) (Bcl-2-binding protein Bis) (Docking protein CAIR-1),HGNC:939
+BBS2,Q9BXC9,583,ENSG00000125124,MGI:2135267,Bardet-Biedl syndrome 2 protein,HGNC:967
+BOLA3,Q53S33,388962,ENSG00000163170,MGI:1925903,BolA-like protein 3,HGNC:24415
+BRAF,P15056,673,ENSG00000157764,MGI:88190,Serine/threonine-protein kinase B-raf (EC 2.7.11.1) (Proto-oncogene B-Raf) (p94) (v-Raf murine sarcoma viral oncogene homolog B1),HGNC:1097
+CASR,P41180,846,ENSG00000036828,MGI:1351351,Extracellular calcium-sensing receptor (CaR) (CaSR) (hCasR) (Parathyroid cell calcium-sensing receptor 1) (PCaR1),HGNC:1514
+CCR6,P51684,1235,ENSG00000112486,MGI:1333797,C-C chemokine receptor type 6 (C-C CKR-6) (CC-CKR-6) (CCR-6) (Chemokine receptor-like 3) (CKR-L3) (DRY6) (G-protein coupled receptor 29) (GPR-CY4) (GPRCY4) (LARC receptor) (CD antigen CD196),HGNC:1607
+CDKN1C,P49918,1028,ENSG00000129757,MGI:104564,Cyclin-dependent kinase inhibitor 1C (Cyclin-dependent kinase inhibitor p57) (p57Kip2),HGNC:1786
+CISD2,Q8N5K1,493856,ENSG00000145354,MGI:1914256,CDGSH iron-sulfur domain-containing protein 2 (Endoplasmic reticulum intermembrane small protein) (MitoNEET-related 1 protein) (Miner1) (Nutrient-deprivation autophagy factor-1) (NAF-1),HGNC:24212
+CLIC2,O15247,1193,ENSG00000155962,No associated gene,Chloride intracellular channel protein 2 (XAP121),HGNC:2063
+COL1A1,P02452,1277,ENSG00000108821,MGI:88467,Collagen alpha-1(I) chain (Alpha-1 type I collagen),HGNC:2197
+COL1A2,P08123,1278,ENSG00000164692,MGI:88468,Collagen alpha-2(I) chain (Alpha-2 type I collagen),HGNC:2198
+CP,P00450,1356,ENSG00000047457,MGI:88476,Ceruloplasmin (EC 1.16.3.1) (Ferroxidase),HGNC:2295
+CPT1A,P50416,1374,ENSG00000110090,MGI:1098296,"Carnitine O-palmitoyltransferase 1, liver isoform (CPT1-L) (EC 2.3.1.21) (Carnitine O-palmitoyltransferase I, liver isoform) (CPT I) (CPTI-L) (Carnitine palmitoyltransferase 1A)",HGNC:2328
+CPT2,P23786,1376,ENSG00000157184,MGI:109176,"Carnitine O-palmitoyltransferase 2, mitochondrial (EC 2.3.1.21) (Carnitine palmitoyltransferase II) (CPT II)",HGNC:2330
+CRYAB,P02511,1410,ENSG00000109846,MGI:88516,Alpha-crystallin B chain (Alpha(B)-crystallin) (Heat shock protein beta-5) (HspB5) (Renal carcinoma antigen NY-REN-27) (Rosenthal fiber component),HGNC:2389
+CSRP3,P50461,8048,ENSG00000129170,MGI:1330824,"Cysteine and glycine-rich protein 3 (Cardiac LIM protein) (Cysteine-rich protein 3) (CRP3) (LIM domain protein, cardiac) (Muscle LIM protein)",HGNC:2472
+D2HGDH,Q8N465,728294,ENSG00000180902,MGI:2138209,"D-2-hydroxyglutarate dehydrogenase, mitochondrial (EC 1.1.99.-)",HGNC:28358
+DCAF8,Q5TAQ9,50717,ENSG00000132716,MGI:91860,DDB1- and CUL4-associated factor 8 (WD repeat-containing protein 42A),HGNC:24891
+DES,P17661,1674,ENSG00000175084,MGI:94885,Desmin,HGNC:2770
+DMD,P11532,1756,ENSG00000198947,MGI:94909,Dystrophin,HGNC:2928
+DNASE1L3,Q13609,1776,ENSG00000163687,MGI:1314633,Deoxyribonuclease gamma (DNase gamma) (EC 3.1.21.-) (DNase I homolog protein DHP2) (Deoxyribonuclease I-like 3) (DNase I-like 3) (Liver and spleen DNase) (LS-DNase) (LSD),HGNC:2959
+DOLK,Q9UPQ8,22845,ENSG00000175283,MGI:2677836,Dolichol kinase (EC 2.7.1.108) (Transmembrane protein 15),HGNC:23406
+DPM3,Q9P2X0,54344,ENSG00000179085,MGI:1915813,Dolichol-phosphate mannosyltransferase subunit 3 (Dolichol-phosphate mannose synthase subunit 3) (DPM synthase subunit 3) (Dolichyl-phosphate beta-D-mannosyltransferase subunit 3) (Mannose-P-dolichol synthase subunit 3) (MPD synthase subunit 3) (Prostin-1),HGNC:3007
+DSG2,Q14126,1829,ENSG00000046604,MGI:1196466,Desmoglein-2 (Cadherin family member 5) (HDGC),HGNC:3049
+DSP,P15924,1832,ENSG00000096696,MGI:109611,Desmoplakin (DP) (250/210 kDa paraneoplastic pemphigus antigen),HGNC:3052
+DTNA,Q9Y4J8,1837,ENSG00000134769,MGI:106039,Dystrobrevin alpha (DTN-A) (Alpha-dystrobrevin) (Dystrophin-related protein 3),HGNC:3057
+EFEMP2,O95967,30008,ENSG00000172638,MGI:1891209,EGF-containing fibulin-like extracellular matrix protein 2 (Fibulin-4) (FIBL-4) (Protein UPH1),HGNC:3219
+ELAC2,Q9BQ52,60528,ENSG00000006744,MGI:1890496,Zinc phosphodiesterase ELAC protein 2 (EC 3.1.26.11) (ElaC homolog protein 2) (Heredity prostate cancer protein 2) (Ribonuclease Z 2) (RNase Z 2) (tRNA 3 endonuclease 2) (tRNase Z 2),HGNC:14198
+ENG,P17813,2022,ENSG00000106991,MGI:95392,Endoglin (CD antigen CD105),HGNC:3349
+ENPP1,P22413,5167,ENSG00000197594,MGI:97370,Ectonucleotide pyrophosphatase/phosphodiesterase family member 1 (E-NPP 1) (Membrane component chromosome 6 surface marker 1) (Phosphodiesterase I/nucleotide pyrophosphatase 1) (Plasma-cell membrane glycoprotein PC-1) [Includes: Alkaline phosphodiesterase I (EC 3.1.4.1); Nucleotide pyrophosphatase (NPPase) (EC 3.6.1.9) (Nucleotide diphosphatase)],HGNC:3356
+EPG5,Q9HCE0,57724,ENSG00000152223,MGI:1918673,Ectopic P granules protein 5 homolog,HGNC:29331
+ERBB3,P21860,2065,ENSG00000065361,MGI:95411,Receptor tyrosine-protein kinase erbB-3 (EC 2.7.10.1) (Proto-oncogene-like protein c-ErbB-3) (Tyrosine kinase-type cell surface receptor HER3),HGNC:3431
+EVC,P57679,2121,ENSG00000072840,MGI:1890596,Ellis-van Creveld syndrome protein (DWF-1),HGNC:3497
+EVC2,Q86UK5,132884,ENSG00000173040,MGI:1915775,Limbin (Ellis-van Creveld syndrome protein 2) (EVC2),HGNC:19747
+EYA4,O95677,2070,ENSG00000112319,MGI:1337104,Eyes absent homolog 4 (EC 3.1.3.48),HGNC:3522
+FBLN5,Q9UBX5,10516,ENSG00000140092,MGI:1346091,Fibulin-5 (FIBL-5) (Developmental arteries and neural crest EGF-like protein) (Dance) (Urine p50 protein) (UP50),HGNC:3602
+FBN1,P35555,2200,ENSG00000166147,MGI:95489,Fibrillin-1 [Cleaved into: Asprosin],HGNC:3603
+FGD1,P98174,2245,ENSG00000102302,MGI:104566,"FYVE, RhoGEF and PH domain-containing protein 1 (Faciogenital dysplasia 1 protein) (Rho/Rac guanine nucleotide exchange factor FGD1) (Rho/Rac GEF) (Zinc finger FYVE domain-containing protein 3)",HGNC:3663
+FGF23,Q9GZV9,8074,ENSG00000118972,MGI:1891427,Fibroblast growth factor 23 (FGF-23) (Phosphatonin) (Tumor-derived hypophosphatemia-inducing factor) [Cleaved into: Fibroblast growth factor 23 N-terminal peptide; Fibroblast growth factor 23 C-terminal peptide],HGNC:3680
+FHL1,Q13642,2273,ENSG00000022267,MGI:1298387,Four and a half LIM domains protein 1 (FHL-1) (Skeletal muscle LIM-protein 1) (SLIM) (SLIM-1),HGNC:3702
+FIG4,Q92562,9896,ENSG00000112367,MGI:2143585,"Polyphosphoinositide phosphatase (EC 3.1.3.-) (Phosphatidylinositol 3,5-bisphosphate 5-phosphatase) (SAC domain-containing protein 3)",HGNC:16873
+FLNA,P21333,2316,ENSG00000196924,MGI:95556,Filamin-A (FLN-A) (Actin-binding protein 280) (ABP-280) (Alpha-filamin) (Endothelial actin-binding protein) (Filamin-1) (Non-muscle filamin),HGNC:3754
+FPGT-TNNI3K,,100526835,ENSG00000259030,No associated gene,,HGNC:42952
+FRAS1,Q86XX4,80144,ENSG00000138759,MGI:2385368,Extracellular matrix protein FRAS1,HGNC:19185
+FREM2,Q5SZK8,341640,ENSG00000150893,MGI:2444465,FRAS1-related extracellular matrix protein 2 (ECM3 homolog),HGNC:25396
+FUCA1,P04066,2517,ENSG00000179163,MGI:95593,Tissue alpha-L-fucosidase (EC 3.2.1.51) (Alpha-L-fucosidase I) (Alpha-L-fucoside fucohydrolase 1) (Alpha-L-fucosidase 1),HGNC:4006
+FXN,Q16595,2395,ENSG00000165060,MGI:1096879,"Frataxin, mitochondrial (EC 1.16.3.1) (Friedreich ataxia protein) (Fxn) [Cleaved into: Frataxin intermediate form (i-FXN); Frataxin(56-210) (m56-FXN); Frataxin(78-210) (d-FXN) (m78-FXN); Frataxin mature form (Frataxin(81-210)) (m81-FXN)]",HGNC:3951
+GAA,P10253,2548,ENSG00000171298,MGI:95609,Lysosomal alpha-glucosidase (EC 3.2.1.20) (Acid maltase) (Aglucosidase alfa) [Cleaved into: 76 kDa lysosomal alpha-glucosidase; 70 kDa lysosomal alpha-glucosidase],HGNC:4065
+GALNS,P34059,2588,ENSG00000141012,MGI:1355303,N-acetylgalactosamine-6-sulfatase (EC 3.1.6.4) (Chondroitinsulfatase) (Chondroitinase) (Galactose-6-sulfate sulfatase) (GalN6S) (N-acetylgalactosamine-6-sulfate sulfatase) (GalNAc6S sulfatase),HGNC:4122
+GATAD1,Q8WUU5,57798,ENSG00000157259,MGI:1914460,GATA zinc finger domain-containing protein 1 (Ocular development-associated gene protein),HGNC:29941
+GBA,P04062,2629,ENSG00000177628,MGI:95665,Glucosylceramidase (EC 3.2.1.45) (Acid beta-glucosidase) (Alglucerase) (Beta-glucocerebrosidase) (Beta-GC) (D-glucosyl-N-acylsphingosine glucohydrolase) (Imiglucerase),HGNC:4177
+GBE1,Q04446,2632,ENSG00000114480,MGI:1921435,"1,4-alpha-glucan-branching enzyme (EC 2.4.1.18) (Brancher enzyme) (Glycogen-branching enzyme)",HGNC:4180
+GDF2,Q9UK05,2658,ENSG00000263761,MGI:1321394,Growth/differentiation factor 2 (GDF-2) (Bone morphogenetic protein 9) (BMP-9),HGNC:4217
+GJA1,P17302,2697,ENSG00000152661,MGI:95713,Gap junction alpha-1 protein (Connexin-43) (Cx43) (Gap junction 43 kDa heart protein),HGNC:4274
+GJA5,P36382,2702,ENSG00000265107,MGI:95716,Gap junction alpha-5 protein (Connexin-40) (Cx40),HGNC:4279
+GLA,P06280,2717,ENSG00000102393,MGI:1347344,Alpha-galactosidase A (EC 3.2.1.22) (Alpha-D-galactosidase A) (Alpha-D-galactoside galactohydrolase) (Melibiase) (Agalsidase),HGNC:4296
+GLB1,P16278,2720,ENSG00000170266,MGI:88151,Beta-galactosidase (EC 3.2.1.23) (Acid beta-galactosidase) (Lactase) (Elastin receptor 1),HGNC:4298
+GLI3,P10071,2737,ENSG00000106571,MGI:95729,Transcriptional activator GLI3 (GLI3 form of 190 kDa) (GLI3-190) (GLI3 full-length protein) (GLI3FL) [Cleaved into: Transcriptional repressor GLI3R (GLI3 C-terminally truncated form) (GLI3 form of 83 kDa) (GLI3-83)],HGNC:4319
+GNA11,P29992,2767,ENSG00000088256,MGI:95766,Guanine nucleotide-binding protein subunit alpha-11 (G alpha-11) (G-protein subunit alpha-11) (Guanine nucleotide-binding protein G(y) subunit alpha),HGNC:4379
+GNAS,Q5JWF2,2778,ENSG00000087460,MGI:95777,Guanine nucleotide-binding protein G(s) subunit alpha isoforms XLas (Adenylate cyclase-stimulating G alpha protein) (Extra large alphas protein) (XLalphas),HGNC:4392
+GNPTAB,Q3T906,79158,ENSG00000111670,MGI:3643902,N-acetylglucosamine-1-phosphotransferase subunits alpha/beta (EC 2.7.8.17) (GlcNAc-1-phosphotransferase subunits alpha/beta) (Stealth protein GNPTAB) (UDP-N-acetylglucosamine-1-phosphotransferase subunits alpha/beta) [Cleaved into: N-acetylglucosamine-1-phosphotransferase subunit alpha; N-acetylglucosamine-1-phosphotransferase subunit beta],HGNC:29670
+GPC3,P51654,2719,ENSG00000147257,MGI:104903,Glypican-3 (GTR2-2) (Intestinal protein OCI-5) (MXR7) [Cleaved into: Secreted glypican-3],HGNC:4451
+GRIP1,Q9Y3R0,23426,ENSG00000155974,MGI:1921303,Glutamate receptor-interacting protein 1 (GRIP-1),HGNC:18708
+GSN,P06396,2934,ENSG00000148180,MGI:95851,Gelsolin (AGEL) (Actin-depolymerizing factor) (ADF) (Brevin),HGNC:4620
+GTPBP3,Q969Y2,84705,ENSG00000130299,MGI:1917609,"tRNA modification GTPase GTPBP3, mitochondrial (GTP-binding protein 3) (Mitochondrial GTP-binding protein 1)",HGNC:14880
+GUSB,P08236,2990,ENSG00000169919,MGI:95872,Beta-glucuronidase (EC 3.2.1.31) (Beta-G1),HGNC:4696
+GYS1,P13807,2997,ENSG00000104812,MGI:101805,"Glycogen [starch] synthase, muscle (EC 2.4.1.11)",HGNC:4706
+H19,,,ENSG00000130600,MGI:95891,,HGNC:4713
+HADH,Q16836,3033,ENSG00000138796,MGI:96009,"Hydroxyacyl-coenzyme A dehydrogenase, mitochondrial (HCDH) (EC 1.1.1.35) (Medium and short-chain L-3-hydroxyacyl-coenzyme A dehydrogenase) (Short-chain 3-hydroxyacyl-CoA dehydrogenase)",HGNC:4799
+HADHA,P40939,3030,ENSG00000084754,MGI:2135593,"Trifunctional enzyme subunit alpha, mitochondrial (78 kDa gastrin-binding protein) (TP-alpha) [Includes: Long-chain enoyl-CoA hydratase (EC 4.2.1.17); Long chain 3-hydroxyacyl-CoA dehydrogenase (EC 1.1.1.211)]",HGNC:4801
+HADHB,P55084,3032,ENSG00000138029,MGI:2136381,"Trifunctional enzyme subunit beta, mitochondrial (TP-beta) [Includes: 3-ketoacyl-CoA thiolase (EC 2.3.1.16) (Acetyl-CoA acyltransferase) (Beta-ketothiolase)]",HGNC:4803
+HBB,P68871,3043,ENSG00000244734,MGI:96020,Hemoglobin subunit beta (Beta-globin) (Hemoglobin beta chain) [Cleaved into: LVV-hemorphin-7; Spinorphin],HGNC:4827
+HEXB,P07686,3074,ENSG00000049860,MGI:96074,Beta-hexosaminidase subunit beta (EC 3.2.1.52) (Beta-N-acetylhexosaminidase subunit beta) (Hexosaminidase subunit B) (Cervical cancer proto-oncogene 7 protein) (HCC-7) (N-acetyl-beta-glucosaminidase subunit beta) [Cleaved into: Beta-hexosaminidase subunit beta chain B; Beta-hexosaminidase subunit beta chain A],HGNC:4879
+HFE,Q30201,3077,ENSG00000010704,MGI:109191,Hereditary hemochromatosis protein (HLA-H),HGNC:4886
+HLA-DRB1,P01911,3123,ENSG00000196126,,"HLA class II histocompatibility antigen, DRB1-15 beta chain (DW2.2/DR2.2) (MHC class II antigen DRB1*15)",HGNC:4948
+HPS1,Q92902,3257,ENSG00000107521,MGI:2177763,Hermansky-Pudlak syndrome 1 protein,HGNC:5163
+IDH2,P48735,3418,ENSG00000182054,MGI:96414,"Isocitrate dehydrogenase [NADP], mitochondrial (IDH) (EC 1.1.1.42) (ICD-M) (IDP) (NADP(+)-specific ICDH) (Oxalosuccinate decarboxylase)",HGNC:5383
+IDS,P22304,3423,ENSG00000010404,MGI:96417,Iduronate 2-sulfatase (EC 3.1.6.13) (Alpha-L-iduronate sulfate sulfatase) (Idursulfase) [Cleaved into: Iduronate 2-sulfatase 42 kDa chain; Iduronate 2-sulfatase 14 kDa chain],HGNC:5389
+IDUA,P35475,3425,ENSG00000127415,MGI:96418,Alpha-L-iduronidase (EC 3.2.1.76),HGNC:5391
+IFIH1,Q9BYX4,64135,ENSG00000115267,MGI:1918836,Interferon-induced helicase C domain-containing protein 1 (EC 3.6.4.13) (Clinically amyopathic dermatomyositis autoantigen 140 kDa) (CADM-140 autoantigen) (Helicase with 2 CARD domains) (Helicard) (Interferon-induced with helicase C domain protein 1) (Melanoma differentiation-associated protein 5) (MDA-5) (Murabutide down-regulated protein) (RIG-I-like receptor 2) (RLR-2) (RNA helicase-DEAD box protein 116),HGNC:18873
+IGHV4OR15-8,,,ENSG00000259261,No associated gene,,HGNC:5658
+IKBKG,Q9Y6K9,8517,ENSG00000269335,MGI:1338074,NF-kappa-B essential modulator (NEMO) (FIP-3) (IkB kinase-associated protein 1) (IKKAP1) (Inhibitor of nuclear factor kappa-B kinase subunit gamma) (I-kappa-B kinase subunit gamma) (IKK-gamma) (IKKG) (IkB kinase subunit gamma) (NF-kappa-B essential modifier),HGNC:5961
+IP6K1,Q92551,9807,ENSG00000176095,MGI:1351633,Inositol hexakisphosphate kinase 1 (InsP6 kinase 1) (EC 2.7.4.21) (Inositol hexaphosphate kinase 1),HGNC:18360
+IRF5,Q13568,3663,ENSG00000128604,MGI:1350924,Interferon regulatory factor 5 (IRF-5),HGNC:6120
+KCNJ5,P48544,3762,ENSG00000120457,MGI:104755,"G protein-activated inward rectifier potassium channel 4 (GIRK-4) (Cardiac inward rectifier) (CIR) (Heart KATP channel) (Inward rectifier K(+) channel Kir3.4) (IRK-4) (KATP-1) (Potassium channel, inwardly rectifying subfamily J member 5)",HGNC:6266
+KIF1B,O60333,23095,ENSG00000054523,MGI:108426,Kinesin-like protein KIF1B (Klp),HGNC:16636
+KRAS,P01116,3845,ENSG00000133703,MGI:96680,"GTPase KRas (K-Ras 2) (Ki-Ras) (c-K-ras) (c-Ki-ras) [Cleaved into: GTPase KRas, N-terminally processed]",HGNC:6407
+LAMA4,Q16363,3910,ENSG00000112769,MGI:109321,Laminin subunit alpha-4 (Laminin-14 subunit alpha) (Laminin-8 subunit alpha) (Laminin-9 subunit alpha),HGNC:6484
+LAMP2,P13473,3920,ENSG00000005893,MGI:96748,Lysosome-associated membrane glycoprotein 2 (LAMP-2) (Lysosome-associated membrane protein 2) (CD107 antigen-like family member B) (LGP-96) (CD antigen CD107b),HGNC:6501
+LBR,Q14739,3930,ENSG00000143815,MGI:2138281,Lamin-B receptor (Integral nuclear envelope inner membrane protein) (LMN2R),HGNC:6518
+LMNA,P02545,4000,ENSG00000160789,MGI:96794,Prelamin-A/C [Cleaved into: Lamin-A/C (70 kDa lamin) (Renal carcinoma antigen NY-REN-32)],HGNC:6636
+MAP2K1,Q02750,5604,ENSG00000169032,MGI:1346866,Dual specificity mitogen-activated protein kinase kinase 1 (MAP kinase kinase 1) (MAPKK 1) (MKK1) (EC 2.7.12.2) (ERK activator kinase 1) (MAPK/ERK kinase 1) (MEK 1),HGNC:6840
+MAP2K2,P36507,5605,ENSG00000126934,MGI:1346867,Dual specificity mitogen-activated protein kinase kinase 2 (MAP kinase kinase 2) (MAPKK 2) (EC 2.7.12.2) (ERK activator kinase 2) (MAPK/ERK kinase 2) (MEK 2),HGNC:6842
+MED12,Q93074,9968,ENSG00000184634,MGI:1926212,Mediator of RNA polymerase II transcription subunit 12 (Activator-recruited cofactor 240 kDa component) (ARC240) (CAG repeat protein 45) (Mediator complex subunit 12) (OPA-containing protein) (Thyroid hormone receptor-associated protein complex 230 kDa component) (Trap230) (Trinucleotide repeat-containing gene 11 protein),HGNC:11957
+MGME1,Q9BQP7,92667,ENSG00000125871,MGI:1921778,Mitochondrial genome maintenance exonuclease 1 (EC 3.1.-.-),HGNC:16205
+MUT,P22033,4594,ENSG00000146085,MGI:97239,"Methylmalonyl-CoA mutase, mitochondrial (MCM) (EC 5.4.99.2) (Methylmalonyl-CoA isomerase)",HGNC:7526
+MYBPC3,Q14896,4607,ENSG00000134571,MGI:102844,"Myosin-binding protein C, cardiac-type (Cardiac MyBP-C) (C-protein, cardiac muscle isoform)",HGNC:7551
+MYD88,Q99836,4615,ENSG00000172936,MGI:108005,Myeloid differentiation primary response protein MyD88,HGNC:7562
+MYH6,P13533,4624,ENSG00000197616,MGI:97255,"Myosin-6 (Myosin heavy chain 6) (Myosin heavy chain, cardiac muscle alpha isoform) (MyHC-alpha)",HGNC:7576
+MYH7,P12883,4625,ENSG00000092054,MGI:2155600,"Myosin-7 (Myosin heavy chain 7) (Myosin heavy chain slow isoform) (MyHC-slow) (Myosin heavy chain, cardiac muscle beta isoform) (MyHC-beta)",HGNC:7577
+MYLK2,Q9H1R3,85366,ENSG00000101306,MGI:2139434,"Myosin light chain kinase 2, skeletal/cardiac muscle (MLCK2) (EC 2.7.11.18)",HGNC:16243
+MYOT,Q9UBF9,9499,ENSG00000120729,MGI:1889800,Myotilin (57 kDa cytoskeletal protein) (Myofibrillar titin-like Ig domains protein) (Titin immunoglobulin domain protein),HGNC:12399
+NAGA,P17050,4668,ENSG00000198951,MGI:1261422,Alpha-N-acetylgalactosaminidase (EC 3.2.1.49) (Alpha-galactosidase B),HGNC:7631
+NAGLU,P54802,4669,ENSG00000108784,MGI:1351641,Alpha-N-acetylglucosaminidase (EC 3.2.1.50) (N-acetyl-alpha-glucosaminidase) (NAG) [Cleaved into: Alpha-N-acetylglucosaminidase 82 kDa form; Alpha-N-acetylglucosaminidase 77 kDa form],HGNC:7632
+NEU1,Q99519,4758,ENSG00000204386,MGI:97305,Sialidase-1 (EC 3.2.1.18) (Acetylneuraminyl hydrolase) (G9 sialidase) (Lysosomal sialidase) (N-acetyl-alpha-neuraminidase 1),HGNC:7758
+NEXN,Q0ZGT2,91624,ENSG00000162614,MGI:1916060,Nexilin (F-actin-binding protein) (Nelin),HGNC:29557
+NPPA,P01160,4878,ENSG00000175206,MGI:97367,Natriuretic peptides A (CDD-ANF) (Cardiodilatin) (CDD) (Cardiodilatin-related peptide) (CDP) (Prepronatriodilatin) [Cleaved into: Atrial natriuretic factor (ANF) (Atrial natriuretic peptide) (ANP)],HGNC:7939
+NSD1,Q96L73,64324,ENSG00000165671,MGI:1276545,"Histone-lysine N-methyltransferase, H3 lysine-36 and H4 lysine-20 specific (EC 2.1.1.43) (Androgen receptor coactivator 267 kDa protein) (Androgen receptor-associated protein of 267 kDa) (H3-K36-HMTase) (H4-K20-HMTase) (Lysine N-methyltransferase 3B) (Nuclear receptor-binding SET domain-containing protein 1) (NR-binding SET domain-containing protein)",HGNC:14234
+NSDHL,Q15738,50814,ENSG00000147383,MGI:1099438,"Sterol-4-alpha-carboxylate 3-dehydrogenase, decarboxylating (EC 1.1.1.170) (Protein H105e3)",HGNC:13398
+OFD1,O75665,8481,ENSG00000046651,MGI:1350328,Oral-facial-digital syndrome 1 protein (Protein 71-7A),HGNC:2567
+PCCA,P05165,5095,ENSG00000175198,MGI:97499,"Propionyl-CoA carboxylase alpha chain, mitochondrial (PCCase subunit alpha) (EC 6.4.1.3) (Propanoyl-CoA:carbon dioxide ligase subunit alpha)",HGNC:8653
+PCCB,P05166,5096,ENSG00000114054,MGI:1914154,"Propionyl-CoA carboxylase beta chain, mitochondrial (PCCase subunit beta) (EC 6.4.1.3) (Propanoyl-CoA:carbon dioxide ligase subunit beta)",HGNC:8654
+PGM1,P36871,5236,ENSG00000079739,MGI:97564,Phosphoglucomutase-1 (PGM 1) (EC 5.4.2.2) (Glucose phosphomutase 1),HGNC:8905
+PHYH,O14832,5264,ENSG00000107537,MGI:891978,"Phytanoyl-CoA dioxygenase, peroxisomal (EC 1.14.11.18) (Phytanic acid oxidase) (Phytanoyl-CoA alpha-hydroxylase) (PhyH)",HGNC:8940
+PLN,P26678,5350,ENSG00000198523,MGI:97622,Cardiac phospholamban (PLB),HGNC:9080
+PLOD1,Q02809,5351,ENSG00000083444,MGI:99907,"Procollagen-lysine,2-oxoglutarate 5-dioxygenase 1 (EC 1.14.11.4) (Lysyl hydroxylase 1) (LH1)",HGNC:9081
+PMM2,O15305,5373,ENSG00000140650,MGI:1859214,Phosphomannomutase 2 (PMM 2) (EC 5.4.2.8),HGNC:9115
+PNPLA2,Q96AD5,57104,ENSG00000177666,MGI:1914103,Patatin-like phospholipase domain-containing protein 2 (EC 3.1.1.3) (Adipose triglyceride lipase) (Calcium-independent phospholipase A2) (Desnutrin) (IPLA2-zeta) (Pigment epithelium-derived factor) (TTS2.2) (Transport-secretion protein 2) (TTS2),HGNC:30802
+POLG,P54098,5428,ENSG00000140521,MGI:1196389,DNA polymerase subunit gamma-1 (EC 2.7.7.7) (Mitochondrial DNA polymerase catalytic subunit) (PolG-alpha),HGNC:9179
+POMT1,Q9Y6A1,10585,ENSG00000130714,MGI:2138994,Protein O-mannosyl-transferase 1 (EC 2.4.1.109) (Dolichyl-phosphate-mannose--protein mannosyltransferase 1),HGNC:9202
+PRKAG2,Q9UGJ0,51422,ENSG00000106617,MGI:1336153,5'-AMP-activated protein kinase subunit gamma-2 (AMPK gamma2) (AMPK subunit gamma-2) (H91620p),HGNC:9386
+PRKAR1A,P10644,5573,ENSG00000108946,MGI:104878,cAMP-dependent protein kinase type I-alpha regulatory subunit (Tissue-specific extinguisher 1) (TSE1),HGNC:9388
+PSEN2,P49810,5664,ENSG00000143801,MGI:109284,Presenilin-2 (PS-2) (EC 3.4.23.-) (AD3LP) (AD5) (E5-1) (STM-2) [Cleaved into: Presenilin-2 NTF subunit; Presenilin-2 CTF subunit],HGNC:9509
+PSMB8,P28062,5696,ENSG00000204264,MGI:1346527,Proteasome subunit beta type-8 (EC 3.4.25.1) (Low molecular mass protein 7) (Macropain subunit C13) (Multicatalytic endopeptidase complex subunit C13) (Proteasome component C13) (Proteasome subunit beta-5i) (Really interesting new gene 10 protein),HGNC:9545
+PTEN,P60484,5728,ENSG00000171862,MGI:109583,"Phosphatidylinositol 3,4,5-trisphosphate 3-phosphatase and dual-specificity protein phosphatase PTEN (EC 3.1.3.16) (EC 3.1.3.48) (EC 3.1.3.67) (Mutated in multiple advanced cancers 1) (Phosphatase and tensin homolog)",HGNC:9588
+RAB3GAP2,Q9H2M9,25782,ENSG00000118873,MGI:1916043,Rab3 GTPase-activating protein non-catalytic subunit (RGAP-iso) (Rab3 GTPase-activating protein 150 kDa subunit) (Rab3-GAP p150) (Rab3-GAP150) (Rab3-GAP regulatory subunit),HGNC:17168
+RAF1,P04049,5894,ENSG00000132155,MGI:97847,RAF proto-oncogene serine/threonine-protein kinase (EC 2.7.11.1) (Proto-oncogene c-RAF) (cRaf) (Raf-1),HGNC:9829
+RBBP8,Q99708,5932,ENSG00000101773,MGI:2442995,DNA endonuclease RBBP8 (EC 3.1.-.-) (CtBP-interacting protein) (CtIP) (Retinoblastoma-binding protein 8) (RBBP-8) (Retinoblastoma-interacting protein and myosin-like) (RIM) (Sporulation in the absence of SPO11 protein 2 homolog) (SAE2),HGNC:9891
+RBCK1,Q9BYM8,10616,ENSG00000125826,MGI:1344372,RanBP-type and C3HC4-type zinc finger-containing protein 1 (EC 2.3.2.27) (HBV-associated factor 4) (Heme-oxidized IRP2 ubiquitin ligase 1) (HOIL-1) (Hepatitis B virus X-associated protein 4) (RING finger protein 54) (RING-type E3 ubiquitin transferase HOIL-1) (Ubiquitin-conjugating enzyme 7-interacting protein 3),HGNC:15864
+RET,P07949,5979,ENSG00000165731,MGI:97902,Proto-oncogene tyrosine-protein kinase receptor Ret (EC 2.7.10.1) (Cadherin family member 12) (Proto-oncogene c-Ret) [Cleaved into: Soluble RET kinase fragment; Extracellular cell-membrane anchored RET cadherin 120 kDa fragment],HGNC:9967
+RMND1,Q9NWS8,55005,ENSG00000155906,MGI:1913334,Required for meiotic nuclear division protein 1 homolog,HGNC:21176
+RPS19,P39019,6223,ENSG00000105372,MGI:1333780,40S ribosomal protein S19 (Small ribosomal subunit protein eS19),HGNC:10402
+SCN4A,P35499,6329,ENSG00000007314,MGI:98250,Sodium channel protein type 4 subunit alpha (SkM1) (Sodium channel protein skeletal muscle subunit alpha) (Sodium channel protein type IV subunit alpha) (Voltage-gated sodium channel subunit alpha Nav1.4),HGNC:10591
+SCN5A,Q14524,6331,ENSG00000183873,MGI:98251,Sodium channel protein type 5 subunit alpha (HH1) (Sodium channel protein cardiac muscle subunit alpha) (Sodium channel protein type V subunit alpha) (Voltage-gated sodium channel subunit alpha Nav1.5),HGNC:10593
+SDHA,P31040,6389,ENSG00000073578,MGI:1914195,"Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial (EC 1.3.5.1) (Flavoprotein subunit of complex II) (Fp)",HGNC:10680
+SDHAP2,,,ENSG00000215837,No associated gene,,HGNC:27408
+SDHB,P21912,6390,ENSG00000117118,MGI:1914930,"Succinate dehydrogenase [ubiquinone] iron-sulfur subunit, mitochondrial (EC 1.3.5.1) (Iron-sulfur subunit of complex II) (Ip)",HGNC:10681
+SGCA,Q16586,6442,ENSG00000108823,MGI:894698,Alpha-sarcoglycan (Alpha-SG) (50 kDa dystrophin-associated glycoprotein) (50DAG) (Adhalin) (Dystroglycan-2),HGNC:10805
+SGCB,Q16585,6443,ENSG00000163069,MGI:1346523,Beta-sarcoglycan (Beta-SG) (43 kDa dystrophin-associated glycoprotein) (43DAG) (A3b),HGNC:10806
+SGCD,Q92629,6444,ENSG00000170624,MGI:1346525,Delta-sarcoglycan (Delta-SG) (35 kDa dystrophin-associated glycoprotein) (35DAG),HGNC:10807
+SGCG,Q13326,6445,ENSG00000102683,MGI:1346524,Gamma-sarcoglycan (Gamma-SG) (35 kDa dystrophin-associated glycoprotein) (35DAG),HGNC:10809
+SLC16A14,Q7RTX9,151473,ENSG00000163053,MGI:1919031,Monocarboxylate transporter 14 (MCT 14) (Solute carrier family 16 member 14),HGNC:26417
+SLC17A5,Q9NRA2,26503,ENSG00000119899,MGI:1924105,Sialin (H(+)/nitrate cotransporter) (H(+)/sialic acid cotransporter) (AST) (Membrane glycoprotein HP59) (Solute carrier family 17 member 5) (Vesicular H(+)/Aspartate-glutamate cotransporter),HGNC:10933
+SLC19A2,O60779,10560,ENSG00000117479,MGI:1928761,Thiamine transporter 1 (ThTr-1) (ThTr1) (Solute carrier family 19 member 2) (Thiamine carrier 1) (TC1),HGNC:10938
+SLC22A5,O76082,6584,ENSG00000197375,MGI:1329012,Solute carrier family 22 member 5 (High-affinity sodium-dependent carnitine cotransporter) (Organic cation/carnitine transporter 2),HGNC:10969
+SLC25A20,O43772,788,ENSG00000178537,MGI:1928738,Mitochondrial carnitine/acylcarnitine carrier protein (Carnitine/acylcarnitine translocase) (CAC) (Solute carrier family 25 member 20),HGNC:1421
+SLC29A3,Q9BZD2,55315,ENSG00000198246,MGI:1918529,Equilibrative nucleoside transporter 3 (hENT3) (Solute carrier family 29 member 3),HGNC:23096
+SLC2A10,O95528,81031,ENSG00000197496,MGI:2156687,"Solute carrier family 2, facilitated glucose transporter member 10 (Glucose transporter type 10) (GLUT-10)",HGNC:13444
+SMAD4,Q13485,4089,ENSG00000141646,MGI:894293,Mothers against decapentaplegic homolog 4 (MAD homolog 4) (Mothers against DPP homolog 4) (Deletion target in pancreatic carcinoma 4) (SMAD family member 4) (SMAD 4) (Smad4) (hSMAD4),HGNC:6770
+SNAP29,O95721,9342,ENSG00000099940,MGI:1914724,Synaptosomal-associated protein 29 (SNAP-29) (Soluble 29 kDa NSF attachment protein) (Vesicle-membrane fusion protein SNAP-29),HGNC:11133
+SPEG,Q15772,100996693,ENSG00000072195,MGI:109282,Striated muscle preferentially expressed protein kinase (EC 2.7.11.1) (Aortic preferentially expressed protein 1) (APEG-1),HGNC:16901
+SYNE2,Q8WXH0,23224,ENSG00000054654,MGI:2449316,Nesprin-2 (KASH domain-containing protein 2) (KASH2) (Nuclear envelope spectrin repeat protein 2) (Nucleus and actin connecting element protein) (Protein NUANCE) (Synaptic nuclear envelope protein 2) (Syne-2),HGNC:17084
+TAZ,Q16635,6901,ENSG00000102125,MGI:109626,Tafazzin (Protein G4.5),HGNC:11577
+TCAP,O15273,8557,ENSG00000173991,MGI:1330233,Telethonin (Titin cap protein),HGNC:11610
+TF,P02787,7018,ENSG00000091513,MGI:98821,Serotransferrin (Transferrin) (Beta-1 metal-binding globulin) (Siderophilin),HGNC:11740
+TMEM70,Q9BUB7,54968,ENSG00000175606,MGI:1915068,"Transmembrane protein 70, mitochondrial",HGNC:26050
+TMPO,P42167,7112,ENSG00000120802,MGI:106920,"Lamina-associated polypeptide 2, isoforms beta/gamma (Thymopoietin, isoforms beta/gamma) (TP beta/gamma) (Thymopoietin-related peptide isoforms beta/gamma) (TPRP isoforms beta/gamma) [Cleaved into: Thymopoietin (TP) (Splenin); Thymopentin (TP5)]",HGNC:11875
+TNNC1,P63316,7134,ENSG00000114854,MGI:98779,"Troponin C, slow skeletal and cardiac muscles (TN-C)",HGNC:11943
+TNNI3,P19429,7137,ENSG00000129991,MGI:98783,"Troponin I, cardiac muscle (Cardiac troponin I)",HGNC:11947
+TNNT2,P45379,7139,ENSG00000118194,MGI:104597,"Troponin T, cardiac muscle (TnTc) (Cardiac muscle troponin T) (cTnT)",HGNC:11949
+TPI1,P60174,7167,ENSG00000111669,MGI:98797,Triosephosphate isomerase (TIM) (EC 5.3.1.1) (Triose-phosphate isomerase),HGNC:12009
+TPM1,P09493,7168,ENSG00000140416,MGI:98809,Tropomyosin alpha-1 chain (Alpha-tropomyosin) (Tropomyosin-1),HGNC:12010
+TRIM37,O94972,4591,ENSG00000108395,MGI:2153072,E3 ubiquitin-protein ligase TRIM37 (EC 2.3.2.27) (Mulibrey nanism protein) (RING-type E3 ubiquitin transferase TRIM37) (Tripartite motif-containing protein 37),HGNC:7523
+TRNT1,Q96Q11,51095,ENSG00000072756,MGI:1917297,"CCA tRNA nucleotidyltransferase 1, mitochondrial (EC 2.7.7.72) (Mitochondrial tRNA nucleotidyl transferase, CCA-adding) (mt CCA-adding enzyme) (mt tRNA CCA-diphosphorylase) (mt tRNA CCA-pyrophosphorylase) (mt tRNA adenylyltransferase)",HGNC:17341
+TSC1,Q92574,7248,ENSG00000165699,MGI:1929183,Hamartin (Tuberous sclerosis 1 protein),HGNC:12362
+TSC2,P49815,7249,ENSG00000103197,MGI:102548,Tuberin (Tuberous sclerosis 2 protein),HGNC:12363
+TSFM,P43897,10102,ENSG00000123297,MGI:1913649,"Elongation factor Ts, mitochondrial (EF-Ts) (EF-TsMt)",HGNC:12367
+TTN,Q8WZ42,7273,ENSG00000155657,MGI:98864,Titin (EC 2.7.11.1) (Connectin) (Rhabdomyosarcoma antigen MU-RMS-40.14),HGNC:12403
+TTR,P02766,7276,ENSG00000118271,MGI:98865,Transthyretin (ATTR) (Prealbumin) (TBPA),HGNC:12405
+UBR1,Q8IWV7,197131,ENSG00000159459,MGI:1277977,E3 ubiquitin-protein ligase UBR1 (EC 2.3.2.27) (N-recognin-1) (RING-type E3 ubiquitin transferase UBR1) (Ubiquitin-protein ligase E3-alpha-1) (Ubiquitin-protein ligase E3-alpha-I),HGNC:16808
+VCL,P18206,7414,ENSG00000035403,MGI:98927,Vinculin (Metavinculin) (MV),HGNC:12665
+VHL,P40337,7428,ENSG00000134086,MGI:103223,von Hippel-Lindau disease tumor suppressor (Protein G7) (pVHL),HGNC:12687
+WFS1,O76024,7466,ENSG00000109501,MGI:1328355,Wolframin,HGNC:12762
+WRN,Q14191,7486,ENSG00000165392,MGI:109635,"Werner syndrome ATP-dependent helicase (EC 3.6.4.12) (DNA helicase, RecQ-like type 3) (RecQ3) (Exonuclease WRN) (EC 3.1.-.-) (RecQ protein-like 2)",HGNC:12791
+XK,P51811,7504,ENSG00000047597,MGI:103569,Membrane transport protein XK (Kell complex 37 kDa component) (Kx antigen) (XK-related protein 1),HGNC:12811
+ATP5A1,P25705,498,ENSG00000152234,MGI:88115,"ATP synthase subunit alpha, mitochondrial (ATP synthase F1 subunit alpha)",HGNC:823
+C10orf2,Q96RR1,56652,ENSG00000107815,MGI:2137410,"Twinkle protein, mitochondrial (EC 3.6.4.12) (Progressive external ophthalmoplegia 1 protein) (T7 gp4-like protein with intramitochondrial nucleoid localization) (T7-like mitochondrial DNA helicase) (Twinkle mtDNA helicase)",HGNC:1160
+HFE2,Q6ZVN8,148738,ENSG00000168509,MGI:1916835,Hemojuvelin (Hemochromatosis type 2 protein) (RGM domain family member C),HGNC:4887
+SEPN1,Q9NZV5,57190,ENSG00000162430,,Selenoprotein N (SelN),HGNC:15999
+A2ML1,A8K2U0,144568,ENSG00000166535,MGI:3039594,Alpha-2-macroglobulin-like protein 1 (C3 and PZP-like alpha-2-macroglobulin domain-containing protein 9),HGNC:23336
+CBL,P22681,867,ENSG00000110395,MGI:88279,E3 ubiquitin-protein ligase CBL (EC 2.3.2.27) (Casitas B-lineage lymphoma proto-oncogene) (Proto-oncogene c-Cbl) (RING finger protein 55) (RING-type E3 ubiquitin transferase CBL) (Signal transduction protein CBL),HGNC:1541
+HRAS,P01112,3265,ENSG00000174775,MGI:96224,"GTPase HRas (H-Ras-1) (Ha-Ras) (Transforming protein p21) (c-H-ras) (p21ras) [Cleaved into: GTPase HRas, N-terminally processed]",HGNC:5173
+LZTR1,Q8N653,8216,ENSG00000099949,MGI:1914113,Leucine-zipper-like transcriptional regulator 1 (LZTR-1),HGNC:6742
+NF1,P21359,4763,ENSG00000196712,MGI:97306,Neurofibromin (Neurofibromatosis-related protein NF-1) [Cleaved into: Neurofibromin truncated],HGNC:7765
+NRAS,P01111,4893,ENSG00000213281,MGI:97376,GTPase NRas (Transforming protein N-Ras),HGNC:7989
+PPP1cb,P62140,5500,ENSG00000213639,MGI:104871,Serine/threonine-protein phosphatase PP1-beta catalytic subunit (PP-1B) (PPP1CD) (EC 3.1.3.16) (EC 3.1.3.53),HGNC:9282
+PTPN11,Q06124,5781,ENSG00000179295,MGI:99511,Tyrosine-protein phosphatase non-receptor type 11 (EC 3.1.3.48) (Protein-tyrosine phosphatase 1D) (PTP-1D) (Protein-tyrosine phosphatase 2C) (PTP-2C) (SH-PTP2) (SHP-2) (Shp2) (SH-PTP3),HGNC:9644
+RASA2,Q15283,5922,ENSG00000155903,MGI:2149960,Ras GTPase-activating protein 2 (GTPase-activating protein 1m) (GAP1m),HGNC:9872
+RIT1,Q92963,6016,ENSG00000143622,MGI:108053,GTP-binding protein Rit1 (Ras-like protein expressed in many tissues) (Ras-like without CAAX protein 1),HGNC:10023
+RRAS,P10301,6237,ENSG00000126458,MGI:98179,Ras-related protein R-Ras (p23),HGNC:10447
+SHOC2,Q9UQ13,8036,ENSG00000108061,MGI:1927197,Leucine-rich repeat protein SHOC-2 (Protein soc-2 homolog) (Protein sur-8 homolog),HGNC:15454
+SOS1,Q07889,6654,ENSG00000115904,MGI:98354,Son of sevenless homolog 1 (SOS-1),HGNC:11187
+SOS2,Q07890,6655,ENSG00000100485,MGI:98355,Son of sevenless homolog 2 (SOS-2),HGNC:11188
+MYL2,P10916,4633,ENSG00000111245,MGI:97272,"Myosin regulatory light chain 2, ventricular/cardiac muscle isoform (MLC-2) (MLC-2v) (Cardiac myosin light chain 2) (Myosin light chain 2, slow skeletal/ventricular muscle isoform) (MLC-2s/v) (Ventricular myosin light chain 2)",HGNC:7583
+MYL3,P08590,4634,ENSG00000160808,MGI:97268,"Myosin light chain 3 (Cardiac myosin light chain 1) (CMLC1) (Myosin light chain 1, slow-twitch muscle B/ventricular isoform) (MLC1SB) (Ventricular myosin alkali light chain) (Ventricular myosin light chain 1) (VLCl) (Ventricular/slow twitch myosin alkali light chain) (MLC-lV/sb)",HGNC:7584
+MYOZ2,Q9NPC6,51778,ENSG00000172399,MGI:1913063,Myozenin-2 (Calsarcin-1) (FATZ-related protein 2),HGNC:1330
+ANKRD1,Q15327,27063,ENSG00000148677,MGI:1097717,Ankyrin repeat domain-containing protein 1 (Cardiac ankyrin repeat protein) (Cytokine-inducible gene C-193 protein) (Cytokine-inducible nuclear protein),HGNC:15819
+CTF1,Q16619,1489,ENSG00000150281,MGI:105115,Cardiotrophin-1 (CT-1),HGNC:2499
+FHL2,Q14192,2274,ENSG00000115641,MGI:1338762,Four and a half LIM domains protein 2 (FHL-2) (LIM domain protein DRAL) (Skeletal muscle LIM-protein 3) (SLIM-3),HGNC:3703
+NEBL,O76041,10529,ENSG00000078114,MGI:1921353,Nebulette (Actin-binding Z-disk protein),HGNC:16932
+RYR2,Q92736,6262,ENSG00000198626,MGI:99685,Ryanodine receptor 2 (RYR-2) (RyR2) (hRYR-2) (Cardiac muscle ryanodine receptor) (Cardiac muscle ryanodine receptor-calcium release channel) (Type 2 ryanodine receptor),HGNC:10484
+DSC2,Q02487,1824,ENSG00000134755,MGI:103221,Desmocollin-2 (Cadherin family member 2) (Desmocollin-3) (Desmosomal glycoprotein II) (Desmosomal glycoprotein III),HGNC:3036
+PKP2,Q99959,5318,ENSG00000057294,MGI:1914701,Plakophilin-2,HGNC:9024

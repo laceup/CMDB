@@ -20,7 +20,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: drug; Type: TABLE; Schema: public; Owner: postgres
+-- Name: drug; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.drug (
@@ -31,10 +31,8 @@ CREATE TABLE public.drug (
 );
 
 
-ALTER TABLE public.drug OWNER TO postgres;
-
 --
--- Name: drug_target; Type: TABLE; Schema: public; Owner: postgres
+-- Name: drug_target; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.drug_target (
@@ -52,10 +50,8 @@ CREATE TABLE public.drug_target (
 );
 
 
-ALTER TABLE public.drug_target OWNER TO postgres;
-
 --
--- Name: drug_target_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: drug_target_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.drug_target_id_seq
@@ -67,17 +63,15 @@ CREATE SEQUENCE public.drug_target_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.drug_target_id_seq OWNER TO postgres;
-
 --
--- Name: drug_target_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: drug_target_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.drug_target_id_seq OWNED BY public.drug_target.id;
 
 
 --
--- Name: ensembl; Type: TABLE; Schema: public; Owner: postgres
+-- Name: ensembl; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.ensembl (
@@ -91,10 +85,8 @@ CREATE TABLE public.ensembl (
 );
 
 
-ALTER TABLE public.ensembl OWNER TO postgres;
-
 --
--- Name: exac; Type: TABLE; Schema: public; Owner: postgres
+-- Name: exac; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.exac (
@@ -127,10 +119,8 @@ CREATE TABLE public.exac (
 );
 
 
-ALTER TABLE public.exac OWNER TO postgres;
-
 --
--- Name: exac_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: exac_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.exac_id_seq
@@ -142,17 +132,15 @@ CREATE SEQUENCE public.exac_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.exac_id_seq OWNER TO postgres;
-
 --
--- Name: exac_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: exac_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.exac_id_seq OWNED BY public.exac.id;
 
 
 --
--- Name: gene; Type: TABLE; Schema: public; Owner: postgres
+-- Name: gene; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.gene (
@@ -166,10 +154,8 @@ CREATE TABLE public.gene (
 );
 
 
-ALTER TABLE public.gene OWNER TO postgres;
-
 --
--- Name: phenotype_impc; Type: TABLE; Schema: public; Owner: postgres
+-- Name: phenotype_impc; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.phenotype_impc (
@@ -183,10 +169,8 @@ CREATE TABLE public.phenotype_impc (
 );
 
 
-ALTER TABLE public.phenotype_impc OWNER TO postgres;
-
 --
--- Name: phenotype_mgi; Type: TABLE; Schema: public; Owner: postgres
+-- Name: phenotype_mgi; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.phenotype_mgi (
@@ -201,10 +185,8 @@ CREATE TABLE public.phenotype_mgi (
 );
 
 
-ALTER TABLE public.phenotype_mgi OWNER TO postgres;
-
 --
--- Name: gene_mp_id; Type: VIEW; Schema: public; Owner: postgres
+-- Name: gene_mp_id; Type: VIEW; Schema: public; Owner: -
 --
 
 CREATE VIEW public.gene_mp_id AS
@@ -221,10 +203,8 @@ CREATE VIEW public.gene_mp_id AS
           WHERE ((phenotype_mgi.mp_id IS NOT NULL) AND (phenotype_mgi.mp_id <> ''::text))) gene_mp_id;
 
 
-ALTER TABLE public.gene_mp_id OWNER TO postgres;
-
 --
--- Name: gene_ontology; Type: TABLE; Schema: public; Owner: postgres
+-- Name: gene_ontology; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.gene_ontology (
@@ -233,10 +213,8 @@ CREATE TABLE public.gene_ontology (
 );
 
 
-ALTER TABLE public.gene_ontology OWNER TO postgres;
-
 --
--- Name: go_biological_process; Type: TABLE; Schema: public; Owner: postgres
+-- Name: go_biological_process; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.go_biological_process (
@@ -245,10 +223,8 @@ CREATE TABLE public.go_biological_process (
 );
 
 
-ALTER TABLE public.go_biological_process OWNER TO postgres;
-
 --
--- Name: go_cellular_component; Type: TABLE; Schema: public; Owner: postgres
+-- Name: go_cellular_component; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.go_cellular_component (
@@ -257,10 +233,8 @@ CREATE TABLE public.go_cellular_component (
 );
 
 
-ALTER TABLE public.go_cellular_component OWNER TO postgres;
-
 --
--- Name: go_molecular_function; Type: TABLE; Schema: public; Owner: postgres
+-- Name: go_molecular_function; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.go_molecular_function (
@@ -269,14 +243,11 @@ CREATE TABLE public.go_molecular_function (
 );
 
 
-ALTER TABLE public.go_molecular_function OWNER TO postgres;
-
 --
--- Name: pathway; Type: TABLE; Schema: public; Owner: postgres
+-- Name: pathway; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.pathway (
-    id integer NOT NULL,
     name text NOT NULL,
     data text NOT NULL,
     external_id text NOT NULL,
@@ -284,32 +255,8 @@ CREATE TABLE public.pathway (
 );
 
 
-ALTER TABLE public.pathway OWNER TO postgres;
-
 --
--- Name: pathway_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.pathway_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.pathway_id_seq OWNER TO postgres;
-
---
--- Name: pathway_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.pathway_id_seq OWNED BY public.pathway.id;
-
-
---
--- Name: phenotype; Type: TABLE; Schema: public; Owner: postgres
+-- Name: phenotype; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.phenotype (
@@ -323,10 +270,8 @@ CREATE TABLE public.phenotype (
 );
 
 
-ALTER TABLE public.phenotype OWNER TO postgres;
-
 --
--- Name: phenotype_def; Type: TABLE; Schema: public; Owner: postgres
+-- Name: phenotype_def; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.phenotype_def (
@@ -336,10 +281,8 @@ CREATE TABLE public.phenotype_def (
 );
 
 
-ALTER TABLE public.phenotype_def OWNER TO postgres;
-
 --
--- Name: phenotype_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: phenotype_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.phenotype_id_seq
@@ -351,17 +294,15 @@ CREATE SEQUENCE public.phenotype_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.phenotype_id_seq OWNER TO postgres;
-
 --
--- Name: phenotype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: phenotype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.phenotype_id_seq OWNED BY public.phenotype.id;
 
 
 --
--- Name: phenotype_impc_no_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: phenotype_impc_no_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.phenotype_impc_no_seq
@@ -373,17 +314,15 @@ CREATE SEQUENCE public.phenotype_impc_no_seq
     CACHE 1;
 
 
-ALTER TABLE public.phenotype_impc_no_seq OWNER TO postgres;
-
 --
--- Name: phenotype_impc_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: phenotype_impc_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.phenotype_impc_no_seq OWNED BY public.phenotype_impc.no;
 
 
 --
--- Name: phenotype_mgi_no_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: phenotype_mgi_no_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.phenotype_mgi_no_seq
@@ -395,17 +334,15 @@ CREATE SEQUENCE public.phenotype_mgi_no_seq
     CACHE 1;
 
 
-ALTER TABLE public.phenotype_mgi_no_seq OWNER TO postgres;
-
 --
--- Name: phenotype_mgi_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: phenotype_mgi_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.phenotype_mgi_no_seq OWNED BY public.phenotype_mgi.no;
 
 
 --
--- Name: ppi; Type: TABLE; Schema: public; Owner: postgres
+-- Name: ppi; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.ppi (
@@ -421,10 +358,8 @@ CREATE TABLE public.ppi (
 );
 
 
-ALTER TABLE public.ppi OWNER TO postgres;
-
 --
--- Name: ppi_ppi_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: ppi_ppi_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.ppi_ppi_id_seq
@@ -436,17 +371,86 @@ CREATE SEQUENCE public.ppi_ppi_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.ppi_ppi_id_seq OWNER TO postgres;
-
 --
--- Name: ppi_ppi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: ppi_ppi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.ppi_ppi_id_seq OWNED BY public.ppi.ppi_id;
 
 
 --
--- Name: protein; Type: TABLE; Schema: public; Owner: postgres
+-- Name: ppi_raw; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.ppi_raw (
+    id_interactor_a text NOT NULL,
+    id_interactor_b text,
+    alt_id_interactor_a text,
+    alt_id_interactor_b text,
+    alias_interactor_a text,
+    alias_interactor_b text,
+    interaction_detection_method text,
+    publication_1st_author text,
+    publication_identifier text,
+    taxid_interactor_a text,
+    taxid_interactor_b text,
+    interaction_type text,
+    source_database text,
+    interaction_identifier text,
+    confidence_value text,
+    expansion_method text,
+    biological_role_interactor_a text,
+    biological_role_interactor_b text,
+    experimental_role_interactor_a text,
+    experimental_role_interactor_b text,
+    type_interactor_a text,
+    type_interactor_b text,
+    xref_interactor_a text,
+    xref_interactor_b text,
+    interaction_xref text,
+    annotation_interactor_a text,
+    annotation_interactor_b text,
+    interaction_annotation text,
+    host_organism text,
+    interaction_parameter text,
+    creation_date text,
+    update_date text,
+    checksum_interactor_a text,
+    checksum_interactor_b text,
+    interaction_checksum text,
+    negative text,
+    feature_interactor_a text,
+    feature_interactor_b text,
+    stoichiometry_interactor_a text,
+    stoichiometry_interactor_b text,
+    identification_method_participant_a text,
+    identification_method_participant_b text,
+    id integer NOT NULL
+);
+
+
+--
+-- Name: ppi_raw_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.ppi_raw_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: ppi_raw_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.ppi_raw_id_seq OWNED BY public.ppi_raw.id;
+
+
+--
+-- Name: protein; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.protein (
@@ -459,10 +463,8 @@ CREATE TABLE public.protein (
 );
 
 
-ALTER TABLE public.protein OWNER TO postgres;
-
 --
--- Name: protein_no_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: protein_no_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.protein_no_seq
@@ -474,73 +476,71 @@ CREATE SEQUENCE public.protein_no_seq
     CACHE 1;
 
 
-ALTER TABLE public.protein_no_seq OWNER TO postgres;
-
 --
--- Name: protein_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: protein_no_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.protein_no_seq OWNED BY public.protein.no;
 
 
 --
--- Name: drug_target id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: drug_target id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.drug_target ALTER COLUMN id SET DEFAULT nextval('public.drug_target_id_seq'::regclass);
 
 
 --
--- Name: exac id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: exac id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.exac ALTER COLUMN id SET DEFAULT nextval('public.exac_id_seq'::regclass);
 
 
 --
--- Name: pathway id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pathway ALTER COLUMN id SET DEFAULT nextval('public.pathway_id_seq'::regclass);
-
-
---
--- Name: phenotype id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: phenotype id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype ALTER COLUMN id SET DEFAULT nextval('public.phenotype_id_seq'::regclass);
 
 
 --
--- Name: phenotype_impc no; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: phenotype_impc no; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype_impc ALTER COLUMN no SET DEFAULT nextval('public.phenotype_impc_no_seq'::regclass);
 
 
 --
--- Name: phenotype_mgi no; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: phenotype_mgi no; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype_mgi ALTER COLUMN no SET DEFAULT nextval('public.phenotype_mgi_no_seq'::regclass);
 
 
 --
--- Name: ppi ppi_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ppi ppi_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ppi ALTER COLUMN ppi_id SET DEFAULT nextval('public.ppi_ppi_id_seq'::regclass);
 
 
 --
--- Name: protein no; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: ppi_raw id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ppi_raw ALTER COLUMN id SET DEFAULT nextval('public.ppi_raw_id_seq'::regclass);
+
+
+--
+-- Name: protein no; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.protein ALTER COLUMN no SET DEFAULT nextval('public.protein_no_seq'::regclass);
 
 
 --
--- Name: drug drug_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: drug drug_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.drug
@@ -548,7 +548,7 @@ ALTER TABLE ONLY public.drug
 
 
 --
--- Name: drug_target drug_target_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: drug_target drug_target_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.drug_target
@@ -556,7 +556,7 @@ ALTER TABLE ONLY public.drug_target
 
 
 --
--- Name: ensembl ensembl_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ensembl ensembl_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ensembl
@@ -564,7 +564,7 @@ ALTER TABLE ONLY public.ensembl
 
 
 --
--- Name: exac exac_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: exac exac_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.exac
@@ -572,7 +572,7 @@ ALTER TABLE ONLY public.exac
 
 
 --
--- Name: gene_ontology gene_ontology_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: gene_ontology gene_ontology_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.gene_ontology
@@ -580,7 +580,7 @@ ALTER TABLE ONLY public.gene_ontology
 
 
 --
--- Name: gene gene_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: gene gene_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.gene
@@ -588,7 +588,7 @@ ALTER TABLE ONLY public.gene
 
 
 --
--- Name: go_biological_process go_biological_process_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_biological_process go_biological_process_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_biological_process
@@ -596,7 +596,7 @@ ALTER TABLE ONLY public.go_biological_process
 
 
 --
--- Name: go_cellular_component go_cellular_component_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_cellular_component go_cellular_component_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_cellular_component
@@ -604,7 +604,7 @@ ALTER TABLE ONLY public.go_cellular_component
 
 
 --
--- Name: go_molecular_function go_molecular_function_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_molecular_function go_molecular_function_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_molecular_function
@@ -612,15 +612,15 @@ ALTER TABLE ONLY public.go_molecular_function
 
 
 --
--- Name: pathway pathway_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: pathway pathway_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.pathway
-    ADD CONSTRAINT pathway_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT pathway_pkey PRIMARY KEY (name, data, external_id);
 
 
 --
--- Name: phenotype_def phenotype_def_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: phenotype_def phenotype_def_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype_def
@@ -628,7 +628,7 @@ ALTER TABLE ONLY public.phenotype_def
 
 
 --
--- Name: phenotype_impc phenotype_impc_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: phenotype_impc phenotype_impc_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype_impc
@@ -636,7 +636,7 @@ ALTER TABLE ONLY public.phenotype_impc
 
 
 --
--- Name: phenotype_mgi phenotype_mgi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: phenotype_mgi phenotype_mgi_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype_mgi
@@ -644,7 +644,7 @@ ALTER TABLE ONLY public.phenotype_mgi
 
 
 --
--- Name: phenotype phenotype_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: phenotype phenotype_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype
@@ -652,7 +652,7 @@ ALTER TABLE ONLY public.phenotype
 
 
 --
--- Name: ppi ppi_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ppi ppi_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.ppi
@@ -660,7 +660,15 @@ ALTER TABLE ONLY public.ppi
 
 
 --
--- Name: protein protein_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ppi_raw ppi_raw_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ppi_raw
+    ADD CONSTRAINT ppi_raw_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: protein protein_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.protein
@@ -668,14 +676,14 @@ ALTER TABLE ONLY public.protein
 
 
 --
--- Name: exac_ensembl_id_index; Type: INDEX; Schema: public; Owner: postgres
+-- Name: exac_ensembl_id_index; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX exac_ensembl_id_index ON public.exac USING btree (ensembl_id);
 
 
 --
--- Name: go_biological_process go_biological_process_go_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_biological_process go_biological_process_go_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_biological_process
@@ -683,7 +691,7 @@ ALTER TABLE ONLY public.go_biological_process
 
 
 --
--- Name: go_biological_process go_biological_process_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_biological_process go_biological_process_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_biological_process
@@ -691,7 +699,7 @@ ALTER TABLE ONLY public.go_biological_process
 
 
 --
--- Name: go_cellular_component go_cellular_component_go_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_cellular_component go_cellular_component_go_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_cellular_component
@@ -699,7 +707,7 @@ ALTER TABLE ONLY public.go_cellular_component
 
 
 --
--- Name: go_cellular_component go_cellular_component_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_cellular_component go_cellular_component_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_cellular_component
@@ -707,7 +715,7 @@ ALTER TABLE ONLY public.go_cellular_component
 
 
 --
--- Name: go_molecular_function go_molecular_function_go_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_molecular_function go_molecular_function_go_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_molecular_function
@@ -715,7 +723,7 @@ ALTER TABLE ONLY public.go_molecular_function
 
 
 --
--- Name: go_molecular_function go_molecular_function_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: go_molecular_function go_molecular_function_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.go_molecular_function
@@ -723,15 +731,7 @@ ALTER TABLE ONLY public.go_molecular_function
 
 
 --
--- Name: pathway pathway_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.pathway
-    ADD CONSTRAINT pathway_name_fkey FOREIGN KEY (name) REFERENCES public.gene(name);
-
-
---
--- Name: phenotype phenotype_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: phenotype phenotype_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.phenotype

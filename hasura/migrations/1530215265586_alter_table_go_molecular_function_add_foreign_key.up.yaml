@@ -1,4 +1,0 @@
-- args:
-    sql: ALTER TABLE "go_molecular_function" ADD FOREIGN KEY ("name") REFERENCES "ensembl"
-      ("name")
-  type: run_sql

@@ -1,9 +1,0 @@
-- args:
-    name: exac
-    table: ensembl
-    using:
-      manual_configuration:
-        column_mapping:
-          ensembl_id: ensembl_id
-        remote_table: exac
-  type: create_array_relationship

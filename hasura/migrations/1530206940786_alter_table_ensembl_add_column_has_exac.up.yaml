@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "ensembl" ADD COLUMN "has_exac" boolean NOT NULL DEFAULT false
-  type: run_sql

@@ -1,8 +1,0 @@
-- args:
-    cascade: false
-    sql: |
-      ALTER TABLE protein
-         DROP CONSTRAINT protein_pkey;
-      ALTER TABLE protein
-         ADD PRIMARY KEY (no);
-  type: run_sql

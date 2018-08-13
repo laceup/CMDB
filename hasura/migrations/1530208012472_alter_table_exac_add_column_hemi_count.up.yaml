@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "exac" ADD COLUMN "hemi_count" numeric NULL
-  type: run_sql

@@ -94,12 +94,6 @@ tables:
   update_permissions: []
 - array_relationships:
   - comment: null
-    name: pathways
-    using:
-      foreign_key_constraint_on:
-        column: name
-        table: pathway
-  - comment: null
     name: phenotypes
     using:
       foreign_key_constraint_on:
@@ -151,6 +145,13 @@ tables:
         column_mapping:
           uniprot_id: uniprot_id
         remote_table: drug_target
+  - comment: null
+    name: pathways
+    using:
+      manual_configuration:
+        column_mapping:
+          name: name
+        remote_table: pathway
   delete_permissions: []
   insert_permissions: []
   object_relationships:
@@ -184,6 +185,13 @@ tables:
         remote_table: phenotype_def
   select_permissions: []
   table: gene_mp_id
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: ppi_raw
   update_permissions: []
 - array_relationships: []
   delete_permissions: []

@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "exac" ADD COLUMN "ref" text NULL
-  type: run_sql

@@ -1,9 +1,0 @@
-- args:
-    name: ensembl
-    table: gene
-    using:
-      manual_configuration:
-        column_mapping:
-          name: name
-        remote_table: ensembl
-  type: create_object_relationship

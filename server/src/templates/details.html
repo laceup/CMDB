@@ -2,6 +2,7 @@
 <div class="gene-heading-div">
   <h1 class=gene-heading>{{gene.name}}</h1>
 </div>
+
 <div style="margin-top: -41px;" class="container">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -26,6 +27,7 @@
       <a class="nav-link" id="drug-tab" data-toggle="tab" href="#drug" role="tab" aria-controls="drug-tab" aria-selected="false">Drug</a>
     </li>
   </ul>
+
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
       <br>
@@ -230,10 +232,10 @@
 </div>
 {% endblock %} {% block extrajs %}
 <script>
-  var data = {{ my_sample_data| tojson | safe}};
-  var connections = {{ my_connections| tojson | safe}};
-  var isNetworkRendered = false;
-  function renderNetwork() {
+  var data = JSON.parse('{{ my_sample_data| tojson | safe}}');
+  var connections = JSON.parse('{{ my_connections| tojson | safe}}');
+  var isPPINetworkRendered = false;
+  function renderPPINetwork() {
     var visualization = d3plus.viz()
       .container("#viz")
       .type("network")
@@ -243,91 +245,103 @@
       .size("size")
       .id("name")
       .draw()
-    isNetworkRendered = true;
+    isPPINetworkRendered = true;
   }
-
-  $(document).ready(function () {
-    $('table.download_table').DataTable({});
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-      if (e.target.id == "ppi-tab") {
-        if (!isNetworkRendered) {
-          renderNetwork()
-        }
-        // break here
-        $('span#viz-loading-message').hide()
-      }
-    });
-
-  });
-
+//  Drug d3
+var isDrugNetworkRendered = false
+function renderDrugNetwork() {
   var width = 960,
-    height = 600;
+  height = 600;
   var svg = d3.select("div#drug").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
+  .attr("width", width)
+  .attr("height", height);
+  
   var force = d3.layout.force()
-    .size([width, height]);
-
-
-  var links = {{ link| tojson | safe}};
+  .size([width, height]);
+  
+  
+  var links =  JSON.parse('{{ link| tojson | safe}}');
   var nodesByName = {};
-
+  
   // Create nodes for each unique source and target.
   links.forEach(function (link) {
     link.source = nodeByName(link.gene_name);
     link.target = nodeByName(link.drug_id);
   });
-
+  
   var nodes = d3.values(nodesByName);
-
+  
   var link = svg.selectAll(".link")
-    .data(links)
-    .enter().append("line")
-    .attr("class", "link");
-
+  .data(links)
+  .enter().append("line")
+  .attr("class", "link");
+  
   // Create the node circles.
   var node = svg.selectAll(".node")
-    .data(nodes)
-    .enter().append("circle")
-    .attr("class", "node")
-    //.attr("r", function(d) {return d.weight * 999990;})
-    .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#479794" })
-    .call(force.drag);
-
+  .data(nodes)
+  .enter().append("circle")
+  .attr("class", "node")
+  //.attr("r", function(d) {return d.weight * 999990;})
+  .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#479794" })
+  .call(force.drag);
+  
   var label = svg.selectAll(".mytext")
-    .data(nodes)
-    .enter()
-    .append("text")
-    .text(function (d) { return d.name; })
-    .style("text-anchor", "middle")
-    .style("fill", "#332d2d")
-    .style("font-family", "Arial")
-    .style("font-size", 10);
+  .data(nodes)
+  .enter()
+  .append("text")
+  .text(function (d) { return d.name; })
+  .style("text-anchor", "middle")
+  .style("fill", "#332d2d")
+  .style("font-family", "Arial")
+  .style("font-size", 10);
   // Start the force layout.
   force
-    .nodes(nodes)
-    .links(links)
-    .on("tick", tick)
-    .linkDistance(100)
-    .charge([-800])
-    .start();
-
+  .nodes(nodes)
+  .links(links)
+  .on("tick", tick)
+  .linkDistance(100)
+  .charge([-800])
+  .start();
+  
   function tick() {
     link.attr("x1", function (d) { return d.source.x; })
-      .attr("y1", function (d) { return d.source.y; })
-      .attr("x2", function (d) { return d.target.x; })
-      .attr("y2", function (d) { return d.target.y; });
-
+    .attr("y1", function (d) { return d.source.y; })
+    .attr("x2", function (d) { return d.target.x; })
+    .attr("y2", function (d) { return d.target.y; });
+    
     node.attr("r", function (d) { return d.name.substring(0, 2) == "DB" ? 15 : 18; })
-      .attr("cx", function (d) { return d.x; })
-      .attr("cy", function (d) { return d.y; });
-
+    .attr("cx", function (d) { return d.x; })
+    .attr("cy", function (d) { return d.y; });
+    
     label.attr("x", function (d) { return d.x; })
-      .attr("y", function (d) { return d.y - 15; });
+    .attr("y", function (d) { return d.y - 15; });
   }
-
+  
   function nodeByName(name) {
     return nodesByName[name] || (nodesByName[name] = { name: name });
   }
+
+  isDrugNetworkRendered = true;
+}
+
+$(document).ready(function () {
+  $('table.download_table').DataTable({});
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    if (e.target.id == "ppi-tab") {
+      if (!isPPINetworkRendered) {
+        renderPPINetwork()
+      }
+      // break here
+      $('span#viz-loading-message').hide()
+    }
+    
+    if (e.target.id == "drug-tab") {
+      if (!isDrugNetworkRendered) {
+        renderDrugNetwork()
+      }
+    }
+  });
+  
+});
+  
 </script> {% endblock %}
