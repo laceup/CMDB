@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %}{{gene.name}}{% endblock %} {% block content %}
 <div class="gene-heading-div">
-  <h1 class=gene-heading>{{gene.name}}</h1>
+  <h1 class=gene-heading><b><i>{{gene.name}}</i></b></h1>
 </div>
 
 <div style="margin-top: -41px;" class="container">
@@ -31,43 +31,44 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
       <br>
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Gene name</th>
-              <th>Protein</th>
-              <th>Ensembl ID</th>
-              <th>Uniprot ID</th>
-              <th>MGI ID</th>
-              <th>NCBI ID</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            {% if gene %}
-            <tr>
-              <td>{{gene.name}}</td>
-              <td>{{gene.protein_name}}</td>
-              <td>
-                <a target="_blank" href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}"
-                  style="color:black">{{gene.ensembl_id}}</a>
-              </td>
-              <td>
-                <a target="_blank" href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}" style="color:black">{{gene.uniprot_id}}</a>
-              </td>
-              <td>
-                <a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}" style="color:black">{{gene.mgi_id}}</a>
-              </td>
-              <td>
-                <a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}" style="color:black">{{gene.ncbi_id}}</a>
-              </td>
-
-            </tr>
-            {% endif %}
-          </tbody>
-        </table>
+      {% if gene %}
+      <div class=container>
+        <div class="row basic-table-row">
+          <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Gene name</div>
+          <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content"><span>{{gene.name}}</span></div>
+        </div>
+        <div class="row basic-table-row" >
+          <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Protein</div>
+          <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">{{gene.protein_name}}</div>
+        </div>
+        <div class="row basic-table-row">
+          <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Ensemble ID </div>
+          <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+            <a target="_blank" href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}">{{gene.ensembl_id}}</a>
+          </div>
+        </div>
+        <div class="row basic-table-row">
+          <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Uniprot IDst</div>
+          <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+            <a target="_blank" href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}">{{gene.uniprot_id}}</a>
+          </div>
+        </div>
+        <div class="row basic-table-row">
+          <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">MGI ID</div>
+          <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+            <a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}">{{gene.mgi_id}}</a>
+          </div>
+        </div>
+        <div class="row basic-table-row">
+          <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">NCBI ID</div>
+          <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+            <a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}">{{gene.ncbi_id}}</a>
+          </div>
+        </div>
       </div>
+      {% endif %}
+      
+      
       <div>
         <hr>
         <h4>Ensemble Info</h4>
@@ -80,28 +81,28 @@
                 <th>End BP</th>
                 <th>Transcript Count</th>
                 <th>GC Content(%)</th>
-
+                
               </tr>
             </thead>
             <tbody>
-
+              
               <tr>
                 <td>{{gene.ensembl.chromosome_scaffold_name}}</td>
                 <td>{{gene.ensembl.start_bp}}</td>
                 <td>{{gene.ensembl.end_bp}}</td>
                 <td>{{gene.ensembl.transcript_count}}</td>
                 <td>{{gene.ensembl.percentage_gc_content}}</td>
-
+                
               </tr>
-
+              
             </tbody>
           </table>
         </div>
         <hr>
         <h3>Subcellular Location</h3>
         <hr>
-
       </div>
+      
     </div>
     <div class="tab-pane fade" id="go" role="tabpanel" aria-labelledby="go-tab">
       <br>
@@ -217,8 +218,8 @@
 
     <!-- PPI -->
     <div class="tab-pane fade" id="ppi" role="tabpanel" aria-labelledby="ppi-tab">
-      <div id="viz" class="ppi-viz"></div>
-      <span id="viz-loading-message">Loading visualisation</span>
+      <!-- <div id="viz" class="ppi-viz"></div> -->
+      <!-- <span id="viz-loading-message">Loading visualisation</span> -->
     </div>
 
     <!-- DRUG -->
@@ -232,25 +233,96 @@
 </div>
 {% endblock %} {% block extrajs %}
 <script>
-  var data = JSON.parse('{{ my_sample_data| tojson | safe}}');
-  var connections = JSON.parse('{{ my_connections| tojson | safe}}');
+
+  function isRelevant(uniprot_id) {
+    var relevant_uniprot_ids = JSON.parse('{{ gene_list|tojson|safe }}')
+    return relevant_uniprot_ids.includes(uniprot_id)
+  }
+
+// -------------  PPI d3 ------------------
   var isPPINetworkRendered = false;
   function renderPPINetwork() {
-    var visualization = d3plus.viz()
-      .container("#viz")
-      .type("network")
-      .data(data)
-      .edges(connections)
-      .edges({ "size": { "scale": 1 } })
-      .size("size")
-      .id("name")
-      .draw()
+    var width = 1060,
+    height = 700;
+    var svg = d3.select("div#ppi").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+    
+    var force = d3.layout.force()
+    .size([width, height]);
+    var links =  JSON.parse('{{ link_ppi| tojson | safe}}');
+    var nodesByName = {};
+    links.forEach(function (link) {
+      link.source = nodeByName('{{name}}');
+      link.target = nodeByName(link.interactor);
+    });
+    console.log('name', '{{name}}')
+    var nodes = d3.values(nodesByName);
+
+    var link = svg.selectAll(".link")
+    .data(links)
+    .enter().append("line")
+    .attr("class", "link");
+    
+    // Create the node circles.
+    var node = svg.selectAll(".node")
+    .data(nodes)
+    .enter().append("circle")
+    .attr("class", "node")
+    .style("fill", function (d) { return isRelevant(d.name) ? "#324e73" : "#47107104" })
+    .on("dblclick", function(d, i) {
+      if (isRelevant(d.name)) {
+        window.location.href = '/uniprot/'+d.name;
+      } else {
+        window.location.href = 'https://www.uniprot.org/uniprot/'+d.name;
+      }
+    })
+    .call(force.drag);
+    
+    var label = svg.selectAll(".mytext")
+    .data(nodes)
+    .enter()
+    .append("text")
+    .text(function (d) { return d.name; })
+    .style("text-anchor", "middle")
+    .style("fill", "#332d2d")
+    .style("font-family", "Arial")
+    .style("font-size", 10);
+    // Start the force layout.
+    force
+    .nodes(nodes)
+    .links(links)
+    .on("tick", tick)
+    .linkDistance(100)
+    .charge([-800])
+    .start();
+    
+    function tick() {
+      link.attr("x1", function (d) { return d.source.x; })
+      .attr("y1", function (d) { return d.source.y; })
+      .attr("x2", function (d) { return d.target.x; })
+      .attr("y2", function (d) { return d.target.y; });
+      
+      node.attr("r", function (d) { return d.name == '{{name}}' ? 18 : 15; })
+      .attr("cx", function (d) { return d.x; })
+      .attr("cy", function (d) { return d.y; });
+      
+      label.attr("x", function (d) { return d.x; })
+      .attr("y", function (d) { return d.y - 15; });
+    }
+    
+    function nodeByName(name) {
+      return nodesByName[name] || (nodesByName[name] = { name: name });
+    }
+
+
     isPPINetworkRendered = true;
   }
-//  Drug d3
+
+//-------------  Drug d3 ------------------
 var isDrugNetworkRendered = false
 function renderDrugNetwork() {
-  var width = 960,
+  var width = 1060,
   height = 600;
   var svg = d3.select("div#drug").append("svg")
   .attr("width", width)
@@ -281,8 +353,8 @@ function renderDrugNetwork() {
   .data(nodes)
   .enter().append("circle")
   .attr("class", "node")
-  //.attr("r", function(d) {return d.weight * 999990;})
-  .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#479794" })
+  //.attr("r", function(d) {return d.weight * 10;})
+  .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#47107104" })
   .call(force.drag);
   
   var label = svg.selectAll(".mytext")
@@ -323,7 +395,7 @@ function renderDrugNetwork() {
 
   isDrugNetworkRendered = true;
 }
-
+// ---------------------------------------
 $(document).ready(function () {
   $('table.download_table').DataTable({});
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {

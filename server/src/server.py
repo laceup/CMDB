@@ -2,6 +2,8 @@ from src import app
 from flask import render_template
 from flask import jsonify
 from flask import request
+from flask import abort
+from flask import redirect
 from .hasura import query
 
 @app.route("/")
@@ -45,11 +47,32 @@ def genes():
     return render_template(
         'list.html', genes=data['gene']
     )
+@app.route("/uniprot/<id>")
+def get_uniprot(id):
+    data = query('''
+        query getGeneByUniprot($id: String) {
+            gene (where: {uniprot_id: {_eq: $id}}) {
+                name
+            }
+        }
+    ''', {'id': id})
+    if data != None:
+        if len(data['gene']) == 0:
+            return abort(404)
+        else:
+            gene = data['gene'][0]
+    else:
+        return abort(404)
+    return redirect("/gene/"+gene['name'])
+        
 
 @app.route("/gene/<name>")
 def gene_details(name):
     data = query('''
         query getGeneDetails ($NAME: String) {
+            all_genes: gene {
+                uniprot_id
+            }
             gene (where: {name: {_eq: $NAME}}) {
                 name
                 protein_name
@@ -103,6 +126,7 @@ def gene_details(name):
                 }
                 ppi_a{
                     interactor_b
+
                 }
                 ppi_b{
                     interactor_a
@@ -125,26 +149,23 @@ def gene_details(name):
             gene = data['gene'][0]
     else:
         gene = {}
-    
-    # for ppi
-    my_sample_data = [{"name": name,"size":12}]
-    my_connections = []
-    interactors = []
 
+    gene_list = [x['uniprot_id'] for x in data['all_genes']]
+    # for ppi------------------------------
+
+    link_ppi=[]
     for g in gene['ppi_b']:
-        interactors.append(g["interactor_a"])
+        link_ppi.append(g["interactor_a"])
 
     for g in gene['ppi_a']:
-        interactors.append(g["interactor_b"])
+        link_ppi.append(g["interactor_b"])
 
-        # remove duplicates
-    interactors = list(set(interactors))
+    # remove duplicates
+    link_ppi = list(set(link_ppi))
 
-    for interactor in interactors:
-        my_sample_data.append({"name": interactor,"size":10})
-        my_connections.append({"source": name, "target": interactor})
+    link_ppi = [{'interactor': x} for x in link_ppi]
 
-    # for drug d3 network
+    # for drug d3 network -----------------------
     if data != None:
         if len(data['gene']) == 0:
             link = {}
@@ -158,10 +179,15 @@ def gene_details(name):
         gene=gene,
         link=link,
         name=name,
-        my_sample_data= my_sample_data,
-        my_connections=my_connections
+        link_ppi=link_ppi,
+        gene_list= gene_list,
+       
     )
+
+
 # --------------------------------------------------------------
+
+
 @app.route("/drug/<name>")
 def drug(name):
     data = query('''

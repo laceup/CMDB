@@ -82,11 +82,11 @@ body {
 a.nav-link{
     color: aliceblue;
 
-/* Pink Bar */
+/* PINK BAR */
 }
 .gene-heading-div{
     background-color:#ff3366;
-    padding-top:20px ;
+    padding-top:10px ;
     padding-bottom:40px;
     padding-left: 50px;
     z-index:-2;
@@ -94,13 +94,34 @@ a.nav-link{
 }
 .gene-heading{
     color:#f6f7f8;
+    font-size: 50px;
 }
 /* DATA TABLES */
 div.dataTables_wrapper {
     margin-bottom: 3em;
 }
-  
-/*--------------------- th style -------------------*/
+/* BASIC PANEL */
+div.basic-table-title{
+    text-align: end;
+    font-weight:bold
+}
+
+div.basic-table-row{
+    padding: 6px;
+}
+div.basic-table-content{
+    display : flex;
+    align-items : center;
+    color:#00629b;
+}
+div.basic-table-content a{
+    color:#00629b;
+}
+div.basic-table-content a:hover{
+    color:#011627;
+}
+
+/*-------------- th style of the data tables -------------*/
 th{
     border-style: solid; 
     border-color: #e8e8e8;
