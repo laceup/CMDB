@@ -1,87 +1,131 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-  .link {
-    stroke: rgba(125, 125, 126, 0.418);
-  }
+  
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
 
-  .node {
-    stroke: #fff;
-  }
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
 </style>
 
 <body>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <div id=body>
+
+  </div>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <script>
+    function isRelevant(uniprot_id) {
+      var relevant_uniprot_ids = JSON.parse('{{ gene_list|tojson|safe }}');
+      return relevant_uniprot_ids.includes(uniprot_id);
+    }
+    
+    // -------------  PPI d3 ------------------
+    var isPPINetworkRendered = false;
+    
+    var width = 1060,
+    height = 1000;
+    var svg = d3.select("div#body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+    
+    
+    var nodes =JSON.parse('{{ node| tojson | safe}}');
+    var links = JSON.parse('{{ link_ppi| tojson | safe}}');
+    var linksp = JSON.parse('{{ linksp| tojson | safe}}');
+    var graph = JSON.parse('{{ data| tojson | safe}}');
 
-    var width = 960,
-      height = 700;
-    var svg = d3.select("body").append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    var simulation = d3.forceSimulation()
+    // .force('link', d3.forceLink().links(links))
+    .force("link", d3.forceLink().id(d => d.id))
+    .force("charge", d3.forceManyBody().strength(-5))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+    
+    // d3.json(data, function(error, graph) {
+    //   if (error) throw error;
+      
 
-    var force = d3.layout.force()
-      .size([width, height]);
-
-
-    var links = {{ link| tojson | safe}};
-    var nodesByName = {};
-
-    // Create nodes for each unique source and target.
-    links.forEach(function (link) {
-      link.source = nodeByName(link.gene_name);
-      link.target = nodeByName(link.drug_id);
-    });
-
-    var nodes = d3.values(nodesByName);
-
-    var link = svg.selectAll(".link")
-      .data(links)
+      var link = svg.append("g")
+      .attr("class", "links")
+      .selectAll("line")
+      .data(graph.links)
       .enter().append("line")
-      .attr("class", "link");
-
-    // Create the node circles.
-    var node = svg.selectAll(".node")
-      .data(nodes)
+      .attr("stroke-width", 10);
+      
+      var node = svg.append("g")
+      .attr("class", "nodes")
+      .selectAll("circle")
+      .data(graph.nodes)
       .enter().append("circle")
-      .attr("class", "node")
-      //.attr("r", function(d) {return d.weight * 999990;})
-      .style("fill",function(d){return d.name.substring(0, 2)== "DB" ? "#324e73" : "#479794"})
-      .call(force.drag);
+      .attr("r", 8)
+      .attr("fill", getnodecolor)
+      .call(d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended));
+      
+      node.append("title")
+      .text(function(d) { return d.interactor; });
 
-    var label = svg.selectAll(".mytext")
-      .data(nodes)
-      .enter()
-      .append("text")
-        .text(function (d) { return d.name; })
-        .style("text-anchor", "middle")
-        .style("fill", "#332d2d")
-        .style("font-family", "Arial")
-        .style("font-size", 10);
-    // Start the force layout.
-    force
-      .nodes(nodes)
-      .links(links)
-      .on("tick", tick)
-      .linkDistance(100)
-      .charge([-800])
-      .start();
+      var label = svg.append('g')
+      .selectAll('text')
+      .data(graph.nodes)
+      .enter().append('text')
+      .text(node => node.interactor)
+      .attr('font-size', 15)
+      .attr('dx', 15)
+      .attr('dy', 4)
+      
+      simulation
+      .nodes(graph.nodes)
+      .on("tick", () => this.ticked(link, node));
+      
+      simulation
+      .force("link")
+      .links(graph.links);
+      
+      function ticked() {
+        link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+        
+        node
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
 
-    function tick() {
-      link.attr("x1", function (d) { return d.source.x; })
-        .attr("y1", function (d) { return d.source.y; })
-        .attr("x2", function (d) { return d.target.x; })
-        .attr("y2", function (d) { return d.target.y; });
-
-      node.attr("r", function (d) { return d.name.substring(0, 2)== "DB" ? 15 : 18; })
-        .attr("cx", function (d) { return d.x; })
-        .attr("cy", function (d) { return d.y; });
-
-      label.attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y-15; });
+        label.attr("x", function (d) { return d.x; })
+        .attr("y", function (d) { return d.y; });
+      }
+    // });
+    
+    function dragstarted(d) {
+      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
     }
-  
-    function nodeByName(name) {
-      return nodesByName[name] || (nodesByName[name] = { name: name });
+    
+    function dragged(d) {
+      d.fx = d3.event.x;
+      d.fy = d3.event.y;
     }
+    
+    function dragended(d) {
+      if (!d3.event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+    
+    function getnodecolor(d){
+      return isRelevant(d.interactor) ? "#324e73" : "#479794" 
+
+    }
+    
+    isPPINetworkRendered = true;
+    
   </script>

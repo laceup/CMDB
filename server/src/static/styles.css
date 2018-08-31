@@ -7,10 +7,15 @@
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
-
+html{
+    position: relative;
+    min-height: 100%;
+}
 body {
    padding-top: 70px;
    height: 100%;
+   margin-bottom: 200px;
+   
 }
 .container-fluid {
     height: 100%;
@@ -51,11 +56,13 @@ body {
  }
 /* FOOTER */
 .footer {
+    position: absolute;
+    height: 200;
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #08b8a6 !important;}
-
+    background: #08b8a6 !important;
+};
 #footer ul.social li{
         padding: 3px 0;
     }
