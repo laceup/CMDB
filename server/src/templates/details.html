@@ -232,13 +232,28 @@
 </div>
 {% endblock %} {% block extrajs %}
 <script>
-
+// -------------  PPI d3 ------------------
   function isRelevant(uniprot_id) {
     var relevant_uniprot_ids = JSON.parse('{{ gene_list|tojson|safe }}')
     return relevant_uniprot_ids.includes(uniprot_id)
   }
-
-// -------------  PPI d3 ------------------
+  
+  function getNodecolor(d){
+    if(d.interactor=="{{name}}"){
+      return "#479794"
+    }
+    else if(isRelevant(d.interactor)){
+      return "#479794"
+    }
+    else if(d.organism=="human"){
+      return "#324e73"
+    }
+    else{
+      return "#15699b"
+    }
+  }
+  
+  
   var isPPINetworkRendered = false;
   function renderPPINetwork() {
     var width = 1060,
@@ -249,39 +264,45 @@
     
     var force = d3.layout.force()
     .size([width, height]);
-    var links =  JSON.parse('{{ link_ppi| tojson | safe}}');
+    //var links =  JSON.parse('{{ link_ppi| tojson | safe}}');
+    var data=JSON.parse('{{ data| tojson | safe}}');
     var nodesByName = {};
-    console.log('linki',links )
-    links.forEach(function (link) {
-      link.source = nodeByName('{{name}}');
-      link.target = nodeByName(link.interactor);
+    
+    
+    data.nodes.forEach(function (link) {
+      link.source = nodeByName('{{name}}','human','{{name}}');//stupidity here
+      link.target = nodeByName(link.interactor,link.organism,link.interactor_full);
     });
-
+    var links_final=data.nodes
     var nodes = d3.values(nodesByName);
-
-    console.log('node',nodes )
-    console.log('link',links )
-
+    
+    console.log('node',data.nodes )
+    console.log('link',data.links )
+    
     var link = svg.selectAll(".link")
-    .data(links)
+    .data(links_final)
     .enter().append("line")
     .attr("class", "link");
+    
+    
     
     // Create the node circles.
     var node = svg.selectAll(".node")
     .data(nodes)
     .enter().append("circle")
     .attr("class", "node")
-    .style("fill", function (d) { return isRelevant(d.interactor) ? "#324e73" : "#479794" })
+    .style("fill", function(d,i){return getNodecolor(d)})
+    //.style("fill","#479794")
+    // not working
     .on("dblclick", function(d, i) {
-      if (isRelevant(d.name)) {
+      if (isRelevant(d.interactor)) {
         window.location.href = '/uniprot/'+d.interactor;
       } else {
         window.location.href = 'https://www.uniprot.org/uniprot/'+d.interactor;
       }
     })
     .call(force.drag);
-
+    
     var label = svg.selectAll(".mytext")
     .data(nodes)
     .enter()
@@ -294,13 +315,15 @@
     // Start the force layout.
     force
     .nodes(nodes)
-    .links(links)
+    .links(links_final)
     .on("tick", tick)
     .linkDistance(100)
     .charge([-800])
     .start();
+    
     console.log('node1',node )
     console.log('link2',link )
+    
     function tick() {
       link.attr("x1", function (d) { return d.source.x; })
       .attr("y1", function (d) { return d.source.y; })
@@ -315,11 +338,10 @@
       .attr("y", function (d) { return d.y - 15; });
     }
     
-    function nodeByName(name) {
-      return nodesByName[name] || (nodesByName[name] = {interactor:name,organism:'hum',interactor_full:name});
+    function nodeByName(interactor,organism,interactor_full) {
+      return nodesByName[interactor] || (nodesByName[interactor] = {interactor:interactor,organism:organism,interactor_full:interactor_full});
     }
-
-
+    
     isPPINetworkRendered = true;
   }
 

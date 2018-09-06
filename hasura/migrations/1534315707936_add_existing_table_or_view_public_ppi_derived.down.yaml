@@ -1,0 +1,5 @@
+- args:
+    table:
+      name: ppi_derived
+      schema: public
+  type: untrack_table

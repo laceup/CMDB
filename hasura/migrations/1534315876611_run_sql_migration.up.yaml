@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    sql: "CREATE OR REPLACE VIEW public.\"ppi_derived\" AS \n SELECT \"substring\"(ppi_raw.id_interactor_a,
+      11, 6) AS interactor_a,\n    \"substring\"(ppi_raw.id_interactor_b, 11, 6) AS
+      interactor_b,\n    \"substring\"(ppi_raw.id_interactor_a, 11, char_length(ppi_raw.id_interactor_a))
+      AS interactor_a_full,\n    \"substring\"(ppi_raw.id_interactor_b, 11, char_length(ppi_raw.id_interactor_a))
+      AS interactor_b_full,\n    ppi_raw.interaction_type,\n    ppi_raw.publication_identifier,\n
+      \   ppi_raw.taxid_interactor_a,\n    \"substring\"(ppi_raw.taxid_interactor_a,
+      '.*\\((.+)\\)\\|.*\\(.*\\)'::text) AS taxid_a,\n    \"substring\"(ppi_raw.taxid_interactor_b,
+      '.*\\((.+)\\)\\|.*\\(.*\\)'::text) AS taxid_b,\n    ppi_raw.interaction_identifier\n
+      \  FROM ppi_raw\n  WHERE ((ppi_raw.id_interactor_a ~~ 'uniprotkb:%'::text) AND
+      (ppi_raw.id_interactor_b ~~ 'uniprotkb:%'::text));"
+  type: run_sql

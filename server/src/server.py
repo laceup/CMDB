@@ -159,17 +159,39 @@ def gene_details(name):
     gene_list = [x['uniprot_id'] for x in data['all_genes']]
     # for ppi------------------------------
 
-    link_ppi=[]
-    for g in gene['ppi_b']:
-        link_ppi.append(g["interactor_a"])
+    # link_ppi=[]
+    # for g in gene['ppi_b']:
+    #     link_ppi.append(g["interactor_a"])
 
-    for g in gene['ppi_a']:
-        link_ppi.append(g["interactor_b"])
+    # for g in gene['ppi_a']:
+    #     link_ppi.append(g["interactor_b"])
 
-    # remove duplicates
-    link_ppi = list(set(link_ppi))
+    # 
+    # link_ppi = list(set(link_ppi))
 
-    link_ppi = [{'interactor': x} for x in link_ppi]
+    # link_ppi = [{'interactor': x} for x in link_ppi]
+
+    link_ppi_a=gene['ppi_a']
+    link_ppi_b=gene['ppi_b']
+    for i in link_ppi_a:
+        i['interactor']=i.pop('interactor_b')
+        i['organism']=i.pop('taxid_b')
+        i['interactor_full']=i.pop('interactor_b_full')
+    for j in link_ppi_b:
+        j['interactor']=j.pop('interactor_a')
+        j['organism']=j.pop('taxid_a')
+        j['interactor_full']=j.pop('interactor_a_full')    
+    link_ppi=link_ppi_a + link_ppi_b
+    link_ppi=[dict(t) for t in {tuple(d.items()) for d in link_ppi}] # remove duplicates
+    
+    linksp=[]
+    for i in link_ppi:
+        linksp.append ({'source': {'interactor':name,'organism':'human','interactor_full':name},'target': i})
+    
+    node=link_ppi
+    # source_node={'interactor':name,'organism':'human','interactor_full':name}
+    node.append({'interactor':name,'organism':'human','interactor_full':name})
+    ppidata={"nodes":node,"links":linksp}
 
     # for drug d3 network -----------------------
     if data != None:
@@ -187,6 +209,7 @@ def gene_details(name):
         name=name,
         link_ppi=link_ppi,
         gene_list= gene_list,
+        data=ppidata,
        
     )
 

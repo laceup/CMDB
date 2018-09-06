@@ -1,0 +1,12 @@
+- args:
+    name: ppi_b
+    table:
+      name: gene
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: interactor_b
+        table:
+          name: ppi_derived
+          schema: public
+  type: create_array_relationship

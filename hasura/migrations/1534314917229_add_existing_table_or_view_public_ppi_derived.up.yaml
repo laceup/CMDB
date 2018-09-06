@@ -1,0 +1,4 @@
+- args:
+    name: ppi_derived
+    schema: public
+  type: add_existing_table_or_view
