@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      alter table compartment
+      add column id serial
+  type: run_sql

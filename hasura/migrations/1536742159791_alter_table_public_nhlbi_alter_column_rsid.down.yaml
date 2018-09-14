@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "rsid" SET NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN public."nhlbi"."rsid" IS 'undefined'
+  type: run_sql

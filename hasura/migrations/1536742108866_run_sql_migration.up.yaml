@@ -1,0 +1,42 @@
+- args:
+    cascade: false
+    sql: |-
+      create table nhlbi (
+      "base(ncbi.37)" TEXT NOT NULL,
+      "rsid" TEXT NOT NULL,
+      "dbsnp_version" TEXT NOT NULL,
+      "alleles" TEXT NOT NULL,
+      "european_american_allele_count" TEXT NOT NULL,
+      "african_american_allele_count" TEXT NOT NULL,
+      "allallele_count" TEXT NOT NULL,
+      "maf_in_percent(ea/aa/all)" TEXT NOT NULL,
+      "european_american_genotype_count" TEXT NOT NULL,
+      "african_american_genotype_count" TEXT NOT NULL,
+      "all_genotype_count" TEXT NOT NULL,
+      "avg_sample_read_depth" TEXT NOT NULL,
+      "genes" TEXT NOT NULL,
+      "gene_accession" TEXT NOT NULL,
+      "function_gvs" TEXT NOT NULL,
+      "hgvs_protein_variant" TEXT NOT NULL,
+      "hgvs_cdna_variant" TEXT NOT NULL,
+      "coding_dna_size" TEXT NOT NULL,
+      "conservation_score_phastcons" TEXT NOT NULL,
+      "conservation_scoregerp" TEXT NOT NULL,
+      "grantham_score" TEXT NOT NULL,
+      "polyphen2(class:score)" TEXT NOT NULL,
+      "ref_base_ncbi37" TEXT NOT NULL,
+      "chimp_allele" TEXT NOT NULL,
+      "clinical_info" TEXT NOT NULL,
+      "filter_status" TEXT NOT NULL,
+      "onillumina_humanexomechip" TEXT NOT NULL,
+      "gwas_pubmedinfo" TEXT NOT NULL,
+      "ea-estimated_age(kyrs)" TEXT NOT NULL,
+      "aa-estimated_age(kyrs)" TEXT NOT NULL,
+      "grch38_position" TEXT NOT NULL,
+      "gene_name" TEXT NOT NULL
+      )
+  type: run_sql
+- args:
+    name: nhlbi
+    schema: public
+  type: add_existing_table_or_view

@@ -54,6 +54,14 @@
           </div>
         </div>
         <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Gene Synonyms</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+              {% for gs in gene.proteins %}
+              <a>{{gs.gene_synonyms}} &ensp;</a>
+              {% endfor %}
+            </div>
+          </div>
+        <div class="row basic-table-row">
           <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">MGI ID</div>
           <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
             <a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}">{{gene.mgi_id}}</a>
@@ -194,7 +202,7 @@
     <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">
       <br>
       <div class="table-responsive">
-        <table class="download_table cell-border hover stripe" class="table ">
+        <table class="download_table cell-border hover stripe" class="table " id="pathways-table">
           <thead>
             <tr>
               <th class="left-head">Pathways</th>
@@ -206,7 +214,9 @@
             {% for pa in gene.pathways %}
             <tr>
               <td>{{pa.data}}</td>
-              <td>{{pa.external_id}}</td>
+              <td>
+                <a href="#" target="_blank">{{pa.external_id}}</a>
+              </td>
               <td>{{pa.source}}</td>
             </tr>
             {% endfor %}
@@ -217,8 +227,17 @@
 
     <!-- PPI -->
     <div class="tab-pane fade" id="ppi" role="tabpanel" aria-labelledby="ppi-tab">
+      <br>
+      <div class="container" >
+        <div id="ppi-legend" class="row align-items-center">
+          <!-- align-items-center -->
+             <div class="legend"> <p class="ppi"><span class="key-dot cmdb"></span>CMDB protein</p> </div>
+             <div class="legend"> <p class="ppi"><span class="key-dot human"></span>other human proteins</p> </div>
+             <div class="legend"> <p class="ppi"><span class="key-dot non-human"></span>non human proteins</p> </div>
+        </div>
+      </div>
       <!-- <div id="viz" class="ppi-viz"></div> -->
-      <!-- <span id="viz-loading-message">Loading visualisation</span> -->
+      <span id="viz-loading-message">No data</span>
     </div>
 
     <!-- DRUG -->
@@ -347,6 +366,7 @@
 
 //-------------  Drug d3 ------------------
 var isDrugNetworkRendered = false
+var nodata=false;
 function renderDrugNetwork() {
   var width = 1060,
   height = 500;
@@ -359,6 +379,9 @@ function renderDrugNetwork() {
   
   
   var links =  JSON.parse('{{ link| tojson | safe}}');
+  if (links=={}){
+    nodata=true;
+  }
   var nodesByName = {};
   // var sourcenode = [{}]
   
@@ -436,8 +459,11 @@ $(document).ready(function () {
       if (!isPPINetworkRendered) {
         renderPPINetwork()
       }
+      if (nodata){
+        $('span#viz-loading-message').show()
+      }
       // break here
-      $('span#viz-loading-message').hide()
+      
     }
     
     if (e.target.id == "drug-tab") {
@@ -447,6 +473,49 @@ $(document).ready(function () {
     }
   });
   
+});
+
+// populate links for pathways
+$(document).ready(function () {
+  var rows = $('table#pathways-table > tbody > tr');
+  for (row of rows) {
+    var extida = $(row).find('td:nth-child(2) > a')
+    var source = $(row).find('td:nth-child(3)')
+    var extidval = $(extida).html()
+    var link = '#'
+    switch ($(source).html()) {
+    case 'Wikipathways':
+      link = `https://www.wikipathways.org/index.php/Pathway:${extidval}`
+      break
+    case 'KEGG':
+      var temp = extidval.substring(5,13)
+      link=` https://www.genome.jp/dbget-bin/www_bget?${temp}`
+      break
+    case 'Reactome':
+      link=`https://reactome.org/content/detail/${extidval}`
+      break
+    case 'SMPDB':
+      link=`http://smpdb.ca/view/${extidval}`
+      break 
+    case 'NetPath':
+      var temp = extidval.substring(8,)
+      link=`http://www.netpath.org/netslim/${temp}_pathway.html`
+      break
+    case 'HumanCyc':
+      link=`https://humancyc.org/HUMAN/NEW-IMAGE?type=PATHWAY&object=${extidval}`
+      break
+    case 'BioCarta':
+      // link=`https://cgap.nci.nih.gov/Pathways/BioCarta/h_${extidval}`
+      break  
+    case 'Signalink':
+      link=``
+      break
+    case 'PID':
+      link=``
+      break  
+    }
+    $(extida).attr('href', link)
+  }
 });
   
 </script> {% endblock %}

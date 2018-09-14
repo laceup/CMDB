@@ -80,6 +80,10 @@ def gene_details(name):
                 uniprot_id
                 mgi_id
                 ncbi_id
+
+                proteins {
+                    gene_synonyms
+                }
                 
                 ensembl {
                     chromosome_scaffold_name
@@ -262,88 +266,25 @@ def get_drug(id):
 @app.route("/ppi/<name>")
 def ppi(name):
     data = query('''
-        query getPPI ($NAME: String) {
-            all_genes: gene {
-                uniprot_id
-            }
-            gene (where: {name: {_eq: $NAME}}) {
-                uniprot_id
-                ppi_a{
-                    
-                    interactor_b
-                    interactor_b_full
-                    taxid_b
-
-                }
-                ppi_b{
-                    
-                    interactor_a
-                    interactor_a_full
-                    taxid_a
-                }
-
+        query getGene($NAME: String){
+            compartment(where: {gene_name: {_eq: $NAME}}) {
+                derived_location   
             }
         }
     ''', {'NAME': name})
 
     if data != None:
-        if len(data['gene']) == 0:
-            gene = {}
+        if len(data['compartment']) == 0:
+            location = {}
         else:
-            gene = data['gene'][0]
+            location = data['compartment']
     else:
-        gene = {}
+        location = {}
 
-    gene_list = [x['uniprot_id'] for x in data['all_genes']]
-    # for ppi------------------------------
-    # source_uniprot =gene['uniprot_id']
-    # if gene['ppi_a']['taxid_a']!=None:
-    #     source_taxid = gene['ppi_a']['taxid_a']
-    # else:
-    #     source_taxid =gene['ppi_b']['taxid_b']
-    # source_data={ interactor:name, organism:source_taxid ,interactor_full:name}
-
-    link_ppi_a=gene['ppi_a']
-    link_ppi_b=gene['ppi_b']
-    for i in link_ppi_a:
-        i['interactor']=i.pop('interactor_b')
-        i['organism']=i.pop('taxid_b')
-        i['interactor_full']=i.pop('interactor_b_full')
-    for j in link_ppi_b:
-        j['interactor']=j.pop('interactor_a')
-        j['organism']=j.pop('taxid_a')
-        j['interactor_full']=j.pop('interactor_a_full')    
-    link_ppi=link_ppi_a + link_ppi_b
-    link_ppi=[dict(t) for t in {tuple(d.items()) for d in link_ppi}]
-    
-    linksp=[]
-    for i in link_ppi:
-        linksp.append ({'source': {'interactor':name,'organism':'human','interactor_full':name},'target': i})
-    
-    node=link_ppi
-    source_node={'interactor':name,'organism':'human','interactor_full':name}
-    node.append({'interactor':name,'organism':'human','interactor_full':name})
-    data={"nodes":node,"links":linksp}
-    # for g in gene['ppi_b']:
-    #     link_ppi.append(g["interactor_a"])
-
-    # for g in gene['ppi_a']:
-    #     link_ppi.append(g["interactor_b"])
-
-    # # remove duplicates
-    # link_ppi = list(set(link_ppi))
-
-    # link_ppi = [{'interactor': x} for x in link_ppi]
+    u_location=[dict(t) for t in {tuple(d.items()) for d in location}]
     
     return render_template(
         'ppi.html',
-        gene=gene,
-        name=name,
-        link_ppi=link_ppi,
-        gene_list= gene_list,
-        linksp=linksp,
-        node=node,
-        source_node=source_node,
-        data=data,
+        u_location=u_location,
 
     )

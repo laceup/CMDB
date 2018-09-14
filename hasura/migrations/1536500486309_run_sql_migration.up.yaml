@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      ALTER TABLE source
+         ADD PRIMARY KEY (gene);
+  type: run_sql

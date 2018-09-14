@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      alter table compartment
+      add primary key (id)
+  type: run_sql

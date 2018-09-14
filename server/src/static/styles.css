@@ -156,15 +156,42 @@ th.middle-head{
 }
 /* -------------------------------------------------- */
 
-div.ppi-viz {
+/* div.ppi-viz {
   height: 500px;
-}
+} */
 /* Drug network */
 .link {
     stroke: rgba(125, 125, 126, 0.418);
   }
 
-  .node {
+.node {
     stroke: #fff;
-  }
-  /* -------------------------------------------------- */
+}
+/* -------------------------------------------------- */
+
+/* Legend */
+
+/* p.ppi {
+    margin: 0 !important;
+} */
+.key-dot {
+    display: inline-block;
+    height: 10px;
+    margin-right: .5em;
+    width: 10px;
+}
+
+.cmdb { background: #479794;}
+.human { background: #324e73;}
+.non-human { background: #15699b;
+}
+
+#ppi-legend{
+    overflow:hidden;
+}
+.legend {
+    float:none;
+    margin-right: 1em;
+}
+/* ------------------- */
+

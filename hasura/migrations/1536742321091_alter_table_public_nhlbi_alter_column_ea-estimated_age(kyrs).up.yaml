@@ -1,0 +1,7 @@
+- args:
+    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "ea-estimated_age(kyrs)" DROP NOT
+      NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN public."nhlbi"."ea-estimated_age(kyrs)" IS ''
+  type: run_sql

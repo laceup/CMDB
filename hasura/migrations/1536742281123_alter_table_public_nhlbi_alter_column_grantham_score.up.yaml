@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "grantham_score" DROP NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN public."nhlbi"."grantham_score" IS ''
+  type: run_sql

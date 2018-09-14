@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      ALTER TABLE source
+         DROP CONSTRAINT source_pkey;
+  type: run_sql

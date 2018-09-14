@@ -2,157 +2,94 @@
 <meta charset="utf-8">
 <style>
   
-.link {
-  stroke: #999;
-  stroke-opacity: 0.6;
+#extra_cellular{
+    display: none;
 }
-
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
+#plasma_membrane{
+    display: none;
 }
-#box2fill{
-    visibility: hidden;
+#cytoplasm{
+    display: none;
+}
+#er{
+    display: none;
+}
+#mitochondria{
+    display: none;
+}
+#golgi_apparatus{
+    display: none;
+}
+#nucleus{
+    display: none;
 }
 
 </style>
 
 <body>
-    <div id=body></div>
+    
     <div>
         <svg version="1.1" id="image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89" style="enable-background:new 0 0 595.28 841.89;"
-        xml:space="preserve">
-            <g id="Layer_5">
-                <rect x="64" y="144" style="fill:#94D0A4;" width="388" height="208"/>
+        xml:space="preserve"> 
+            <g id="extra_cellular">
+                <rect x="50" y="130" style="fill:#fff;" width="410" height="230"/>
+                <rect x="30" y="50" style="fill:#A5D6AB;" width="500" height="400"/>
             </g>
-            <g id="box1">
+            <g id="plasma_membrane">
+                <rect x="50" y="130" style="fill:#A5D6AB;" width="410" height="230"/>
+                <rect x="64" y="144" style="fill:#fff;" width="388" height="208"/>
+            </g>
+            <g id="cytoplasm">
+                <rect x="64" y="144" style="fill:#A5D6AB;" width="388" height="208"/>
+            </g>
+            
+            <g id="box">
+                <rect x="50" y="130" style="fill:none;stroke:#000000;stroke-miterlimit:10;" width="410" height="230"/>
                 <rect x="64" y="144" style="fill:none;stroke:#000000;stroke-miterlimit:10;" width="388" height="208"/>
                 <rect x="110" y="194" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="98" height="71"/>
                 <rect x="314" y="203" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="68" height="88"/>
+                <rect x="100" y="160" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="20" height="20"/>
+                <rect x="200" y="160" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="30" height="30"/>
             </g>
-            <g id="box2fill">
+            <g id="mitochondria">
                 <rect x="314" y="203" style="fill:#89CA8F;" width="68" height="88"/>
             </g>
-            <g id="box1fill">
+            <g id="golgi_apparatus">
                 <rect x="110" y="194" style="fill:#A5D6AB;" width="98" height="71"/>
+            </g>
+            <g id="nucleus">
+                <rect x="100" y="160" style="fill:#A5D6AB;" width="20" height="20"/>
+            </g>
+            <g id="er">
+                <rect x="200" y="160" style="fill:#A5D6AB;" width="30" height="30"/>
             </g>
         </svg>
     </div>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script>
-  function isRelevant(uniprot_id) {
-    var relevant_uniprot_ids = JSON.parse('{{ gene_list|tojson|safe }}')
-    return relevant_uniprot_ids.includes(uniprot_id)
-  }
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+var locations = JSON.parse('{{ u_location| tojson | safe}}');
 
-  function getNodecolor(d){
-    if(d.interactor=="{{name}}"){
-       return "#479794"
+$(document).ready(function () {
+    for(e of locations){
+        switch (e.derived_location) {
+            case 'extracellular region':
+                $('#extra_cellular').css('display', 'block');
+            case 'nucleus':
+                $('#nucleus').css('display', 'block');
+            case 'cytoplasm':
+                $('#cytoplasm').css('display', 'block');
+            case 'plasma membrane':
+                $('#plasma_membrane').css('display', 'block');
+            case 'golgi apparatus':
+                $('#golgi_apparatus').css('display', 'block');
+            case 'rough er':
+                $('#er').show();
+            case 'smooth er':
+                $('#er').css('display', 'block');         
+        }
     }
-    else if(isRelevant(d.interactor)){
-        return "#479794"
-    }
-    else if(d.organism=="human"){
-        return "#324e73"
-    }
-    else{
-        return "#15699b"
-    }
-}
-
-// -------------  PPI d3 ------------------
-var isPPINetworkRendered = false;
-
-var width = 1060,
-height = 700;
-var svg = d3.select("div#body").append("svg")
-.attr("width", width)
-.attr("height", height);
-
-var force = d3.layout.force()
-.size([width, height]);
-//var links =  JSON.parse('{{ link_ppi| tojson | safe}}');
-var data=JSON.parse('{{ data| tojson | safe}}');
-var nodesByName = {};
-
-
-data.nodes.forEach(function (link) {
-    link.source = nodeByName('{{name}}','human','{{name}}');//stupidity here
-    link.target = nodeByName(link.interactor,link.organism,link.interactor_full);
 });
-var links_final=data.nodes
-var nodes = d3.values(nodesByName);
-
-console.log('node',data.nodes )
-console.log('link',data.links )
-
-var link = svg.selectAll(".link")
-.data(links_final)
-.enter().append("line")
-.attr("class", "link");
-
-
-
-// Create the node circles.
-var node = svg.selectAll(".node")
-.data(nodes)
-.enter().append("circle")
-.attr("class", "node")
-.style("fill", function(d,i){return getNodecolor(d)})
-//.style("fill","#479794")
-// not working
-.on("dblclick", function(d, i) {
-    if (isRelevant(d.name)) {
-        window.location.href = '/uniprot/'+d.interactor;
-    } else {
-        window.location.href = 'https://www.uniprot.org/uniprot/'+d.interactor;
-    }
-})
-.call(force.drag);
-
-var label = svg.selectAll(".mytext")
-.data(nodes)
-.enter()
-.append("text")
-.text(function (d) { return d.interactor; })
-.style("text-anchor", "middle")
-.style("fill", "#332d2d")
-.style("font-family", "Arial")
-.style("font-size", 10);
-// Start the force layout.
-force
-.nodes(nodes)
-.links(links_final)
-.on("tick", tick)
-.linkDistance(100)
-.charge([-800])
-.start();
-
-console.log('node1',node )
-console.log('link2',link )
-
-function tick() {
-    link.attr("x1", function (d) { return d.source.x; })
-    .attr("y1", function (d) { return d.source.y; })
-    .attr("x2", function (d) { return d.target.x; })
-    .attr("y2", function (d) { return d.target.y; });
-    
-    node.attr("r", function (d) { return d.interactor == '{{name}}' ? 18 : 15; })
-    .attr("cx", function (d) { return d.x; })
-    .attr("cy", function (d) { return d.y; });
-    
-    label.attr("x", function (d) { return d.x; })
-    .attr("y", function (d) { return d.y - 15; });
-}
-
-function nodeByName(interactor,organism,interactor_full) {
-    return nodesByName[interactor] || (nodesByName[interactor] = {interactor:interactor,organism:organism,interactor_full:interactor_full});
-}
-
-
-isPPINetworkRendered = true;
-
 
 </script>
 

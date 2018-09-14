@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "grantham_score" SET NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN public."nhlbi"."grantham_score" IS 'undefined'
+  type: run_sql
