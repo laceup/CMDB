@@ -1,0 +1,13 @@
+- args:
+    name: nhlbi
+    table:
+      name: gene
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          name: genes
+        remote_table:
+          name: nhlbi
+          schema: public
+  type: create_array_relationship

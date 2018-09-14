@@ -121,7 +121,15 @@ def gene_details(name):
                     allele_num
                     allele_count
                     major_consequence
-                
+                    rsid
+                    pop_ans
+                    pop_acs           
+                }
+                nhlbi{
+                    base_ncbi_37
+                    rsid
+                    african_american_allele_count
+                    european_american_allele_count
                 }
                 pathways{
                     data

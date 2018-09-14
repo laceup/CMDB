@@ -73,6 +73,12 @@
             <a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}">{{gene.ncbi_id}}</a>
           </div>
         </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Expression</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+              <a target="_blank" href="https://www.ebi.ac.uk/gxa/genes/{{gene.ensembl_id}}?bs=%7B%22homo%20sapiens%22%3A%5B%22ORGANISM_PART%22%5D%7D&ds=%7B%22kingdom%22%3A%5B%22animals%22%5D%7D#baseline">Expression Atlas</a>
+            </div>
+        </div>
       </div>
       {% endif %}
             
@@ -150,14 +156,39 @@
     <div class="tab-pane fade" id="exac" role="tabpanel" aria-labelledby="exac-tab">
       <br>
       <div class="table-responsive">
-        <table class="download_table cell-border hover stripe" class="table ">
+        <table class="exac_table cell-border hover stripe" class="table ">
           <thead>
             <tr>
-              <th class="left-head">Variant</th>
-              <th class="middle-head">Allele Frequency</th>
-              <th class="middle-head">Allele Count</th>
-              <th class="middle-head">Allele Number</th>
-              <th class="right-head">Major Consequence</th>
+              <th rowspan="2" >Variant</th>
+              <th rowspan="2">Allele Frequency</th>
+              <th rowspan="2">Allele Count</th>
+              <th rowspan="2">Allele Number</th>
+              <th rowspan="2">Major Consequence</th>
+              <th rowspan="2">RSID</th>
+              <th colspan="2">European (Non-Finnish)</th>
+              <th colspan="2">European (Finnish)</th>
+              <th colspan="2">East Asian</th>
+              <th colspan="2">South Asian</th>
+              <th colspan="2">African</th>
+              <th colspan="2">Latino</th>
+              <th colspan="2">Other</th>
+            </tr>
+            <tr>
+              
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
+              <th class="right-head">Allele count</th>
+              <th class="right-head">Allele number</th>
             </tr>
           </thead>
           <tbody>
@@ -168,6 +199,22 @@
               <td>{{ex.allele_count}}</td>
               <td>{{ex.allele_num}}</td>
               <td>{{ex.major_consequence}}</td>
+              <td>{{ex.rsid}}</td>
+              <td>{{ex.pop_acs['European (Non-Finnish)']}}</td>
+              <td>{{ex.pop_ans['European (Non-Finnish)']}}</td>
+              <td>{{ex.pop_acs['European (Finnish)']}}</td>
+              <td>{{ex.pop_ans['European (Finnish)']}}</td>
+              <td>{{ex.pop_acs['East Asian']}}</td>
+              <td>{{ex.pop_ans['East Asian']}}</td>
+              <td>{{ex.pop_acs['South Asian']}}</td>
+              <td>{{ex.pop_ans['South Asian']}}</td>
+              <td>{{ex.pop_acs['African']}}</td>
+              <td>{{ex.pop_ans['African']}}</td>
+              <td>{{ex.pop_acs['Latino']}}</td>
+              <td>{{ex.pop_ans['Latino']}}</td>
+              <td>{{ex.pop_acs['Other']}}</td>
+              <td>{{ex.pop_ans['Other']}}</td>
+
             </tr>
             {% endfor %}
           </tbody>
@@ -452,6 +499,64 @@ $(document).ready(function () {
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
     ]
+  });
+  $('.exac_table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print',
+            {
+                extend: 'colvisGroup',
+                text: 'European(Non-Finnish)',
+                show: [ 1, 2,3,4,5,6,7],
+                hide: [ 8,9,10,11,12,13,14,15,16,17,18,19 ]
+            },
+            {
+                extend: 'colvisGroup',
+                text: 'European(Finnish)',
+                show: [ 1, 2,3,4,5,8,9],
+                hide: [ 7,6,10,11,12,13,14,15,16,17,18,19 ]
+            },
+            {
+                extend: 'colvisGroup',
+                text: 'East Asian',
+                show: [ 1, 2,3,4,5,10,11],
+                hide: [ 6,7,8,9,12,13,14,15,16,17,18,19 ]
+            },
+            {
+                extend: 'colvisGroup',
+                text: 'South Asian',
+                show: [ 1, 2,3,4,5,12,13],
+                hide: [ 6,7,8,9,10,11,14,15,16,17,18,19 ]
+            },
+            {
+                extend: 'colvisGroup',
+                text: 'African',
+                show: [ 1, 2,3,4,5,14,15],
+                hide: [ 6,7,8,9,10,11,12,13,16,17,18,19  ]
+            },
+            {
+                extend: 'colvisGroup',
+                text: 'Latino',
+                show: [ 1, 2,3,4,5,16,17 ],
+                hide: [5,6,7,8,9,10,11,12,13,14,15,18,19]
+            },
+            
+            {
+                extend: 'colvisGroup',
+                text: 'Other',
+                show: [ 1, 2,3,4,5,18,19 ],
+                hide: [ 6,7,8,9,10,11,12,13,14,15,16,17]
+            },
+            {
+                extend: 'colvisGroup',
+                text: 'Show all',
+                show: ':hidden'
+            }
+        ],
+        columnDefs: [
+            { "width": "200", "targets": "0" }
+            // not working
+        ],
   });
 
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
