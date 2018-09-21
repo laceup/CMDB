@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE public."tags"("tags" text , "gene_name" text NOT NULL, "source"
+      text NOT NULL, PRIMARY KEY ("tags","gene_name","source") );
+  type: run_sql
+- args:
+    name: tags
+    schema: public
+  type: add_existing_table_or_view

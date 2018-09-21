@@ -40,12 +40,24 @@ def genes():
             uniprot_id
             mgi_id
             ncbi_id
+
+            tags{
+                tags
+                }
+            source{
+                source
+            }
         }
     }
     ''')
+    # tags=data['gene']['tags']
+    # tags=[dict(t) for t in {tuple(d.items()) for d in tags}]
+    
 
     return render_template(
-        'list.html', genes=data['gene']
+        'list.html', 
+        genes=data['gene'],
+        # tags=tags
     )
 @app.route("/uniprot/<id>")
 def get_uniprot(id):
@@ -128,6 +140,8 @@ def gene_details(name):
                 nhlbi{
                     base_ncbi_37
                     rsid
+                    function_gvs
+                    hgvs_protein_variant
                     african_american_allele_count
                     european_american_allele_count
                 }
@@ -231,9 +245,25 @@ def gene_details(name):
 
 @app.route("/drug/")
 def drug():
+    data = query('''
+        query {
+        drug {
+            drug_type       
+         
+        }
+        }
+    ''', )  
+    if data != None:
+        if len(data['drug']) == 0:
+            drug = {}
+        else:
+            drug = data['drug']
+    else:
+        drug = {}
+    drug=[dict(t) for t in {tuple(d.items()) for d in drug}]
     return render_template(
         'drug.html',
-
+        drug=drug,     
     )
 # --------------------------------------------------------------
 

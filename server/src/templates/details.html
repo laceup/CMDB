@@ -15,6 +15,9 @@
       <a class="nav-link" id="exac-tab" data-toggle="tab" href="#exac" role="tab" aria-controls="exac" aria-selected="false">ExAC</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" id="nhlbi-tab" data-toggle="tab" href="#nhlbi" role="tab" aria-controls="nhlbi" aria-selected="false">NHLBI</a>
+      </li>
+    <li class="nav-item">
       <a class="nav-link " id="phenotype-tab" data-toggle="tab" href="#phenotype" role="tab" aria-controls="phenotype" aria-selected="false">Phenotype</a>
     </li>
     <li class="nav-item">
@@ -175,20 +178,20 @@
             </tr>
             <tr>
               
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
-              <th class="right-head">Allele count</th>
-              <th class="right-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
+              <th class="middle-head">Allele count</th>
+              <th class="middle-head">Allele number</th>
             </tr>
           </thead>
           <tbody>
@@ -221,6 +224,39 @@
         </table>
       </div>
     </div>
+    <!-- NHLBI -->
+    <div class="tab-pane fade" id="nhlbi" role="tabpanel" aria-labelledby="nhlbi-tab">
+        <br>
+        <div class="table-responsive">
+          <table class="download_table cell-border hover stripe" class="table ">
+            <thead>
+              <tr>
+                <th >Variant</th>
+                <th >RSID</th>
+                <th >Consequence</th>
+                <th >HGVS Protein Variant</th>
+                <th >African American Allele Count</th>
+                <th >European American Allele Count</th>
+                
+              </tr>   
+            </thead>
+            <tbody>
+              {% for nh in gene.nhlbi %}
+              <tr>
+                <td>{{nh.base_ncbi_37}}</td>
+                <td>{{nh.rsid}}</td>
+                <td>{{nh.function_gvs}}</td>
+                <td>{{nh.hgvs_protein_variant}}</td>
+                <td>{{nh.african_american_allele_count}}</td>
+                <td>{{nh.european_american_allele_count}}</td>
+                
+  
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
     <!-- PHENOTYPE -->
     <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
       <br>
@@ -364,7 +400,7 @@
       if (isRelevant(d.interactor)) {
         window.location.href = '/uniprot/'+d.interactor;
       } else {
-        window.location.href = 'https://www.uniprot.org/uniprot/'+d.interactor;
+        window.open ('https://www.uniprot.org/uniprot/'+d.interactor,'_blank');
       }
     })
     .call(force.drag);
