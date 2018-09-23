@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: create index uniprot_index on gene(uniprot_id)
+  type: run_sql

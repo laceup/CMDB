@@ -26,8 +26,8 @@
                 <th >Protein</th>
                 <th style="width:15%">Source</th>
                 <th>Tags</th>
-                <th>MGI ID</th>
-                <th>NCBI ID</th>
+                <th>Ensemble ID</th>
+                
                 <th>Page</th>
               </tr>
             </thead>
@@ -47,8 +47,7 @@
                     <a >{{tg.tags}}</a>
                   {% endfor%}
                   </td>
-                <td>{{gene.mgi_id}}</td>
-                <td>{{gene.ncbi_id}}</td>
+                <td>{{gene.ensembl_id}}</td>
                 <td> <a href="{{ url_for('gene_details',name=gene.name) }}"  class="btn btn-xs btn-warning"  >View</a> </td>
               </tr>
               {% endfor %}

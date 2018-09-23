@@ -1,0 +1,12 @@
+- args:
+    name: phenotype_mgi
+    table:
+      name: gene
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: human_marker_symbol
+        table:
+          name: phenotype_mgi
+          schema: public
+  type: create_array_relationship

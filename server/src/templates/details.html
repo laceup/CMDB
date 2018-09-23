@@ -270,13 +270,14 @@
             </tr>
           </thead>
           <tbody>
-            {% for ph in gene.phenotypes %}
+            {% for ph in gene.phenotype %}
             <tr>
-              <td>{{ph.phenotype}}</td>
-              <td>{{ph.term}}</td>
-              <td>{{ph.definition}}</td>
+              <td>{{ph.mp_id}}</td>
+              <td>{{ph.mp_def.term}}</td>
+              <td>{{ph.mp_def.definition}}</td>
             </tr>
             {% endfor %}
+  
           </tbody>
         </table>
       </div>

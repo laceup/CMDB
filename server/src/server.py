@@ -122,10 +122,12 @@ def gene_details(name):
                         text
                     }
                 }
-                phenotypes {
-                    phenotype
-                    term
-                    definition
+                phenotype{
+                    mp_id
+                    mp_def{
+                        term
+                        definition
+                    }
                 }
                 exac{
                     variant_id
