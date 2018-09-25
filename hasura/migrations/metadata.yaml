@@ -5,7 +5,35 @@ tables:
   insert_permissions: []
   object_relationships: []
   select_permissions: []
+  table: source
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
   table: ensembl
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships:
+  - comment: null
+    name: gene_name_a
+    using:
+      manual_configuration:
+        column_mapping:
+          interactor_a: uniprot_id
+        remote_table: gene
+  - comment: null
+    name: gene_name_b
+    using:
+      manual_configuration:
+        column_mapping:
+          interactor_b: uniprot_id
+        remote_table: gene
+  select_permissions: []
+  table: ppi_derived
   update_permissions: []
 - array_relationships: []
   delete_permissions: []
@@ -44,7 +72,21 @@ tables:
   insert_permissions: []
   object_relationships: []
   select_permissions: []
+  table: tags
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
   table: gene_ontology
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: nhlbi
   update_permissions: []
 - array_relationships: []
   delete_permissions: []
@@ -67,12 +109,26 @@ tables:
   select_permissions: []
   table: protein
   update_permissions: []
-- array_relationships: []
+- array_relationships:
+  - comment: null
+    name: drug_to_target
+    using:
+      manual_configuration:
+        column_mapping:
+          drugbank_id: drug_id
+        remote_table: drug_target
   delete_permissions: []
   insert_permissions: []
   object_relationships: []
   select_permissions: []
   table: drug
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
+  table: compartment
   update_permissions: []
 - array_relationships: []
   delete_permissions: []
@@ -93,12 +149,6 @@ tables:
   table: phenotype
   update_permissions: []
 - array_relationships:
-  - comment: null
-    name: phenotypes
-    using:
-      foreign_key_constraint_on:
-        column: name
-        table: phenotype
   - comment: null
     name: go_molecular_function
     using:
@@ -125,20 +175,6 @@ tables:
           ensembl_id: ensembl_id
         remote_table: exac
   - comment: null
-    name: ppi_a
-    using:
-      manual_configuration:
-        column_mapping:
-          uniprot_id: interactor_a
-        remote_table: ppi
-  - comment: null
-    name: ppi_b
-    using:
-      manual_configuration:
-        column_mapping:
-          uniprot_id: interactor_b
-        remote_table: ppi
-  - comment: null
     name: drug_target
     using:
       manual_configuration:
@@ -152,6 +188,62 @@ tables:
         column_mapping:
           name: name
         remote_table: pathway
+  - comment: null
+    name: proteins
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: uniprot_id
+        remote_table: protein
+  - comment: null
+    name: ppi_a
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: interactor_a
+        remote_table: ppi_derived
+  - comment: null
+    name: ppi_b
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: interactor_b
+        remote_table: ppi_derived
+  - comment: null
+    name: cell_location
+    using:
+      manual_configuration:
+        column_mapping:
+          ensembl_id: ensembl_id
+        remote_table: compartment
+  - comment: null
+    name: nhlbi
+    using:
+      manual_configuration:
+        column_mapping:
+          name: genes
+        remote_table: nhlbi
+  - comment: null
+    name: tags
+    using:
+      manual_configuration:
+        column_mapping:
+          name: gene_name
+        remote_table: tags
+  - comment: null
+    name: source
+    using:
+      manual_configuration:
+        column_mapping:
+          name: gene_name
+        remote_table: source
+  - comment: null
+    name: phenotype
+    using:
+      manual_configuration:
+        column_mapping:
+          name: gene
+        remote_table: gene_mp_id
   delete_permissions: []
   insert_permissions: []
   object_relationships:

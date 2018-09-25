@@ -5,6 +5,7 @@ from flask import request
 from flask import abort
 from flask import redirect
 from .hasura import query
+import json
 
 @app.route("/")
 def home():
@@ -229,11 +230,12 @@ def gene_details(name):
             link = data['gene'][0]['drug_target']
     else:
         link = {}
+    drug_link= [x for x in link if x['drug_name'] != None]
 
     return render_template(
         'details.html',
         gene=gene,
-        link=link,
+        drug_link=drug_link,
         name=name,
         link_ppi=link_ppi,
         gene_list= gene_list,

@@ -14,10 +14,11 @@
             <div class="input-group-btn search-panel">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 <span id="search_concept">Filter by</span> <span class="caret"></span>
+                <input type="hidden" id="queryType" value="gene" />
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#gene">Gene, ensemble, synonyms</a></li>
-                <li><a href="#proiein">Protein, uniprot</a></li>
+                <li><a href="#gene">gene</a></li>
+                <li><a data-qt="protein" href="#proiein">Protein, uniprot</a></li>
                 <li><a href="#pathways">Pathways</a></li>
                 <li><a href="#variant">Variant </a></li>
                 <li><a href="#drug">Drug </a></li>
@@ -109,46 +110,55 @@
       e.preventDefault();
       var param = $(this).attr("href").replace("#","");
       var concept = $(this).text();
+      $('#queryType').val($(this).attr("data-qt"));
       $('.search-panel span#search_concept').text(concept);
       $('.input-group #search_param').val(param);
     });
     
-    
+    var getQuery = function (queryType) {
+      console.log(queryType)
+            switch(queryType){
+              case 'gene':
+                return JSON.stringify({
+                    query: `query searchGenes($name: String!) {
+                      gene(
+                        limit:10,
+                        where: {
+                          _or:[
+                            {name: {_ilike: $name}},
+                            {ensembl_id: {_ilike: $name}}
+                          ]}
+                        ) {
+                          name
+                          ensembl_id
+                          protein_name
+                        }
+                        
+                        protein(
+                          limit:10,
+                          where: {
+                            gene_synonyms:{_ilike:$name}
+                          }
+                        ) {
+                          ensembl_id: ensemble_id
+                          name: gene_synonyms
+                          protein_name: protein
+                        } 
+                      }`,
+                
+                      variables: {
+                        name: `%${$('#searchTextBox').val()}%`
+                      }
+                    })
 
+            }
+
+          }
     $('#searchButton').click(function(e){
       $.ajax({
         url: 'http://localhost:8080/v1alpha1/graphql',
         type: 'POST',
-        data: JSON.stringify({
-          query: `query searchGenes($name: String!) {
-            gene(
-              limit:10,
-              where: {
-                _or:[
-                  {name: {_ilike: $name}},
-                  {ensembl_id: {_ilike: $name}}
-                ]}
-              ) {
-                name
-                ensembl_id
-                protein_name
-              }
-              
-              protein(
-                limit:10,
-                where: {
-                  gene_synonyms:{_ilike:$name}
-                }
-              ) {
-                ensembl_id: ensemble_id
-                name: gene_synonyms
-                protein_name: protein
-              }
-            }`,
-            variables: {
-              name: `%${$('#searchTextBox').val()}%`
-            }
-          }),
+          data: getQuery($('#queryType').val()),
           contentType: 'application/json',
           dataType: 'json',
           success: (data) => {

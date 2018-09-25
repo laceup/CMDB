@@ -257,6 +257,7 @@
           </table>
         </div>
       </div>
+
     <!-- PHENOTYPE -->
     <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
       <br>
@@ -282,6 +283,7 @@
         </table>
       </div>
     </div>
+
     <!-- PATHWAYS -->
     <div class="tab-pane fade" id="pathways" role="tabpanel" aria-labelledby="pathways-tab">
       <br>
@@ -354,6 +356,19 @@
     else{
       return "#15699b"
     }
+  } //
+  function idToName(d){
+    var request = new XMLHttpRequest();
+    request.open("GET", "https://www.uniprot.org/uniprot/"+d.interactor+".xml", false);
+    request.send();
+    var xml = request.responseXML;
+    if(xml!=null){
+      var gene = xml.getElementsByTagName("gene");
+      var gene_name = gene[0].getElementsByTagName("name")[0].childNodes[0].nodeValue; //edit:jQery with type=primary
+    }else{
+      gene_name = d.interactor;
+    }
+    return gene_name
   }
   
   
@@ -373,7 +388,7 @@
     
     
     data.nodes.forEach(function (link) {
-      link.source = nodeByName('{{name}}','human','{{name}}');//stupidity here
+      link.source = nodeByName('{{name}}','human','{{name}}');//edit:stupidity here
       link.target = nodeByName(link.interactor,link.organism,link.interactor_full);
     });
     var links_final=data.nodes
@@ -410,7 +425,7 @@
     .data(nodes)
     .enter()
     .append("text")
-    .text(function (d) { return d.interactor; })
+    .text(function (d) { return idToName(d) })
     .style("text-anchor", "middle")
     .style("fill", "#332d2d")
     .style("font-family", "Arial")
@@ -462,26 +477,27 @@ function renderDrugNetwork() {
   .size([width, height]);
   
   
-  var links =  JSON.parse('{{ link| tojson | safe}}');
-  if (links=={}){
-    nodata=true;
-  }
+  var links =  JSON.parse('{{ drug_link| tojson | safe}}');
+  
+
   var nodesByName = {};
   // var sourcenode = [{}]
   
   // Create nodes for each unique source and target.
+  
   links.forEach(function (link) {
-    link.source = nodeByName(link.gene_name);
-    link.target = nodeByName(link.drug_id);
+    link.source = nodeByName(link.gene_name,link.gene_name);  
+    link.target = nodeByName(link.drug_id,link.drug_name.drug_name);
+    
   });
+  console.log('drug',links)
   
   var nodes = d3.values(nodesByName);
-  console.log('l', nodes)
   var link = svg.selectAll(".link")
   .data(links)
   .enter().append("line")
   .attr("class", "link");
-  
+  console.log('drugnode',nodes)
   // Create the node circles.
   var node = svg.selectAll(".node")
   .data(nodes)
@@ -489,13 +505,16 @@ function renderDrugNetwork() {
   .attr("class", "node")
   //.attr("r", function(d) {return d.weight * 10;})
   .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#479794" })
+  .on("dblclick", function(d, i){
+    window.open ('https://www.drugbank.ca/drugs/'+d.name ,'_blank');  // edit:remove for source gene
+  })
   .call(force.drag);
   
   var label = svg.selectAll(".mytext")
   .data(nodes)
   .enter()
   .append("text")
-  .text(function (d) { return d.name; })
+  .text(function (d) { return d.display_name; })
   .style("text-anchor", "middle")
   .style("fill", "#332d2d")
   .style("font-family", "Arial")
@@ -523,8 +542,8 @@ function renderDrugNetwork() {
     .attr("y", function (d) { return d.y - 15; });
   }
   
-  function nodeByName(name) {
-    return nodesByName[name] || (nodesByName[name] = { name: name });
+  function nodeByName(name,drug) {
+    return nodesByName[name] || (nodesByName[name] = { name: name, display_name:drug });
   }
 
   isDrugNetworkRendered = true;
