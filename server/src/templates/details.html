@@ -168,6 +168,7 @@
               <th rowspan="2">Allele Number</th>
               <th rowspan="2">Major Consequence</th>
               <th rowspan="2">RSID</th>
+              <th rowspan="2">HGVSc</th>
               <th colspan="2">European (Non-Finnish)</th>
               <th colspan="2">European (Finnish)</th>
               <th colspan="2">East Asian</th>
@@ -203,6 +204,7 @@
               <td>{{ex.allele_num}}</td>
               <td>{{ex.major_consequence}}</td>
               <td>{{ex.rsid}}</td>
+              <td>{{ex.HGVSc}}</td>
               <td>{{ex.pop_acs['European (Non-Finnish)']}}</td>
               <td>{{ex.pop_ans['European (Non-Finnish)']}}</td>
               <td>{{ex.pop_acs['European (Finnish)']}}</td>
@@ -611,7 +613,7 @@ $(document).ready(function () {
         ],
         columnDefs: [
             { "width": "200", "targets": "0" }
-            // not working
+            //edit: not working
         ],
   });
 

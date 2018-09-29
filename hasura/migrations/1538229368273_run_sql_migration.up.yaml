@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      CREATE INDEX data_index
+      ON pathway (data);
+  type: run_sql

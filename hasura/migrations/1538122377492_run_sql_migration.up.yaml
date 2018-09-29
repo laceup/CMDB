@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    sql: |-
+      CREATE VIEW is_cardiomyopathy as
+      SELECT gene_name FROM tags WHERE tags IS NULL or tags='';
+  type: run_sql
+- args:
+    name: is_cardiomyopathy
+    schema: public
+  type: add_existing_table_or_view

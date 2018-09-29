@@ -1,1 +1,4 @@
 *.sql.gz
+*.csv
+*.xls
+*.xlsx

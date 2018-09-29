@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    sql: "-- CREATE OR REPLACE VIEW public.\"is_cardiomyopathy\" AS \n SELECT DISTINCT
+      gene_name\n   FROM tags\n  WHERE (tags.tags != ''::text);"
+  type: run_sql

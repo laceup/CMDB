@@ -1,0 +1,5 @@
+- args:
+    table:
+      name: is_cardiomyopathy
+      schema: public
+  type: untrack_table

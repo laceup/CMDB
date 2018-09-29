@@ -51,8 +51,8 @@ def genes():
         }
     }
     ''')
-    # tags=data['gene']['tags']
-    # tags=[dict(t) for t in {tuple(d.items()) for d in tags}]
+    # tags=data['gene'][0]['tags']
+    # tags=[dict(t) for t in {tuple(d.items()) for d in tags if d['tags']!=''}] #edit
     
 
     return render_template(
@@ -137,6 +137,7 @@ def gene_details(name):
                     allele_count
                     major_consequence
                     rsid
+                    HGVSc
                     pop_ans
                     pop_acs           
                 }

@@ -14,11 +14,11 @@
             <div class="input-group-btn search-panel">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 <span id="search_concept">Filter by</span> <span class="caret"></span>
-                <input type="hidden" id="queryType" value="gene" />
+                <input type="hidden" id="queryType" value="protein" />
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#gene">gene</a></li>
-                <li><a data-qt="protein" href="#proiein">Protein, uniprot</a></li>
+                <li><a data-qt="protein" href="#proiein">Uniprot ID</a></li>
                 <li><a href="#pathways">Pathways</a></li>
                 <li><a href="#variant">Variant </a></li>
                 <li><a href="#drug">Drug </a></li>
@@ -132,8 +132,7 @@
                           name
                           ensembl_id
                           protein_name
-                        }
-                        
+                        }   
                         protein(
                           limit:10,
                           where: {
@@ -150,10 +149,69 @@
                         name: `%${$('#searchTextBox').val()}%`
                       }
                     })
-
+              case 'protein':
+                return JSON.stringify({
+                    query:`query searchProtein($name: String!) {
+                      gene(
+                        limit:10,
+                        where: {
+                            uniprot_id: {_ilike: $name}
+                          }
+                        ) {
+                          name
+                          uniprot_id
+                          protein_name
+                        }   
+                      }`,
+                    variables: {
+                        name: `${$('#searchTextBox').val()}%`
+                    }
+                })
+                case 'pathway':
+                return JSON.stringify({
+                    query:`query searchPathway($name: String!) {
+                      pathway(
+                        limit:10,
+                        where: {
+                            data: {_ilike: $name}
+                          }
+                        ) {
+                          name
+                          external_id
+                          data    
+                        }   
+                      }`,
+                    variables: {
+                        name: `${$('#searchTextBox').val()}%`
+                    }
+                })
+                case 'drug':
+                return JSON.stringify({
+                    query:`query searchDrug($name: String!) {
+                      drug(
+                        limit:10,
+                        where: {_or:[
+                          {drug_name: {_ilike: $name}},
+                          {drug_type: {_ilike: $name}},
+                          {drugbank_id: {_ilike: $name}}
+                        ]}
+                        ){
+                          drug_name
+                          drug_type
+    											drugbank_id
+                          drug_to_target{
+                            gene_name
+                          }
+                        }                        
+                      }`,
+                    variables: {
+                        name: `${$('#searchTextBox').val()}%`
+                    }
+                })
             }
+          };
 
-          }
+   
     $('#searchButton').click(function(e){
       $.ajax({
         url: 'http://localhost:8080/v1alpha1/graphql',
@@ -163,35 +221,102 @@
           dataType: 'json',
           success: (data) => {
             console.log(data);
-            const { gene, protein } = data.data;
-            const resultTableTemplate = `
-              <table class="table table-striped table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>Gene name</th>
-                    <th>Ensembl ID</th>
-                    <th>Protein</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${gene.map((g) => `
-                    <tr>
-                      <td><a href="/gene/${g.name}">${g.name}</a></td>
-                      <td>${g.ensembl_id}</td>
-                      <td>${g.protein_name}</td>
-                    </tr>
-                  `).join(' ')}
-                  ${protein.map((g) => `
-                    <tr>
-                      <td><a href="/gene/${g.name}?synonym=true">${g.name}</a></td>
-                      <td>${g.ensembl_id}</td>
-                      <td>${g.protein_name}</td>
-                    </tr>
-                  `).join(' ')}
-                </tbody>
-              </table>
-            `;
-            $('#searchResultsTable').html(resultTableTemplate);
+            const { gene, protein, pathway, drug } = data.data;
+            switch($('#queryType').val()) {
+              case 'gene':
+                var geneTemplate = `<table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>Gene name</th>
+                          <th>Ensembl ID</th>
+                          <th>Protein</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${gene.map((g) => `
+                          <tr>
+                            <td><a href="/gene/${g.name}">${g.name}</a></td>
+                            <td>${g.ensembl_id}</td>
+                            <td>${g.protein_name}</td>
+                          </tr>
+                          `).join(' ')}
+                          ${protein.map((g) => `
+                            <tr>
+                              <td><a href="/gene/${g.name}?synonym=true">${g.name}</a></td>
+                              <td>${g.ensembl_id}</td>
+                              <td>${g.protein_name}</td>
+                            </tr>
+                            `).join(' ')}
+                      </tbody>
+                  </table> `
+                $('#searchResultsTable').html(geneTemplate);
+                break;
+              case 'protein':
+                var proteinTemplate = `<table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>Gene name</th>
+                          <th>Uniprot ID</th>
+                          <th>Protein</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${gene.map((g) => `
+                          <tr>
+                            <td><a href="/gene/${g.name}">${g.name}</a></td>
+                            <td>${g.uniprot_id}</td>
+                            <td>${g.protein_name}</td>
+                          </tr>
+                          `).join(' ')}
+                      </tbody>
+                  </table>`
+                $('#searchResultsTable').html(proteinTemplate);
+                break;
+              case 'pathway':
+                var pathwayTemplate = `<table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>Gene name</th>
+                          <th>External ID</th>
+                          <th>Pathway</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${gene.map((g) => `
+                          <tr>
+                            <td><a href="/gene/${g.name}">${g.name}</a></td>
+                            <td>${g.external_id}</td>
+                            <td>${g.data}</td>
+                          </tr>
+                          `).join(' ')}
+                      </tbody>
+                  </table>`
+                $('#searchResultsTable').html(pathwayTemplate);
+                break;
+              case 'drug':
+                var drugTemplate = `<table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th>Gene name</th>
+                          <th>Drug name</th>
+                          <th>Drug Type</th>
+                          <th>DrugBank ID</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${drug.map((g) => `
+                          <tr>
+                            <td><a href="/gene/${g.name}">${g.drug_to_target.gene_name}</a></td>
+                            <td>${g.drug_name}</td>
+                            <td>${g.drug_type}</td>
+                            <td>${g.drugbank_id,n}</td>
+                          </tr>
+                          `).join(' ')}
+                      </tbody>
+                  </table>`
+                $('#searchResultsTable').html(drugTemplate);
+                break;
+            }
           },
           error: (error) => {
             console.error(error);
