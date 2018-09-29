@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE public."nlhbi" DROP COLUMN "base_ncbi37"
-  type: run_sql

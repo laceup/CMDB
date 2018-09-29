@@ -1,9 +1,0 @@
-- args:
-    cascade: false
-    sql: "create view source as\nselect distinct t.gene_name as gene_name,\nt.source
-      \nfrom tags t\n \n"
-  type: run_sql
-- args:
-    name: source
-    schema: public
-  type: add_existing_table_or_view

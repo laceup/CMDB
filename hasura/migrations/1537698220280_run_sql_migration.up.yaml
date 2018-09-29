@@ -1,4 +1,0 @@
-- args:
-    cascade: false
-    sql: create index ensembl_index on gene(ensembl_id)
-  type: run_sql

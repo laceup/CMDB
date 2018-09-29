@@ -1,9 +1,0 @@
-- args:
-    cascade: false
-    sql: "CREATE OR REPLACE VIEW public.\"ppi_derived\" AS \n SELECT \"right\"(ppi_raw.id_interactor_a,
-      6) AS interactor_a,\n    \"right\"(ppi_raw.id_interactor_b, 6) AS interactor_b,\n
-      \   ppi_raw.interaction_type,\n    ppi_raw.publication_identifier,\n    ppi_raw.taxid_interactor_a,\n
-      \   ppi_raw.taxid_interactor_b,\n    ppi_raw.interaction_identifier\n   FROM
-      ppi_raw\n   where id_interactor_a LIKE 'uniprokb:%'\n   and id_interactor_b
-      LIKE 'uniprotkb:%';"
-  type: run_sql

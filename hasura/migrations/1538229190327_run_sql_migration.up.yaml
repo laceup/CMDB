@@ -1,6 +1,0 @@
-- args:
-    cascade: false
-    sql: |-
-      CREATE INDEX name_index
-      ON gene (name);
-  type: run_sql

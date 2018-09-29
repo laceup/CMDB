@@ -1,7 +1,0 @@
-- args:
-    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "ea-estimated_age(kyrs)" SET NOT
-      NULL;
-  type: run_sql
-- args:
-    sql: COMMENT ON COLUMN public."nhlbi"."ea-estimated_age(kyrs)" IS 'undefined'
-  type: run_sql

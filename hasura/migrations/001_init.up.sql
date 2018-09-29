@@ -20,6 +20,43 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: compartment; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.compartment (
+    ensembl_id text,
+    gene_name text,
+    go_id text,
+    location text,
+    source text,
+    acquired text,
+    score integer,
+    id integer NOT NULL,
+    derived_location text
+);
+
+
+--
+-- Name: compartment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.compartment_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: compartment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.compartment_id_seq OWNED BY public.compartment.id;
+
+
+--
 -- Name: drug; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -244,6 +281,75 @@ CREATE TABLE public.go_molecular_function (
 
 
 --
+-- Name: tags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tags (
+    tags text NOT NULL,
+    gene_name text NOT NULL,
+    source text NOT NULL
+);
+
+
+--
+-- Name: is_cardiomyopathy; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.is_cardiomyopathy AS
+ SELECT DISTINCT tags.gene_name
+   FROM public.tags
+  WHERE (tags.tags <> ''::text);
+
+
+--
+-- Name: nhlbi; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.nhlbi (
+    base_ncbi_37 text NOT NULL,
+    rsid text NOT NULL,
+    dbsnp_version text,
+    alleles text NOT NULL,
+    european_american_allele_count text NOT NULL,
+    african_american_allele_count text NOT NULL,
+    allallele_count text NOT NULL,
+    maf_in_percent_ea_aa_all text NOT NULL,
+    european_american_genotype_count text NOT NULL,
+    african_american_genotype_count text NOT NULL,
+    all_genotype_count text NOT NULL,
+    avg_sample_read_depth text NOT NULL,
+    genes text NOT NULL,
+    gene_accession text NOT NULL,
+    function_gvs text NOT NULL,
+    hgvs_protein_variant text,
+    hgvs_cdna_variant text NOT NULL,
+    coding_dna_size text NOT NULL,
+    conservation_score_phastcons text NOT NULL,
+    conservation_scoregerp text NOT NULL,
+    grantham_score text,
+    polyphen2_class_score text NOT NULL,
+    ref_base_ncbi37 text NOT NULL,
+    chimp_allele text NOT NULL,
+    clinical_info text NOT NULL,
+    filter_status text NOT NULL,
+    onillumina_humanexomechip text NOT NULL,
+    gwas_pubmedinfo text NOT NULL,
+    "ea-estimated_age_kyrs" text,
+    "aa-estimated_age_kyrs" text,
+    grch38_position text NOT NULL,
+    gene_name text NOT NULL
+);
+
+
+--
+-- Name: nlhbi; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.nlhbi (
+);
+
+
+--
 -- Name: pathway; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -359,26 +465,6 @@ CREATE TABLE public.ppi (
 
 
 --
--- Name: ppi_ppi_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.ppi_ppi_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: ppi_ppi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.ppi_ppi_id_seq OWNED BY public.ppi.ppi_id;
-
-
---
 -- Name: ppi_raw; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -427,6 +513,45 @@ CREATE TABLE public.ppi_raw (
     identification_method_participant_b text,
     id integer NOT NULL
 );
+
+
+--
+-- Name: ppi_derived; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.ppi_derived AS
+ SELECT "substring"(ppi_raw.id_interactor_a, 11, 6) AS interactor_a,
+    "substring"(ppi_raw.id_interactor_b, 11, 6) AS interactor_b,
+    "substring"(ppi_raw.id_interactor_a, 11, char_length(ppi_raw.id_interactor_a)) AS interactor_a_full,
+    "substring"(ppi_raw.id_interactor_b, 11, char_length(ppi_raw.id_interactor_a)) AS interactor_b_full,
+    ppi_raw.interaction_type,
+    ppi_raw.publication_identifier,
+    ppi_raw.taxid_interactor_a,
+    "substring"(ppi_raw.taxid_interactor_a, '.*\((.+)\)\|.*\(.*\)'::text) AS taxid_a,
+    "substring"(ppi_raw.taxid_interactor_b, '.*\((.+)\)\|.*\(.*\)'::text) AS taxid_b,
+    ppi_raw.interaction_identifier
+   FROM public.ppi_raw
+  WHERE ((ppi_raw.id_interactor_a ~~ 'uniprotkb:%'::text) AND (ppi_raw.id_interactor_b ~~ 'uniprotkb:%'::text));
+
+
+--
+-- Name: ppi_ppi_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.ppi_ppi_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: ppi_ppi_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.ppi_ppi_id_seq OWNED BY public.ppi.ppi_id;
 
 
 --
@@ -484,6 +609,23 @@ ALTER SEQUENCE public.protein_no_seq OWNED BY public.protein.no;
 
 
 --
+-- Name: source; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.source AS
+ SELECT DISTINCT t.gene_name,
+    t.source
+   FROM public.tags t;
+
+
+--
+-- Name: compartment id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.compartment ALTER COLUMN id SET DEFAULT nextval('public.compartment_id_seq'::regclass);
+
+
+--
 -- Name: drug_target id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -537,6 +679,14 @@ ALTER TABLE ONLY public.ppi_raw ALTER COLUMN id SET DEFAULT nextval('public.ppi_
 --
 
 ALTER TABLE ONLY public.protein ALTER COLUMN no SET DEFAULT nextval('public.protein_no_seq'::regclass);
+
+
+--
+-- Name: compartment compartment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.compartment
+    ADD CONSTRAINT compartment_pkey PRIMARY KEY (id);
 
 
 --
@@ -612,6 +762,14 @@ ALTER TABLE ONLY public.go_molecular_function
 
 
 --
+-- Name: nhlbi nhlbi_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.nhlbi
+    ADD CONSTRAINT nhlbi_pkey PRIMARY KEY (base_ncbi_37, rsid, gene_accession, hgvs_cdna_variant);
+
+
+--
 -- Name: pathway pathway_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -676,10 +834,74 @@ ALTER TABLE ONLY public.protein
 
 
 --
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (tags, gene_name, source);
+
+
+--
+-- Name: data_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX data_index ON public.pathway USING btree (data);
+
+
+--
+-- Name: drug_name_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX drug_name_index ON public.drug USING btree (drug_name);
+
+
+--
+-- Name: drug_type_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX drug_type_index ON public.drug USING btree (drug_type);
+
+
+--
+-- Name: drugbank_id_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX drugbank_id_index ON public.drug USING btree (drugbank_id);
+
+
+--
+-- Name: ensembl_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX ensembl_index ON public.gene USING btree (ensembl_id);
+
+
+--
 -- Name: exac_ensembl_id_index; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX exac_ensembl_id_index ON public.exac USING btree (ensembl_id);
+
+
+--
+-- Name: gene_syn_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX gene_syn_index ON public.protein USING btree (gene_synonyms);
+
+
+--
+-- Name: name_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX name_index ON public.gene USING btree (name);
+
+
+--
+-- Name: uniprot_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX uniprot_index ON public.gene USING btree (uniprot_id);
 
 
 --

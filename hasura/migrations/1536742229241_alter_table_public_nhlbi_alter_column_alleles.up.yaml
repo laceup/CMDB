@@ -1,3 +1,0 @@
-- args:
-    sql: COMMENT ON COLUMN public."nhlbi"."alleles" IS ''
-  type: run_sql

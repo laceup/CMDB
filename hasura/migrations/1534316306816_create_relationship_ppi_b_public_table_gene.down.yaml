@@ -1,6 +1,0 @@
-- args:
-    relationship: ppi_b
-    table:
-      name: gene
-      schema: public
-  type: drop_relationship

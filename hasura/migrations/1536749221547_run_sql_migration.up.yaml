@@ -1,6 +1,0 @@
-- args:
-    cascade: false
-    sql: |-
-      ALTER table nhlbi
-      ADD PRIMARY KEY ("base(ncbi.37)","rsid","gene_accession","hgvs_cdna_variant");
-  type: run_sql

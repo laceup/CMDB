@@ -1,3 +1,0 @@
-- args:
-    sql: DROP VIEW public."is_cardiomyopathy"
-  type: run_sql

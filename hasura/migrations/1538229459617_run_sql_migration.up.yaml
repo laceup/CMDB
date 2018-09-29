@@ -1,6 +1,0 @@
-- args:
-    cascade: false
-    sql: |-
-      CREATE INDEX drug_type_index
-      ON drug (drug_type);
-  type: run_sql

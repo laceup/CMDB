@@ -1,6 +1,0 @@
-- args:
-    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "dbsnp_version" SET NOT NULL;
-  type: run_sql
-- args:
-    sql: COMMENT ON COLUMN public."nhlbi"."dbsnp_version" IS 'undefined'
-  type: run_sql

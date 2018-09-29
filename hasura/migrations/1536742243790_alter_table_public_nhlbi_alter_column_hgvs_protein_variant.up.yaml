@@ -1,6 +1,0 @@
-- args:
-    sql: ALTER TABLE public."nhlbi" ALTER COLUMN "hgvs_protein_variant" DROP NOT NULL;
-  type: run_sql
-- args:
-    sql: COMMENT ON COLUMN public."nhlbi"."hgvs_protein_variant" IS ''
-  type: run_sql

@@ -1,4 +1,0 @@
-- args:
-    cascade: false
-    sql: "ALTER TABLE nhlbi \nDROP CONSTRAINT nhlbi_pkey"
-  type: run_sql

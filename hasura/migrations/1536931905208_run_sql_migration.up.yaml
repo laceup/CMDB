@@ -1,4 +1,0 @@
-- args:
-    cascade: false
-    sql: "ALTER TABLE nhlbi \nADD PRIMARY KEY (base_ncbi_37,rsid,gene_accession,hgvs_cdna_variant);\n"
-  type: run_sql

@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE public."compartment" DROP COLUMN "derived_location"
-  type: run_sql

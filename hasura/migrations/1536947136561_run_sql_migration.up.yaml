@@ -1,4 +1,0 @@
-- args:
-    cascade: false
-    sql: ALTER TABLE tags ADD COLUMN id SERIAL
-  type: run_sql

@@ -1,9 +1,0 @@
-- args:
-    cascade: false
-    sql: "CREATE OR REPLACE VIEW public.\"ppi_derived\" AS \n SELECT \"substring\"(ppi_raw.id_interactor_a
-      ,10 , 6) AS interactor_a,\n    \"substring\"(ppi_raw.id_interactor_b , 10 ,
-      6) AS interactor_b,\n    ppi_raw.interaction_type,\n    ppi_raw.publication_identifier,\n
-      \   ppi_raw.taxid_interactor_a,\n    ppi_raw.taxid_interactor_b,\n    ppi_raw.interaction_identifier\n
-      \  FROM ppi_raw\n  WHERE ((ppi_raw.id_interactor_a ~~ 'uniprotkb:%'::text) AND
-      (ppi_raw.id_interactor_b ~~ 'uniprotkb:%'::text));"
-  type: run_sql

@@ -1,8 +1,0 @@
-- args:
-    sql: CREATE TABLE public."source"("gene" text NOT NULL, "source" text NOT NULL,
-      PRIMARY KEY ("gene","source") );
-  type: run_sql
-- args:
-    name: source
-    schema: public
-  type: add_existing_table_or_view

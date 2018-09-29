@@ -1,6 +1,0 @@
-- args:
-    cascade: false
-    sql: |-
-      CREATE INDEX gene_syn_index
-      ON protein (gene_synonyms);
-  type: run_sql
