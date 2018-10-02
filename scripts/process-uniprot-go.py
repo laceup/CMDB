@@ -6,7 +6,7 @@
 
 import csv
 
-FILE_NAME = "uniprot-go-correct.csv"
+FILE_NAME = "go.csv"
 ## Columns:
 # 0: "Entry"
 # 1: "Gene ontology (biological process)"
@@ -124,21 +124,33 @@ def insertRawData():
                 "args": {
                     "table": "go_cellular_component",
                     "objects": for_cc
-                }
+                },
+                "on_conflict": {
+                    "action": "update",
+                    "constraint_on": ["name","go_id"]
+                },
             },
             {
                 "type": "insert",
                 "args": {
                     "table": "go_biological_process",
                     "objects": for_bp
-                }
+                },
+                "on_conflict": {
+                    "action": "update",
+                    "constraint_on": ["name","go_id"]
+                },
             },
             {
                 "type": "insert",
                 "args": {
                     "table": "go_molecular_function",
                     "objects": for_mf
-                }
+                },
+                "on_conflict": {
+                    "action": "update",
+                    "constraint_on": ["name","go_id"]
+                },
             }
         ]
     }

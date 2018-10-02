@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: alter table gene add constraint unique_uniprot_id unique(uniprot_id)
+  type: run_sql

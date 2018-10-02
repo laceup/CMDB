@@ -51,18 +51,24 @@
                 <rect x="314" y="203" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="68" height="88"/>
                 <rect x="100" y="160" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="20" height="20"/>
                 <rect x="200" y="160" style="fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;" width="30" height="30"/>
-            </g>
+            </g> 
             <g id="mitochondria">
-                <rect x="314" y="203" style="fill:#89CA8F;" width="68" height="88"/>
+                <rect x="314" y="203" style="fill:#89CA8F;" width="68" height="88"/>   
             </g>
             <g id="golgi_apparatus">
-                <rect x="110" y="194" style="fill:#A5D6AB;" width="98" height="71"/>
+                <rect x="110" y="194" style="fill:#A5D6AB;" width="98" height="71"/>    
             </g>
             <g id="nucleus">
-                <rect x="100" y="160" style="fill:#A5D6AB;" width="20" height="20"/>
+                <rect x="100" y="160" style="fill:#A5D6AB;" width="20" height="20"/>           
             </g>
             <g id="er">
-                <rect x="200" y="160" style="fill:#A5D6AB;" width="30" height="30"/>
+                <rect x="200" y="160" style="fill:#A5D6AB;" width="30" height="30"/>     
+            </g> 
+            <g id="lable">
+                <text x="314" y="223" fill="blue" > mitochondria </text>
+                <text x="110" y="214" fill="blue" > GA   </text>
+                <text x="100" y="170" fill="blue" > nucleus </text>
+                <text x="200" y="180" fill="blue" > ER </text>
             </g>
         </svg>
     </div>
@@ -75,18 +81,25 @@ $(document).ready(function () {
         switch (e.derived_location) {
             case 'extracellular region':
                 $('#extra_cellular').css('display', 'block');
+                break;       
             case 'nucleus':
                 $('#nucleus').css('display', 'block');
+                break; 
             case 'cytoplasm':
                 $('#cytoplasm').css('display', 'block');
+                break;
             case 'plasma membrane':
                 $('#plasma_membrane').css('display', 'block');
+                break;
             case 'golgi apparatus':
                 $('#golgi_apparatus').css('display', 'block');
+                break;
             case 'rough er':
-                $('#er').show();
+                $('#er').css('display', 'block');
+                break;
             case 'smooth er':
-                $('#er').css('display', 'block');         
+                $('#er').css('display', 'block');
+                break;         
         }
     }
 });

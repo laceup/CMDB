@@ -1,0 +1,6 @@
+- args:
+    relationship: go_molecular_function
+    table:
+      name: gene
+      schema: public
+  type: drop_relationship

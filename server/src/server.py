@@ -186,7 +186,7 @@ def gene_details(name):
     else:
         gene = {}
 
-    gene_list = [x['uniprot_id'] for x in data['all_genes']]
+    gene_list = [x['uniprot_id'] for x in data['all_genes'] if x is not None]
     # for ppi------------------------------
 
     # link_ppi=[]

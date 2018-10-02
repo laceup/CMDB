@@ -325,13 +325,13 @@
         </div>
       </div>
       <!-- <div id="viz" class="ppi-viz"></div> -->
-      <span id="viz-loading-message">No data</span>
+      <span id="viz-loading-message">Loading...</span>
     </div>
 
     <!-- DRUG -->
     <div class="tab-pane fade" id="drug" role="tabpanel" aria-labelledby="drug-tab">
-      <script src="https://d3js.org/d3.v3.min.js"></script>
-
+      <span id="drug-viz-loading-message">Loading...</span>
+      <div id="drug-viz"></div>
     </div>
 
 
@@ -386,7 +386,15 @@
     .size([width, height]);
     //var links =  JSON.parse('{{ link_ppi| tojson | safe}}');
     var data=JSON.parse('{{ data| tojson | safe}}');
+    if (data.links.length === 0) {
+      $('#viz-loading-message').html('No data');
+      isPPINetworkRendered = true;
+      return;
+    }
+    $('#viz-loading-message').hide();
+
     var nodesByName = {};
+
     
     
     data.nodes.forEach(function (link) {
@@ -467,11 +475,10 @@
 
 //-------------  Drug d3 ------------------
 var isDrugNetworkRendered = false
-var nodata=false;
 function renderDrugNetwork() {
   var width = 1060,
   height = 500;
-  var svg = d3.select("div#drug").append("svg")
+  var svg = d3.select("div#drug-viz").append("svg")
   .attr("width", width)
   .attr("height", height);
   
@@ -480,7 +487,12 @@ function renderDrugNetwork() {
   
   
   var links =  JSON.parse('{{ drug_link| tojson | safe}}');
-  
+  if (links.length === 0) {
+    $('#drug-viz-loading-message').html('No data');
+    isDrugNetworkRendered = true;
+    return;
+  }
+  $('#drug-viz-loading-message').hide();
 
   var nodesByName = {};
   // var sourcenode = [{}]
@@ -621,9 +633,6 @@ $(document).ready(function () {
     if (e.target.id == "ppi-tab") {
       if (!isPPINetworkRendered) {
         renderPPINetwork()
-      }
-      if (nodata){
-        $('span#viz-loading-message').show()
       }
       // break here
       

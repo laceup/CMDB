@@ -1,0 +1,12 @@
+- args:
+    name: go_biological_process
+    table:
+      name: gene
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: name
+        table:
+          name: go_biological_process
+          schema: public
+  type: create_array_relationship
