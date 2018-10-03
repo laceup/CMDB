@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      alter table clinvar
+      add primary_key name
+  type: run_sql

@@ -1,0 +1,112 @@
+{% extends 'base.html' %} {% block title %}{{gene.name}}{% endblock %} {% block content %}
+<div class="gene-heading-div">
+  <h1 class=gene-heading><b><i>{{gene.name}}</i></b></h1>
+</div>
+<div style="margin-top: -41px;" class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link " id="basic-tab"  href="/gene/basic/{{gene.name}}"  aria-controls="basic" aria-selected="false">Basic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="go-tab" data-toggle="tab" href="/gene/go/{{gene.name}}" role="tab" aria-controls="go" aria-selected="false">Gene Ontology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="exac-tab" href="/gene/exac/{{gene.name}}"  aria-controls="exac" aria-selected="false">ExAC</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" id="nhlbi-tab"  href="/gene/nhlbi/{{gene.name}}"  aria-controls="nhlbi" aria-selected="false">NHLBI</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link " id="phenotype-tab"  href="/gene/phenotype/{{gene.name}}"  aria-controls="phenotype" aria-selected="false">Phenotype</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pathways-tab"  href="/gene/pathway/{{gene.name}}"  aria-controls="pathways" aria-selected="false">Pathways</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="ppi-tab"  href="/gene/ppi/{{gene.name}}"  aria-controls="ppi" aria-selected="false">PPI</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="drug-tab"  href="/gene/drug/{{gene.name}}"  aria-controls="drug-tab" aria-selected="false">Drug</a>
+          </li>
+        </ul>
+      
+    <div class="tab-content" id="myTabContent">
+        <!-- BASIC -->
+        <div class="tab-pane fade " id="basic" role="tabpanel" aria-labelledby="basic-tab">
+            </div>  
+         <!-- GO  -->
+        <div class="tab-pane fade show active" id="go" role="tabpanel" aria-labelledby="go-tab">
+            <br>
+            <div class="table-responsive">
+              <table class="download_table cell-border hover stripe" class="table">
+                <thead>
+                  <tr>
+                    <th class="left-head">GO ID</th>
+                    <th class="middle-head">GO Definition</th>
+                    <th class="right-head">Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cc in gene.go_cellular_component %}
+                  <tr>
+                    <td>{{cc.go.id}}</td>
+                    <td>{{cc.go.text}}</td>
+                    <td>Cellular component</td>
+                  </tr>
+                  {% endfor %} {% for mf in gene.go_molecular_function %}
+                  <tr>
+                    <td>{{mf.go.id}}</td>
+                    <td>{{mf.go.text}}</td>
+                    <td>Molecular Function</td>
+                  </tr>
+                  {% endfor %} {% for bp in gene.go_biological_process %}
+                  <tr>
+                    <td>{{bp.go.id}}</td>
+                    <td>{{bp.go.text}}</td>
+                    <td>Biological Process</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ExAC -->
+          <div class="tab-pane fade" id="exac"  aria-labelledby="exac-tab">
+          </div>
+          <!-- NHLBI -->
+          <div class="tab-pane fade" id="nhlbi"  aria-labelledby="nhlbi-tab">
+              
+          </div>
+      
+          <!-- PATHWAYS -->
+          <div class="tab-pane fade" id="pathways"  aria-labelledby="pathways-tab">
+           
+          </div>
+      
+          <!-- PPI -->
+          <div class="tab-pane fade" id="ppi"  aria-labelledby="ppi-tab">
+          </div>
+      
+          <!-- DRUG -->
+          <div class="tab-pane fade" id="drug"  aria-labelledby="drug-tab">
+          </div>
+      
+      
+    </div>
+</div>
+{% endblock %}{% block extrajs %}
+<script>
+$(document).ready(function () {
+    $('.download_table').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+      ]
+    });
+});
+</script>
+
+
+
+
+{% endblock %}

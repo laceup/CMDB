@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      alter table clinvar
+      add primary key (name, assembly,rcvaccession,chromosome_accession)
+  type: run_sql

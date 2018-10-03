@@ -77,7 +77,8 @@ def get_uniprot(id):
     else:
         return abort(404)
     return redirect("/gene/"+gene['name'])
-        
+
+# ---------- details.html -----------------        
 
 @app.route("/gene/<name>")
 def gene_details(name):
@@ -245,8 +246,81 @@ def gene_details(name):
     )
 
 
-# --------------------------------------------------------------
+# -------- GO ----------------------------------------------------
+@app.route("/gene/go/<name>")
+def gene_go_details(name):
+    data = query('''  
+    query getGoDetails ($NAME: String){
+            gene (where: {name: {_eq: $NAME}}) {
+                name  
+                go_cellular_component {
+                    go {
+                        id
+                        text
+                    }
+                }
+                go_molecular_function {
+                    go {
+                        id
+                        text
+                    }
+                }
+                go_biological_process {
+                    go {
+                        id
+                        text
+                    }
+                }
+            }
+        }
+    ''', {'NAME': name})
+    if data != None:
+        if len(data['gene']) == 0:
+            gene = {}
+        else:
+            gene = data['gene'][0]
+    else:
+        gene = {}
+    return render_template(
+        'go.html', 
+        gene=gene,    
+    )
+# --------- ExAc -----------------------------------------------
+@app.route("/gene/exac/<name>")
+def gene_exac_details(name):
+    data = query('''  
+    query getExacDetails ($NAME: String){
+            gene (where: {name: {_eq: $NAME}}) {
+                name  
+                 exac{
+                    variant_id
+                    allele_freq
+                    allele_num
+                    allele_count
+                    major_consequence
+                    rsid
+                    HGVSc
+                    pop_ans
+                    pop_acs           
+                }
+            }
+        }
+    ''', {'NAME': name})
+    if data != None:
+        if len(data['gene']) == 0:
+            gene = {}
+        else:
+            gene = data['gene'][0]
+    else:
+        gene = {}
+    return render_template(
+        'exac.html', 
+        gene=gene,    
+    )
 
+
+
+# --------------------------------------------------------------
 
 @app.route("/drug/")
 def drug():

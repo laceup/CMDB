@@ -18,6 +18,9 @@
         <a class="nav-link" id="nhlbi-tab" data-toggle="tab" href="#nhlbi" role="tab" aria-controls="nhlbi" aria-selected="false">NHLBI</a>
       </li>
     <li class="nav-item">
+        <a class="nav-link" id="clinvar-tab" data-toggle="tab" href="#clinvar" role="tab" aria-controls="clinvar" aria-selected="false">ClinVar</a>
+      </li>
+    <li class="nav-item">
       <a class="nav-link " id="phenotype-tab" data-toggle="tab" href="#phenotype" role="tab" aria-controls="phenotype" aria-selected="false">Phenotype</a>
     </li>
     <li class="nav-item">
@@ -32,6 +35,7 @@
   </ul>
 
   <div class="tab-content" id="myTabContent">
+    <!-- Basic -->
     <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
       <br>
       {% if gene %}
@@ -120,6 +124,7 @@
       </div>
       
     </div>
+    <!-- GO -->
     <div class="tab-pane fade" id="go" role="tabpanel" aria-labelledby="go-tab">
       <br>
       <div class="table-responsive">
@@ -260,6 +265,25 @@
         </div>
       </div>
 
+    <!-- ClinVar -->
+    <div class="tab-pane fade" id="clinvar" role="tabpanel" aria-labelledby="clinvar-tab">
+        <div class="table-responsive">
+            <table class="download_table cell-border hover stripe" class="table ">
+              <thead>
+                <tr>
+                  <th >Variant</th>
+                </tr>   
+              </thead>
+              <tbody>
+                {% for nh in gene.nhlbi %}
+                <tr>
+                  <td>{{nh.base_ncbi_37}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </div>
     <!-- PHENOTYPE -->
     <div class="tab-pane fade" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
       <br>
