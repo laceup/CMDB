@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE public."clinvar" ALTER COLUMN "gene_symbol" DROP NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN public."clinvar"."gene_symbol" IS ''
+  type: run_sql

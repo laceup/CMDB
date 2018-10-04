@@ -1,0 +1,17 @@
+- args:
+    cascade: false
+    sql: |-
+      -- DROP MATERIALIZED VIEW clinvar_mat;
+      CREATE MATERIALIZED VIEW clinvar_mat
+      AS
+      SELECT DISTINCT clinvar.gene_symbol,
+      clinvar.type,
+      clinvar.rs_dbsnp,
+      clinvar.phenotypelist,
+      clinvar.phenotypeids,
+      clinvar.clinical_significance,
+      "substring"("substring"(clinvar.name, '.*[c][.](.+).*'::text), '.*\((.+)\).*'::text) AS hgvsp,
+      split_part("substring"(clinvar.name, '.*([c][.].+).*'::text), '('::text, 1) AS hgvsc
+      FROM clinvar
+      WITH DATA;
+  type: run_sql

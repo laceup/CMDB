@@ -203,27 +203,28 @@
           <tbody>
             {% for ex in gene.exac %}
             <tr>
-              <td>{{ex.variant_id}}</td>
-              <td>{{ex.allele_freq}}</td>
-              <td>{{ex.allele_count}}</td>
-              <td>{{ex.allele_num}}</td>
-              <td>{{ex.major_consequence}}</td>
-              <td>{{ex.rsid}}</td>
-              <td>{{ex.HGVSc}}</td>
-              <td>{{ex.pop_acs['European (Non-Finnish)']}}</td>
-              <td>{{ex.pop_ans['European (Non-Finnish)']}}</td>
-              <td>{{ex.pop_acs['European (Finnish)']}}</td>
-              <td>{{ex.pop_ans['European (Finnish)']}}</td>
-              <td>{{ex.pop_acs['East Asian']}}</td>
-              <td>{{ex.pop_ans['East Asian']}}</td>
-              <td>{{ex.pop_acs['South Asian']}}</td>
-              <td>{{ex.pop_ans['South Asian']}}</td>
-              <td>{{ex.pop_acs['African']}}</td>
-              <td>{{ex.pop_ans['African']}}</td>
-              <td>{{ex.pop_acs['Latino']}}</td>
-              <td>{{ex.pop_ans['Latino']}}</td>
-              <td>{{ex.pop_acs['Other']}}</td>
-              <td>{{ex.pop_ans['Other']}}</td>
+              <!--  -->
+              <td>{{ex.variant_id}}</td>  <!-- 0 -->
+              <td>{{ex.allele_freq}}</td> <!-- 1 -->
+              <td>{{ex.allele_count}}</td> <!-- 2 -->
+              <td>{{ex.allele_num}}</td> <!-- 3 -->
+              <td>{{ex.major_consequence}}</td> <!-- 4 -->
+              <td>{{ex.rsid}}</td> <!-- 5 -->
+              <td>{{ex.HGVSc}}</td> <!-- 6 -->
+              <td>{{ex.pop_acs['European (Non-Finnish)']}}</td> <!-- 7 -->
+              <td>{{ex.pop_ans['European (Non-Finnish)']}}</td> <!-- 8 -->
+              <td>{{ex.pop_acs['European (Finnish)']}}</td> <!-- 9 -->
+              <td>{{ex.pop_ans['European (Finnish)']}}</td> <!-- 10 -->
+              <td>{{ex.pop_acs['East Asian']}}</td> <!-- 11 -->
+              <td>{{ex.pop_ans['East Asian']}}</td> <!-- 12 -->
+              <td>{{ex.pop_acs['South Asian']}}</td> <!-- 13 -->
+              <td>{{ex.pop_ans['South Asian']}}</td> <!-- 14 -->
+              <td>{{ex.pop_acs['African']}}</td> <!-- 15 -->
+              <td>{{ex.pop_ans['African']}}</td> <!-- 16 -->
+              <td>{{ex.pop_acs['Latino']}}</td> <!-- 17 -->
+              <td>{{ex.pop_ans['Latino']}}</td> <!-- 18 -->
+              <td>{{ex.pop_acs['Other']}}</td> <!-- 19 -->
+              <td>{{ex.pop_ans['Other']}}</td> <!-- 20 -->
 
             </tr>
             {% endfor %}
@@ -284,13 +285,13 @@
               <tbody>
                 {% for cl in gene.clinvar %}
                 <tr>
-                  <!-- <td>{{cl.hgvsc}}</td>
+                  <td>{{cl.hgvsc}}</td>
                   <td>{{cl.hgvsp}}</td>
                   <td>{{cl.type}}</td>
                   <td>{{cl.phenotypelist}}</td>
                   <td>{{cl.clinical_significance}}</td>
                   <td>{{cl.phenotypeids}}</td>
-                  <td>{{cl.rs_dbsnp}}</td> -->
+                  <td>{{cl.rs_dbsnp}}</td>
                 </tr>
                 {% endfor %}
               </tbody>
@@ -614,55 +615,65 @@ $(document).ready(function () {
             {
                 extend: 'colvisGroup',
                 text: 'European(Non-Finnish)',
-                show: [ 1, 2,3,4,5,6,7],
-                hide: [ 8,9,10,11,12,13,14,15,16,17,18,19 ]
+                show: [ 6,7,8],
+                hide: [ 9,10,11,12,13,14,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'European(Finnish)',
-                show: [ 1, 2,3,4,5,8,9],
-                hide: [ 7,6,10,11,12,13,14,15,16,17,18,19 ]
+                show: [ 6,9,10],
+                hide: [ 1, 2,3,4,5,7,8,11,12,13,14,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'East Asian',
-                show: [ 1, 2,3,4,5,10,11],
-                hide: [ 6,7,8,9,12,13,14,15,16,17,18,19 ]
+                show: [ 6,11,12],
+                hide: [ 1, 2,3,4,5,7,8,9,10,13,14,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'South Asian',
-                show: [ 1, 2,3,4,5,12,13],
-                hide: [ 6,7,8,9,10,11,14,15,16,17,18,19 ]
+                show: [ 6,13,14],
+                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'African',
-                show: [ 1, 2,3,4,5,14,15],
-                hide: [ 6,7,8,9,10,11,12,13,16,17,18,19  ]
+                show: [ 6,15,16],
+                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,13,14,17,18,19,20  ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'Latino',
-                show: [ 1, 2,3,4,5,16,17 ],
-                hide: [5,6,7,8,9,10,11,12,13,14,15,18,19]
+                show: [ 6,17,18 ],
+                hide: [1, 2,3,4,5,7,8,9,10,11,12,13,14,15,16,19,20]
             },
             
             {
                 extend: 'colvisGroup',
                 text: 'Other',
-                show: [ 1, 2,3,4,5,18,19 ],
-                hide: [ 6,7,8,9,10,11,12,13,14,15,16,17]
+                show: [ 1, 2,3,4,5,6,19,20 ],
+                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18]
             },
             {
                 extend: 'colvisGroup',
                 text: 'Show all',
                 show: ':hidden'
+            },
+            {
+                extend: 'colvis',
+                text: 'Show columns',
+                columns: ':not(.noVis)'
             }
         ],
         columnDefs: [
-            { "width": "200", "targets": "0" }
+            {   width: "90px", 
+                targets: 0 },
             //edit: not working
+            {
+                targets: 1,
+                className: 'noVis'
+            }
         ],
   });
   $ ('.clinvar_table').DataTable({

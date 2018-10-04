@@ -1,0 +1,8 @@
+- args:
+    cascade: false
+    sql: create view clinvar_derived as select * from clinvar_mat;
+  type: run_sql
+- args:
+    name: clinvar_derived
+    schema: public
+  type: add_existing_table_or_view
