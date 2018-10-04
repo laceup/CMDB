@@ -175,6 +175,15 @@ def gene_details(name):
                     drug_name
                   }
                 }
+                  clinvar{
+                    hgvsc
+                    hgvsp
+                    type
+                    phenotypelist
+                    clinical_significance
+                    phenotypeids
+                    rs_dbsnp    
+                }
             }
         }
     ''', {'NAME': name})
@@ -282,8 +291,9 @@ def gene_go_details(name):
     else:
         gene = {}
     return render_template(
-        'go.html', 
-        gene=gene,    
+        't_go.html', 
+        gene=gene,
+        page='go',    
     )
 # --------- ExAc -----------------------------------------------
 @app.route("/gene/exac/<name>")
@@ -314,7 +324,7 @@ def gene_exac_details(name):
     else:
         gene = {}
     return render_template(
-        'exac.html', 
+        't_exac.html', 
         gene=gene,    
     )
 

@@ -267,17 +267,30 @@
 
     <!-- ClinVar -->
     <div class="tab-pane fade" id="clinvar" role="tabpanel" aria-labelledby="clinvar-tab">
+      <br>
         <div class="table-responsive">
-            <table class="download_table cell-border hover stripe" class="table ">
+            <table class="clinvar_table cell-border hover stripe" class="table ">
               <thead>
                 <tr>
-                  <th >Variant</th>
+                  <th >HGVSc</th>
+                  <th >HGVSp</th>
+                  <th >Type</th>
+                  <th >Phenotype List</th>
+                  <th >Clinical Significance</th>
+                  <th >Phenotype IDs</th>
+                  <th> RSID</th>
                 </tr>   
               </thead>
               <tbody>
-                {% for nh in gene.nhlbi %}
+                {% for cl in gene.clinvar %}
                 <tr>
-                  <td>{{nh.base_ncbi_37}}</td>
+                  <!-- <td>{{cl.hgvsc}}</td>
+                  <td>{{cl.hgvsp}}</td>
+                  <td>{{cl.type}}</td>
+                  <td>{{cl.phenotypelist}}</td>
+                  <td>{{cl.clinical_significance}}</td>
+                  <td>{{cl.phenotypeids}}</td>
+                  <td>{{cl.rs_dbsnp}}</td> -->
                 </tr>
                 {% endfor %}
               </tbody>
@@ -652,7 +665,19 @@ $(document).ready(function () {
             //edit: not working
         ],
   });
-
+  $ ('.clinvar_table').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+    'copy', 'csv', 'excel', 'pdf', 'print' ,
+    {
+      text: 'Hypertrophy',
+      action :function (e) {
+          this.search("hypertrophy").draw();
+        }
+    }
+            
+    ]
+  });
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     if (e.target.id == "ppi-tab") {
       if (!isPPINetworkRendered) {

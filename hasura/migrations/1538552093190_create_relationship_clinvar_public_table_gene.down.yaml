@@ -1,0 +1,6 @@
+- args:
+    relationship: clinvar
+    table:
+      name: gene
+      schema: public
+  type: drop_relationship
