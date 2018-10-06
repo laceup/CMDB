@@ -365,7 +365,13 @@ def get_drug(id):
             drug_type
             drug_product
             drugbank_id
-            
+            drug_to_target{
+              gene_name
+              david{
+                category
+                term
+              }
+            }
         }
         }
     ''', {'id': id})   
@@ -376,12 +382,15 @@ def get_drug(id):
             drug = data['drug']
     else:
         drug = {}
-    
-    data={'name':id,'children':drug}
-    
-    
+    c=[]
+    child=[]
+    for i in drug:
+        for j in i['drug_to_target']:
+           c.append(j)
+        child.append({"drug_name":i['drug_name'], "children":c})
+        c=[]
 
-    
+    data={'name':id,'children':child} 
     return render_template(
         'drugnetwork.html',
         data=data,

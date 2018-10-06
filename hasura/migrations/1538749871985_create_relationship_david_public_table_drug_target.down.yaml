@@ -1,0 +1,6 @@
+- args:
+    relationship: david
+    table:
+      name: drug_target
+      schema: public
+  type: drop_relationship

@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: "ALTER TABLE david \nADD PRIMARY KEY (id);\n\n"
+  type: run_sql

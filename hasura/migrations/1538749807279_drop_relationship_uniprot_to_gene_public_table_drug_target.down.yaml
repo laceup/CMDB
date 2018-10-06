@@ -1,0 +1,8 @@
+- args:
+    name: uniprot_to_gene
+    table:
+      name: drug_target
+      schema: public
+    using:
+      foreign_key_constraint_on: uniprot_id
+  type: create_object_relationship
