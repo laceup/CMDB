@@ -1,140 +1,151 @@
 {% extends 'gene_base.html' %} 
-{% block title %}{{gene.name}}{% endblock %}
-{% block gene %}{{gene.name}}{% endblock %}
-
-{% block exacdetails %} 
-<div class="tab-pane fade show active" id="exac" role="tabpanel" aria-labelledby="exac-tab">
-        <br>
-        <div class="table-responsive">
-          <table class="exac_table cell-border hover stripe" class="table ">
+{% block title %} {{super()}} | Exac{% endblock %}
+{% block tabcontent %} 
+<div class="tab-pane fade active" id="exac" role="tabpanel" aria-labelledby="exac-tab">
+    <br>
+    <div class="table-responsive">
+        <table class="exac_table cell-border hover stripe" class="table ">
             <thead>
-              <tr>
-                <th rowspan="2" >Variant</th>
-                <th rowspan="2">Allele Frequency</th>
-                <th rowspan="2">Allele Count</th>
-                <th rowspan="2">Allele Number</th>
-                <th rowspan="2">Major Consequence</th>
-                <th rowspan="2">RSID</th>
-                <th rowspan="2">HGVSc</th>
-                <th colspan="2">European (Non-Finnish)</th>
-                <th colspan="2">European (Finnish)</th>
-                <th colspan="2">East Asian</th>
-                <th colspan="2">South Asian</th>
-                <th colspan="2">African</th>
-                <th colspan="2">Latino</th>
-                <th colspan="2">Other</th>
-              </tr>
-              <tr>
-                
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-                <th class="middle-head">Allele count</th>
-                <th class="middle-head">Allele number</th>
-              </tr>
+                <tr>
+                    <th rowspan="2">Variant</th>
+                    <th rowspan="2">Allele Frequency</th>
+                    <th rowspan="2">Allele Count</th>
+                    <th rowspan="2">Allele Number</th>
+                    <th rowspan="2">Major Consequence</th>
+                    <th rowspan="2">RSID</th>
+                    <th rowspan="2">HGVSc</th>
+                    <th colspan="2">European (Non-Finnish)</th>
+                    <th colspan="2">European (Finnish)</th>
+                    <th colspan="2">East Asian</th>
+                    <th colspan="2">South Asian</th>
+                    <th colspan="2">African</th>
+                    <th colspan="2">Latino</th>
+                    <th colspan="2">Other</th>
+                </tr>
+                <tr>
+                    
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                    <th class="middle-head">Allele count</th>
+                    <th class="middle-head">Allele number</th>
+                </tr>
             </thead>
             <tbody>
-              {% for ex in gene.exac %}
-              <tr>
-                <td>{{ex.variant_id}}</td>
-                <td>{{ex.allele_freq}}</td>
-                <td>{{ex.allele_count}}</td>
-                <td>{{ex.allele_num}}</td>
-                <td>{{ex.major_consequence}}</td>
-                <td>{{ex.rsid}}</td>
-                <td>{{ex.HGVSc}}</td>
-                <td>{{ex.pop_acs['European (Non-Finnish)']}}</td>
-                <td>{{ex.pop_ans['European (Non-Finnish)']}}</td>
-                <td>{{ex.pop_acs['European (Finnish)']}}</td>
-                <td>{{ex.pop_ans['European (Finnish)']}}</td>
-                <td>{{ex.pop_acs['East Asian']}}</td>
-                <td>{{ex.pop_ans['East Asian']}}</td>
-                <td>{{ex.pop_acs['South Asian']}}</td>
-                <td>{{ex.pop_ans['South Asian']}}</td>
-                <td>{{ex.pop_acs['African']}}</td>
-                <td>{{ex.pop_ans['African']}}</td>
-                <td>{{ex.pop_acs['Latino']}}</td>
-                <td>{{ex.pop_ans['Latino']}}</td>
-                <td>{{ex.pop_acs['Other']}}</td>
-                <td>{{ex.pop_ans['Other']}}</td>
-  
-              </tr>
-              {% endfor %}
+                {% for ex in gene.exac %}
+                <tr>
+                    <td>{{ex.variant_id}}</td>  <!-- 0 -->
+                    <td>{{ex.allele_freq}}</td> <!-- 1 -->
+                    <td>{{ex.allele_count}}</td> <!-- 2 -->
+                    <td>{{ex.allele_num}}</td> <!-- 3 -->
+                    <td>{{ex.major_consequence}}</td> <!-- 4 -->
+                    <td>{{ex.rsid}}</td> <!-- 5 -->
+                    <td>{{ex.HGVSc}}</td> <!-- 6 -->
+                    <td>{{ex.pop_acs['European (Non-Finnish)']}}</td> <!-- 7 -->
+                    <td>{{ex.pop_ans['European (Non-Finnish)']}}</td> <!-- 8 -->
+                    <td>{{ex.pop_acs['European (Finnish)']}}</td> <!-- 9 -->
+                    <td>{{ex.pop_ans['European (Finnish)']}}</td> <!-- 10 -->
+                    <td>{{ex.pop_acs['East Asian']}}</td> <!-- 11 -->
+                    <td>{{ex.pop_ans['East Asian']}}</td> <!-- 12 -->
+                    <td>{{ex.pop_acs['South Asian']}}</td> <!-- 13 -->
+                    <td>{{ex.pop_ans['South Asian']}}</td> <!-- 14 -->
+                    <td>{{ex.pop_acs['African']}}</td> <!-- 15 -->
+                    <td>{{ex.pop_ans['African']}}</td> <!-- 16 -->
+                    <td>{{ex.pop_acs['Latino']}}</td> <!-- 17 -->
+                    <td>{{ex.pop_ans['Latino']}}</td> <!-- 18 -->
+                    <td>{{ex.pop_acs['Other']}}</td> <!-- 19 -->
+                    <td>{{ex.pop_ans['Other']}}</td> <!-- 20 -->
+                    
+                </tr>
+                {% endfor %}
             </tbody>
-          </table>
-        </div>
-      </div>
+        </table>
+    </div>
+</div>
 {% endblock %}
 {% block extrajs %}
 <script>
-$(document).ready(function () {
-  $('.exac_table').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
+    $(document).ready(function () {
+        $('.exac_table').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print',
             {
                 extend: 'colvisGroup',
                 text: 'European(Non-Finnish)',
-                show: [ 1, 2,3,4,5,6,7],
-                hide: [ 8,9,10,11,12,13,14,15,16,17,18,19 ]
+                show: [ 6,7,8],
+                hide: [ 9,10,11,12,13,14,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'European(Finnish)',
-                show: [ 1, 2,3,4,5,8,9],
-                hide: [ 7,6,10,11,12,13,14,15,16,17,18,19 ]
+                show: [ 6,9,10],
+                hide: [ 1, 2,3,4,5,7,8,11,12,13,14,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'East Asian',
-                show: [ 1, 2,3,4,5,10,11],
-                hide: [ 6,7,8,9,12,13,14,15,16,17,18,19 ]
+                show: [ 6,11,12],
+                hide: [ 1, 2,3,4,5,7,8,9,10,13,14,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'South Asian',
-                show: [ 1, 2,3,4,5,12,13],
-                hide: [ 6,7,8,9,10,11,14,15,16,17,18,19 ]
+                show: [ 6,13,14],
+                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,15,16,17,18,19,20 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'African',
-                show: [ 1, 2,3,4,5,14,15],
-                hide: [ 6,7,8,9,10,11,12,13,16,17,18,19  ]
+                show: [ 6,15,16],
+                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,13,14,17,18,19,20  ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'Latino',
-                show: [ 1, 2,3,4,5,16,17 ],
-                hide: [5,6,7,8,9,10,11,12,13,14,15,18,19]
+                show: [ 6,17,18 ],
+                hide: [1, 2,3,4,5,7,8,9,10,11,12,13,14,15,16,19,20]
             },
             
             {
                 extend: 'colvisGroup',
                 text: 'Other',
-                show: [ 1, 2,3,4,5,18,19 ],
-                hide: [ 6,7,8,9,10,11,12,13,14,15,16,17]
+                show: [ 1, 2,3,4,5,6,19,20 ],
+                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18]
             },
             {
                 extend: 'colvisGroup',
                 text: 'Show all',
                 show: ':hidden'
+            },
+            {
+                extend: 'colvis',
+                text: 'Show columns',
+                columns: ':not(.noVis)'
             }
-        ],
-        columnDefs: [
-            { "width": "100", "targets": "0" }
+            ],
+            columnDefs: [
+            {   width: "90px", 
+            targets: 0 },
             //edit: not working
-        ],
-  });
-});
+            {
+                targets: 1,
+                className: 'noVis'
+            }
+            ],
+        });
+        $('#exac').addClass('show');
+
+    });
+
 </script>
 {% endblock %}

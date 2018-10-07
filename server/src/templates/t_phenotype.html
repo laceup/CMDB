@@ -1,0 +1,46 @@
+{% extends 'gene_base.html' %}
+{% block title %}{{super()}} | Phenotype Details{% endblock %}
+
+{% block tabcontent %}
+<div class="tab-pane fade active" id="phenotype" role="tabpanel" aria-labelledby="phenotype-tab">
+    <br>
+    <div class="table-responsive">
+      <table class="download_table row-border cell-border hover stripe" class="table ">
+        <thead>
+          <tr>
+            <th class="left-head">Mammalian Phenotype ID</th>
+            <th class="middle-head">Term</th>
+            <th class="right-head">Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ph in gene.phenotype %}
+          <tr>
+            <td>{{ph.mp_id}}</td>
+            <td>{{ph.mp_def.term}}</td>
+            <td>{{ph.mp_def.definition}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+{% block extrajs %}
+<script>
+    $(document).ready(function () {
+        $('.download_table').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#phenotype').addClass('show');
+    });
+</script>
+{% endblock %}

@@ -18,6 +18,7 @@ def home():
             query getEnsembl ($ARG: String){
               gene (where: {name: {_ilike: $ARG}}) {
                 name
+                ensembl_id
                 protein_name
               }
             }
@@ -26,6 +27,7 @@ def home():
         'home.html',
         **{
             "search": is_search_page,
+            "search_arg": search_arg,
             "results": result['gene'],
         }
     )
@@ -34,19 +36,20 @@ def home():
 def genes():
     data = query('''
     query {
-        gene {
-            name
-            protein_name
-            ensembl_id
-            uniprot_id
-            mgi_id
-            ncbi_id
-
-            tags{
-                tags
+        is_cardiomyopathy {
+            gene {
+                name
+                protein_name
+                ensembl_id
+                uniprot_id
+                mgi_id
+                ncbi_id
+                tags {
+                    tags
                 }
-            source{
-                source
+                source {
+                    source
+                }
             }
         }
     }
@@ -57,7 +60,7 @@ def genes():
 
     return render_template(
         'list.html', 
-        genes=data['gene'],
+        genes=data['is_cardiomyopathy'],
         # tags=tags
     )
 @app.route("/uniprot/<id>")
@@ -253,7 +256,6 @@ def gene_details(name):
         data=ppidata,
        
     )
-
 
 # -------- GO ----------------------------------------------------
 @app.route("/gene/go/<name>")

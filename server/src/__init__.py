@@ -11,3 +11,4 @@ app.debug = True
 
 from .info import *
 from .server import *
+from .gene import *

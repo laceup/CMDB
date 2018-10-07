@@ -1,141 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>{% block title %}{% endblock %} - Cardiomyopathy Database</title>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <!-- Custom styles for this template -->
-    <link href="/static/styles.css" rel="stylesheet">
-    <!-- Data tables css -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
-    {% block style %} {% endblock %}
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container-fluid">
-            <a class="navbar-brand" style="color: #f6f7f8" href="/">CM Database</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto" style="color: #f6f7f8">
-                    <li class="nav-item ">
-                        <a class="nav-link " href="/genes/">Genes</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="/drug/">Drug</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="#about">About</a>
-                    </li>
-                    <li class="nav-item " >
-                        <a class="nav-link" href="#download">Download</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>          
-        </div>
-    </nav>
-    <section class="content">
-      <div class="gene-heading-div">
-            <h1 class=gene-heading><b><i>{% block gene %}{% endblock %}</i></b></h1>
-          </div>
-          <div style="margin-top: -41px;" class="container">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                      <a class="nav-link " id="basic-tab"  href="/gene/basic/{{gene.name}}"  aria-controls="basic" aria-selected="false">Basic</a>
-                  </li>
-                  <li class="nav-item">   
-                      <a class="nav-link "  id="go-tab" href="/gene/go/{{gene.name}}" aria-controls="go" aria-selected="false">Gene Ontology</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" id="exac-tab" href="/gene/exac/{{gene.name}}"  aria-controls="exac" aria-selected="false">ExAC</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" id="nhlbi-tab"  href="/gene/nhlbi/{{gene.name}}"  aria-controls="nhlbi" aria-selected="false">NHLBI</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link " id="phenotype-tab"  href="/gene/phenotype/{{gene.name}}"  aria-controls="phenotype" aria-selected="false">Phenotype</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" id="pathways-tab"  href="/gene/pathway/{{gene.name}}"  aria-controls="pathways" aria-selected="false">Pathways</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" id="ppi-tab"  href="/gene/ppi/{{gene.name}}"  aria-controls="ppi" aria-selected="false">PPI</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" id="drug-tab"  href="/gene/drug/{{gene.name}}"  aria-controls="drug-tab" aria-selected="false">Drug</a>
-                  </li>
-              </ul>
-              
-              <div class="tab-content" id="myTabContent">
-                  <!-- BASIC --> 
-                {% block basicdetails %}
-                {% endblock %}
-                  
-                  <!-- GO  -->
-                {% block godetails %}
-                 {% endblock %}
-                  <!-- ExAC -->
-                {% block exacdetails %}
-                {% endblock %}
-                  
-                  <!-- NHLBI -->
-                {% block nhlbidetails %}
-                {% endblock %}
-                  
-                  <!-- PATHWAYS -->
-                {% block pathwaydetails %}
-                {% endblock %}
-                  
-                  <!-- PPI -->
-                  {% block ppidetails %}
-                  {% endblock %}
-                  <!-- DRUG -->
-                  {% block drugdetails %}
-                  {% endblock %}
-                  
-                  
-              </div>
-          </div>
-    </section>
-    <footer class="footer">{% block footer%}{% endblock%}</footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="/static/script.js"></script>
-    <!-- Data table scripts -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <!-- load D3js -->
-    <script src="https://d3plus.org/js/d3.js"></script>
-    <!-- load D3plus after D3js -->
-    <script src="https://d3plus.org/js/d3plus.js"></script>
-    <!-- datatable -->
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+{% extends 'base.html' %}
+{% block title %}{{gene.name}}{% endblock %}
+{% block content %}
+<div class="gene-heading-div">
+    <h1 class=gene-heading><b><i>{{gene.name}}</i></b></h1>
+</div>
+<div style="margin-top: -41px;" class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='basic' %}active{% endif %}" id="basic-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='basic') }}"  aria-controls="basic" aria-selected="true">Basic</a>
+        </li>
+        <li class="nav-item">   
+            <a class="nav-link {% if tabname=='go' %}active{% endif %}"  id="go-tab" href="{{ url_for('render_gene', name=gene.name, tabname='go') }}" aria-controls="go" aria-selected="false">Gene Ontology</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='exac' %}active{% endif %}" id="exac-tab" href="{{ url_for('render_gene', name=gene.name, tabname='exac') }}"  aria-controls="exac" aria-selected="false">ExAC</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='nhlbi' %}active{% endif %}" id="nhlbi-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='nhlbi') }}"  aria-controls="nhlbi" aria-selected="false">NHLBI</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='clinvar' %}active{% endif %}" id="clinvar-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='clinvar') }}"  aria-controls="clinvar" aria-selected="false">Clinvar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='phenotype' %}active{% endif %}" id="phenotype-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='phenotype') }}"  aria-controls="phenotype" aria-selected="false">Phenotype</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='pathways' %}active{% endif %}" id="pathways-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='pathways') }}"  aria-controls="pathways" aria-selected="false">Pathways</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='ppi' %}active{% endif %}" id="ppi-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='ppi') }}"  aria-controls="ppi" aria-selected="false">PPI</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if tabname=='drug' %}active{% endif %}" id="drug-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='drug') }}"  aria-controls="drug" aria-selected="false">Drug</a>
+        </li>
+    </ul>
     
-
-    {% block extrajs %}{% endblock %}
-  </body>
-</html>
+    <div class="tab-content" id="myTabContent">
+        {% block tabcontent %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
 
 
 

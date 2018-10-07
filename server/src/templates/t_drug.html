@@ -1,0 +1,115 @@
+{% extends 'gene_base.html' %}
+{% block title %}{{super()}} | Drug{% endblock %}
+
+{% block tabcontent %}
+<div class="tab-pane fade show active" id="drug" role="tabpanel" aria-labelledby="drug-tab">
+    <span id="drug-viz-loading-message">Loading...</span>
+    <div id="drug-viz"></div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+    var drug_target = JSON.parse('{{gene.drug_target|tojson|safe}}');
+    var links = [];
+    for (d of drug_target) {
+        if (d.drug_name) {
+            drug_link.push(d);
+        }
+    }
+    var name = '{{gene.name}}';
+    var isDrugNetworkRendered = false
+    function renderDrugNetwork() {
+        var width = 1060,
+        height = 500;
+        var svg = d3.select("div#drug-viz").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+        
+        var force = d3.layout.force()
+        .size([width, height]);
+        
+        console.log(links);
+        if (links.length === 0) {
+            $('#drug-viz-loading-message').html('No data');
+            isDrugNetworkRendered = true;
+            return;
+        }
+        $('#drug-viz-loading-message').hide();
+        
+        var nodesByName = {};
+        // var sourcenode = [{}]
+        
+        // Create nodes for each unique source and target.
+        
+        links.forEach(function (link) {
+            link.source = nodeByName(link.gene_name,link.gene_name);  
+            link.target = nodeByName(link.drug_id,link.drug_name.drug_name);
+            
+        });
+        console.log('drug',links)
+        
+        var nodes = d3.values(nodesByName);
+        var link = svg.selectAll(".link")
+        .data(links)
+        .enter().append("line")
+        .attr("class", "link");
+        console.log('drugnode',nodes)
+        // Create the node circles.
+        var node = svg.selectAll(".node")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", "node")
+        //.attr("r", function(d) {return d.weight * 10;})
+        .style("fill", function (d) { return d.name.substring(0, 2) == "DB" ? "#324e73" : "#479794" })
+        .on("dblclick", function(d, i){
+            window.open ('https://www.drugbank.ca/drugs/'+d.name ,'_blank');  // edit:remove for source gene
+        })
+        .call(force.drag);
+        
+        var label = svg.selectAll(".mytext")
+        .data(nodes)
+        .enter()
+        .append("text")
+        .text(function (d) { return d.display_name; })
+        .style("text-anchor", "middle")
+        .style("fill", "#332d2d")
+        .style("font-family", "Arial")
+        .style("font-size", 10);
+        // Start the force layout.
+        force
+        .nodes(nodes)
+        .links(links)
+        .on("tick", tick)
+        .linkDistance(100)
+        .charge([-800])
+        .start();
+        
+        function tick() {
+            link.attr("x1", function (d) { return d.source.x; })
+            .attr("y1", function (d) { return d.source.y; })
+            .attr("x2", function (d) { return d.target.x; })
+            .attr("y2", function (d) { return d.target.y; });
+            
+            node.attr("r", function (d) { return d.name.substring(0, 2) == "DB" ? 15 : 18; })
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; });
+            
+            label.attr("x", function (d) { return d.x; })
+            .attr("y", function (d) { return d.y - 15; });
+        }
+        
+        function nodeByName(name,drug) {
+            return nodesByName[name] || (nodesByName[name] = { name: name, display_name:drug });
+        }
+        
+        isDrugNetworkRendered = true;
+    }
+
+    $(document).ready(()=>{
+        if (!isDrugNetworkRendered) {
+            renderDrugNetwork();
+        }
+    });
+</script>
+{% endblock %}

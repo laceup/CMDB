@@ -1,0 +1,176 @@
+{% extends 'gene_base.html' %}
+{% block title %}{{super()}} | PPI{% endblock %}
+
+{% block tabcontent %}
+<div class="tab-pane fade show active" id="ppi" role="tabpanel" aria-labelledby="ppi-tab">
+    <br>
+    <div class="container" >
+        <div id="ppi-legend" class="row align-items-center">
+            <!-- align-items-center -->
+            <div class="legend"> <p class="ppi"><span class="key-dot cmdb"></span>CMDB protein</p> </div>
+            <div class="legend"> <p class="ppi"><span class="key-dot human"></span>other human proteins</p> </div>
+            <div class="legend"> <p class="ppi"><span class="key-dot non-human"></span>non human proteins</p> </div>
+        </div>
+    </div>
+    <!-- <div id="viz" class="ppi-viz"></div> -->
+    <span id="viz-loading-message">Loading...</span>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+    var name = '{{gene.name}}';
+    function isRelevant(uniprot_id) {
+        var relevant_uniprot_ids = JSON.parse('{{ all_genes|tojson|safe }}')
+        return relevant_uniprot_ids.includes(uniprot_id)
+    }
+    
+    function getNodecolor(d){
+        if(d.interactor === name){
+            return "#479794"
+        }
+        else if(isRelevant(d.interactor)){
+            return "#479794"
+        }
+        else if(d.organism === "human"){
+            return "#324e73"
+        }
+        else{
+            return "#15699b"
+        }
+    }
+    
+    var gene=JSON.parse('{{ gene|tojson|safe}}');
+    var link_ppi_a=gene.ppi_a
+    var link_ppi_b=gene.ppi_b
+    for(obj of link_ppi_a){
+        obj.interactor = obj.interactor_b
+        obj.organism=obj.taxid_b
+        obj.interactor_full=obj.interactor_b_full
+    }
+    for(obj of link_ppi_b){
+        obj.interactor = obj.interactor_a
+        obj.organism=obj.taxid_a
+        obj.interactor_full=obj.interactor_a_full
+    } 
+    link_ppi = [...link_ppi_a, ...link_ppi_b];
+    link_ppi = link_ppi.reduce((r, i) => !r.some(j => !Object.keys(i).some(k => i[k] !== j[k])) ? [...r, i] : r, [])
+
+    var linksp = []
+    for (i of link_ppi) {
+        linksp.push({'source': {'interactor':name,'organism':'human','interactor_full':name},'target': i})
+    }
+    
+    node = link_ppi
+    node.push({'interactor':name,'organism':'human','interactor_full':name})
+    var ppidata={"nodes":node, "links":linksp}
+   
+
+    var isPPINetworkRendered = false;
+    function renderPPINetwork() {
+        var width = 1060,
+        height = 700;
+        var svg = d3.select("div#ppi").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+        
+        var force = d3.layout.force()
+        .size([width, height]);
+
+        var data = ppidata;
+        if (data.links.length === 0) {
+            $('#viz-loading-message').html('No data');
+            isPPINetworkRendered = true;
+            return;
+        }
+        $('#viz-loading-message').hide();
+        
+        var nodesByName = {};
+        
+        
+        
+        data.nodes.forEach(function (link) {
+            link.source = nodeByName(name, 'human', name);//edit:stupidity here
+            link.target = nodeByName(link.interactor,link.organism,link.interactor_full);
+        });
+        var links_final=data.nodes
+        var nodes = d3.values(nodesByName);
+        
+        console.log('node',data.nodes )
+        console.log('link',data.links )
+        
+        var link = svg.selectAll(".link")
+        .data(links_final)
+        .enter().append("line")
+        .attr("class", "link");
+        
+        
+        
+        // Create the node circles.
+        var node = svg.selectAll(".node")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", "node")
+        .style("fill", function(d,i){return getNodecolor(d)})
+        .on("dblclick", function(d, i) {
+            if (isRelevant(d.interactor)) {
+                window.location.href = '/uniprot/'+d.interactor;
+            } else {
+                window.open ('https://www.uniprot.org/uniprot/'+d.interactor,'_blank');
+            }
+        })
+        .call(force.drag);
+        
+        var label = svg.selectAll(".mytext")
+        .data(nodes)
+        .enter()
+        .append("text")
+        .text(function (d) { return d.interactor })
+        .style("text-anchor", "middle")
+        .style("fill", "#332d2d")
+        .style("font-family", "Arial")
+        .style("font-size", 10);
+        // Start the force layout.
+        force
+        .nodes(nodes)
+        .links(links_final)
+        .on("tick", tick)
+        .linkDistance(100)
+        .charge([-800])
+        .start();
+        
+        console.log('node1',node )
+        console.log('link2',link )
+        
+        function tick() {
+            link.attr("x1", function (d) { return d.source.x; })
+            .attr("y1", function (d) { return d.source.y; })
+            .attr("x2", function (d) { return d.target.x; })
+            .attr("y2", function (d) { return d.target.y; });
+            
+            node.attr("r", function (d) { return d.interactor == '{{name}}' ? 18 : 15; })
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; });
+            
+            label.attr("x", function (d) { return d.x; })
+            .attr("y", function (d) { return d.y - 15; });
+        }
+        
+        function nodeByName(interactor,organism,interactor_full) {
+            return nodesByName[interactor] || (nodesByName[interactor] = {interactor:interactor,organism:organism,interactor_full:interactor_full});
+        }
+        
+        isPPINetworkRendered = true;
+    }
+
+    // render when document is ready
+    $(document).ready(function () { 
+        if (!isPPINetworkRendered) {
+            renderPPINetwork()
+            // break here
+        } 
+    });
+</script>
+
+
+{% endblock %}

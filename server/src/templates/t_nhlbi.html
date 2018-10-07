@@ -1,0 +1,49 @@
+{% extends 'gene_base.html' %}
+{% block title %}{{super()}} | NHLBI Details{% endblock %}
+
+{% block tabcontent %}
+<div class="tab-pane fade active" id="nhlbi" role="tabpanel" aria-labelledby="nhlbi-tab">
+    <br>
+    <div class="table-responsive">
+        <table class="download_table cell-border hover stripe" class="table ">
+            <thead>
+                <tr>
+                    <th >Variant</th>
+                    <th >RSID</th>
+                    <th >Consequence</th>
+                    <th >HGVS Protein Variant</th>
+                    <th >African American Allele Count</th>
+                    <th >European American Allele Count</th>  
+                </tr>   
+            </thead>
+            <tbody>
+                {% for nh in gene.nhlbi %}
+                <tr>
+                    <td>{{nh.base_ncbi_37}}</td>
+                    <td>{{nh.rsid}}</td>
+                    <td>{{nh.function_gvs}}</td>
+                    <td>{{nh.hgvs_protein_variant}}</td>
+                    <td>{{nh.african_american_allele_count}}</td>
+                    <td>{{nh.european_american_allele_count}}</td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block extrajs %}
+<script>
+    $(document).ready(function () {
+        $('.download_table').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+        $('#nhlbi').addClass('show');
+
+    });
+</script>
+
+{% endblock %}

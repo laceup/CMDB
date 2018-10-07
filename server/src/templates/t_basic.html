@@ -1,0 +1,95 @@
+{% extends 'gene_base.html' %}
+{% block title %}{{super()}} | Basic Details{% endblock %}
+
+{% block tabcontent %}
+
+<div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+    <br>
+    {% if gene %}
+    <div class=container>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Gene name</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content"><span>{{gene.name}}</span></div>
+        </div>
+        <div class="row basic-table-row" >
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Protein</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">{{gene.protein_name}}</div>
+        </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Ensemble ID </div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                <a target="_blank" href="https://asia.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{gene.ensembl_id}}">{{gene.ensembl_id}}</a>
+            </div>
+        </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Uniprot IDs</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                <a target="_blank" href="https://www.uniprot.org/uniprot/{{gene.uniprot_id}}">{{gene.uniprot_id}}</a>
+            </div>
+        </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Gene Synonyms</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                {% for gs in gene.proteins %}
+                <a>{{gs.gene_synonyms}} &ensp;</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">MGI ID</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                <a target="_blank" href="http://www.informatics.jax.org/marker/{{gene.mgi_id}}">{{gene.mgi_id}}</a>
+            </div>
+        </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">NCBI ID</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                <a target="_blank" href="https://www.ncbi.nlm.nih.gov/gene/{{gene.ncbi_id}}">{{gene.ncbi_id}}</a>
+            </div>
+        </div>
+        <div class="row basic-table-row">
+            <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Expression</div>
+            <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                <a target="_blank" href="https://www.ebi.ac.uk/gxa/genes/{{gene.ensembl_id}}?bs=%7B%22homo%20sapiens%22%3A%5B%22ORGANISM_PART%22%5D%7D&ds=%7B%22kingdom%22%3A%5B%22animals%22%5D%7D#baseline">Expression Atlas</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div>
+        <hr>
+        <h4>Ensemble Info</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Chromosome Name</th>
+                        <th>Start BP</th>
+                        <th>End BP</th>
+                        <th>Transcript Count</th>
+                        <th>GC Content(%)</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>{{gene.ensembl.chromosome_scaffold_name}}</td>
+                        <td>{{gene.ensembl.start_bp}}</td>
+                        <td>{{gene.ensembl.end_bp}}</td>
+                        <td>{{gene.ensembl.transcript_count}}</td>
+                        <td>{{gene.ensembl.percentage_gc_content}}</td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <h3>Subcellular Location</h3>
+        <hr>
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'gene_base.html' %}
+{% block title %}{{super()}} | Clinvar{% endblock %}
+{% block tabcontent %}
+<div class="tab-pane active fade" id="clinvar" aria-labelledby="clinvar-tab">
+    <br>
+    <div class="table-responsive">
+        <table class="clinvar_table cell-border hover stripe" class="table ">
+            <thead>
+                <tr>
+                    <th >HGVSc</th>
+                    <th >HGVSp</th>
+                    <th >Type</th>
+                    <th >Phenotype List</th>
+                    <th >Clinical Significance</th>
+                    <th >Phenotype IDs</th>
+                    <th> RSID</th>
+                </tr>   
+            </thead>
+            <tbody>
+                {% for cl in gene.clinvar %}
+                <tr>
+                    <td>{{cl.hgvsc}}</td>
+                    <td>{{cl.hgvsp}}</td>
+                    <td>{{cl.type}}</td>
+                    <td>{{cl.phenotypelist}}</td>
+                    <td>{{cl.clinical_significance}}</td>
+                    <td>{{cl.phenotypeids}}</td>
+                    <td>{{cl.rs_dbsnp}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block extrajs %}
+<script>
+$(document).ready(() => {
+    $('.clinvar_table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+    $('#clinvar').addClass('show');
+});
+</script>
+{% endblock %}
