@@ -10,6 +10,7 @@
       
       <div class="input-group mb-3 pt-5">
         <div class="input-group-prepend">
+          <a class="btn btn-outline-secondary" href="/genes/">See all genes</a>
           <button id="searchTypeBtn" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gene</button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#" data-qt="gene">Gene</a>
@@ -18,8 +19,9 @@
             <!-- <div role="separator" class="dropdown-divider"></div> -->
             <a class="dropdown-item" href="#" data-qt="drug">Drug</a>
           </div>
+          
         </div>
-        <input type="text" class="form-control" placeholder="keyword" id="searchTextBox" value="{{search_arg}}">
+        <input type="text" class="form-control" placeholder="keyword" id="searchTextBox" value="{%if search_arg %}{{search_arg}}{% endif %}">
         <input type="hidden" id="queryType" value="gene">
         <div class="input-group-append">
           <button id="searchBtn" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
