@@ -47,35 +47,38 @@
             var extidval = $(extida).html()
             var link = '#'
             switch ($(source).html()) {
-            case 'Wikipathways':
-            link = `https://www.wikipathways.org/index.php/Pathway:${extidval}`
-            break
-            case 'KEGG':
-            var temp = extidval.substring(5,13)
-            link=` https://www.genome.jp/dbget-bin/www_bget?${temp}`
-            break
-            case 'Reactome':
-            link=`https://reactome.org/content/detail/${extidval}`
-            break
-            case 'SMPDB':
-            link=`http://smpdb.ca/view/${extidval}`
-            break 
-            case 'NetPath':
-            var temp = extidval.substring(8,)
-            link=`http://www.netpath.org/netslim/${temp}_pathway.html`
-            break
-            case 'HumanCyc':
-            link=`https://humancyc.org/HUMAN/NEW-IMAGE?type=PATHWAY&object=${extidval}`
-            break
-            case 'BioCarta':
-            // link=`https://cgap.nci.nih.gov/Pathways/BioCarta/h_${extidval}`
-            break  
-            case 'Signalink':
-            link=``
-            break
-            case 'PID':
-            link=``
-            break  
+              case 'Wikipathways':
+                link = `https://www.wikipathways.org/index.php/Pathway:${extidval}`
+                break
+              case 'KEGG':
+                var temp = extidval.substring(5,13)
+                link=` https://www.genome.jp/dbget-bin/www_bget?${temp}`
+                break
+              case 'Reactome':
+                link=`https://reactome.org/content/detail/${extidval}`
+                break
+              case 'SMPDB':
+                link=`http://smpdb.ca/view/${extidval}`
+                break 
+              case 'NetPath':
+                var temp = extidval.substring(8,)
+                link=`http://www.netpath.org/netslim/${temp}_pathway.html`
+                break
+              case 'HumanCyc':
+                link=`https://humancyc.org/HUMAN/NEW-IMAGE?type=PATHWAY&object=${extidval}`
+                break
+              case 'BioCarta':
+                // link=`https://cgap.nci.nih.gov/Pathways/BioCarta/h_${extidval}`
+                break  
+              case 'Signalink':
+                link=``
+                break
+              case 'PID':
+                link=``
+                break 
+              case 'PharmGKB':
+                link=`https://www.pharmgkb.org/pathway/${extidval}`
+                break  
             }
             $(extida).attr('href', link)
         }
