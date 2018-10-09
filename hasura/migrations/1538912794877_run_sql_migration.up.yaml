@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: alter table tags add column id serial
+  type: run_sql

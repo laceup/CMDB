@@ -32,8 +32,11 @@ line.druglink {
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
     var isDrugDetailsNetworkRendered = false;
-     function renderDrugDetailsNetwork() {
-        
+    //  function renderDrugDetailsNetwork() {
+        var div = d3.select("body").append("div")	
+        .attr("class", "tooltip")				
+        .style("opacity", 0);
+
         var width = 1060,height = 700,root;
 
         var force = d3.layout.force()
@@ -98,19 +101,21 @@ line.druglink {
                 
             node.select("circle")
             .style("fill", color)
-            .on("mouseover", function(d) {		
-            div.transition()		
-                .duration(200)		
-                .style("opacity", .9);		
-            div	.html("<h5>description:</h5><p> " + d.name +"</p>")	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px");	
+            .on("mouseover", function(d) {
+                if (!d.children) {
+                    div.transition()		
+                        .duration(200)		
+                        .style("opacity", .9);		
+                    div	.html("<span>" + d.term_def +"</span>")	
+                        .style("left", (d3.event.pageX) + "px")		
+                        .style("top", (d3.event.pageY - 28) + "px");
+                }
             })					
             .on("mouseout", function(d) {		
                 div.transition()		
                     .duration(500)		
                     .style("opacity", 0);	
-        });
+            });
         }
         
         function tick() {
@@ -154,7 +159,7 @@ line.druglink {
             recurse(root);
             return nodes;
         }
-    }
+    // }
     $(document).ready(function () {
         if (!isDrugDetailsNetworkRendered ) {
         renderDrugDetailsNetwork()

@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |
+      alter table tags
+      alter column tags drop not null
+  type: run_sql

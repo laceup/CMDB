@@ -146,7 +146,7 @@ query geneDrug($name: String!) {
             drug_id
             gene_name
             drug_name {
-                drug_name
+                common_name
             }
         }
     }

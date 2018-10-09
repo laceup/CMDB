@@ -39,10 +39,20 @@ $(document).ready(() => {
     $('.clinvar_table').DataTable({
         dom: 'Bfrtip',
         buttons: [
-        'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+        'copy', 'csv', 'excel', 'pdf', 'print',
+        {
+        text: 'Hypertrophy',
+        action :function (e) {
+            this.search("cardiomyopathy").draw();
+            }
+        }],
+        autoWidth: false,
+        columnDefs: [
+            {targets: 5, width: "30px"  }],
+        
     });
     $('#clinvar').addClass('show');
+
 });
 </script>
 {% endblock %}

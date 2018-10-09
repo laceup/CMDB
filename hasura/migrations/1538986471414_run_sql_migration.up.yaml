@@ -1,0 +1,19 @@
+- args:
+    cascade: false
+    sql: |+
+      CREATE VIEW public.clinvar_derived AS
+       SELECT clinvar_mat.gene_symbol,
+          clinvar_mat.type,
+          clinvar_mat.rs_dbsnp,
+          clinvar_mat.phenotypelist,
+          clinvar_mat.phenotypeids,
+          clinvar_mat.clinical_significance,
+          clinvar_mat.hgvsp,
+          clinvar_mat.hgvsc
+         FROM public.clinvar_mat;
+
+  type: run_sql
+- args:
+    name: clinvar_derived
+    schema: public
+  type: add_existing_table_or_view

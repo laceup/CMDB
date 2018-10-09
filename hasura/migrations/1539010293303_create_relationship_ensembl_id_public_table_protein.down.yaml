@@ -1,0 +1,6 @@
+- args:
+    relationship: ensembl_id
+    table:
+      name: protein
+      schema: public
+  type: drop_relationship

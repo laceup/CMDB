@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE public."drug_vocab"
+  type: run_sql

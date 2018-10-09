@@ -1,0 +1,9 @@
+- args:
+    cascade: false
+    sql: |+
+      CREATE INDEX interactora_index
+      ON ppi_raw (id_interactor_a);
+      CREATE INDEX interactorb_index
+      ON ppi_raw (id_interactor_b);
+
+  type: run_sql

@@ -1,0 +1,13 @@
+- args:
+    name: gene
+    table:
+      name: is_cardiomyopathy
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          gene_name: name
+        remote_table:
+          name: gene
+          schema: public
+  type: create_object_relationship

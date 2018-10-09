@@ -14,14 +14,14 @@
     var links = [];
     for (d of drug_target) {
         if (d.drug_name) {
-            drug_link.push(d);
+            links.push(d);
         }
     }
     var name = '{{gene.name}}';
     var isDrugNetworkRendered = false
     function renderDrugNetwork() {
         var width = 1060,
-        height = 500;
+        height = 600;
         var svg = d3.select("div#drug-viz").append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -44,7 +44,7 @@
         
         links.forEach(function (link) {
             link.source = nodeByName(link.gene_name,link.gene_name);  
-            link.target = nodeByName(link.drug_id,link.drug_name.drug_name);
+            link.target = nodeByName(link.drug_id,link.drug_name.common_name);
             
         });
         console.log('drug',links)
@@ -75,7 +75,7 @@
         .style("text-anchor", "middle")
         .style("fill", "#332d2d")
         .style("font-family", "Arial")
-        .style("font-size", 10);
+        .style("font-size", "15px");
         // Start the force layout.
         force
         .nodes(nodes)
@@ -91,7 +91,7 @@
             .attr("x2", function (d) { return d.target.x; })
             .attr("y2", function (d) { return d.target.y; });
             
-            node.attr("r", function (d) { return d.name.substring(0, 2) == "DB" ? 15 : 18; })
+            node.attr("r", function (d) { return d.name.substring(0, 2) == "DB" ? 12 : 15; })
             .attr("cx", function (d) { return d.x; })
             .attr("cy", function (d) { return d.y; });
             

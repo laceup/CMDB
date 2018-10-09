@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: alter table drug add column drug_type_id int
+  type: run_sql

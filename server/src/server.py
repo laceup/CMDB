@@ -79,7 +79,7 @@ def get_uniprot(id):
             gene = data['gene'][0]
     else:
         return abort(404)
-    return redirect("/gene/"+gene['name'])
+    return redirect("/gene/"+gene['name']+"/basic")
 
 # ---------- details.html -----------------        
 
@@ -257,81 +257,6 @@ def gene_details(name):
        
     )
 
-# -------- GO ----------------------------------------------------
-@app.route("/gene/go/<name>")
-def gene_go_details(name):
-    data = query('''  
-    query getGoDetails ($NAME: String){
-            gene (where: {name: {_eq: $NAME}}) {
-                name  
-                go_cellular_component {
-                    go {
-                        id
-                        text
-                    }
-                }
-                go_molecular_function {
-                    go {
-                        id
-                        text
-                    }
-                }
-                go_biological_process {
-                    go {
-                        id
-                        text
-                    }
-                }
-            }
-        }
-    ''', {'NAME': name})
-    if data != None:
-        if len(data['gene']) == 0:
-            gene = {}
-        else:
-            gene = data['gene'][0]
-    else:
-        gene = {}
-    return render_template(
-        't_go.html', 
-        gene=gene,
-        page='go',    
-    )
-# --------- ExAc -----------------------------------------------
-@app.route("/gene/exac/<name>")
-def gene_exac_details(name):
-    data = query('''  
-    query getExacDetails ($NAME: String){
-            gene (where: {name: {_eq: $NAME}}) {
-                name  
-                 exac{
-                    variant_id
-                    allele_freq
-                    allele_num
-                    allele_count
-                    major_consequence
-                    rsid
-                    HGVSc
-                    pop_ans
-                    pop_acs           
-                }
-            }
-        }
-    ''', {'NAME': name})
-    if data != None:
-        if len(data['gene']) == 0:
-            gene = {}
-        else:
-            gene = data['gene'][0]
-    else:
-        gene = {}
-    return render_template(
-        't_exac.html', 
-        gene=gene,    
-    )
-
-
-
 # --------------------------------------------------------------
 
 @app.route("/drug/")
@@ -339,7 +264,8 @@ def drug():
     data = query('''
         query {
         drug {
-            drug_type       
+            drug_type
+            drug_type_id     
          
         }
         }
@@ -361,17 +287,18 @@ def drug():
 @app.route("/drug/<id>")
 def get_drug(id):
     data = query('''
-        query getDrug($id: String){
-        drug(where: {drug_type: {_eq: $id}}) {
+        query getDrug($id: Int!){
+        drug(where: {drug_type_id: {_eq: $id}}) {
             drug_name
             drug_type
+            drug_type_id
             drug_product
             drugbank_id
-            drug_to_target{
+            drug_to_target(where: {david: {}}){
               gene_name
               david{
                 category
-                term
+                term_def
               }
             }
         }
@@ -387,12 +314,14 @@ def get_drug(id):
     c=[]
     child=[]
     for i in drug:
-        for j in i['drug_to_target']:
-           c.append(j)
+        if len(i['drug_to_target']) != 0:
+            for j in i['drug_to_target'][0]['david']:
+                c.append(j)
         child.append({"drug_name":i['drug_name'], "children":c})
         c=[]
 
-    data={'name':id,'children':child} 
+
+    data={'name':drug[0]['drug_type'],'children':child} 
     return render_template(
         'drugnetwork.html',
         data=data,

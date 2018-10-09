@@ -1,0 +1,6 @@
+- args:
+    relationship: gene
+    table:
+      name: is_cardiomyopathy
+      schema: public
+  type: drop_relationship

@@ -169,9 +169,10 @@
                   gene_synonyms:{_ilike:$name}
                 }
                 ) {
-                  ensembl_id: ensemble_id
+                  ensembl_id {ensembl_id : ensembl_id}
                   name: gene_synonyms
                   protein_name: protein
+                  uniprot_id: uniprot_id
                 } 
             }`,  
             variables: {
@@ -274,8 +275,8 @@
                       `).join(' ')}
                       ${protein.map((g) => `
                         <tr>
-                          <td><a href="/gene/${g.name}?synonym=true">${g.name}</a></td>
-                          <td>${g.ensembl_id}</td>
+                          <td><a href="/uniprot/${g.uniprot_id}">${g.name}</a></td>
+                          <td>${g.ensembl_id.ensembl_id}</td>
                           <td>${g.protein_name}</td>
                         </tr>
                         `).join(' ')}
