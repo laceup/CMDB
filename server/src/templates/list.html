@@ -33,12 +33,12 @@
                 <td>{{gene.name}}</td>
                 <td>{{gene.protein_name}}</td>
                 
-                <td class="comma">
+                <td>
                   {% for sr in gene.source %}
-                  <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{sr.source}}">{{sr.source}}</a>
+                  <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{sr.source[6:]}}">{{sr.source}}</a>
                   {% endfor%}
                 </td>
-                <td class="comma">
+                <td>
                   {{gene.tags|map(attribute='tags')|join(', ')}}
                 </td>
                 <td>{{gene.ensembl_id}}</td>

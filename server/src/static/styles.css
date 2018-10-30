@@ -129,31 +129,21 @@ div.basic-table-content a:hover{
 }
 
 /*-------------- th style of the data tables -------------*/
-th{
+.details th{
     border-style: solid; 
     border-color: #e8e8e8;
-}
-th.left-head{
-    
     border-right-width: 1px;
+    border-top-width: 1px;
+    border-left-width: 0px;
+}
+.details th.left-head{ 
     border-left-width: 1px;
-    border-top-width: 1px;
-    border-top-left-radius: 5px;
-    
+    border-top-left-radius: 5px;   
 }
-th.right-head{
-   
-    border-right-width: 1px;
-    border-left-width: 0px;
-    border-top-width: 1px;
-    border-top-right-radius: 5px;
-    
+.details th.right-head{ 
+    border-top-right-radius: 5px;   
 }
-th.middle-head{
-    border-right-width: 1px;
-    border-left-width: 0px;
-    border-top-width: 1px;
-}
+
 /* -------------------------------------------------- */
 
 /* div.ppi-viz {

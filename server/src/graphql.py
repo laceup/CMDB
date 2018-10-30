@@ -8,7 +8,9 @@ query geneBasic($name: String!) {
         uniprot_id
         mgi_id
         ncbi_id
-
+        tags{
+            tags
+        }
         proteins {
             gene_synonyms
         }

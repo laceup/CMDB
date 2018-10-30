@@ -18,6 +18,7 @@
             <a class="dropdown-item" href="#" data-qt="pathway">Pathway</a>
             <!-- <div role="separator" class="dropdown-divider"></div> -->
             <a class="dropdown-item" href="#" data-qt="drug">Drug</a>
+            <a class="dropdown-item" href="#" data-qt="variant">Variant</a>
           </div>
           
         </div>
@@ -118,8 +119,7 @@
       e.preventDefault();
       var param = $(this).attr("data-qt");
       var concept = $(this).text();
-      $('#queryType').val(param);
-      
+      $('#queryType').val(param);    
       $('#searchTypeBtn').text(concept);
     });
     
@@ -236,8 +236,30 @@
               }`,
               variables: {
                 name: `${$('#searchTextBox').val()}%`
-              }
+              }    
           })
+        case 'variant':
+          return JSON.stringify({
+            query:`query searchVariant($name: String!) {
+              clinvar_derived (
+              limit:10,
+              where: {_or:[
+                {hgvsc: {_ilike: $name}},
+                {hgvsp: {_ilike: $name}},
+                {rs_dbsnp: {_ilike: $name}}
+                ]}
+              ){
+                hgvsc
+    						hgvsp
+    						rs_dbsnp
+    						gene_symbol
+              }   
+            }
+            `,
+            variables: {
+              name: `${$('#searchTextBox').val()}%`
+            }
+          });
       }
     };
         
@@ -249,7 +271,7 @@
         contentType: 'application/json',
         dataType: 'json',
         success: (data) => {
-          const { gene, protein, pathway, drug } = data.data;
+          const { gene, protein, pathway, drug, clinvar_derived } = data.data;
           switch($('#queryType').val()) {
             case 'gene':
               if (gene.length === 0 && protein.length === 0) {
@@ -365,6 +387,34 @@
                 </table>
               `;
               renderResults(drugTemplate);
+              break;
+            case 'variant':
+              if (clinvar_derived.length === 0) {
+                renderResults(false);
+                break;
+              }
+              var variantTemplate = `<table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Gene name</th>
+                    <th>RS ID</th>
+                    <th>HGVSc</th>
+                    <th>HGVSp</th>  
+                  </tr>
+                </thead>
+                <tbody>
+                  ${clinvar_derived.map((g) => `
+                    <tr>
+                      <td><a href="/gene/${g.gene_symbol}/basic">${g.gene_symbol}</a></td>
+                      <td>${g.rs_dbsnp}</td>
+                      <td>${g.hgvsc}</td>
+                      <td>${g.hgvsp}</td>
+                    </tr>
+                    `).join(' ')}
+                  </tbody>
+                </table>
+              `;
+              renderResults(variantTemplate);
               break;
           }
         },
