@@ -71,8 +71,8 @@ CREATE MATERIALIZED VIEW public.clinvar_mat AS
     clinvar.phenotypelist,
     clinvar.phenotypeids,
     clinvar.clinical_significance,
-    btrim("substring"("substring"(clinvar.name, '.*[c][.](.+).*'::text), '.*\((.+)\).*'::text)) AS hgvsp,
-    btrim(split_part("substring"(clinvar.name, '.*([c][.].+).*'::text), '('::text, 1)) AS hgvsc
+    btrim("substring"("substring"(clinvar.name, '.*[c][.](.+).*'::text), '.*\(([p][.].+)\).*'::text)) AS hgvsp,
+    btrim(split_part("substring"(clinvar.name, '.*([c][.].+).*'::text), ' ('::text, 1)) AS hgvsc
    FROM public.clinvar
   WITH NO DATA;
 
@@ -163,6 +163,30 @@ CREATE TABLE public.david (
 ALTER TABLE public.david OWNER TO postgres;
 
 --
+-- Name: david_drug_target_genes; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.david_drug_target_genes (
+    gene text NOT NULL,
+    category text NOT NULL,
+    term text NOT NULL,
+    count integer NOT NULL,
+    percent numeric NOT NULL,
+    pvalue numeric NOT NULL,
+    list_total integer NOT NULL,
+    pop_hits integer NOT NULL,
+    pop_tot integer NOT NULL,
+    fold_enrichment numeric NOT NULL,
+    bonferroni numeric NOT NULL,
+    benjamini numeric NOT NULL,
+    id integer NOT NULL,
+    term_def text
+);
+
+
+ALTER TABLE public.david_drug_target_genes OWNER TO postgres;
+
+--
 -- Name: david_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -241,6 +265,23 @@ ALTER TABLE public.drug_target_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE public.drug_target_id_seq OWNED BY public.drug_target.id;
 
+
+--
+-- Name: drug_vocab; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.drug_vocab (
+    drugbank_id text NOT NULL,
+    accession_no text,
+    common_name text NOT NULL,
+    cas text,
+    unii text,
+    synonyms text,
+    std_inchi_key text
+);
+
+
+ALTER TABLE public.drug_vocab OWNER TO postgres;
 
 --
 -- Name: ensembl; Type: TABLE; Schema: public; Owner: postgres
@@ -767,7 +808,6 @@ ALTER SEQUENCE public.ppi_raw_id_seq OWNED BY public.ppi_raw.id;
 --
 
 CREATE TABLE public.protein (
-    ensemble_id text NOT NULL,
     uniprot_id text NOT NULL,
     entry_name text NOT NULL,
     protein text NOT NULL,
@@ -941,6 +981,14 @@ ALTER TABLE ONLY public.compartment
 
 
 --
+-- Name: david_drug_target_genes david_drug_target_genes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.david_drug_target_genes
+    ADD CONSTRAINT david_drug_target_genes_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: david david_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -962,6 +1010,14 @@ ALTER TABLE ONLY public.drug
 
 ALTER TABLE ONLY public.drug_target
     ADD CONSTRAINT drug_target_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: drug_vocab drug_vocab_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.drug_vocab
+    ADD CONSTRAINT drug_vocab_pkey PRIMARY KEY (drugbank_id);
 
 
 --
@@ -1170,6 +1226,20 @@ CREATE INDEX gene_symbol_index ON public.clinvar USING btree (gene_symbol);
 --
 
 CREATE INDEX gene_syn_index ON public.protein USING btree (gene_synonyms);
+
+
+--
+-- Name: interactora_index; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX interactora_index ON public.ppi_raw USING btree (id_interactor_a);
+
+
+--
+-- Name: interactorb_index; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX interactorb_index ON public.ppi_raw USING btree (id_interactor_b);
 
 
 --

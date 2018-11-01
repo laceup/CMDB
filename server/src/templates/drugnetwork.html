@@ -20,6 +20,9 @@ line.druglink {
   stroke: #9ecae1;
   stroke-width: 1.5px;
 }
+/* .drugnode{
+    z-index: 999;
+} */
 </style>
 {% endblock %}
 {% block content %}
@@ -66,13 +69,13 @@ line.druglink {
         update()        
         function update() {
             var nodes = flatten(root),
-            links = d3.layout.tree().links(nodes);
+                links = d3.layout.tree().links(nodes);
             
             // Restart the force layout.
             force
-            .nodes(nodes)
-            .links(links)
-            .start();
+                .nodes(nodes)
+                .links(links)
+                .start();
             
             // Update links.
             link = link.data(links, function(d) { return d.target.id; });
@@ -80,7 +83,7 @@ line.druglink {
             link.exit().remove();
             
             link.enter().insert("line", ".node")
-            .attr("class", "druglink");
+                .attr("class", "druglink");
             
             // Update nodes.
             node = node.data(nodes, function(d) { return d.id; });

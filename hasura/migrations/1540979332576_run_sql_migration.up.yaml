@@ -1,0 +1,24 @@
+- args:
+    cascade: false
+    sql: |-
+      CREATE TABLE public.david_drug_target_genes (
+          gene text NOT NULL,
+          category text NOT NULL,
+          term text NOT NULL,
+          count integer NOT NULL,
+          percent numeric NOT NULL,
+          pvalue numeric NOT NULL,
+          list_total integer NOT NULL,
+          pop_hits integer NOT NULL,
+          pop_tot integer NOT NULL,
+          fold_enrichment numeric NOT NULL,
+          bonferroni numeric NOT NULL,
+          benjamini numeric NOT NULL,
+          fdr numeric NOT NULL,
+          id integer NOT NULL
+      );
+  type: run_sql
+- args:
+    name: david_drug_target_genes
+    schema: public
+  type: add_existing_table_or_view

@@ -6,7 +6,7 @@
 
 import csv
 data=[]
-with open('protein3.csv') as f:
+with open('david2.csv') as f:
     data=[]
     reader = csv.reader(f, delimiter=',')
     for row in reader:
@@ -18,14 +18,14 @@ with open('protein3.csv') as f:
 
 newdata=[]
 for row in data:
-    genes = row[3]
-    for gene in genes.split(' '):
+    genes = row[5]
+    for gene in genes.split(','):
         newrow = [gene]
         newrow.extend(row[:-1])
         newdata.append(newrow)
 print newdata
 
-with open('protein3_new.csv', 'wb') as csvfile:
+with open('david3_new.csv', 'wb') as csvfile:
     writer = csv.writer(csvfile, delimiter=',', quotechar='"')
     for row in newdata:
         writer.writerow(row)

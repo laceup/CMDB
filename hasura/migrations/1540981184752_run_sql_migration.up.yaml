@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: "ALTER TABLE david_drug_target_genes \nADD PRIMARY KEY (id);"
+  type: run_sql
