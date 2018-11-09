@@ -104,3 +104,19 @@ docker logs install_server_1
   ```bash
   docker exec install_postgres_1 pg_restore -h localhost -p 5432 -U postgres -d postgres --schema public --data-only -Fc < public-data.sql.gz
   ```
+
+## Production setup
+
+Clone the repo
+
+```bash
+git clone https://github.com/laceup/CMDB
+cd CMDB
+```
+
+Start the services
+
+```bash
+cd install
+docker-compose up -d --build -f production.yaml
+```
