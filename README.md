@@ -118,5 +118,20 @@ Start the services
 
 ```bash
 cd install
-docker-compose up -d --build -f production.yaml
+docker-compose up -d --build
+```
+
+Apply migrations
+
+```bash
+hasura migrate apply
+```
+
+### Updating code
+
+```bash
+cd CMDB
+git pull
+
+docker-compose up -d --build
 ```
