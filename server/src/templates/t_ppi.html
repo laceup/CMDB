@@ -22,9 +22,13 @@
     var name = '{{gene.name}}';
     function isRelevant(uniprot_id) {
         var relevant_uniprot_ids = JSON.parse('{{ all_genes|tojson|safe }}')
-        return relevant_uniprot_ids.includes(uniprot_id)
+        for (uid of relevant_uniprot_ids) {
+            if (uid.gene.uniprot_id === uniprot_id) {
+                return true
+            }
+        }
+        return false;
     }
-    
     function getNodecolor(d){
         if(d.interactor === name){
             return "#479794"
@@ -47,22 +51,24 @@
         obj.interactor = obj.interactor_b
         obj.organism=obj.taxid_b
         obj.interactor_full=obj.interactor_b_full
+        obj.gene_name =obj.gene_name_b.gene_name
     }
     for(obj of link_ppi_b){
         obj.interactor = obj.interactor_a
         obj.organism=obj.taxid_a
         obj.interactor_full=obj.interactor_a_full
+        obj.gene_name =obj.gene_name_a.gene_name
     } 
     link_ppi = [...link_ppi_a, ...link_ppi_b];
     link_ppi = link_ppi.reduce((r, i) => !r.some(j => !Object.keys(i).some(k => i[k] !== j[k])) ? [...r, i] : r, [])
 
     var linksp = []
     for (i of link_ppi) {
-        linksp.push({'source': {'interactor':name,'organism':'human','interactor_full':name},'target': i})
+        linksp.push({'source': {'interactor':name,'organism':'human','interactor_full':name,'gene_name':name},'target': i})
     }
     
     node = link_ppi
-    node.push({'interactor':name,'organism':'human','interactor_full':name})
+    node.push({'interactor':name,'organism':'human','interactor_full':name,'gene_name':name})
     var ppidata={"nodes":node, "links":linksp}
    
 
@@ -90,8 +96,8 @@
         
         
         data.nodes.forEach(function (link) {
-            link.source = nodeByName(name, 'human', name);//edit:stupidity here
-            link.target = nodeByName(link.interactor,link.organism,link.interactor_full);
+            link.source = nodeByName(name, 'human', name,name);//edit:stupidity here
+            link.target = nodeByName(link.interactor,link.organism,link.interactor_full,link.gene_name);
         });
         var links_final=data.nodes
         var nodes = d3.values(nodesByName);
@@ -125,7 +131,7 @@
         .data(nodes)
         .enter()
         .append("text")
-        .text(function (d) { return d.interactor })
+        .text(function (d) { return d.gene_name })
         .style("text-anchor", "middle")
         .style("fill", "#332d2d")
         .style("font-family", "Arial")
@@ -156,8 +162,8 @@
             .attr("y", function (d) { return d.y - 15; });
         }
         
-        function nodeByName(interactor,organism,interactor_full) {
-            return nodesByName[interactor] || (nodesByName[interactor] = {interactor:interactor,organism:organism,interactor_full:interactor_full});
+        function nodeByName(interactor,organism,interactor_full,gene_name) {
+            return nodesByName[interactor] || (nodesByName[interactor] = {interactor:interactor,organism:organism,interactor_full:interactor_full,gene_name:gene_name});
         }
         
         isPPINetworkRendered = true;

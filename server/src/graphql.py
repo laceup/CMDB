@@ -121,8 +121,10 @@ query genePathways($name: String!) {
 # Query ppi details for a gene
 QUERY_GENE_PPI = '''
 query genePpi($name: String!) {
-    all_genes: gene {
-        uniprot_id
+    all_genes: is_cardiomyopathy {
+        gene{
+            uniprot_id
+        }
     }
     gene (where: {name: {_eq: $name}}) {
         name
@@ -130,11 +132,17 @@ query genePpi($name: String!) {
             interactor_b
             interactor_b_full
             taxid_b
+            gene_name_b{
+                gene_name
+            }
         }
         ppi_b {
             interactor_a
             interactor_a_full
             taxid_a
+            gene_name_a{
+                gene_name
+            }
         }
     }
 }

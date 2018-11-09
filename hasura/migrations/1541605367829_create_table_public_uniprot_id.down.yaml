@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "public"."uniprot_id"
+  type: run_sql
