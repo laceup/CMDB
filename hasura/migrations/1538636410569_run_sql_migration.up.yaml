@@ -1,8 +1,0 @@
-- args:
-    cascade: false
-    sql: "CREATE OR REPLACE VIEW public.\"clinvar_derived\" AS \n SELECT clinvar.gene_symbol,\n
-      \   clinvar.type,\n    clinvar.rs_dbsnp,\n    clinvar.phenotypelist,\n    clinvar.phenotypeids,\n
-      \   clinvar.clinical_significance,\n    \"substring\"(\"substring\"(clinvar.name,
-      '.*[c][.](.+).*'::text), '.*\\((.+)\\).*'::text) AS hgvsp,\n    split_part(\"substring\"(clinvar.name,
-      '.*([c][.].+).*'::text), '('::text, 1) AS hgvsc\n   FROM clinvar;"
-  type: run_sql

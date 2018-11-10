@@ -1,6 +1,0 @@
-- args:
-    relationship: gene_name
-    table:
-      name: exac
-      schema: public
-  type: drop_relationship

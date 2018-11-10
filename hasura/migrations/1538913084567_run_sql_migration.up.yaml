@@ -1,6 +1,0 @@
-- args:
-    cascade: false
-    sql: |-
-      alter table tags
-      add constraint tags_unique unique(tags, gene_name, source)
-  type: run_sql

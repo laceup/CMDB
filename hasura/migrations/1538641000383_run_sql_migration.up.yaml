@@ -1,4 +1,0 @@
-- args:
-    cascade: false
-    sql: create index gene_symbol_mat_index ON clinvar_mat (gene_symbol);
-  type: run_sql

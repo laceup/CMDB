@@ -1,6 +1,0 @@
-- args:
-    relationship: ppi_a
-    table:
-      name: drug_target
-      schema: public
-  type: drop_relationship

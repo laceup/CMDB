@@ -1,7 +1,0 @@
-- args:
-    cascade: false
-    sql: |+
-      CREATE INDEX gene_symbol_index
-      ON clinvar (gene_symbol);
-
-  type: run_sql

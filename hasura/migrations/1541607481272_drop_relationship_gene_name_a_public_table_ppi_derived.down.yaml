@@ -1,8 +1,0 @@
-- args:
-    name: gene_name_a
-    table:
-      name: ppi_derived
-      schema: public
-    using:
-      foreign_key_constraint_on: interactor_a
-  type: create_object_relationship

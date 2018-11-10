@@ -1,3 +1,0 @@
-- args:
-    sql: DROP VIEW public."clinvar_derived"
-  type: run_sql

@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE public."david" ADD COLUMN "term_def" text NULL
-  type: run_sql

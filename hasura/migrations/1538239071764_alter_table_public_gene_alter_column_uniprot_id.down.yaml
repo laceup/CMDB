@@ -1,6 +1,0 @@
-- args:
-    sql: ALTER TABLE public."gene" ALTER COLUMN "uniprot_id" SET NOT NULL;
-  type: run_sql
-- args:
-    sql: COMMENT ON COLUMN public."gene"."uniprot_id" IS 'undefined'
-  type: run_sql

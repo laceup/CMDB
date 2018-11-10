@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE public."clinvar" DROP COLUMN "primary_key"
-  type: run_sql
