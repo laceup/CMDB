@@ -4,7 +4,7 @@ services:
     image: postgres
     restart: always
     environment:
-    - "POSTGRES_PASSWORD:mysecretpassword"
+      POSTGRES_PASSWORD: mysecretpassword
     volumes:
     - db_data:/var/lib/postgresql/data
   raven:
@@ -18,6 +18,8 @@ services:
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
   server:
     image: cmdb-server
+    environment:
+      HASURA_URL: http://raven:8080/v1alpha1/graphql
     build:
       context: server
       dockerfile: Dockerfile
