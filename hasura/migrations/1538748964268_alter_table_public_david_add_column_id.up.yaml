@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE public."david" ADD COLUMN "id" serial NOT NULL
-  type: run_sql

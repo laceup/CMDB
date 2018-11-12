@@ -1,0 +1,6 @@
+:80 {
+  proxy / server:9000
+  proxy /v1 raven:8080
+  proxy /v1alpha1 raven:8080 { websocket }
+  proxy /console raven:8080
+}

@@ -1,9 +1,0 @@
-- args:
-    cascade: false
-    sql: "-- CREATE MATERIALIZED VIEW public.clinvar_mat AS\n SELECT DISTINCT clinvar.gene_symbol,\n
-      \   clinvar.type,\n    clinvar.rs_dbsnp,\n    clinvar.phenotypelist,\n    clinvar.phenotypeids,\n
-      \   clinvar.clinical_significance,\n    btrim(\"substring\"(\"substring\"(clinvar.name,
-      '.*[c][.](.+).*'::text), '.*\\(([p][.].+)\\).*'::text)) AS hgvsp,\n    btrim(split_part(\"substring\"(clinvar.name,
-      '.*([c][.].+).*'::text), ' ('::text, 1)) AS hgvsc\n   FROM public.clinvar \n
-      \  where gene_symbol = 'PKP2'\n--   WITH NO DATA;"
-  type: run_sql

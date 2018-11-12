@@ -1,6 +1,0 @@
-- args:
-    cascade: false
-    sql: |
-      ALTER TABLE david
-      DROP CONSTRAINT david_pkey;
-  type: run_sql

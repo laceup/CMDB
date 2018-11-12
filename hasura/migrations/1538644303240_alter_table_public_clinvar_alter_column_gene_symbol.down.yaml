@@ -1,6 +1,0 @@
-- args:
-    sql: ALTER TABLE public."clinvar" ALTER COLUMN "gene_symbol" SET NOT NULL;
-  type: run_sql
-- args:
-    sql: COMMENT ON COLUMN public."clinvar"."gene_symbol" IS 'undefined'
-  type: run_sql

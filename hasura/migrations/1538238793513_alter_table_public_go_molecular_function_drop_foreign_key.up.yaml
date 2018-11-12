@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE public."go_molecular_function" DROP CONSTRAINT "go_molecular_function_name_fkey"
-  type: run_sql

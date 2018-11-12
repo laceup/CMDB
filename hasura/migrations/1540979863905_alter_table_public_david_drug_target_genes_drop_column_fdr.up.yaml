@@ -1,3 +1,0 @@
-- args:
-    sql: ALTER TABLE "public"."david_drug_target_genes" DROP COLUMN "fdr"
-  type: run_sql

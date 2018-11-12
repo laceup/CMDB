@@ -1,5 +1,0 @@
-- args:
-    cascade: false
-    sql: "ALTER TABLE david\nDROP CONSTRAINT david_pkey;\nALTER TABLE david \nADD
-      PRIMARY KEY (gene, term, pvalue);"
-  type: run_sql
