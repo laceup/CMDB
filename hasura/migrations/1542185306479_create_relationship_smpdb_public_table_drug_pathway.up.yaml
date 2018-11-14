@@ -1,0 +1,13 @@
+- args:
+    name: smpdb
+    table:
+      name: drug_pathway
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          pathway: name
+        remote_table:
+          name: smpdb_pathways
+          schema: public
+  type: create_object_relationship

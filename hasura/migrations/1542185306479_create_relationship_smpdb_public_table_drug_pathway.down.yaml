@@ -1,0 +1,6 @@
+- args:
+    relationship: smpdb
+    table:
+      name: drug_pathway
+      schema: public
+  type: drop_relationship
