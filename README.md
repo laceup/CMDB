@@ -107,9 +107,10 @@ docker logs install_server_1
 
 ## Production setup
 
-Clone the repo
+Clone the repo on the VM:
 
 ```bash
+ssh <user>@<vm-ip>
 git clone https://github.com/laceup/CMDB
 cd CMDB
 ```
@@ -117,7 +118,6 @@ cd CMDB
 Start the services
 
 ```bash
-cd install
 docker-compose up -d --build
 ```
 
@@ -130,8 +130,54 @@ hasura migrate apply
 ### Updating code
 
 ```bash
+ssh <user>@<vm-ip>
 cd CMDB
 git pull
 
 docker-compose up -d --build
+```
+
+### Creating a new table and adding data
+
+Run all the commands on your local machine. Not on the VM.
+
+Open Hasura console. This will open Hasura console on the local machine, but 
+it will connect to Hasura running on the VM. (because of the VM ip present in
+`hasura/config.yaml`)
+
+```bash
+hasura console
+```
+
+Create the required tables. This will add migration files, which you should
+commit later. The table is created directly on the Postgres running on VM.
+
+Prepare the CSV file locally (without headers) and copy it to the VM.
+
+```bash
+scp <local-csv-file.csv> <user>@<vm-ip>:<table-name-data.csv>
+```
+
+Then, SSH into the VM and execute following commands:
+
+```bash
+ssh <user>@<vm-ip>
+```
+
+Copy the csv file into the postgres container:
+
+```bash
+docker cp <table-name-data.csv> cmdb_postgres_1:/data.csv
+```
+
+Execute psql command inside the container to import data from csv file into the table: 
+
+```bash
+docker exec cmdb_postgres_1 psql -h localhost -p 5432 -d postgres -U postgres -c "copy <hasura-table-name> from '/data.csv' delimiter ',' quote '"' null 'NULL' csv;"
+```
+
+Successfull copy should show the following output:
+
+```bash
+COPY <number-of-rows-imported>
 ```
