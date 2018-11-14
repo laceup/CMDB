@@ -337,6 +337,55 @@ def ref():
         'ref.html',
     )
 
+# -------------------------------------------------------------
+@app.route("/drug/s/<id>")
+def get_drug_1(id):
+    data = query('''
+        query getDrugs($id: Int!){
+        drug(where: {drug_type_id: {_eq: $id}}) {
+            drug_name
+            drug_type
+            drug_type_id
+            drug_product
+            drugbank_id
+            drug_to_pathway{
+              pathway
+              smpdb{
+                smpdb_id
+                description
+              }
+            }
+        }
+        }
+    ''', {'id': id}) 
+
+    if data != None:
+        if len(data['drug']) == 0:
+            drug = {}
+        else:
+            drug = data['drug']
+    else:
+        drug = {}
+    
+    # c=[]
+    # child=[]
+    # for i in drug:
+    #     if len(i['drug_to_pathway']) != 0:
+    #         for j in i['drug_to_pathway'][0]['smpdb']:
+    #             c.append(j)
+    #     child.append({"drug_name":i['drug_name'], "children":c})
+    #     c=[]
+    # data={'name':drug[0]['drug_type'],'children':child} 
+
+    
+    
+    return render_template(
+        'drugnetwork1.html',
+        # data=data,
+        drug=drug
+    )
+
+
 # mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 
 @app.route("/ppi/<name>")

@@ -2,8 +2,6 @@ version: '3.6'
 services:
   server:
     image: nebelungcat/cmdb-server:v1.1
-    environment:
-    - HASURA_URL
     ports:
     - "9000:9000"
     restart: always
@@ -19,7 +17,7 @@ services:
     volumes:
     - db_data:/var/lib/postgresql/data
   raven:
-    image: hasura/graphql-engine:v1.0.0-alpha20
+    image: hasura/graphql-engine:v1.0.0-alpha28
     ports:
     - "8080:8080"
     depends_on:
