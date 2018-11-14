@@ -2,6 +2,8 @@ version: '3.6'
 services:
   server:
     image: nebelungcat/cmdb-server:v1.1
+    environment:
+      HASURA_GRAPHQL_ACCESS_KEY: abcd
     ports:
     - "9000:9000"
     restart: always
@@ -24,15 +26,9 @@ services:
     - "postgres"
     restart: always
     environment:
-    - "POSTGRES_PASSWORD:mysecretpassword"
-    command: >
-      /bin/sh -c "
-      graphql-engine --database-url postgres://postgres:$${POSTGRES_PASSWORD}@postgres:5432/postgres serve;
-      "
-  # adminer:
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 7000:8080
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:mysecretpassword@postgres:5432/postgres
+      HASURA_GRAPHQL_ACCESS_KEY: abcd
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
 volumes:
   db_data:

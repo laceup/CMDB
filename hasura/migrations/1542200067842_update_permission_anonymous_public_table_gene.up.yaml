@@ -1,0 +1,18 @@
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - name
+      - uniprot_id
+      - ncbi_id
+      - ensembl_id
+      - mgi_id
+      - protein_name
+      - hgnc_id
+      filter: {}
+      limit: 30
+    role: anonymous
+    table:
+      name: gene
+      schema: public
+  type: create_select_permission

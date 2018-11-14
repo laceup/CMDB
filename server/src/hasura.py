@@ -3,6 +3,7 @@ import json
 import os
 
 HASURA_URL = os.getenv('HASURA_URL', 'http://raven:8080/v1alpha1/graphql')
+ACCESS_KEY = os.getenv('HASURA_GRAPHQL_ACCESS_KEY')
 
 def query(q, v=None):
     payload = {
@@ -10,7 +11,7 @@ def query(q, v=None):
         "variables": v
     }
 
-    r = requests.post(HASURA_URL, data=json.dumps(payload).encode('utf-8'))
+    r = requests.post(HASURA_URL, data=json.dumps(payload).encode('utf-8'), headers={'X-Hasura-Access-Key':ACCESS_KEY})
     if r.status_code != 200:
         print("===============================================")
         print("query: ", q)

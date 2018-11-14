@@ -13,13 +13,16 @@ services:
     - "postgres"
     restart: always
     environment:
-      POSTGRES_PASSWORD: mysecretpassword
-      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:mysecretpassword@postgres:5432/postgres
-      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+    - POSTGRES_PASSWORD=mysecretpassword
+    - HASURA_GRAPHQL_DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/postgres
+    - HASURA_GRAPHQL_ENABLE_CONSOLE=false
+    - HASURA_GRAPHQL_ACCESS_KEY
+    - HASURA_GRAPHQL_UNAUTHORIZED_ROLE=anonymous
   server:
     image: cmdb-server
     environment:
-      HASURA_URL: http://raven:8080/v1alpha1/graphql
+    - HASURA_URL=http://raven:8080/v1alpha1/graphql
+    - HASURA_GRAPHQL_ACCESS_KEY
     build:
       context: server
       dockerfile: Dockerfile
