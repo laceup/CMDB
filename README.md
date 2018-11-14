@@ -139,13 +139,14 @@ docker-compose up -d --build
 
 ### Creating a new table and adding data
 
-Run all the commands on your local machine. Not on the VM.
+Run all the commands on your local machine, unless specified.
 
 Open Hasura console. This will open Hasura console on the local machine, but 
 it will connect to Hasura running on the VM. (because of the VM ip present in
 `hasura/config.yaml`)
 
 ```bash
+cd hasura
 hasura console
 ```
 
