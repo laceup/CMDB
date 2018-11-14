@@ -80,10 +80,15 @@
         $('.download_table').DataTable({
             dom: 'Bfrtip',
             buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'csv', 'excel', 'pdf', 'print',
+            {
+            text:      '<i class="fa fa-info"></i> ',
+            titleAttr: 'Content here',
+            }
             ]
         });
-
+        $('.dt-buttons :button').removeClass('dt-button');
+        $('.dt-buttons :button').addClass('btn btn-secondary my-2');
     });
 </script>
 {% endblock %}

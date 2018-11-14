@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "public"."drug_pathway"("drugbank_id" text NOT NULL, "pathway"
+      text , PRIMARY KEY ("drugbank_id","pathway") );
+  type: run_sql
+- args:
+    name: drug_pathway
+    schema: public
+  type: add_existing_table_or_view
