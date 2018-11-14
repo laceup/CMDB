@@ -1,0 +1,9 @@
+- args:
+    sql: CREATE TABLE "public"."smpdb_pathways"("smpdb_id" text NOT NULL, "name" text
+      NOT NULL, "subject" text NOT NULL, "description" text NOT NULL, PRIMARY KEY
+      ("smpdb_id") );
+  type: run_sql
+- args:
+    name: smpdb_pathways
+    schema: public
+  type: add_existing_table_or_view
