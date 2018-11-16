@@ -1,0 +1,13 @@
+- args:
+    name: drug_to_pathway
+    table:
+      name: drug
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          drugbank_id: drugbank_id
+        remote_table:
+          name: drug_pathway
+          schema: public
+  type: create_array_relationship

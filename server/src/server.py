@@ -284,50 +284,50 @@ def drug():
     )
 # --------------------------------------------------------------
 
-@app.route("/drug/<id>")
-def get_drug(id):
-    data = query('''
-        query getDrug($id: Int!){
-        drug(where: {drug_type_id: {_eq: $id}}) {
-            drug_name
-            drug_type
-            drug_type_id
-            drug_product
-            drugbank_id
-            drug_to_target(where: {david: {}}){
-              gene_name
-              david{
-                category
-                term_def
-              }
-            }
-        }
-        }
-    ''', {'id': id})   
-    if data != None:
-        if len(data['drug']) == 0:
-            drug = {}
-        else:
-            drug = data['drug']
-    else:
-        drug = {}
-    c=[]
-    child=[]
-    for i in drug:
-        if len(i['drug_to_target']) != 0:
-            for j in i['drug_to_target'][0]['david']:
-                c.append(j)
-        child.append({"drug_name":i['drug_name'], "children":c})
-        c=[]
+# @app.route("/drug/<id>")
+# def get_drug(id):
+#     data = query('''
+#         query getDrug($id: Int!){
+#         drug(where: {drug_type_id: {_eq: $id}}) {
+#             drug_name
+#             drug_type
+#             drug_type_id
+#             drug_product
+#             drugbank_id
+#             drug_to_target(where: {david: {}}){
+#               gene_name
+#               david{
+#                 category
+#                 term_def
+#               }
+#             }
+#         }
+#         }
+#     ''', {'id': id})   
+#     if data != None:
+#         if len(data['drug']) == 0:
+#             drug = {}
+#         else:
+#             drug = data['drug']
+#     else:
+#         drug = {}
+#     c=[]
+#     child=[]
+#     for i in drug:
+#         if len(i['drug_to_target']) != 0:
+#             for j in i['drug_to_target'][0]['david']:
+#                 c.append(j)
+#         child.append({"drug_name":i['drug_name'], "children":c})
+#         c=[]
 
 
-    data={'name':drug[0]['drug_type'],'children':child} 
-    return render_template(
-        'drugnetwork.html',
-        data=data,
-        drug=drug,
+#     data={'name':drug[0]['drug_type'],'children':child} 
+#     return render_template(
+#         'drugnetwork.html',
+#         data=data,
+#         drug=drug,
 
-    )
+#     )
 
 # --------------------------------------------------------------
 
@@ -338,8 +338,8 @@ def ref():
     )
 
 # -------------------------------------------------------------
-@app.route("/drug/s/<id>")
-def get_drug_1(id):
+@app.route("/drug/<id>")
+def get_drug(id):
     data = query('''
         query getDrugs($id: Int!){
         drug(where: {drug_type_id: {_eq: $id}}) {
@@ -367,21 +367,19 @@ def get_drug_1(id):
     else:
         drug = {}
     
-    # c=[]
-    # child=[]
-    # for i in drug:
-    #     if len(i['drug_to_pathway']) != 0:
-    #         for j in i['drug_to_pathway'][0]['smpdb']:
-    #             c.append(j)
-    #     child.append({"drug_name":i['drug_name'], "children":c})
-    #     c=[]
-    # data={'name':drug[0]['drug_type'],'children':child} 
-
-    
-    
+    c=[]
+    child=[]
+    for i in drug:
+        if len(i['drug_to_pathway'][0]['pathway']) != 0:
+            # print(i['drug_to_pathway'])
+            for j in i['drug_to_pathway']:
+                c.append(j)
+        child.append({"drug_name":i['drug_name'], "children":c})
+        c=[]
+    data={'name':drug[0]['drug_type'],'children':child}      
     return render_template(
-        'drugnetwork1.html',
-        # data=data,
+        'drugnetwork.html',
+        data=data,
         drug=drug
     )
 
