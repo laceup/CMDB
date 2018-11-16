@@ -1,0 +1,16 @@
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - uniprot_id
+      - entry_name
+      - protein
+      - gene_synonyms
+      - "no"
+      filter: {}
+      limit: 10
+    role: anonymous
+    table:
+      name: protein
+      schema: public
+  type: create_select_permission

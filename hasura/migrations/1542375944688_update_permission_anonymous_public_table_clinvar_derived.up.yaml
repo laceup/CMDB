@@ -1,0 +1,19 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - gene_symbol
+      - type
+      - rs_dbsnp
+      - phenotypelist
+      - phenotypeids
+      - clinical_significance
+      - hgvsp
+      - hgvsc
+      filter: {}
+      limit: 10
+    role: anonymous
+    table:
+      name: clinvar_derived
+      schema: public
+  type: create_select_permission

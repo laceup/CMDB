@@ -1,0 +1,22 @@
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - uniprot_id
+      - protein_name
+      - gene_name
+      - genebank_protein_id
+      - genebank_gene_id
+      - uniprot_title
+      - pbd_id
+      - geneatlas_id
+      - hgnc_id
+      - drug_id
+      - id
+      filter: {}
+      limit: 30
+    role: ananymous
+    table:
+      name: drug_target
+      schema: public
+  type: create_select_permission

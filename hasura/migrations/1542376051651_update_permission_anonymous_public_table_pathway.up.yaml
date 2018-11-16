@@ -1,0 +1,15 @@
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - name
+      - data
+      - external_id
+      - source
+      filter: {}
+      limit: 10
+    role: anonymous
+    table:
+      name: pathway
+      schema: public
+  type: create_select_permission

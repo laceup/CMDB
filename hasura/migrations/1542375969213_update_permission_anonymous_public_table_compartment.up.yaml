@@ -1,0 +1,20 @@
+- args:
+    permission:
+      allow_aggregations: true
+      columns:
+      - ensembl_id
+      - gene_name
+      - go_id
+      - location
+      - source
+      - acquired
+      - score
+      - id
+      - derived_location
+      filter: {}
+      limit: 10
+    role: anonymous
+    table:
+      name: compartment
+      schema: public
+  type: create_select_permission
