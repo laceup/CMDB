@@ -40,16 +40,19 @@ $(document).ready(() => {
         dom: 'Bfrtip',
         buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print',
-            {
-            text:      '<i class="fa fa-info"></i> ',
-            titleAttr: 'Content here',
-            },
         {
-        text: 'Hypertrophy',
-        action :function (e) {
-            this.search("cardiomyopathy").draw();
+            text: 'Hypertrophy',
+            action :function (e) {
+                this.search("cardiomyopathy").draw();
             }
-        }],
+        },
+        {
+            text:      '<i class="fa fa-info"></i> ',
+            action: function ( e, dt, button, config ) {
+                window.location = '/help/#clinvar';
+            } ,
+        },
+       ],
         autoWidth: false,
         columnDefs: [
             {targets: 5, width: "30px"  }],

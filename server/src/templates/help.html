@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Help{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h3>Search Bar</h3>
+            <img src="/static/img/help1.png" alt="help1" width="1000" height="200">
+            <div>
+                <ol>
+                    <li><b>See all genes </b>- Lists all the genes that causes any of the three types of cardiomyopathy : 
+                        <ul>
+                            <li>HCM - Hypertrophic cardiomyopathy </li>
+                            <li>DCM - Dialated cardiomyopathy</li>
+                            <li>ARVC - Arrhythmogenic right ventricular cardiomyopathy</li>
+                        </ul>
+                        This has been found through text mining and literature review.
+                    </li>
+                    <li>
+                        <b>Dropdown Menu </b>- Search can be specified through different options in the dropdown.
+                        Each options lets you search the following <i>keywords</i>: 
+                        <ul>
+                            <li>
+                                Gene - Official gene symbol <i>(Eg: ACTC1)</i>, Ensembl ID <i>(Eg: ENSG00000159251)</i>, 
+                                and gene synonyms <i>(Eg: ACTC)</i>
+                            </li>
+                            <li>Protein - Uniprot ID <i>(Eg: P68032)</i>, protein name <i>(Eg: Actin, alpha cardiac muscle 1 )</i></li>
+                            <li>Pathway - Pathway name <i>(Eg: Cardiac muscle contraction - Homo sapiens (human))</i></li>  
+                            <li>Drug - Drug name <i>(Eg: Metoprolol)</i>, drug type <i>(Eg: Beta Blockers (Beta-Adrenergic Blocking Agents))</i> , drug bank ID <i>(Eg: DB00264)</i></li>
+                            <li>Variant - HGVSc <i>(Eg: c.1028delC)</i>, HGVSp <i>(Eg: p.Thr343Metfs)</i>, rs ID <i>(Eg: rs730880686)</i></li> 
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </a>
+        
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h3>Gene page</h3>
+            <img src="/static/img/help2.png" alt="help2" width="1050" height="160">
+            <p>Each tab gives you information regarding different aspects of the gene.</p>
+        </a> 
+        <a href="#basic" class="list-group-item list-group-item-action flex-column align-items-start"> 
+            <h4>Basic
+
+            </h4>
+        </a>
+        <a href="#go" name ="go" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>Gene Ontology</h4>
+        </a>
+        <a href="#exac" name ="exac" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4> Variant Information (ExAC)</h4>
+        </a>
+        <a href="#nhlbi" name ="nhlbi" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>Variant Information (NHLBI)</h4>
+        </a>
+        <a href="#clinvar" name ="clinvar" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>Clinical Information</h4>
+        </a>
+        <a href="#phenotype" name ="phenotype" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>Phenotype</h4>
+        </a>
+        
+        <a href="#pathway" name ="pathway" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>Pathways</h4>
+        </a>
+        
+        <a href="#ppi" name ="ppi" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>PPI</h4>
+        </a>
+        <a href="#drug" name ="drug" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h4>Drug</h4>
+        </a>
+        
+        
+        
+        
+        
+    </div>
+</div>
+
+{% endblock %}
+

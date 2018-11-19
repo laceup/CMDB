@@ -41,7 +41,8 @@
             'copy', 'csv', 'excel', 'pdf', 'print',
             {
             text:      '<i class="fa fa-info"></i> ',
-            titleAttr: 'Content here',
+            action: function ( e, dt, button, config ) {
+                window.location = '/help/#nhlbi';} 
             }
             ]
         });

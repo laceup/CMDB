@@ -101,7 +101,8 @@
         },
         {
             text:      '<i class="fa fa-info"></i> ',
-            titleAttr: 'Content here',
+            action: function ( e, dt, button, config ) {
+                window.location = '/help/#exac';} ,
         },
             {
                 extend: 'colvisGroup',
@@ -160,29 +161,7 @@
             autoWidth: false,
             columnDefs: [
             {   targets: 0, width: "30px"  }],
-            // "columns": [
-            //     { "width": "40%" },
-            //     { "width": "10%" },
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null,
-            //     null
-            // ]
+            
         });
         $('#exac').addClass('show');
         $('.dt-buttons :button').removeClass('dt-button');
