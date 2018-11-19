@@ -81,182 +81,6 @@ def get_uniprot(id):
         return abort(404)
     return redirect("/gene/"+gene['name']+"/basic")
 
-# ---------- details.html -----------------        
-
-# @app.route("/gene/<name>")
-# def gene_details(name):
-    # data = query('''
-    #     query getGeneDetails ($NAME: String) {
-    #         all_genes: gene {
-    #             uniprot_id
-    #         }
-    #         gene (where: {name: {_eq: $NAME}}) {
-    #             name
-    #             protein_name
-    #             ensembl_id
-    #             uniprot_id
-    #             mgi_id
-    #             ncbi_id
-
-    #             proteins {
-    #                 gene_synonyms
-    #             }
-                
-    #             ensembl {
-    #                 chromosome_scaffold_name
-    #                 start_bp
-    #                 end_bp
-    #                 transcript_count
-    #                 percentage_gc_content
-    #             }
-    #             go_cellular_component {
-    #                 go {
-    #                     id
-    #                     text
-    #                 }
-    #             }
-    #             go_molecular_function {
-    #                 go {
-    #                     id
-    #                     text
-    #                 }
-    #             }
-    #             go_biological_process {
-    #                 go {
-    #                     id
-    #                     text
-    #                 }
-    #             }
-    #             phenotype{
-    #                 mp_id
-    #                 mp_def{
-    #                     term
-    #                     definition
-    #                 }
-    #             }
-    #             exac{
-    #                 variant_id
-    #                 allele_freq
-    #                 allele_num
-    #                 allele_count
-    #                 major_consequence
-    #                 rsid
-    #                 HGVSc
-    #                 pop_ans
-    #                 pop_acs           
-    #             }
-    #             nhlbi{
-    #                 base_ncbi_37
-    #                 rsid
-    #                 function_gvs
-    #                 hgvs_protein_variant
-    #                 african_american_allele_count
-    #                 european_american_allele_count
-    #             }
-    #             pathways{
-    #                 data
-    #                 external_id
-    #                 source
-    #             }
-    #             ppi_a{
-                    
-    #                 interactor_b
-    #                 interactor_b_full
-    #                 taxid_b
-
-    #             }
-    #             ppi_b{
-                    
-    #                 interactor_a
-    #                 interactor_a_full
-    #                 taxid_a
-    #             }
-    #             drug_target{
-    #               drug_id
-    #               gene_name
-    #               drug_name{
-    #                 drug_name
-    #               }
-    #             }
-    #               clinvar{
-    #                 hgvsc
-    #                 hgvsp
-    #                 type
-    #                 phenotypelist
-    #                 clinical_significance
-    #                 phenotypeids
-    #                 rs_dbsnp    
-    #             }
-    #         }
-    #     }
-    # ''', {'NAME': name})
-
-    # if data != None:
-    #     if len(data['gene']) == 0:
-    #         gene = {}
-    #     else:
-    #         gene = data['gene'][0]
-    # else:
-    #     gene = {}
-
-    # gene_list = [x['uniprot_id'] for x in data['all_genes'] if x is not None]
-    # # for ppi------------------------------
-
-    # # link_ppi=[]
-    # # for g in gene['ppi_b']:
-    # #     link_ppi.append(g["interactor_a"])
-
-    # # for g in gene['ppi_a']:
-    # #     link_ppi.append(g["interactor_b"])
-
-    # # 
-    # # link_ppi = list(set(link_ppi))
-
-    # # link_ppi = [{'interactor': x} for x in link_ppi]
-
-    # link_ppi_a=gene['ppi_a']
-    # link_ppi_b=gene['ppi_b']
-    # for i in link_ppi_a:
-    #     i['interactor']=i.pop('interactor_b')
-    #     i['organism']=i.pop('taxid_b')
-    #     i['interactor_full']=i.pop('interactor_b_full')
-    # for j in link_ppi_b:
-    #     j['interactor']=j.pop('interactor_a')
-    #     j['organism']=j.pop('taxid_a')
-    #     j['interactor_full']=j.pop('interactor_a_full')    
-    # link_ppi=link_ppi_a + link_ppi_b
-    # link_ppi=[dict(t) for t in {tuple(d.items()) for d in link_ppi}] # remove duplicates
-    
-    # linksp=[]
-    # for i in link_ppi:
-    #     linksp.append ({'source': {'interactor':name,'organism':'human','interactor_full':name},'target': i})
-    
-    # node=link_ppi
-    # # source_node={'interactor':name,'organism':'human','interactor_full':name}
-    # node.append({'interactor':name,'organism':'human','interactor_full':name})
-    # ppidata={"nodes":node,"links":linksp}
-
-    # # for drug d3 network -----------------------
-    # if data != None:
-    #     if len(data['gene']) == 0:
-    #         link = {}
-    #     else:
-    #         link = data['gene'][0]['drug_target']
-    # else:
-    #     link = {}
-    # drug_link= [x for x in link if x['drug_name'] != None]
-
-    # return render_template(
-    #     'details.html',
-    #     gene=gene,
-    #     drug_link=drug_link,
-    #     name=name,
-    #     link_ppi=link_ppi,
-    #     gene_list= gene_list,
-    #     data=ppidata,
-       
-    # )
-
 # --------------------------------------------------------------
 
 @app.route("/drug/")
@@ -284,51 +108,6 @@ def drug():
     )
 # --------------------------------------------------------------
 
-# @app.route("/drug/<id>")
-# def get_drug(id):
-#     data = query('''
-#         query getDrug($id: Int!){
-#         drug(where: {drug_type_id: {_eq: $id}}) {
-#             drug_name
-#             drug_type
-#             drug_type_id
-#             drug_product
-#             drugbank_id
-#             drug_to_target(where: {david: {}}){
-#               gene_name
-#               david{
-#                 category
-#                 term_def
-#               }
-#             }
-#         }
-#         }
-#     ''', {'id': id})   
-#     if data != None:
-#         if len(data['drug']) == 0:
-#             drug = {}
-#         else:
-#             drug = data['drug']
-#     else:
-#         drug = {}
-#     c=[]
-#     child=[]
-#     for i in drug:
-#         if len(i['drug_to_target']) != 0:
-#             for j in i['drug_to_target'][0]['david']:
-#                 c.append(j)
-#         child.append({"drug_name":i['drug_name'], "children":c})
-#         c=[]
-
-
-#     data={'name':drug[0]['drug_type'],'children':child} 
-#     return render_template(
-#         'drugnetwork.html',
-#         data=data,
-#         drug=drug,
-
-#     )
-
 # --------------------------------------------------------------
 
 @app.route("/help/")
@@ -338,6 +117,7 @@ def help():
     )
 
 # -------------------------------------------------------------
+
 @app.route("/drug/<id>")
 def get_drug(id):
     data = query('''
@@ -384,7 +164,7 @@ def get_drug(id):
     )
 
 
-# mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+# -------------------------------------------------------------
 
 @app.route("/ppi/<name>")
 def ppi(name):
