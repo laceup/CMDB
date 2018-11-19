@@ -7,7 +7,7 @@
   </div>
   {%for d in drug%}
     <div class="row" >
-      <a href="/drug/{{d.drug_type_id}}">{{d.drug_type}}</a></div>
+      <a href="{{ url_for('get_drug', id=d.drug_type_id) }}">{{d.drug_type}}</a></div>
   {% endfor %} 
 
 </div>

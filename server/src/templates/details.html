@@ -451,6 +451,7 @@
     .attr("class", "link");
     
     
+    var app_root = "{{url_for('home')}}";
     
     // Create the node circles.
     var node = svg.selectAll(".node")
@@ -462,7 +463,7 @@
     // not working
     .on("dblclick", function(d, i) {
       if (isRelevant(d.interactor)) {
-        window.location.href = '/uniprot/'+d.interactor;
+        window.location.href = app_root + '/uniprot/'+d.interactor;
       } else {
         window.open ('https://www.uniprot.org/uniprot/'+d.interactor,'_blank');
       }
