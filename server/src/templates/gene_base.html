@@ -2,7 +2,10 @@
 {% block title %}{{gene.name}}{% endblock %}
 {% block content %}
 <div class="gene-heading-div">
-    <h1 class=gene-heading><b><i>{{gene.name}}</i></b></h1>
+    <h1 class=gene-heading style="display:inline;"><b><i>{{gene.name}}</i></b></h1>
+    {% for t in gene.tags %}
+    <span class="badge badge-info" style="display:inline;">{{t.tags}}</span>
+    {% endfor %}
 </div>
 <div style="margin-top: -41px;" class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">

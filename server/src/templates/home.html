@@ -39,7 +39,7 @@
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6">
       <h4>Version details</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Version V.1.0</p>
     </div>
   </div>
   <br>
@@ -80,7 +80,7 @@
 <div class="container">
   <div class="row text-center text-xs-center text-sm-left text-md-left" style="padding-top: 10px">
     <div class="col-xs-12 col-sm-4 col-md-4">
-      <img class=" mx-auto d-block" src="static/img/dhanlab.png" alt="Dhanlab_Logo" width="160" height="120">
+      <img class=" mx-auto d-block" src="static/img/dhanlab.png" alt="Dhanlab_Logo" width="210" height="120">
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4">  
       <img class=" mx-auto d-block" src="static/img/instem_logo.png" alt="InStem_Logo" width="100" height="120">
@@ -103,7 +103,7 @@
   </div>	 -->
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-      <p><u><a href="#">NCBS</a></u> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <!-- <p><u><a href="#">NCBS</a></u></p> -->
     </div>
     <hr>
   </div>	
@@ -185,7 +185,10 @@
               gene(
               limit:10,
               where: {
-                uniprot_id: {_ilike: $name}
+                _or:[
+                {uniprot_id: {_ilike: $name}},
+                {protein_name:{_ilike: $name}}
+                ]
               }
               ) {
                 name
