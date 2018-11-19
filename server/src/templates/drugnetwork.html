@@ -100,7 +100,8 @@ line.druglink {
             
             nodeEnter.append("text")
             .attr("dy", ".35em")
-            .style("font-family", "Arial") //figure it out
+            .style("font-family", "Arial")
+            .style("font-size", "12px") //figure it out
             .text(function(d) { return d.name || d.drug_name || d.pathway; });
                 
             node.select("circle")

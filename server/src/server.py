@@ -389,25 +389,26 @@ def get_drug(id):
 @app.route("/ppi/<name>")
 def ppi(name):
     data = query('''
-        query getGene($NAME: String){
-            compartment(where: {gene_name: {_eq: $NAME}}) {
-                derived_location   
+        query getGene($name: String!){
+            gene (where: {name: {_eq: $name}}) {
+                compartment {
+                    derived_location   
+                }
             }
         }
-    ''', {'NAME': name})
+    ''', {'name': name})
 
     if data != None:
-        if len(data['compartment']) == 0:
-            location = {}
+        if len(data['gene']) == 0:
+            gene = {}
         else:
-            location = data['compartment']
+            gene = data['gene'][0]
     else:
-        location = {}
+        gene = {}
 
-    u_location=[dict(t) for t in {tuple(d.items()) for d in location}]
+    # u_location=[dict(t) for t in {tuple(d.items()) for d in location}]
     
     return render_template(
         'ppi.html',
-        u_location=u_location,
-
+        gene=gene
     )

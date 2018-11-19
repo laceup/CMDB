@@ -4,13 +4,26 @@
 
 
 {% block content %}
+<div class="container-fluid" style="margin-top: -15px">
+  <div class="row text-center text-xs-center text-sm-left text-md-left banner">
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <img class=" mx-auto d-block" src="{{ url_for('static', filename='img/dhanlab.png') }}" alt="Dhanlab_Logo" width="210" height="120">
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4">  
+      <img class=" mx-auto d-block" src="{{ url_for('static', filename='img/instem_logo.png') }}" alt="InStem_Logo" width="100" height="120">
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4">  
+      <img class=" mx-auto d-block" src="{{ url_for('static', filename='img/ohsu.png') }}" alt="Ohsu_Logo" width="150" height="120">  
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center" >
       
       <div class="input-group mb-3 pt-5">
         <div class="input-group-prepend">
-          <a class="btn btn-outline-secondary" href="/genes/">See all genes</a>
+          <a class="btn btn-outline-secondary" href="{{url_for('genes')}}">See all genes</a>
           <button id="searchTypeBtn" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gene</button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#" data-qt="gene">Gene</a>
@@ -78,7 +91,7 @@
 
 <!-- Footer -->
 <div class="container">
-  <div class="row text-center text-xs-center text-sm-left text-md-left" style="padding-top: 10px">
+  <!-- <div class="row text-center text-xs-center text-sm-left text-md-left" style="padding-top: 10px">
     <div class="col-xs-12 col-sm-4 col-md-4">
       <img class=" mx-auto d-block" src="static/img/dhanlab.png" alt="Dhanlab_Logo" width="210" height="120">
     </div>
@@ -88,7 +101,7 @@
     <div class="col-xs-12 col-sm-4 col-md-4">  
       <img class=" mx-auto d-block" src="static/img/ohsu.png" alt="Ohsu_Logo" width="150" height="120">  
     </div>
-  </div>
+  </div> -->
   <!-- <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 ">
       <ul class="list-unstyled list-inline social text-center mb-0">
@@ -101,12 +114,6 @@
     </div>
     
   </div>	 -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-      <!-- <p><u><a href="#">NCBS</a></u></p> -->
-    </div>
-    <hr>
-  </div>	
 </div>
 {% endblock %} 
 

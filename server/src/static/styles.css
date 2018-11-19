@@ -28,69 +28,34 @@ body {
     color: #2ec4b6
 }
 /* PAGE ONE - SEARCH BOX */
- #custom-search-input{
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
+ 
+/*------------- BANNER --------------- */
+.banner{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #dbdbdb !important;
 }
-
-#custom-search-input input{
-    border: 0;
-    box-shadow: none;
-}
- #custom-search-input button{
-     /* margin: 2px 0 0 0; */
-     background: none;
-     box-shadow: none;
-     border: 0;
-     color: #666666;
-     padding: 0 8px 0 10px;
-     /* border-left: solid 1px #ccc; */
- }
-
- #custom-search-input button:hover{
-     border: 0;
-     box-shadow: none;
-     border-left: solid 1px #ccc;
- }
-/* FOOTER */
+/*------------- FOOTER --------------- */
 .footer {
     position: absolute;
     height: 200;
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #08b8a6 !important;
+    background: #2ec4b6 !important;
 };
-#footer ul.social li{
-        padding: 3px 0;
-    }
 
-/* ---------------------------------------------- */
- /* .sidebar {
-   position: fixed;
-   top: 51px;
-   bottom: 0;
-   left: 0;
-   z-index: 1000;
-   padding: 20px;
-   overflow-x: hidden;
-   overflow-y: auto; Scrollable contents if viewport is shorter than content.
-   border-right: 1px solid #eee;
- }
 
-.bg-faded{
-  background-color: rgba(247, 247, 247, 0.5)
-} */
 /* ----------------------------------------------- */
 
 /* Changing the colour of tab heading */
 a.nav-link{
-    color: aliceblue;
-
-/* PINK BAR */
+    color: aliceblue !important;
 }
+a.nav-link.active{
+    color: #495057 !important;
+}
+/* PINK BAR */
 .gene-heading-div{
     background-color:#ff3366;
     padding-top:10px ;

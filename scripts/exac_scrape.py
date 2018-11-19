@@ -11,6 +11,7 @@ def getUrlForEnsemblId(id):
     return "http://exac.hms.harvard.edu/rest/gene/variants_in_gene/"+id
 
 HASURA_URL = "http://localhost:8080/v1/query"
+HEADERS = {'X-HASURA-ACCESS-KEY':'abcd'}
 
 def getEnsemblIds():
     q = {
@@ -20,21 +21,21 @@ def getEnsemblIds():
             "columns": ["ensembl_id", {"name": "exac", 'columns':['id']}]
         }
     }
-    r = requests.post(HASURA_URL, data=json.dumps(q))
+    r = requests.post(HASURA_URL, data=json.dumps(q),headers=HEADERS)
     if r.status_code != 200:
-        print 'error: ', r.status_code, r.json()
+        print('error: ', r.status_code, r.json())
         return None
     data = r.json()
     ret_data = []
     for row in data:
-        if len(row['exac']) == 0:
+        if len(row['exac']) == 0: 
             ret_data.append(row)
     return ret_data
 
 def getExacDataForEnsemblId(id):
     r = requests.get(getUrlForEnsemblId(id))
     if r.status_code != 200:
-        print 'failed getting exac data for', id, r.status_code
+        print('failed getting exac data for', id, r.status_code)
         return None
     return r.json()
 
@@ -80,22 +81,22 @@ def insertDataForEnsemblId(id, data):
     #         }
     #     }
     # )
-    r = requests.post(HASURA_URL, data=json.dumps(q))
+    r = requests.post(HASURA_URL, data=json.dumps(q),headers=HEADERS)
     return r.status_code, r.json()
 
 def run():
     objs = getEnsemblIds()
     for obj in objs:
         id = obj["ensembl_id"]
-        print "processing ", id
+        print("processing ", id)
         data = getExacDataForEnsemblId(id)
         if data is not None:
             code, resp = insertDataForEnsemblId(id, data)
             if code != 200:
-                print "failed ", id
-                print id, code, data, resp
+                print("failed ", id)
+                print(id, code, data, resp)
             else:
-                print "processed ", id
+                print("processed ", id)
                 time.sleep(2)
 
 
@@ -103,8 +104,8 @@ def run():
 # In[24]:
 
 
-# run()
+run()
 
-x = [e['ensembl_id'] for e in getEnsemblIds()]
-print str(x)
+# x = [e['ensembl_id'] for e in getEnsemblIds()]
+# print(str(x))
 

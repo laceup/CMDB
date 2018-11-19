@@ -22,6 +22,9 @@ query geneBasic($name: String!) {
             transcript_count
             percentage_gc_content
         }
+        compartment {
+                derived_location   
+            }
     }
 }    
 '''
