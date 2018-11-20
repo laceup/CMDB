@@ -272,12 +272,12 @@
           });
       }
     };
-    
+
     var app_root = "{{url_for('home')}}";
 
     $('#searchBtn').click(function(e){
       $.ajax({
-        url: location.protocol.concat('//').concat(location.host) + app_root + 'v1alpha1/graphql',
+        url: location.host === 'localhost:9000' ? '//localhost:8080'+ app_root + 'v1alpha1/graphql' : '//'.concat(location.host) + app_root + 'v1alpha1/graphql',
         type: 'POST',
         data: getQuery($('#queryType').val()),
         contentType: 'application/json',
