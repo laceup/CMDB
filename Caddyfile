@@ -1,4 +1,4 @@
- :80 {
+:80 {
     proxy /cmdb server:9000 { without /cmdb }
     proxy /cmdb/v1 raven:8080 { without /cmdb }
     proxy /cmdb/v1alpha1 raven:8080 { 
