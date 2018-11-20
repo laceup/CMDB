@@ -4,7 +4,7 @@ from flask import Flask
 app = Flask(__name__)
 
 PRODUCTION = os.getenv('PRODUCTION')
-APP_ROOT = os.getenv('APP_ROOT', '/')
+APP_ROOT = os.getenv('APP_ROOT')
 
 class ReverseProxied(object):
     def __init__(self, app, script_name=None, scheme=None, server=None):
