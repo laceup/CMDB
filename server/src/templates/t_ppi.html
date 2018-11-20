@@ -122,7 +122,7 @@
         .style("fill", function(d,i){return getNodecolor(d)})
         .on("dblclick", function(d, i) {
             if (isRelevant(d.interactor)) {
-                window.location.href = app_root + '/uniprot/'+d.interactor;
+                window.location.href = app_root + 'uniprot/'+d.interactor;
             } else {
                 window.open ('https://www.uniprot.org/uniprot/'+d.interactor,'_blank');
             }
