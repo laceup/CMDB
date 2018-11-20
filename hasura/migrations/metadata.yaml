@@ -14,6 +14,14 @@ tables:
   insert_permissions: []
   object_relationships: []
   select_permissions: []
+  table: smpdb_pathways
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  event_triggers: []
+  insert_permissions: []
+  object_relationships: []
+  select_permissions: []
   table: ensembl
   update_permissions: []
 - array_relationships: []
@@ -93,6 +101,21 @@ tables:
   delete_permissions: []
   event_triggers: []
   insert_permissions: []
+  object_relationships:
+  - comment: null
+    name: smpdb
+    using:
+      manual_configuration:
+        column_mapping:
+          pathway: name
+        remote_table: smpdb_pathways
+  select_permissions: []
+  table: drug_pathway
+  update_permissions: []
+- array_relationships: []
+  delete_permissions: []
+  event_triggers: []
+  insert_permissions: []
   object_relationships: []
   select_permissions: []
   table: nhlbi
@@ -138,7 +161,25 @@ tables:
         column_mapping:
           drug_id: drugbank_id
         remote_table: drug_vocab
-  select_permissions: []
+  select_permissions:
+  - comment: null
+    permission:
+      allow_aggregations: true
+      columns:
+      - drug_id
+      - geneatlas_id
+      - genebank_gene_id
+      - genebank_protein_id
+      - gene_name
+      - hgnc_id
+      - id
+      - pbd_id
+      - protein_name
+      - uniprot_id
+      - uniprot_title
+      filter: {}
+      limit: 30
+    role: anonymous
   table: drug_target
   update_permissions: []
 - array_relationships: []
@@ -177,7 +218,19 @@ tables:
         column_mapping:
           uniprot_id: uniprot_id
         remote_table: gene
-  select_permissions: []
+  select_permissions:
+  - comment: null
+    permission:
+      allow_aggregations: true
+      columns:
+      - uniprot_id
+      - entry_name
+      - protein
+      - gene_synonyms
+      - "no"
+      filter: {}
+      limit: 30
+    role: anonymous
   table: protein
   update_permissions: []
 - array_relationships: []
@@ -196,11 +249,30 @@ tables:
         column_mapping:
           drugbank_id: drug_id
         remote_table: drug_target
+  - comment: null
+    name: drug_to_pathway
+    using:
+      manual_configuration:
+        column_mapping:
+          drugbank_id: drugbank_id
+        remote_table: drug_pathway
   delete_permissions: []
   event_triggers: []
   insert_permissions: []
   object_relationships: []
-  select_permissions: []
+  select_permissions:
+  - comment: null
+    permission:
+      allow_aggregations: true
+      columns:
+      - drug_type
+      - drug_name
+      - drug_product
+      - drugbank_id
+      - drug_type_id
+      filter: {}
+      limit: 30
+    role: anonymous
   table: drug
   update_permissions: []
 - array_relationships: []
@@ -352,6 +424,13 @@ tables:
         column_mapping:
           name: gene_symbol
         remote_table: clinvar_derived
+  - comment: null
+    name: compartment
+    using:
+      manual_configuration:
+        column_mapping:
+          name: gene_name
+        remote_table: compartment
   delete_permissions: []
   event_triggers: []
   insert_permissions: []
@@ -363,7 +442,21 @@ tables:
         column_mapping:
           name: name
         remote_table: ensembl
-  select_permissions: []
+  select_permissions:
+  - comment: null
+    permission:
+      allow_aggregations: true
+      columns:
+      - name
+      - uniprot_id
+      - ncbi_id
+      - ensembl_id
+      - mgi_id
+      - protein_name
+      - hgnc_id
+      filter: {}
+      limit: 30
+    role: anonymous
   table: gene
   update_permissions: []
 - array_relationships: []
@@ -402,7 +495,18 @@ tables:
   event_triggers: []
   insert_permissions: []
   object_relationships: []
-  select_permissions: []
+  select_permissions:
+  - comment: null
+    permission:
+      allow_aggregations: true
+      columns:
+      - name
+      - data
+      - external_id
+      - source
+      filter: {}
+      limit: 30
+    role: anonymous
   table: pathway
   update_permissions: []
 - array_relationships: []
@@ -425,7 +529,22 @@ tables:
   event_triggers: []
   insert_permissions: []
   object_relationships: []
-  select_permissions: []
+  select_permissions:
+  - comment: null
+    permission:
+      allow_aggregations: true
+      columns:
+      - gene_symbol
+      - type
+      - rs_dbsnp
+      - phenotypelist
+      - phenotypeids
+      - clinical_significance
+      - hgvsp
+      - hgvsc
+      filter: {}
+      limit: 30
+    role: anonymous
   table: clinvar_derived
   update_permissions: []
 - array_relationships: []

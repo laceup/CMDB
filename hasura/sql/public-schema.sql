@@ -224,6 +224,18 @@ CREATE TABLE public.drug (
 ALTER TABLE public.drug OWNER TO postgres;
 
 --
+-- Name: drug_pathway; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.drug_pathway (
+    drugbank_id text NOT NULL,
+    pathway text NOT NULL
+);
+
+
+ALTER TABLE public.drug_pathway OWNER TO postgres;
+
+--
 -- Name: drug_target; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -841,6 +853,20 @@ ALTER SEQUENCE public.protein_no_seq OWNED BY public.protein.no;
 
 
 --
+-- Name: smpdb_pathways; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.smpdb_pathways (
+    smpdb_id text NOT NULL,
+    name text NOT NULL,
+    subject text NOT NULL,
+    description text NOT NULL
+);
+
+
+ALTER TABLE public.smpdb_pathways OWNER TO postgres;
+
+--
 -- Name: source; Type: VIEW; Schema: public; Owner: postgres
 --
 
@@ -1010,6 +1036,14 @@ ALTER TABLE ONLY public.david
 
 
 --
+-- Name: drug_pathway drug_pathway_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.drug_pathway
+    ADD CONSTRAINT drug_pathway_pkey PRIMARY KEY (drugbank_id, pathway);
+
+
+--
 -- Name: drug drug_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1159,6 +1193,14 @@ ALTER TABLE ONLY public.ppi_raw
 
 ALTER TABLE ONLY public.protein
     ADD CONSTRAINT protein_pkey PRIMARY KEY (no);
+
+
+--
+-- Name: smpdb_pathways smpdb_pathways_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.smpdb_pathways
+    ADD CONSTRAINT smpdb_pathways_pkey PRIMARY KEY (smpdb_id);
 
 
 --
