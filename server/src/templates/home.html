@@ -277,7 +277,7 @@
 
     $('#searchBtn').click(function(e){
       $.ajax({
-        url: app_root + '/v1alpha1/graphql',
+        url: location.protocol.concat('//').concat(location.host) + app_root + 'v1alpha1/graphql',
         type: 'POST',
         data: getQuery($('#queryType').val()),
         contentType: 'application/json',
@@ -302,14 +302,14 @@
                   <tbody>
                     ${gene.map((g) => `
                       <tr>
-                        <td><a href="${app_root}/gene/${g.name}/basic">${g.name}</a></td>
+                        <td><a href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
                         <td>${g.ensembl_id}</td>
                         <td>${g.protein_name}</td>
                       </tr>
                       `).join(' ')}
                       ${protein.map((g) => `
                         <tr>
-                          <td><a href="${app_root}/uniprot/${g.uniprot_id}">${g.name}</a></td>
+                          <td><a href="${app_root}uniprot/${g.uniprot_id}">${g.name}</a></td>
                           <td>${g.ensembl_id.ensembl_id}</td>
                           <td>${g.protein_name}</td>
                         </tr>
@@ -336,7 +336,7 @@
                 <tbody>
                   ${gene.map((g) => `
                     <tr>
-                      <td><a href="${app_root}/gene/${g.name}/basic">${g.name}</a></td>
+                      <td><a href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
                       <td>${g.uniprot_id}</td>
                       <td>${g.protein_name}</td>
                     </tr>
@@ -362,7 +362,7 @@
                 <tbody>
                   ${pathway.map((g) => `
                     <tr>
-                      <td><a href="${app_root}/gene/${g.name}/basic">${g.name}</a></td>
+                      <td><a href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
                       <td>${g.external_id}</td>
                       <td>${g.data}</td>
                     </tr>
@@ -389,7 +389,7 @@
                 <tbody>
                   ${drug.map((g) => `
                     <tr>
-                      <td>${g.drug_to_target.map((t)=>`<a href="${app_root}/gene/${t.gene_name}/basic">${t.gene_name}</a>`).join('<br/>')}</td>
+                      <td>${g.drug_to_target.map((t)=>`<a href="${app_root}gene/${t.gene_name}/basic">${t.gene_name}</a>`).join('<br/>')}</td>
                       <td>${g.drug_name}</td>
                       <td>${g.drug_type}</td>
                       <td>${g.drugbank_id}</td>
@@ -417,7 +417,7 @@
                 <tbody>
                   ${clinvar_derived.map((g) => `
                     <tr>
-                      <td><a href="${app_root}/gene/${g.gene_symbol}/basic">${g.gene_symbol}</a></td>
+                      <td><a href="${app_root}gene/${g.gene_symbol}/basic">${g.gene_symbol}</a></td>
                       <td>${g.rs_dbsnp}</td>
                       <td>${g.hgvsc}</td>
                       <td>${g.hgvsp}</td>
