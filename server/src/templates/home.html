@@ -61,26 +61,6 @@
     <div class="search_results col-md-12 justify-content-center" style="width:100%">
       <div id="search-message"></div>
       <div class="table-responsive" id="searchResultsTable">
-        {% if search %}
-        <table class="table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Gene name</th>
-              <th>Ensembl ID</th>
-              <th>Protein</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for g in results %}
-            <tr>
-              <td><a href="{{ url_for('render_gene', name=g.name, tabname='basic') }}">{{g.name}}</a></td>
-              <td>{{g.ensembl_id}}</td>
-              <td>{{g.protein_name}}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        {% endif %}
       </div>
     </div>
   </div>
@@ -153,7 +133,7 @@
       $('#searchResultsTable').html(content);
     };
     
-    var getQuery = function (queryType) {
+    var getQuery = function (queryType, keyword) {
       switch(queryType){
         case 'gene':
           return JSON.stringify({
@@ -183,7 +163,7 @@
                 } 
             }`,  
             variables: {
-              name: `%${$('#searchTextBox').val()}%`
+              name: `%${keyword}%`
             }
           });
         case 'protein':
@@ -204,7 +184,7 @@
               }   
             }`,
             variables: {
-              name: `${$('#searchTextBox').val()}%`
+              name: `%${keyword}%`
             }
           });
         case 'pathway':
@@ -222,7 +202,7 @@
               }   
             }`,
             variables: {
-              name: `${$('#searchTextBox').val()}%`
+              name: `%${keyword}%`
             }
           });
         case 'drug':
@@ -245,7 +225,7 @@
                 }                        
               }`,
               variables: {
-                name: `${$('#searchTextBox').val()}%`
+                name: `%${keyword}%`
               }    
           })
         case 'variant':
@@ -267,7 +247,7 @@
             }
             `,
             variables: {
-              name: `${$('#searchTextBox').val()}%`
+              name: `%${keyword}%`
             }
           });
       }
@@ -275,16 +255,24 @@
 
     var app_root = "{{url_for('home')}}";
 
-    $('#searchBtn').click(function(e){
+    var urlParams = new URLSearchParams(window.location.search);
+    var searchType = urlParams.get('type');
+    var searchKeyword = urlParams.get('search');
+
+    var doSearch = function(searchType, searchKeyword) {
+      $('#queryType').val(searchType);    
+      $('#searchTypeBtn').text(searchType.charAt(0).toUpperCase() + searchType.slice(1));
+      $('#searchTextBox').val(searchKeyword);    
+
       $.ajax({
         url: location.host === 'localhost:9000' ? '//localhost:8080'+ app_root + 'v1alpha1/graphql' : '//'.concat(location.host) + app_root + 'v1alpha1/graphql',
         type: 'POST',
-        data: getQuery($('#queryType').val()),
+        data: getQuery(searchType, searchKeyword),
         contentType: 'application/json',
         dataType: 'json',
         success: (data) => {
           const { gene, protein, pathway, drug, clinvar_derived } = data.data;
-          switch($('#queryType').val()) {
+          switch(searchType) {
             case 'gene':
               if (gene.length === 0 && protein.length === 0) {
                 renderResults(false);
@@ -436,7 +424,16 @@
 
         }
       });
+    }
+
+    if (searchType && searchKeyword) {
+      doSearch(searchType, searchKeyword);
+    }
+
+    $('#searchBtn').click(function(e){
+      doSearch($('#queryType').val(), $('#searchTextBox').val());
     });              
+
   });            
 </script>
 {% endblock %}
