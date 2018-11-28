@@ -16,7 +16,9 @@
         <tbody>
           {% for ph in gene.phenotype %}
           <tr>
-            <td>{{ph.mp_id}}</td>
+            <td>
+              <a href="http://www.informatics.jax.org/mp/annotations/{{ph.mp_id}}" target="_blank">{{ph.mp_id}}</a>
+            </td>
             <td>{{ph.mp_def.term}}</td>
             <td>{{ph.mp_def.definition}}</td>
           </tr>

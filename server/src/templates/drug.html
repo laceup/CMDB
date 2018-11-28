@@ -5,11 +5,11 @@
   <div class="row">
     <h3>Different drug classes involved in cardiac diseases</h3>
   </div>
+  <div class="list-group"></div>
   {%for d in drug%}
-    <div class="row" >
-      <a href="{{ url_for('get_drug', id=d.drug_type_id) }}">{{d.drug_type}}</a></div>
+    <li class="list-group-item"><a href="{{ url_for('get_drug', id=d.drug_type_id) }}">{{d.drug_type}}</a></li>
   {% endfor %} 
-
+  </div>
 </div>
 {% endblock %}  
 {% block extrajs %}

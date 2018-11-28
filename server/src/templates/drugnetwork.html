@@ -35,7 +35,7 @@ line.druglink {
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
     var isDrugDetailsNetworkRendered = false;
-    //  function renderDrugDetailsNetwork() {
+    function renderDrugDetailsNetwork() {
         var div = d3.select("body").append("div")	
         .attr("class", "tooltip")				
         .style("opacity", 0);
@@ -108,7 +108,7 @@ line.druglink {
             .style("fill", color)
             .on("mouseover", function(d) {
                 if (!d.children) {
-                    div.transition()		
+                    div.transition()
                         .duration(200)		
                         .style("opacity", 1);		
                     div	.html("<span>" + d.smpdb.description +"</span>")	
@@ -164,7 +164,7 @@ line.druglink {
             recurse(root);
             return nodes;
         }
-    // }
+    }
     $(document).ready(function () {
         if (!isDrugDetailsNetworkRendered ) {
         renderDrugDetailsNetwork()
