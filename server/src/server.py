@@ -9,27 +9,9 @@ import json
 
 @app.route("/")
 def home():
-    search_arg = request.args.get('search')
     result = {"gene":[]}
-    is_search_page = False
-    if search_arg:
-        is_search_page = True
-        result = query('''
-            query getEnsembl ($ARG: String){
-              gene (where: {name: {_ilike: $ARG}}) {
-                name
-                ensembl_id
-                protein_name
-              }
-            }
-        ''', {"ARG": "%"+search_arg+"%"})
     return render_template(
-        'home.html',
-        **{
-            "search": is_search_page,
-            "search_arg": search_arg,
-            "results": result['gene'],
-        }
+        'home.html'
     )
 
 @app.route("/genes/")
