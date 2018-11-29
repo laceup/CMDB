@@ -35,7 +35,10 @@ line.druglink {
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
     var isDrugDetailsNetworkRendered = false;
+    
     function renderDrugDetailsNetwork() {
+        var app_root = "{{url_for('home')}}";
+
         var div = d3.select("body").append("div")	
         .attr("class", "tooltip")				
         .style("opacity", 0);
@@ -101,19 +104,26 @@ line.druglink {
             nodeEnter.append("text")
             .attr("dy", ".35em")
             .style("font-family", "Arial")
-            .style("font-size", "12px") //figure it out
+            .style("font-size", "12px")  
             .text(function(d) { return d.name || d.drug_name || d.pathway; });
                 
             node.select("circle")
             .style("fill", color)
+            .on("dblclick", function(d, i) {
+                if (!d.children) {
+                    window.location.href = app_root+'?type=pathway&search='+d.pathway;
+                }
+            })
             .on("mouseover", function(d) {
                 if (!d.children) {
                     div.transition()
                         .duration(200)		
                         .style("opacity", 1);		
                     div	.html("<span>" + d.smpdb.description +"</span>")	
-                        .style("left", (d3.event.pageX) + "px")		
-                        .style("top", (d3.event.pageY + 28) + "px");
+                        // .style("left", (d3.event.pageX) + "px")	.style("top", (d3.event.pageY + 28) + "px");
+                        .style("left", "1000px")
+                        .style("top","150px")		
+                        
                 }
             })					
             .on("mouseout", function(d) {		
@@ -137,7 +147,7 @@ line.druglink {
             : d.children ? "#c6dbef" // expanded package
             : "#fd8d3c"; // leaf node
         }
-        
+       
         // Toggle children on click.
         function click(d) {
             if (d3.event.defaultPrevented) return; // ignore drag

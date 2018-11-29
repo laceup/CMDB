@@ -153,13 +153,17 @@ div.basic-table-content a:hover{
 /* ------------------- */
 
 div.tooltip {	
+    z-index: -100;
     position: absolute;			
-    text-align: center;			
-    width: 200px;
-    height: 200px;
-    padding: 2px;				
+    text-align: center;	
+    min-height:100px;
+    display: inline-block;		
+    width: 230px;
+   
+    padding: 10px;				
     font: 12px sans-serif;		
-    background: white;	
+    background:#fed766;	
+    border: rgb(255, 190, 0);
    pointer-events: none;			
 }
 /* --------- COMPARTMENT ---------- */
