@@ -6,21 +6,20 @@
 {% block content %}
 <div class="container-fluid" style="margin-top: -15px">
   <div class="row text-center text-xs-center text-sm-left text-md-left banner">
-    <div class="col-xs-12 col-sm-4 col-md-4">
-      <a href="https://instem.res.in/dhan/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/dhanlab.png') }}" alt="Dhanlab_Logo" width="280" height="110"></a>
+    <div class="col-4 col-xs-4 col-sm-4 col-md-4">
+      <a href="https://instem.res.in/dhan/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/dhanlab.png') }}" alt="Dhanlab_Logo" width="75%" height="100%"></a>
     </div>
-    <div class="col-xs-12 col-sm-4 col-md-4">  
-      <a href="https://instem.res.in/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/instem_logo.png') }}" alt="InStem_Logo" width="100" height="120"></a>
+    <div class="col-4 col-xs-4 col-sm-4 col-md-4">  
+      <a href="https://instem.res.in/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/instem_logo.png') }}" alt="InStem_Logo" width="25%" height="100%"></a>
     </div>
-    <div class="col-xs-12 col-sm-4 col-md-4">  
-      <a href="https://www.ohsu.edu/xd/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/ohsu.png') }}" alt="Ohsu_Logo" width="150" height="120"> </a> 
+    <div class="col-4 col-xs-4 col-sm-4 col-md-4">  
+      <a href="https://www.ohsu.edu/xd/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/ohsu.png') }}" alt="Ohsu_Logo" width="40%" height="100%"> </a> 
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center" >
-      
+    <div class="col-md-12 text-center">   
       <div class="input-group mb-3 pt-5">
         <div class="input-group-prepend">
           <a class="btn btn-outline-secondary" href="{{url_for('genes')}}">See all genes</a>
@@ -32,16 +31,14 @@
             <!-- <div role="separator" class="dropdown-divider"></div> -->
             <a class="dropdown-item" href="#" data-qt="drug">Drug</a>
             <a class="dropdown-item" href="#" data-qt="variant">Variant</a>
-          </div>
-          
+          </div>       
         </div>
         <input type="text" class="form-control" placeholder="keyword" id="searchTextBox" value="{%if search_arg %}{{search_arg}}{% endif %}">
         <input type="hidden" id="queryType" value="gene">
         <div class="input-group-append">
           <button id="searchBtn" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
         </div>
-      </div>
-      
+      </div> 
     </div>
   </div>
   <br>
@@ -71,29 +68,7 @@
 
 <!-- Footer -->
 <div class="container">
-  <!-- <div class="row text-center text-xs-center text-sm-left text-md-left" style="padding-top: 10px">
-    <div class="col-xs-12 col-sm-4 col-md-4">
-      <img class=" mx-auto d-block" src="static/img/dhanlab.png" alt="Dhanlab_Logo" width="210" height="120">
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4">  
-      <img class=" mx-auto d-block" src="static/img/instem_logo.png" alt="InStem_Logo" width="100" height="120">
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4">  
-      <img class=" mx-auto d-block" src="static/img/ohsu.png" alt="Ohsu_Logo" width="150" height="120">  
-    </div>
-  </div> -->
-  <!-- <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 ">
-      <ul class="list-unstyled list-inline social text-center mb-0">
-        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-      </ul>
-    </div>
-    
-  </div>	 -->
+ 
 </div>
 {% endblock %} 
 
@@ -190,16 +165,18 @@
         case 'pathway':
           return JSON.stringify({
             query:`query searchPathway($name: String!) {
-              pathway(
-              limit:10,
-              where: {
-                data: {_ilike: $name}
-              }
-              ) {
-                name
-                external_id
-                data    
-              }   
+              gene {
+                pathways(
+                limit:10,
+                where: {
+                  data: {_ilike: $name}
+                }
+                ) {
+                  name
+                  external_id
+                  data    
+                }
+              }    
             }`,
             variables: {
               name: `%${keyword}%`
@@ -335,7 +312,7 @@
               renderResults(proteinTemplate);
               break;
             case 'pathway':
-              if (pathway.length === 0) {
+              if (gene.pathways.length === 0) {
                 renderResults(false);
                 break;
               }
@@ -348,7 +325,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  ${pathway.map((g) => `
+                  ${gene.pathways.map((g) => `
                     <tr>
                       <td><a href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
                       <td>${g.external_id}</td>
