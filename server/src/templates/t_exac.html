@@ -74,6 +74,7 @@
 {% endblock %}
 {% block extrajs %}
 <script>
+    var app_root = "{{url_for('home')}}";
     $(document).ready(function () {
         $('.exac_table').DataTable( {
             dom: 'Bfrtip',
@@ -102,7 +103,7 @@
         {
             text:      '<i class="fa fa-info"></i> ',
             action: function ( e, dt, button, config ) {
-                window.location = '/help/#exac';} ,
+                window.location = app_root +'help/#exac';} ,
         },
             {
                 extend: 'colvisGroup',

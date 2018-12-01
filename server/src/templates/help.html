@@ -5,7 +5,7 @@
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <h3>Search Bar</h3>
-            <img src="/static/img/help1.png" alt="help1" width="1000" height="200">
+            <img src="{{ url_for('static', filename='img/help1.png') }}" alt="help1" width="1000" height="200">
             <div>
                 <ol>
                     <li><b>See all genes </b>- Lists all the genes that causes any of the three types of cardiomyopathy : 
@@ -36,7 +36,7 @@
         
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <h3>Gene page</h3>
-            <img src="/static/img/help2.png" alt="help2" width="1050" height="160">
+            <img src="{{ url_for('static', filename='img/help2.png') }}" alt="help2" width="1050" height="160">
             <p>Each tab gives you information regarding different aspects of the gene.</p>
         </a> 
         <a href="#basic" class="list-group-item list-group-item-action flex-column align-items-start"> 

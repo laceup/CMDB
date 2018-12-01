@@ -35,6 +35,7 @@
 {% endblock %}
 {% block extrajs %}
 <script>
+var app_root = "{{url_for('home')}}";
 $(document).ready(() => {
     $('.clinvar_table').DataTable({
         dom: 'Bfrtip',
@@ -49,7 +50,7 @@ $(document).ready(() => {
         {
             text:      '<i class="fa fa-info"></i> ',
             action: function ( e, dt, button, config ) {
-                window.location = '/help/#clinvar';
+                window.location = app_root +'help/#clinvar';
             } ,
         },
        ],
