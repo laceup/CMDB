@@ -1,0 +1,12 @@
+- args:
+    name: ppi_a
+    table:
+      name: drug_target
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: interactor_a
+        table:
+          name: ppi_derived
+          schema: public
+  type: create_array_relationship

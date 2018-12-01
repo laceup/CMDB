@@ -1,0 +1,13 @@
+- args:
+    name: ppi_b
+    table:
+      name: gene
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: interactor_b
+        remote_table:
+          name: ppi_mat_derived
+          schema: public
+  type: create_array_relationship

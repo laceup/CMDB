@@ -1,0 +1,8 @@
+- args:
+    cascade: false
+    sql: "CREATE OR REPLACE VIEW ppi_mat_derived AS \n SELECT *\n   FROM ppi_mat;"
+  type: run_sql
+- args:
+    name: ppi_mat_derived
+    schema: public
+  type: add_existing_table_or_view
