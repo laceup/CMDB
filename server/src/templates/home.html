@@ -2,21 +2,23 @@
 
 {% block title %}Home{% endblock %}
 
-
-{% block content %}
+{% block header %}
 <div class="container-fluid" style="margin-top: -15px">
   <div class="row text-center text-xs-center text-sm-left text-md-left banner">
     <div class="col-4 col-xs-4 col-sm-4 col-md-4">
-      <a href="https://instem.res.in/dhan/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/dhanlab.png') }}" alt="Dhanlab_Logo" width="75%" height="100%"></a>
+      <a href="https://instem.res.in/dhan/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/dhanlab.png') }}" alt="Dhanlab_Logo" width="50%" height="100%"></a>
     </div>
     <div class="col-4 col-xs-4 col-sm-4 col-md-4">  
-      <a href="https://instem.res.in/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/instem_logo.png') }}" alt="InStem_Logo" width="25%" height="100%"></a>
+      <a href="https://instem.res.in/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/instem_logo.png') }}" alt="InStem_Logo" width="15%" height="100%"></a>
     </div>
     <div class="col-4 col-xs-4 col-sm-4 col-md-4">  
-      <a href="https://www.ohsu.edu/xd/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/ohsu.png') }}" alt="Ohsu_Logo" width="40%" height="100%"> </a> 
+      <a href="https://www.ohsu.edu/xd/"><img class=" mx-auto d-block" src="{{ url_for('static', filename='img/ohsu.png') }}" alt="Ohsu_Logo" width="25%" height="100%"> </a> 
     </div>
   </div>
-</div>
+</div> 
+{% endblock %}
+{% block content %}
+
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">   
@@ -43,14 +45,14 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-12">
       <h4>About the DB</h4>
       <p> CMDB is a comprehensive database for genes related to cardiomyopathy. More than 10 curated databases has been compiled.  </p>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6">
+    <!-- <div class="col-xs-12 col-sm-12 col-md-12">
       <h4>Version details</h4>
       <p>Version V.1.0</p>
-    </div>
+    </div> -->
   </div>
   <br>
   

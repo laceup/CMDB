@@ -12,7 +12,7 @@ html{
     min-height: 100%;
 }
 body {
-   padding-top: 70px;
+   padding-top: 0px;
    height: 100%;
    margin-bottom: 200px;
    
@@ -28,10 +28,10 @@ body {
     color: #2ec4b6
 }
 /* PAGE ONE - SEARCH BOX */
- 
+
 /*------------- BANNER --------------- */
 .banner{
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 10px;
     background: #dbdbdb !important;
 }
@@ -55,6 +55,9 @@ body {
 a.nav-link.active{
     color: #495057 !important;
 }
+/* a.nav-link{
+    background-color: #ff3366;} */
+
 /* PINK BAR */
 .gene-heading-div{
     background-color:#ff3366;
@@ -68,6 +71,7 @@ a.nav-link.active{
     color:#f6f7f8;
     font-size: 50px;
 }
+
 /* DATA TABLES */
 div.dataTables_wrapper {
     margin-bottom: 3em;
@@ -158,11 +162,10 @@ div.tooltip {
     text-align: center;	
     min-height:100px;
     display: inline-block;		
-    width: 230px;
-   
-    padding: 10px;				
+    width: 250px;
+    padding: 15px;				
     font: 12px sans-serif;		
-    background:#fed766;	
+    background:#ffe1a8;	
     border: rgb(255, 190, 0);
    pointer-events: none;			
 }
