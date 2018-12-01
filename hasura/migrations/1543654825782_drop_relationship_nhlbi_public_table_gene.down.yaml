@@ -1,0 +1,12 @@
+- args:
+    name: nhlbi
+    table:
+      name: gene
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: genes
+        table:
+          name: nhlbi
+          schema: public
+  type: create_array_relationship
