@@ -7,8 +7,8 @@
     <span class="badge badge-info" style="display:inline;">{{t.tags}}</span>
     {% endfor %}
 </div>
-<div style="margin-top: -41px;" class="container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+<div style="margin-top: -41px;" class="container-fluid">
+    <ul class="nav nav-tabs nav-tabs-responsive  " id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link {% if tabname=='basic' %}active{% endif %}" id="basic-tab"  href="{{ url_for('render_gene', name=gene.name, tabname='basic') }}"  aria-controls="basic" aria-selected="true" style="color:aliceblue">Basic</a>
         </li>
@@ -43,7 +43,16 @@
     </div>
 </div>
 {% endblock %}
-
+<!-- {% block extrajs %}
+<script>
+$(document).ready(function () {
+    $(window).resize(function(){ 
+        vpw = (($(window).height()));// On resize
+		$('.gene-heading-div').css({'height':vpw + 'px'});
+	});
+});
+</script>
+{% endblock %} -->
 
 
 
