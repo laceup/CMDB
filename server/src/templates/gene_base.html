@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}{{gene.name}}{% endblock %}
 {% block content %}
-<div class="gene-heading-div">
-    <h1 class=gene-heading style="display:inline;"><b><i>{{gene.name}}</i></b></h1>
+<div class="gene-heading-div pt-3">
+    <h1 class="gene-heading" style="display:inline;"><b><i>{{gene.name}}</i></b></h1>
     {% for t in gene.tags %}
     <span class="badge badge-info" style="display:inline;">{{t.tags}}</span>
     {% endfor %}

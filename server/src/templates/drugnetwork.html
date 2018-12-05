@@ -26,9 +26,13 @@ line.druglink {
 </style>
 {% endblock %}
 {% block content %}
-<div class="container">
-  <div id="svgdiv">
-  </div>  
+<div class="container pt-3">
+    <h3>
+        {{drug[0].drug_type}}
+    </h3>
+    <div id="svgdiv">
+    </div>  
+    
 </div>
 {% endblock %}  
 {% block extrajs %}
@@ -46,11 +50,10 @@ line.druglink {
         var width = 1060,height = 700,root;
 
         var force = d3.layout.force()
-        .linkDistance(80)
-        .charge(-120)
-        .gravity(.005)
+        .linkDistance(90)  
+        .gravity(.05)
         .size([width, height])
-        .on("tick", tick);
+        .on("tick",tick)
 
         var svg = d3.select("div#svgdiv").append("svg")
         .attr("width", width)
@@ -73,12 +76,17 @@ line.druglink {
         function update() {
             var nodes = flatten(root),
                 links = d3.layout.tree().links(nodes);
-            
+                root.fixed = true;
+                root.x = width / 2;
+                root.y = height/2;
+                            
             // Restart the force layout.
             force
                 .nodes(nodes)
                 .links(links)
-                .start();
+                .charge([-600])
+                .start()
+                .on("tick",tick)
             
             // Update links.
             link = link.data(links, function(d) { return d.target.id; });
@@ -119,7 +127,8 @@ line.druglink {
                     div.transition()
                         .duration(200)		
                         .style("opacity", 1);		
-                    div	.html("<span>" + d.smpdb.description +"</span>")	
+                    div	.html("<span>" + d.smpdb.description +"</span>")
+                        .style("font-size","15px")	
                         // .style("left", (d3.event.pageX) + "px")	.style("top", (d3.event.pageY + 28) + "px");
                         .style("left", "1000px")
                         .style("top","150px")		
