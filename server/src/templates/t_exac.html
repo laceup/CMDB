@@ -8,12 +8,13 @@
             <thead>
                 <tr>
                     <th class="left-head" rowspan="2">Variant</th>
-                    <th rowspan="2">Allele Frequency</th>
-                    <th rowspan="2">Allele Count</th>
-                    <th rowspan="2">Allele Number</th>
-                    <th rowspan="2">Major Consequence</th>
-                    <th rowspan="2">RSID</th>
                     <th rowspan="2">HGVSc</th>
+                    <th rowspan="2">Major Consequence</th>
+                    <th rowspan="2">Allele Count (No. of Homozygotes)</th>
+                    <th rowspan="2">Allele Number</th>
+                    
+                    <th rowspan="2">RSID</th>
+                    
                     <th colspan="2">European (Non-Finnish)</th>
                     <th colspan="2">European (Finnish)</th>
                     <th colspan="2">East Asian</th>
@@ -21,6 +22,7 @@
                     <th colspan="2">African</th>
                     <th colspan="2">Latino</th>
                     <th class="right-head"colspan="2">Other</th>
+                    <th rowspan="2">Allele Frequency</th>
                 </tr>
                 <tr>
                     
@@ -44,12 +46,11 @@
                 {% for ex in gene.exac %}
                 <tr>
                     <td>{{ex.variant_id}}</td>  <!-- 0 -->
-                    <td>{{ex.allele_freq}}</td> <!-- 1 -->
-                    <td>{{ex.allele_count}}</td> <!-- 2 -->
-                    <td>{{ex.allele_num}}</td> <!-- 3 -->
-                    <td>{{ex.major_consequence}}</td> <!-- 4 -->
-                    <td>{{ex.rsid}}</td> <!-- 5 -->
                     <td>{{ex.HGVSc}}</td> <!-- 6 -->
+                    <td>{{ex.major_consequence}}</td> <!-- 4 -->
+                    <td>{{ex.allele_count}} ({{ex.hom_count}})</td> <!-- 2 -->
+                    <td>{{ex.allele_num}}</td> <!-- 3 --> 
+                    <td>{{ex.rsid}}</td> <!-- 5 -->
                     <td>{{ex.pop_acs['European (Non-Finnish)']}}</td> <!-- 7 -->
                     <td>{{ex.pop_ans['European (Non-Finnish)']}}</td> <!-- 8 -->
                     <td>{{ex.pop_acs['European (Finnish)']}}</td> <!-- 9 -->
@@ -64,7 +65,7 @@
                     <td>{{ex.pop_ans['Latino']}}</td> <!-- 18 -->
                     <td>{{ex.pop_acs['Other']}}</td> <!-- 19 -->
                     <td>{{ex.pop_ans['Other']}}</td> <!-- 20 -->
-                    
+                    <td>{{ex.allele_freq}}</td> <!-- 1 -->
                 </tr>
                 {% endfor %}
             </tbody>
@@ -79,17 +80,17 @@
         $('.exac_table').DataTable( {
             dom: 'Bfrtip',
             buttons: [
-            {
-            extend:    'copyHtml5',
-            text:      '<i class="fa fa-files-o" </i>',
-            titleAttr: 'Copy',
+        //     {
+        //     extend:    'copyHtml5',
+        //     text:      '<i class="fa fa-files-o" </i>',
+        //     titleAttr: 'Copy',
             
-        },
-        {
-            extend:    'excelHtml5',
-            text:      '<i class="fa fa-file-excel-o "></i>',
-            titleAttr: 'Excel',
-        },
+        // },
+        // {
+        //     extend:    'excelHtml5',
+        //     text:      '<i class="fa fa-file-excel-o "></i>',
+        //     titleAttr: 'Excel',
+        // },
         {
             extend:    'csvHtml5',
             text:      '<i class="fa fa-file-text-o"></i>',
@@ -108,56 +109,56 @@
             {
                 extend: 'colvisGroup',
                 text: 'European(Non-Finnish)',
-                show: [ 6,7,8],
-                hide: [ 9,10,11,12,13,14,15,16,17,18,19,20 ]
+                show: [ 6,7,20],
+                hide: [ 8,9,10,11,12,13,14,15,16,17,18,19 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'European(Finnish)',
-                show: [ 6,9,10],
-                hide: [ 1, 2,3,4,5,7,8,11,12,13,14,15,16,17,18,19,20 ]
+                show: [ 8,9,],
+                hide: [ 6,7,10,11,12,13,14,15,16,17,18,19 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'East Asian',
-                show: [ 6,11,12],
-                hide: [ 1, 2,3,4,5,7,8,9,10,13,14,15,16,17,18,19,20 ]
+                show: [ 11,10],
+                hide: [ 6,7,8,9,12,13,14,15,16,17,18,19 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'South Asian',
-                show: [ 6,13,14],
-                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,15,16,17,18,19,20 ]
+                show: [12,13],
+                hide: [6,7,8,9,10,11,14,15,16,17,18,19 ]
             },
             {
                 extend: 'colvisGroup',
                 text: 'African',
-                show: [ 6,15,16],
-                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,13,14,17,18,19,20  ]
+                show: [ 14,15],
+                hide: [ 6,7,8,9,10,11,12,13,16,17,18,19,]
             },
             {
                 extend: 'colvisGroup',
                 text: 'Latino',
-                show: [ 6,17,18 ],
-                hide: [1, 2,3,4,5,7,8,9,10,11,12,13,14,15,16,19,20]
+                show: [ 16,17],
+                hide: [6,7,8,9,10,11,12,13,14,15,18,19]
             },
             
             {
                 extend: 'colvisGroup',
                 text: 'Other',
-                show: [ 1, 2,3,4,5,6,19,20 ],
-                hide: [ 1, 2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,18]
+                show: [ 18,19 ],
+                hide: [ 6,7,8,9,10,11,12,13,14,15,16,17,]
             },
             {
                 extend: 'colvisGroup',
                 text: 'Show all',
                 show: ':hidden'
             },
-            {
-                extend: 'colvis',
-                text: 'Show columns',
-                columns: ':not(.noVis)'
-            }
+            // {
+            //     extend: 'colvis',
+            //     text: 'Show columns',
+            //     columns: ':not(.noVis)'
+            // }
             ],
             autoWidth: false,
             columnDefs: [

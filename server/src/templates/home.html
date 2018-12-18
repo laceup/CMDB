@@ -167,8 +167,7 @@
         case 'pathway':
           return JSON.stringify({
             query:`query searchPathway($name: String!) {
-              gene {
-                pathways(
+                pathway(
                 limit:10,
                 where: {
                   data: {_ilike: $name}
@@ -178,7 +177,7 @@
                   external_id
                   data    
                 }
-              }    
+                 
             }`,
             variables: {
               name: `%${keyword}%`
@@ -314,7 +313,7 @@
               renderResults(proteinTemplate);
               break;
             case 'pathway':
-              if (gene.pathways.length === 0) {
+              if (pathway.length === 0) {
                 renderResults(false);
                 break;
               }
@@ -327,7 +326,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  ${gene.pathways.map((g) => `
+                  ${pathway.map((g) => `
                     <tr>
                       <td><a href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
                       <td>${g.external_id}</td>

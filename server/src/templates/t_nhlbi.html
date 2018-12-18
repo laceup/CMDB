@@ -9,22 +9,32 @@
             <thead>
                 <tr>
                     <th class="left-head" >Variant</th>
-                    <th >RSID</th>
-                    <th >Consequence</th>
-                    <th >HGVS Protein Variant</th>
-                    <th >African American Allele Count</th>
-                    <th class="right-head">European American Allele Count</th>  
+                    <th> RSID</th>
+                    <th> African Americal Genotype </th>
+                    <th> European American Genotype</th>
+                    <th> All Genotype </th>
+                    <th> MAF (%) (EA/AA/All) </th>
+                    <th> Consequence</th>
+                    <th> HGVS Protein Change</th>
+                    <th> cDNA Change</th>
+                    <th> Polyphen Score</th>
+                      
                 </tr>   
             </thead>
             <tbody>
                 {% for nh in gene.nhlbi %}
                 <tr>
                     <td>{{nh.base_ncbi_37}}</td>
-                    <td>{{nh.rsid}}</td>
+                    <td>{{nh.rsid}}</td> 
+                    <td>{{nh.african_american_genotype_count}}</td>
+                    <td>{{nh.european_american_genotype_count}}</td>
+                    <td>{{nh.all_genotype_count}}</td>
+                    <td>{{nh.maf_in_percent_ea_aa_all}} </td>
                     <td>{{nh.function_gvs}}</td>
                     <td>{{nh.hgvs_protein_variant}}</td>
-                    <td>{{nh.african_american_allele_count}}</td>
-                    <td>{{nh.european_american_allele_count}}</td>   
+                    <td>{{nh.hgvs_cdna_variant}}</td>
+                    <td>{{nh.polyphen2_class_score}}</td>
+                      
                 </tr>
                 {% endfor %}
             </tbody>

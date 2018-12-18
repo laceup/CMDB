@@ -69,7 +69,8 @@ query geneExac($name: String!) {
             rsid
             HGVSc
             pop_ans
-            pop_acs           
+            pop_acs
+            hom_count           
         }
 
     }
@@ -85,8 +86,12 @@ query geneNhlbi($name: String!) {
             rsid
             function_gvs
             hgvs_protein_variant
-            african_american_allele_count
-            european_american_allele_count
+            hgvs_cdna_variant
+            african_american_genotype_count
+            european_american_genotype_count
+            all_genotype_count
+            maf_in_percent_ea_aa_all
+            polyphen2_class_score
         }
         
     }

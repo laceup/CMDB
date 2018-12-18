@@ -1,0 +1,6 @@
+- args:
+    relationship: ensembl
+    table:
+      name: gene
+      schema: public
+  type: drop_relationship
