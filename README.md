@@ -63,7 +63,7 @@ docker logs install_server_1
   ```
 - Execute psql command inside the container to import data from csv file into the table: 
   ```bash
-  docker exec install_postgres_1 psql -h localhost -p 5432 -d postgres -U postgres -c "copy <hasura-table-name> from '/data.csv' delimiter ',' quote '"' null 'NULL' csv;"
+  docker exec install_postgres_1 psql -h localhost -p 5432 -d postgres -U postgres -c "copy <hasura-table-name> from '/data.csv' delimiter ',' null 'NULL' csv;"
   ```
 - Successfull copy should show the following output:
   ```bash
