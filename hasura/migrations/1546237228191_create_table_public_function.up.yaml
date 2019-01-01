@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "public"."function"("uniprot" text NOT NULL, "function" text
+      , PRIMARY KEY ("uniprot") );
+  type: run_sql
+- args:
+    name: function
+    schema: public
+  type: add_existing_table_or_view

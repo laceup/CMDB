@@ -7,6 +7,9 @@
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
+.dark-blue{
+    color: #011627;
+}
 html{
     position: relative;
     min-height: 100%;
@@ -17,6 +20,9 @@ body {
    margin-bottom: 200px;
    
 }
+.clearfix {
+    overflow: auto;
+  }
 .container-fluid {
     height: 100%;
     overflow: hidden; /* don't show content that exceeds my height */
@@ -158,16 +164,20 @@ div.basic-table-content a:hover{
 
 div.tooltip {	
     z-index: -100;
-    position: absolute;			
+    position: absolute;	
+    /* right:10px;			 */
+    float: right;
+    top :100px;
     text-align: center;	
     min-height:100px;
-    display: inline-block;		
+    /* display: inline-block;		 */
     width: 250px;
+    margin: 10px;
     padding: 15px;				
     font: 12px sans-serif;		
     background:#ffe1a8;	
     border: rgb(255, 190, 0);
-   pointer-events: none;			
+    pointer-events: none;			
 }
 /* --------- COMPARTMENT ---------- */
 .st0{fill:#F6B6C2;}

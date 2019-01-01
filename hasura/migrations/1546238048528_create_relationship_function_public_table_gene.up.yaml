@@ -1,0 +1,13 @@
+- args:
+    name: function
+    table:
+      name: gene
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          uniprot_id: uniprot
+        remote_table:
+          name: function
+          schema: public
+  type: create_object_relationship

@@ -25,6 +25,9 @@ query geneBasic($name: String!) {
         compartment {
                 derived_location   
             }
+        function{
+            function
+        }
     }
 }    
 '''

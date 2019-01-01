@@ -48,6 +48,12 @@
             </div>
         </div>
         <div class="row basic-table-row">
+                <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Function</div>
+                <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
+                    <a>{{gene.function.function}}</a>
+                </div>
+            </div>
+        <div class="row basic-table-row">
             <div class="col-sm-2 col-md-2 col-lg-2 basic-table-title">Expression</div>
             <div class="col-sm-10 col-md-10 col-lg-10 basic-table-content">
                 <a target="_blank" href="https://www.ebi.ac.uk/gxa/genes/{{gene.ensembl_id}}?bs=%7B%22homo%20sapiens%22%3A%5B%22ORGANISM_PART%22%5D%7D&ds=%7B%22kingdom%22%3A%5B%22animals%22%5D%7D#baseline"><u>Expression Atlas</u></a>
@@ -68,6 +74,7 @@
                         <th>End BP</th>
                         <th>Gene Details</th>
                         <th>Protein Details</th>
+                        
                         
                     </tr>
                 </thead>

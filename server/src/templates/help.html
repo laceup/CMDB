@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}Help{% endblock %}
+{% block style %}
+<style>
+td, th {
+  border: 1px solid #dddddd;
+  padding: 6px;
+}
+li{
+    padding-top: 4px;
+}
+</style>
+{% endblock %}
 {% block content %}
-<div class="container">
+<div class="container mt-3">
     <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <h3>Search Bar</h3>
@@ -19,7 +30,39 @@
                     <li>
                         <b>Dropdown Menu </b>- Search can be specified through different options in the dropdown.
                         Each options lets you search the following <i>keywords</i>: 
-                        <ul>
+                        <table class='mt-1'>
+                            <thead>
+                                <tr>
+                                    <th>Keyword</th>
+                                    <th> Search terms</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gene</td>
+                                    <td> Official gene symbol <i>(Eg: ACTC1)</i>, Ensembl ID <i>(Eg: ENSG00000159251)</i>, 
+                                        and gene synonyms <i>(Eg: ACTC)</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Protein</td>
+                                        <td> Uniprot ID <i>(Eg: P68032)</i>, protein name <i>(Eg: Actin, alpha cardiac muscle 1 )</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pathway</td>
+                                        <td>Pathway name <i>(Eg: Cardiac muscle contraction - Homo sapiens (human))</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Drug</td>
+                                        <td>Drug name <i>(Eg: Metoprolol)</i>, drug type <i>(Eg: Beta Blockers (Beta-Adrenergic Blocking Agents))</i> , drug bank ID <i>(Eg: DB00264)</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Variant</td>
+                                        <td>HGVSc <i>(Eg: c.1028delC)</i>, HGVSp <i>(Eg: p.Thr343Metfs)</i>, rs ID <i>(Eg: rs730880686)</i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!-- <ul>
                             <li>
                                 Gene - Official gene symbol <i>(Eg: ACTC1)</i>, Ensembl ID <i>(Eg: ENSG00000159251)</i>, 
                                 and gene synonyms <i>(Eg: ACTC)</i>
@@ -28,7 +71,7 @@
                             <li>Pathway - Pathway name <i>(Eg: Cardiac muscle contraction - Homo sapiens (human))</i></li>  
                             <li>Drug - Drug name <i>(Eg: Metoprolol)</i>, drug type <i>(Eg: Beta Blockers (Beta-Adrenergic Blocking Agents))</i> , drug bank ID <i>(Eg: DB00264)</i></li>
                             <li>Variant - HGVSc <i>(Eg: c.1028delC)</i>, HGVSp <i>(Eg: p.Thr343Metfs)</i>, rs ID <i>(Eg: rs730880686)</i></li> 
-                        </ul>
+                        </ul> -->
                     </li>
                 </ol>
             </div>
@@ -40,43 +83,88 @@
             <p>Each tab gives you information regarding different aspects of the gene.</p>
         </a> 
         <a href="#basic" class="list-group-item list-group-item-action flex-column align-items-start"> 
-            <h4>Basic
-
-            </h4>
+            <h4>Basic</h4>
+            <p>The basic page give details about the gene and protein.</p>
         </a>
         <a href="#go" name ="go" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Gene Ontology</h4>
+            <p>The GO defines concepts/classes used to describe gene function, and relationships between these concepts. It classifies functions along three aspects:
+                <ul>
+                    <li><b> Molecular function</b> - molecular activities of gene products</li>
+                    <li><b>Cellular component</b> - where gene products are active</li>
+                    <li><b>Biological process </b>- pathways and larger processes made up of the activities of multiple gene products.</li>
+                </ul> 
+            </p>
+            <i href='http://www.geneontology.org/'>geneontology.org</i>
         </a>
         <a href="#exac" name ="exac" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4> Variant Information (ExAC)</h4>
+            <p>
+                Each variant of the gene is shown that is availiable in ExAc. All data are based on GRCh37/hg19
+            </p>
         </a>
         <a href="#nhlbi" name ="nhlbi" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Variant Information (NHLBI)</h4>
+            <p>
+                Each variant of the gene is shown that is availiable in EVS (Exome Variant Server).
+                <ul >
+                    <li><b>Variant GRCh37 Pos</b> - Chromosome no : position on chromosome based on GRCh37/hg19</li>
+                    <li><b>rs ID</b> -  It is an identification tag assigned by NCBI to a group (or cluster) of SNPs that map to an identical location</li>
+                    <li><b>EA Genotype #</b> - The observed genotype counts for the listed genotypes in European American population (delimited by /). For INDELs, the alleles are listed with aliases, such as, A1, A2, or An referring to the N-th alternate allele while R refers to the reference allele.</li>
+                    <li><b>AA Genotype #</b> - The observed genotype counts for the listed genotypes in African American population (delimited by /). For INDELs, the alleles are listed with aliases, such as, A1, A2, or An referring to the N-th alternate allele while R refers to the reference allele.     </li>
+                    <li><b>All Genotype #</b> - The observed genotype counts for the listed alleles in all populations (delimited by /). For INDELs, the alleles are listed with aliases, such as, A1, A2, or An referring to the N-th alternate allele while R refers to the reference allele.</li>
+                    <li><b>MAF (%) (EA/AA/All)</b>- the minor-allele frequency in percent listed in the order of European American (EA), African American(AA) and all populations (All) (delimited by /). For the multi-allelic variants, the MAF is defined as the allele frequency in percent for all the minor alleles. </li>
+                    <li><b>GVS Function</b> - the GVS functions are calculated locally and stored in our local database; they are based on the alleles for all populations and individuals; the bases in the coding region are divided into codons (if a multiple of 3), and the resulting amino acids are examined:
+                        <ul>
+                        <li>intergenic: between genes</li>
+                        <li>intron: in an intron region</li>
+                        <li>near-gene-3: near the 3' end of a gene</li>
+                        <li>near-gene-5: near the 5' end of a gene</li>
+                        <li>utr-3: in a 3'-utr region</li>
+                        <li>utr-5: in a 5'-utr region</li>
+                        <li>coding-notMod3: in a coding region leading to an ambiguous assignment of synonymous versus nonsynonymous</li>
+                        <li>coding-synonymous: leading to no amino acid change</li>
+                        <li>splice-3: in the 3' end of a splice site</li>
+                        <li>splice-5: in the 5' end of a splice site</li>
+                        <li>missense: leading to an amino acid change</li>
+                        <li> stop-lost: leading to a loss of a stop codon</li>
+                        <li>stop-gained: leading to a gain of a stop codon</li>
+                        <li>coding (INDEL): in a coding region with the number of base changes a multiple of 3</li>
+                        <li>codingComplex (INDEL): indel spanning through more than one exon involving a coding region</li>
+                        <li>frameshift (INDEL): in a coding region with the number of base changes not a multiple of 3 </li>
+                    </ul>
+                    </li>
+                    <li><b>cDNA Change</b> - Variant represented in the HGVS notation at the coding DNA level for a transcript</li>
+                    <li><b>Protein Change</b> - A protein change represented in the HGVS notation is translated based on the specific transcript listed in the column of "mRNA Accession".     </li>
+                    <li><b>PolyPhen2 (Class:Score)</b> - Prediction of possible impact of an amino acid substitution on protein structure and function based on Polymorphism Phenotyping (PolyPhen2) program. It lists both the PolyPhen2 prediction class and the PolyPhen2 score separated by a ":".</li>
+                </ul>
+            </p>
         </a>
         <a href="#clinvar" name ="clinvar" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Clinical Information</h4>
+            <p></p>
         </a>
         <a href="#phenotype" name ="phenotype" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Phenotype</h4>
+            <p>The Mammalian Phenotype Ontology (MP), for classifying and organizing phenotypic information related to the mouse and other mammalian species.</p>
         </a>
         
         <a href="#pathway" name ="pathway" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Pathways</h4>
+            <p>The pathways that is involved with the gene.</p>
         </a>
         
         <a href="#ppi" name ="ppi" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>PPI</h4>
+            <p>The network shows all the interacting proteins. Different labels are given for cardiomyopathy genes, human genes and other organisms</p>
         </a>
         <a href="#drug" name ="drug" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Drug</h4>
+            <p>Drugs targeting this proteins is shown in this network.</p>
         </a>
-        
-        
-        
-        
-        
     </div>
 </div>
+
 
 {% endblock %}
 
