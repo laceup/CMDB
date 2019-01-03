@@ -136,7 +136,7 @@ def get_drug(id):
             # print(i['drug_to_pathway'])
             for j in i['drug_to_pathway']:
                 c.append(j)
-        child.append({"drug_name":i['drug_name'], "children":c})
+        child.append({"drug_name":i['drug_name'],"drugbank_id":i['drugbank_id'], "children":c})
         c=[]
     data={'name':drug[0]['drug_type'],'children':child}      
     return render_template(

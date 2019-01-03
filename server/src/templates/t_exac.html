@@ -8,7 +8,8 @@
             <thead>
                 <tr>
                     <th class="left-head" rowspan="2">Variant</th>
-                    <th rowspan="2">HGVSc</th>
+                    <!-- <th rowspan="2">HGVSc</th> -->
+                    <th rowspan="2">HGVSp</th>
                     <th rowspan="2">Major Consequence</th>
                     <th rowspan="2">Allele Count (No. of Homozygotes)</th>
                     <th rowspan="2">Allele Number</th>
@@ -44,7 +45,8 @@
                 {% for ex in gene.exac %}
                 <tr>
                     <td>{{ex.variant_id}}</td>  <!-- 0 -->
-                    <td>{{ex.HGVSc}}</td> <!-- 6 -->
+                    <!-- <td>{{ex.HGVSc}}</td> -->
+                    <td>{{ex.HGVSp}}</td> <!-- 6 -->
                     <td>{{ex.major_consequence}}</td> <!-- 4 -->
                     <td>{{ex.allele_count}} ({{ex.hom_count}})</td> <!-- 2 -->
                     <td>{{ex.allele_num}}</td> <!-- 3 --> 

@@ -168,7 +168,7 @@
           return JSON.stringify({
             query:`query searchPathway($name: String!) {
                 pathway(
-                limit:10,
+                limit:50,
                 where: {
                   data: {_ilike: $name}
                 }
@@ -328,7 +328,7 @@
                 <tbody>
                   ${pathway.map((g) => `
                     <tr>
-                      <td><a href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
+                      <td><a id="genename_pathway" onclick="genepage()" href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
                       <td>${g.external_id}</td>
                       <td>${g.data}</td>
                     </tr>
@@ -410,7 +410,13 @@
 
     $('#searchBtn').click(function(e){
       doSearch($('#queryType').val(), $('#searchTextBox').val());
-    });              
+    });
+    // $('#genename_pathway').click(function(e){
+        // Use XMLHttpRequest or Fetch to request the URL
+        // Tests the Status to see if it is a 200 OK response and then either:
+          // Sets location to the_link.href or
+          // Sets location to the other URL
+    // });
 
   });            
 </script>

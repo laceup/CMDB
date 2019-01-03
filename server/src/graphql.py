@@ -71,6 +71,7 @@ query geneExac($name: String!) {
             major_consequence
             rsid
             HGVSc
+            HGVSp
             pop_ans
             pop_acs
             hom_count           
