@@ -9,7 +9,7 @@
                 <tr>
                     <th class="left-head">HGVSc</th>
                     <th>HGVSp</th>
-                    <th>Type</th>
+                    <th>Consequence</th>
                     <th>Phenotype List</th>
                     <th>Clinical Significance</th>
                     <th>Phenotype IDs</th>
@@ -22,9 +22,19 @@
                     <td>{{cl.hgvsc}}</td>
                     <td>{{cl.hgvsp}}</td>
                     <td>{{cl.type}}</td>
-                    <td>{{cl.phenotypelist}}</td>
+                    <td>{% set list2 = cl.phenotypelist.split(';') %}
+                            {% for list in list2 %}
+                            <ul style="margin-bottom: 0px;">
+                            <li>{{ list }}</li>
+                           </ul>
+                            {% endfor %}
+                    </td>
                     <td>{{cl.clinical_significance}}</td>
-                    <td>{{cl.phenotypeids}}</td>
+                    <td>{% set list1 = cl.phenotypeids.split(',') %}
+                            {% for list in list1 %}
+                            <a >{{ list }}</a></br>
+                            {% endfor %}
+                        </td>
                     <td>{{cl.rs_dbsnp}}</td>
                 </tr>
                 {% endfor %}

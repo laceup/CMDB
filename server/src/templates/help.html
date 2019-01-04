@@ -127,7 +127,7 @@ li{
                         <li>splice-3: in the 3' end of a splice site</li>
                         <li>splice-5: in the 5' end of a splice site</li>
                         <li>missense: leading to an amino acid change</li>
-                        <li> stop-lost: leading to a loss of a stop codon</li>
+                        <li>stop-lost: leading to a loss of a stop codon</li>
                         <li>stop-gained: leading to a gain of a stop codon</li>
                         <li>coding (INDEL): in a coding region with the number of base changes a multiple of 3</li>
                         <li>codingComplex (INDEL): indel spanning through more than one exon involving a coding region</li>
@@ -142,7 +142,19 @@ li{
         </a>
         <a href="#clinvar" name ="clinvar" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Clinical Information</h4>
-            <p></p>
+            <p> Clinical information obtained from Clinvar.The chromosome base position is on GRCh37/hg19. Each column represents</p>
+            <ul>
+                <li>HGVSc: the HGVS coding sequence name</li>
+                <li>HGVSp: the HGVS protein sequence name</li>
+                <li>Type</li>
+                <li>Phenotype List:Disease or trait associated with a variant.</li>
+                <li>Clinical significance : Theclinical significance reported by submitters. This may be different from theoverall clinical significance for the variation.
+                    For example, if you limit your results to Pathogenic , the results include all variations with a submitted interpretation of Pathogenic on an SCV. The overall clinical significance for the variation may be Pathogenic, Likely pathogenic/Pathogenic, or conflicting interpretations of pathogenicity.
+                </li>
+                <li>Phenotype IDs</li>
+                <li>rs ID</li>
+            </ul>
+
         </a>
         <a href="#phenotype" name ="phenotype" class="list-group-item list-group-item-action flex-column align-items-start">
             <h4>Phenotype</h4>
@@ -162,6 +174,47 @@ li{
             <h4>Drug</h4>
             <p>Drugs targeting this proteins is shown in this network.</p>
         </a>
+        
+        <li class="list-group-item list-group-item-action">
+      
+            <h3>API</h3>
+            <p>Data can also be accessed via an API <a href="https://graphiql-online.com/">https://graphiql-online.com/</a>. The end point should be given as <a href="https://www.instem.res.in/cardiodatabase/v1alpha1/graphql">https://www.instem.res.in/cardiodatabase/v1alpha1/graphql</a>. Data can be accessed by giving graphQL queries.
+            </p>
+        </li>
+    </div>
+    <hr>
+    <div class="list-group">
+        <li class="list-group-item list-group-item-action">
+            <h3>References</h3>
+
+        </li>
+        <li class="list-group-item list-group-item-action">
+                The UniProt Consortium
+                UniProt: the universal protein knowledgebase
+                Nucleic Acids Res. 45: D158-D169 (2017)         
+        </li>
+        <li class="list-group-item list-group-item-action">
+                Mouse Genome Database (MGD) at the Mouse Genome Informatics website, The Jackson Laboratory, Bar Harbor, Maine. World Wide Web (URL: <a href="http://www.informatics.jax.org">http://www.informatics.jax.org</a>). 
+        </li>
+        <li class="list-group-item list-group-item-action">
+            The MIntAct project--IntAct as a common curation platform for 11 molecular interaction databases.
+            Orchard S et al <a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451">[PMID:24234451]</a>       
+        </li>
+        <li class="list-group-item list-group-item-action">
+            Wishart DS, Feunang YD, Guo AC, Lo EJ, Marcu A, Grant JR, Sajed T, Johnson D, Li C, Sayeeda Z, Assempour N, Iynkkaran I, Liu Y, Maciejewski A, Gale N, Wilson A, Chin L, Cummings R, Le D, Pon A, Knox C, Wilson M. DrugBank 5.0: a major update to the DrugBank database for 2018. Nucleic Acids Res. 2017 Nov 8. <a href="https://doi.org/10.1093/nar/gkx1037">doi: 10.1093/nar/gkx1037</a>
+        </li>
+        <li class="list-group-item list-group-item-action">
+            Exome Variant Server, NHLBI GO Exome Sequencing Project (ESP), Seattle, WA (URL: <a href="http://evs.gs.washington.edu/EVS/">http://evs.gs.washington.edu/EVS/</a>) [October 2018 accessed].
+        </li>
+        <li class="list-group-item list-group-item-action">
+            Exome Aggregation Consortium et al., “Analysis of Protein-Coding Genetic Variation in 60,706 Humans,” BioRxiv, October 30, 2015, 030338, <a href="https://doi.org/10.1101/030338">https://doi.org/10.1101/030338.</a>
+        </li>
+        <li class="list-group-item list-group-item-action">
+            ClinVar: Improving Access to Variant Interpretations and Supporting Evidence,” accessed October 4, 2018, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5753237/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5753237/</a>.
+        </li>
+        <li class="list-group-item list-group-item-action">
+                Kamburov, A. et al. (2013) The ConsensusPathDB interaction database: 2013 update. Nucleic Acids Res.
+        </li>
     </div>
 </div>
 

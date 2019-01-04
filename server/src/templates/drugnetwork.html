@@ -58,10 +58,6 @@ line.druglink {
         var svg = d3.select("div#svgdiv").append("svg")
         .attr("width", width)
         .attr("height", height);
-        // .classed("svg-container", true)
-        // .attr("viewBox","0 0 1060 700")
-        // .attr("preserveAspectRatio", "xMinYMin meet")
-        // .classed("svg-content-responsive", true); 
 
         var link = svg.selectAll(".link"),
         node = svg.selectAll(".node");
@@ -124,6 +120,9 @@ line.druglink {
             .on("dblclick", function(d, i) {
                 if (!d.children) {
                     window.location.href = app_root+'?type=pathway&search='+d.pathway;
+                }
+                else{
+                    window.location.href = 'https://www.drugbank.ca/drugs/'+d.drugbank_id;
                 }
             })
             .on("mouseover", function(d) {

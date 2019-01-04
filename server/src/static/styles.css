@@ -20,9 +20,6 @@ body {
    margin-bottom: 200px;
    
 }
-.clearfix {
-    overflow: auto;
-  }
 .container-fluid {
     height: 100%;
     overflow: hidden; /* don't show content that exceeds my height */
