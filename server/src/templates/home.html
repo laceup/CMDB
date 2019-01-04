@@ -127,17 +127,6 @@
                   ensembl_id
                   protein_name
                 }   
-                protein(
-                limit:10,
-                where: {
-                  gene_synonyms:{_ilike:$name}
-                }
-                ) {
-                  ensembl_id {ensembl_id : ensembl_id}
-                  name: gene_synonyms
-                  protein_name: protein
-                  uniprot_id: uniprot_id
-                } 
             }`,  
             variables: {
               name: `%${keyword}%`
@@ -175,9 +164,9 @@
                 ) {
                   name
                   external_id
-                  data    
+                  data
+                  link_gene
                 }
-                 
             }`,
             variables: {
               name: `%${keyword}%`
@@ -273,13 +262,6 @@
                         <td>${g.protein_name}</td>
                       </tr>
                       `).join(' ')}
-                      ${protein.map((g) => `
-                        <tr>
-                          <td><a href="${app_root}uniprot/${g.uniprot_id}">${g.name}</a></td>
-                          <td>${g.ensembl_id.ensembl_id}</td>
-                          <td>${g.protein_name}</td>
-                        </tr>
-                        `).join(' ')}
                   </tbody>
                 </table> 
               `;
@@ -328,7 +310,7 @@
                 <tbody>
                   ${pathway.map((g) => `
                     <tr>
-                      <td><a id="genename_pathway" onclick="genepage()" href="${app_root}gene/${g.name}/basic">${g.name}</a></td>
+                      <td><a target="_blank" href=${g.link_gene}>${g.name}</a></td>
                       <td>${g.external_id}</td>
                       <td>${g.data}</td>
                     </tr>
