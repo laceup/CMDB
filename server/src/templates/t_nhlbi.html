@@ -5,18 +5,18 @@
 <div class="tab-pane fade active" id="nhlbi" role="tabpanel" aria-labelledby="nhlbi-tab">
     <br>
     <div class="table-responsive">
-        <table  class="download_table cell-border hover stripe details" class="table">
+        <table  class="download_table cell-border hover stripe details" class="table" id="nhlbi-table">
             <thead>
                 <tr>
                     <th class="left-head" >Variant</th>
                     <th> rs ID</th>
-                    <th> African Americal Genotype </th>
+                    <th> African American Genotype </th>
                     <th> European American Genotype</th>
                     <th> All Genotype </th>
                     <th> MAF (%) (EA/AA/All) </th>
                     <th> Consequence</th>
                     <th> HGVS Protein Change</th>
-                    <th> cDNA Change</th>
+                    <th> cDNA Change <i href="https://www.hgvs.org/mutnomen/recs-DNA.html"class="fa fa-info-circle"></i> </th>
                     <th> Polyphen Score</th>
                       
                 </tr>   
@@ -25,12 +25,12 @@
                 {% for nh in gene.nhlbi %}
                 <tr>
                     <td>{{nh.base_ncbi_37}}</td>
-                    <td>{{nh.rsid}}</td> 
+                    <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{nh.rsid}}">{{nh.rsid}}</a></td> 
                     <td>{{nh.african_american_genotype_count}}</td>
                     <td>{{nh.european_american_genotype_count}}</td>
                     <td>{{nh.all_genotype_count}}</td>
                     <td>{{nh.maf_in_percent_ea_aa_all}} </td>
-                    <td>{{nh.function_gvs}}</td>
+                    <td><b>{{nh.function_gvs}}</b></td>
                     <td>{{nh.hgvs_protein_variant}}</td>
                     <td>{{nh.hgvs_cdna_variant}}</td>
                     <td>{{nh.polyphen2_class_score}}</td>
@@ -46,12 +46,49 @@
 <script>
     var app_root = "{{url_for('home')}}";
     $(document).ready(function () {
+        var rows = $('table#nhlbi-table > tbody > tr');
+        for (row of rows) {
+          var majcon = $(row).find('td:nth-child(7) b')
+          switch ($(majcon).html()) {
+            case 'intron':
+                $(majcon).css("color","#6c3985")
+            break
+            case 'missense':
+                $(majcon).css("color","#7a6e53")
+            break
+            case 'coding-synonymous':
+                $(majcon).css("color","#912d66")
+            break
+            case 'frameshift':
+                $(majcon).css("color","#dbb623")
+            break
+            case 'utr-5':
+                $(majcon).css("color","green")
+            break
+            case 'splice-3':
+                $(majcon).css("color","#337da8")
+            break
+            case 'splice_5':
+                $(majcon).css("color","#521903")
+            break
+            }   
+        }
         $('.download_table').DataTable({
             dom: 'Bfrtip',
             buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print',
+            {
+                extend:    'csvHtml5',
+                text:      '<i class="fa fa-file-text-o"></i>',
+                titleAttr: 'CSV',
+            },
+            {
+                extend:    'pdfHtml5',
+                text:      '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF',
+            },
             {
             text:      '<i class="fa fa-info"></i> ',
+            titleAttr: 'Help',
             action: function ( e, dt, button, config ) {
                 window.location = app_root +'help/#nhlbi';} 
             }

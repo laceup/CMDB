@@ -2,9 +2,12 @@
 {% block title %}{{super()}} | Drug{% endblock %}
 
 {% block tabcontent %}
+<div class="mt-3">
+<h3>Drug</h3>
+<p>This tab shows all the drugs that target the given protein</p></div>
 <div class="tab-pane fade show active" id="drug" role="tabpanel" aria-labelledby="drug-tab">
     <span id="drug-viz-loading-message">Loading...</span>
-    <div id="drug-viz"></div>
+    <div id="drug-viz"> </div>
 </div>
 {% endblock %}
 

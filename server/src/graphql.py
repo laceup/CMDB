@@ -65,7 +65,7 @@ query geneExac($name: String!) {
         name
         exac {
             variant_id
-            allele_freq
+            allele_freq_round
             allele_num
             allele_count
             major_consequence

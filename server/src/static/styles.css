@@ -17,7 +17,7 @@ html{
 body {
    padding-top: 0px;
    height: 100%;
-   margin-bottom: 200px;
+   margin-bottom: 0;
    
 }
 .container-fluid {
@@ -38,17 +38,22 @@ body {
     padding-bottom: 10px;
     background: #dbdbdb !important;
 }
+#drug-viz-loading-message{
+    color:#324e73;
+}
 /*------------- FOOTER --------------- */
 .footer {
     position: absolute;
-    height: 200;
+    height: 0px;
     left: 0;
     bottom: 0;
     width: 100%;
     background: #2ec4b6 !important;
 };
 
-
+tr {
+    font-size: small 
+}
 /* ----------------------------------------------- */
 
 /* Changing the colour of tab heading */

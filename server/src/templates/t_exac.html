@@ -4,7 +4,7 @@
 <div class="tab-pane fade active" id="exac" role="tabpanel" aria-labelledby="exac-tab">
     <br>
     <div class="table-responsive">
-        <table class="exac_table cell-border hover stripe details" class="table">
+        <table class="exac_table cell-border hover stripe details" class="table" id="exac-table">
             <thead>
                 <tr>
                     <th class="left-head" rowspan="2">Variant</th>
@@ -14,7 +14,7 @@
                     <th rowspan="2">Allele Count (No. of Homozygotes)</th>
                     <th rowspan="2">Allele Number</th>
                     <th rowspan="2">rs ID</th>  
-                    <th colspan="2">European (Non-Finnish)</th>
+                    <th id="enf" colspan="2">European (Non-Finnish)</th>
                     <th colspan="2">European (Finnish)</th>
                     <th colspan="2">East Asian</th>
                     <th colspan="2">South Asian</th>
@@ -47,10 +47,10 @@
                     <td>{{ex.variant_id}}</td>  <!-- 0 -->
                     <!-- <td>{{ex.HGVSc}}</td> -->
                     <td>{{ex.HGVSp}}</td> <!-- 6 -->
-                    <td>{{ex.major_consequence}}</td> <!-- 4 -->
+                    <td><b>{{ex.major_consequence}}</b></td> <!-- 4 -->
                     <td>{{ex.allele_count}} ({{ex.hom_count}})</td> <!-- 2 -->
                     <td>{{ex.allele_num}}</td> <!-- 3 --> 
-                    <td>{{ex.rsid}}</td> <!-- 5 -->
+                    <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{ex.rsid}}">{{ex.rsid}}</a></td> <!-- 5 -->
                     <td>{{ex.pop_acs['European (Non-Finnish)']}}</td> <!-- 7 -->
                     <td>{{ex.pop_ans['European (Non-Finnish)']}}</td> <!-- 8 -->
                     <td>{{ex.pop_acs['European (Finnish)']}}</td> <!-- 9 -->
@@ -65,7 +65,7 @@
                     <td>{{ex.pop_ans['Latino']}}</td> <!-- 18 -->
                     <td>{{ex.pop_acs['Other']}}</td> <!-- 19 -->
                     <td>{{ex.pop_ans['Other']}}</td> <!-- 20 -->
-                    <td>{{ex.allele_freq}}</td> <!-- 1 -->
+                    <td>{{ex.allele_freq_round}}</td> <!-- 1 -->
                 </tr>
                 {% endfor %}
             </tbody>
@@ -77,6 +77,36 @@
 <script>
     var app_root = "{{url_for('home')}}";
     $(document).ready(function () {
+        var rows = $('table#exac-table > tbody > tr');
+        for (row of rows) {
+          var majcon = $(row).find('td:nth-child(3) b')
+          switch ($(majcon).html()) {
+            case '5_prime_UTR_variant':
+                $(majcon).css("color","green")
+            break
+            case '3_prime_UTR_variant':
+                $(majcon).css("color","#337da8")
+            break
+            case 'synonymous_variant':
+                $(majcon).css("color","#912d66")
+            break
+            case 'frameshift_variant':
+                $(majcon).css("color","#dbb623")
+            break
+            case 'inframe_deletion':
+                $(majcon).css("color","#c96925")
+            break
+            case 'intron_variant':
+                $(majcon).css("color","#6c3985")
+            break
+            case 'splice_region_variant':
+                $(majcon).css("color","#521903")
+            break
+            case 'missense_variant':
+                $(majcon).css("color","#7a6e53")
+            break
+            }   
+        }
         $('.exac_table').DataTable( {
             dom: 'Bfrtip',
             buttons: [
@@ -103,6 +133,7 @@
         },
         {
             text:      '<i class="fa fa-info"></i> ',
+            titleAttr: 'Help',
             action: function ( e, dt, button, config ) {
                 window.location = app_root +'help/#exac';} ,
         },
@@ -110,7 +141,12 @@
                 extend: 'colvisGroup',
                 text: 'European(Non-Finnish)',
                 show: [ 6,7,20],
-                hide: [ 8,9,10,11,12,13,14,15,16,17,18,19 ]
+                hide: [ 8,9,10,11,12,13,14,15,16,17,18,19 ],
+                // action: function ( e, dt, node, config ) {
+                //     $('#enf').css("background-color", "yellow");
+                //     $('.exac_table').DataTable().column(5,6,7,20).visible(true);
+                //     $('.exac_table').DataTable().column(8,9,10,11,12,13,14,15,16,17,18,19).visible(false);
+                // }
             },
             {
                 extend: 'colvisGroup',
@@ -162,13 +198,21 @@
             ],
             autoWidth: false,
             columnDefs: [
-            {   targets: 0, width: "30px"  }],
+            {   targets: 0, width: "100px"  }
+            
+            ],
+
             
         });
         $('#exac').addClass('show');
         $('.dt-buttons :button').removeClass('dt-button');
         $('.dt-buttons :button').addClass('btn btn-secondary my-2');
+        $('.eur_nonfin').on("click",function(){ 
+            $('#enf').css("background-color", "yellow");
+            alert('Changed!')
+       });
 
+       
     });
 
 </script>

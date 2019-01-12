@@ -241,7 +241,7 @@
           const { gene, protein, pathway, drug, clinvar_derived } = data.data;
           switch(searchType) {
             case 'gene':
-              if (gene.length === 0 && protein.length === 0) {
+              if (gene.length === 0 ) {
                 renderResults(false);
                 break;
               }

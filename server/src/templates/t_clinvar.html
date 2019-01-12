@@ -35,7 +35,7 @@
                             <a >{{ list }}</a></br>
                             {% endfor %}
                         </td>
-                    <td>{{cl.rs_dbsnp}}</td>
+                    <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{nh.rsid}}">{{cl.rs_dbsnp}}</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -52,13 +52,14 @@ $(document).ready(() => {
         buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print',
         {
-            text: 'Hypertrophy',
+            text: 'Cardiomyopathy',
             action :function (e) {
                 this.search("cardiomyopathy").draw();
             }
         },
         {
-            text:      '<i class="fa fa-info"></i> ',
+            text:      '<i class="fa fa-info"></i> ', 
+            titleAttr: 'Help',
             action: function ( e, dt, button, config ) {
                 window.location = app_root +'help/#clinvar';
             } ,
