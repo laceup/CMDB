@@ -20,8 +20,8 @@
                     <th colspan="2">South Asian</th>
                     <th colspan="2">African</th>
                     <th colspan="2">Latino</th>
-                    <th class="right-head"colspan="2">Other</th>
-                    <th rowspan="2">Allele Frequency</th>
+                    <th colspan="2">Other</th>
+                    <th class="right-head" rowspan="2">Allele Frequency</th>
                 </tr>
                 <tr>
                     
@@ -50,7 +50,11 @@
                     <td><b>{{ex.major_consequence}}</b></td> <!-- 4 -->
                     <td>{{ex.allele_count}} ({{ex.hom_count}})</td> <!-- 2 -->
                     <td>{{ex.allele_num}}</td> <!-- 3 --> 
-                    <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{ex.rsid}}">{{ex.rsid}}</a></td> <!-- 5 -->
+                    <td>{% if ex.rsid!= '.' %}
+                        <a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{ex.rsid}}">{{ex.rsid}}</a></td>
+                        {% else %}
+                        {{ex.rsid}}
+                        {% endif %}
                     <td>{{ex.pop_acs['European (Non-Finnish)']}}</td> <!-- 7 -->
                     <td>{{ex.pop_ans['European (Non-Finnish)']}}</td> <!-- 8 -->
                     <td>{{ex.pop_acs['European (Finnish)']}}</td> <!-- 9 -->
@@ -198,11 +202,7 @@
             ],
             autoWidth: false,
             columnDefs: [
-            {   targets: 0, width: "100px"  }
-            
-            ],
-
-            
+            {   targets: 0, width: "100px"  }],        
         });
         $('#exac').addClass('show');
         $('.dt-buttons :button').removeClass('dt-button');

@@ -35,7 +35,11 @@
                 
                 <td>
                   {% for sr in gene.source %}
+                  {% if sr.source != 'Text Mining' %}
                   <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{sr.source[6:]}}">{{sr.source}}</a>
+                  {% else %}
+                  {{sr.source}}
+                  {% endif %}
                   {% endfor%}
                 </td>
                 <td>

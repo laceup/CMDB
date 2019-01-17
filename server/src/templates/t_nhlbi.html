@@ -17,7 +17,7 @@
                     <th> Consequence</th>
                     <th> HGVS Protein Change</th>
                     <th> cDNA Change</th>
-                    <th> Polyphen Score</th>
+                    <th class="right-head"> Polyphen Score</th>
                       
                 </tr>   
             </thead>
@@ -25,7 +25,12 @@
                 {% for nh in gene.nhlbi %}
                 <tr>
                     <td>{{nh.base_ncbi_37}}</td>
-                    <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{nh.rsid}}">{{nh.rsid}}</a></td> 
+                    <td>{% if nh.rsid!= 'none' %}
+                        <a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{nh.rsid}}">{{nh.rsid}}</a>
+                        {% else %}
+                        {{nh.rsid}}
+                        {% endif %}
+                    </td> 
                     <td>{{nh.african_american_genotype_count}}</td>
                     <td>{{nh.european_american_genotype_count}}</td>
                     <td>{{nh.all_genotype_count}}</td>

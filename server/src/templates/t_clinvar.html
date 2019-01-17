@@ -35,7 +35,12 @@
                             <a >{{ list }}</a></br>
                             {% endfor %}
                         </td>
-                    <td><a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{cl.rs_dbsnp}}">{{cl.rs_dbsnp}}</a></td>
+                    <td>{% if cl.rs_dbsnp!= '-1' %}
+                        <a target="_blank" href="https://www.ncbi.nlm.nih.gov/snp/{{cl.rs_dbsnp}}">{{cl.rs_dbsnp}}</a>
+                        {% else %}
+                        {{cl.rs_dbsnp}}
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
