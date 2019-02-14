@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% block title %}Clinical Trials{% endblock %} 
+{% block content %}
+<div class="container pt-4">
+  <div class="row">
+    <h2>Clinical Trials</h2>
+  </div>
+  <div class="table-responsive" id="clinical_trial">
+    <table class="clinical_trial_table cell-border hover stripe details" class="table">
+        <thead>
+            <tr>
+                <th class="left-head">NCT Number</th>
+                <th>Title</th>
+                <th>Conditions</th>
+                <th>Interventions</th>
+            </tr>   
+        </thead>
+        <tbody>
+            {% for ct in clinical_trials %}
+            <tr>
+                <td><a href="https://ClinicalTrials.gov/show/{{ct.nct_number}}">{{ct.nct_number}}</a></td>
+                <td>{{ct.title}}</td>
+                <td>{{ct.conditions}}</td>
+                <td>{{ct.interventions}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}  
+{% block extrajs %}
+<script>
+$(document).ready(function () {
+    $('.clinical_trial_table').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+      'csv', 'pdf',
+      ],
+      "columnDefs": [
+      { "width": "10%", "targets": 0 },
+      { "width": "25%", "targets": [1,2,3] }
+      ],
+      "pageLength": 50
+    }); 
+    $('#clinical_trial').addClass('show');
+    $('.dt-buttons :button').removeClass('dt-button');
+    $('.dt-buttons :button').addClass('btn btn-secondary my-2');      
+  });
+</script>
+
+{% endblock %}

@@ -6,25 +6,25 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 ">
+      <br/>
       <h2>Gene List</h2>
-      <br />
     </div>
   </div>
   <div class="row ">
     <div class="col-md-12 col-md-offset-1">
       <div class="Order-list">
         <div class="table-responsive">
-          <table class="table table-striped table-bordered table-hover" id="genelist">
+          <table class="table cell-border hover stripe details" id="genelist">
             <thead>
               <tr>
-                <th>Gene name</th>
+                <th  class="left-head">Gene name</th>
                 <th >Protein</th>
                 <th style="width:15%">Source</th>
                 <th>Tags</th>
                 <th>Ensemble ID</th>
                 
-                <th>Page</th>
+                <th class="right-head">Page</th>
               </tr>
             </thead>
             <tbody>
@@ -63,10 +63,13 @@
     $('#genelist').DataTable({
       dom: 'Bfrtip',
       buttons: [
-      'copy', 'csv', 'excel', 'pdf', 'print'
+      'csv', 'pdf',  
       ],
-      "sScrollX": "100%"  
-    });    
+      "sScrollX": "100%" ,
+      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]] 
+    });
+    $('.dt-buttons :button').removeClass('dt-button');
+    $('.dt-buttons :button').addClass('btn btn-secondary my-2');    
   });
 </script>
 {% endblock %}

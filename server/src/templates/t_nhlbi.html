@@ -62,24 +62,51 @@
                 $(majcon).css("color","#7a6e53")
             break
             case 'coding-synonymous':
+            case 'coding-synonymous-near-splice':
+            case 'coding':
                 $(majcon).css("color","#912d66")
             break
+
             case 'frameshift':
                 $(majcon).css("color","#dbb623")
             break
-            case 'utr-5':
+            case 'utr-3':
                 $(majcon).css("color","green")
             break
-            case 'splice-3':
+            case 'stop-gained':
                 $(majcon).css("color","#337da8")
             break
             case 'splice_5':
                 $(majcon).css("color","#521903")
             break
+            case 'missense-near-splice':
+                $(majcon).css("color","rgb(204, 146, 17)")
+            break
             }   
         }
         $('.download_table').DataTable({
             dom: 'Bfrtip',
+            initComplete: function () {
+            this.api().columns([6]).every( function () {
+                var column = this;
+                var select = $('<select><option value="" >Show all</option></select>')
+                    .appendTo( $(column.header()) )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    var val = $('<div/>').html(d).text();
+                    select.append( '<option value="' + val + '">' + val + '</option>' );
+                } );
+            } );
+        },
             buttons: [
             {
                 extend:    'csvHtml5',
@@ -97,7 +124,7 @@
             action: function ( e, dt, button, config ) {
                 window.location = app_root +'help/#nhlbi';} 
             }
-            ]
+            ],
         });
         $('#nhlbi').addClass('show');
         $('.dt-buttons :button').removeClass('dt-button');

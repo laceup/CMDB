@@ -89,7 +89,29 @@ def drug():
         drug=drug,     
     )
 # --------------------------------------------------------------
-
+@app.route("/clinical_trials/")
+def clinical_trials():
+    data = query('''
+        query {
+        clinical_trials {
+            nct_number
+            conditions
+            interventions
+            title           
+        }
+        }
+    ''', )  
+    if data != None:
+        if len(data['clinical_trials']) == 0:
+            clinical_trials = {}
+        else:
+            clinical_trials = data['clinical_trials']
+    else:
+        clinical_trials = {}
+    return render_template(
+        'clinical_trials.html',
+        clinical_trials =clinical_trials,      
+        )
 # --------------------------------------------------------------
 
 @app.route("/help/")

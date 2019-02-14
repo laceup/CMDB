@@ -3,8 +3,9 @@
 {% block content %}
 <div class="container pt-4">
   <div class="row">
-    <h3>Different drug classes involved in cardiac diseases</h3>
+    <h2>Different drug classes involved in cardiac diseases</h2>
   </div>
+  <br/>
   <div class="list-group"></div>
   {%for d in drug%}
     <li class="list-group-item"><a href="{{ url_for('get_drug', id=d.drug_type_id) }}">{{d.drug_type}}</a></li>

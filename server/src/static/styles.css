@@ -120,7 +120,9 @@ div.basic-table-content a:hover{
 .details th.right-head{ 
     border-top-right-radius: 5px;   
 }
-
+.details th,.details td{
+    font-size: small;
+}
 /* -------------------------------------------------- */
 
 /* div.ppi-viz {

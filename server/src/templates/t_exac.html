@@ -111,7 +111,7 @@
             break
             }   
         }
-        $('.exac_table').DataTable( {
+        $('.exac_table').removeAttr('width').DataTable( {
             dom: 'Bfrtip',
             buttons: [
         //     {
@@ -194,15 +194,35 @@
                 text: 'Show all',
                 show: ':hidden'
             },
-            // {
-            //     extend: 'colvis',
-            //     text: 'Show columns',
-            //     columns: ':not(.noVis)'
-            // }
             ],
+            fixedColumns: true,
             autoWidth: false,
-            columnDefs: [
-            {   targets: 0, width: "100px"  }],        
+            "columnDefs": [
+                { "width": "12%", "targets": 0 },
+                
+                ],
+
+            initComplete: function () {
+            this.api().columns([2]).every( function () {
+                var column = this;
+                var select = $('<select><option value="" >Show all</option></select>')
+                    .appendTo( $(column.header()) )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    var val = $('<div/>').html(d).text();
+                    select.append( '<option value="' + val + '">' + val + '</option>' );
+                } );
+            } );
+            },     
         });
         $('#exac').addClass('show');
         $('.dt-buttons :button').removeClass('dt-button');
