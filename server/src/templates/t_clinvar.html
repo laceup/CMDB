@@ -23,9 +23,15 @@
                     <td>{{cl.hgvsp}}</td>
                     <td>{{cl.type}}</td>
                     <td>{% set list2 = cl.phenotypelist.split(';') %}
-                            {% for list in list2 %}
+                            {% for phenotype in list2 %}
                             <ul style="margin-bottom:0px;padding-left:10px;">
-                            <li>{{ list }}</li>
+                                {% if "hypertrophic" in phenotype.lower() %}
+                                <li style="color: blueviolet">{{ phenotype }}</li>
+                                {% elif "dilated" in phenotype.lower() %}
+                                <li style="color: green">{{ phenotype }}</li>
+                                {% else %}
+                                <li>{{ phenotype }}</li>
+                                {%  endif %}
                            </ul>
                             {% endfor %}
                     </td>

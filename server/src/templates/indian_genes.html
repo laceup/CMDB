@@ -1,0 +1,55 @@
+{% extends 'base.html' %} 
+{% block title %}Clinical Trials{% endblock %} 
+{% block content %}
+<div class="container pt-4">
+    <div class="row">
+        <h2>List of indian specific genes for cardiomyopathy</h2>
+    </div>
+    <div class="table-responsive" id="indian_genes">
+        <table class="indian_genes_table cell-border hover stripe details" class="table">
+            <thead>
+                <tr>
+                    <th class="left-head">Gene</th>
+                    <th>Variant</th>
+                    <th>Phenotype</th>
+                    <th>Source</th>
+                </tr>   
+            </thead>
+            <tbody>
+                {% for ig in indian_genes %}
+                <tr>
+                    <td><a href="{{ url_for('render_gene',name=ig.gene,tabname='basic') }}">{{ig.gene}}</a></td>
+                    {% if ig.hgvsc != ''%}
+                    <td><a href="{{url_for('home')}}?type=variant&search={{ig.hgvsc}}">{{ig.variant}}</a></td>
+                    {% else %}
+                    <td><a href="{{url_for('home')}}?type=variant&search={{ig.variant}}">{{ig.variant}}</a></td>
+                    {% endif%}
+                    <td>{{ig.phenotype}}</td>
+                    {% if ig.pubmed_id != ''%}
+                        <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ig.pubmed_id}}">{{ig.pubmed_id}}</a></td>
+                    {% else %}
+                    <td><a href="{{ig.doi}}">{{ig.doi}}</a></td> 
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}  
+{% block extrajs %}
+<script>
+$(document).ready(function () {
+    $('.indian_genes_table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+        'csv', 'pdf',
+      ],
+      "pageLength": 50
+    })
+    $('#indian_genes').addClass('show');
+    $('.dt-buttons :button').removeClass('dt-button');
+    $('.dt-buttons :button').addClass('btn btn-secondary my-2'); 
+});
+</script>
+{% endblock %}  

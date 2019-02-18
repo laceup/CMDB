@@ -121,6 +121,34 @@ def help():
     )
 
 # -------------------------------------------------------------
+@app.route("/indian_genes/")
+def indian_genes():
+    data = query('''
+        query {
+            indian_genes {
+                gene
+                variant
+                rsid
+                pubmed_id
+                doi
+                phenotype
+                hgvsc
+            }
+        }
+    ''', )  
+    if data != None:
+        if len(data['indian_genes']) == 0:
+            indian_genes = {}
+        else:
+            indian_genes = data['indian_genes']
+    else:
+        indian_genes = {}
+    return render_template(
+        'indian_genes.html',
+        indian_genes=indian_genes,
+    )
+
+# -------------------------------------------------------------
 
 @app.route("/drug/<id>")
 def get_drug(id):
