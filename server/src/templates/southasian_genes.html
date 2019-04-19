@@ -10,13 +10,13 @@
         {% for i in country %}
         <a href="#{{i.lower()}}" class="list-group-item list-group-item-action flex-column align-items-start">  
             <h3>{{i}}</h3>
-                <table class="table table-stripeds">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Gene</th>
                             <th>Variant</th>
                             <th>Phenotype</th>
-                            
+                            <th>Source</th>
                         </tr>   
                     </thead>
                     <tbody>
@@ -26,6 +26,7 @@
                             <td>{{ ag.gene }}</td>
                             <td>{{ ag.variant }}</td>
                             <td>{{ ag.condition }}</td>
+                            <td style="width:40%"><a href={{ag.source_link}}>{{ ag.source }}</a></td>
                            
                         </tr>
                         {% endif %}
