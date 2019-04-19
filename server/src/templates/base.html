@@ -37,8 +37,20 @@
             <li class="nav-item " >
               <a class="nav-link" href="{{url_for('clinical_trials')}}">Clinical Trials</a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link " href="{{url_for('indian_genes')}}">Indian Specific Genes</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Country
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{url_for('indian_genes')}}">India</a>
+                  <a class="dropdown-item" href="{{url_for('sasian_genes')}}#pakistan">Pakistan</a>
+                  <a class="dropdown-item" href="{{url_for('sasian_genes')}}#china">China</a>
+                  <a class="dropdown-item" href="{{url_for('sasian_genes')}}#thailand">Thailand</a>
+                  <a class="dropdown-item" href="{{url_for('sasian_genes')}}#vietnam">Vietnam</a>
+                  <a class="dropdown-item" href="{{url_for('sasian_genes')}}#singapore">Singapore</a>
+                  
+                </div> 
+              <!-- <a class="nav-link " href="{{url_for('indian_genes')}}">Indian Specific Genes</a> -->
             </li>
             <li class="nav-item ">
               <a class="nav-link " href="{{url_for('help')}}">Help</a>

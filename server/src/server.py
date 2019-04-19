@@ -149,6 +149,35 @@ def indian_genes():
     )
 
 # -------------------------------------------------------------
+@app.route("/southasian_genes/")
+def sasian_genes():
+    data = query('''
+        query {
+            southasian_genes {
+                country
+                gene
+                variant
+                condition
+                source
+                
+            }
+        }
+    ''', )
+    country=['Thailand','Vietnam','Pakistan','China']  
+    if data != None:
+        if len(data['southasian_genes']) == 0:
+            southasian_genes = {}
+        else:
+            southasian_genes = data['southasian_genes']
+    else:
+        southasian_genes = {}
+    return render_template(
+        'southasian_genes.html',
+        southasian_genes=southasian_genes,
+        country=country
+    )
+
+# -------------------------------------------------------------
 
 @app.route("/drug/<id>")
 def get_drug(id):

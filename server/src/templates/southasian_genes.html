@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+{% block title %}Cardiomyopathy Genes{% endblock %} 
+{% block content %}
+<div class="container pt-4">
+    <div class="row">
+        <h2>List of south asian specific genes for cardiomyopathy</h2>
+    </div>
+    
+    <div class="list-group">
+        {% for i in country %}
+        <a href="#{{i.lower()}}" class="list-group-item list-group-item-action flex-column align-items-start">  
+            <h3>{{i}}</h3>
+                <table class="table table-stripeds">
+                    <thead>
+                        <tr>
+                            <th>Gene</th>
+                            <th>Variant</th>
+                            <th>Phenotype</th>
+                            
+                        </tr>   
+                    </thead>
+                    <tbody>
+                        {% for ag in southasian_genes %}
+                        {% if ag.country == i %}
+                        <tr>
+                            <td>{{ ag.gene }}</td>
+                            <td>{{ ag.variant }}</td>
+                            <td>{{ ag.condition }}</td>
+                           
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>       
+            </a>
+        {% endfor %}   
+    </div>
+    
+</div>
+
+{% endblock %}  
+{% block extrajs %}
+<script>
+</script>
+{% endblock %}

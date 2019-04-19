@@ -26,7 +26,7 @@
         <div class="input-group-prepend">
           <a class="btn btn-outline-secondary" href="{{url_for('genes')}}">See all genes</a>
           <button id="searchTypeBtn" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gene</button>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu gene-menu">
             <a class="dropdown-item" href="#" data-qt="gene">Gene</a>
             <a class="dropdown-item" href="#" data-qt="protein">Protein</a>
             <a class="dropdown-item" href="#" data-qt="pathway">Pathway</a>
@@ -79,7 +79,7 @@
   $(document).ready(function(e){
     $('#queryType').val('gene');
     
-    $('.dropdown-menu').find('a').click(function(e) {
+    $('.gene-menu').find('a').click(function(e) {
       e.preventDefault();
       var param = $(this).attr("data-qt");
       var concept = $(this).text();
@@ -198,7 +198,7 @@
         case 'variant':
           return JSON.stringify({
             query:`query searchVariant($name: String!) {
-              clinvar_derived (
+              clinvar_derived(
               limit:10,
               where: {_or:[
                 {hgvsc: {_ilike: $name}},
@@ -210,6 +210,8 @@
     						hgvsp
     						rs_dbsnp
     						gene_symbol
+                phenotypelist
+                clinical_significance
               }   
             }
             `,
@@ -359,16 +361,18 @@
                     <th>Gene name</th>
                     <th>RS ID</th>
                     <th>HGVSc</th>
-                    <th>HGVSp</th>  
+                    <th>HGVSp</th> 
+                    <th>Phenotype</th>
                   </tr>
                 </thead>
                 <tbody>
                   ${clinvar_derived.map((g) => `
                     <tr>
-                      <td><a href="${app_root}gene/${g.gene_symbol}/basic">${g.gene_symbol}</a></td>
+                      <td><a href="${app_root}gene/${g.gene_symbol}/clinvar">${g.gene_symbol}</a></td>
                       <td>${g.rs_dbsnp}</td>
                       <td>${g.hgvsc}</td>
                       <td>${g.hgvsp}</td>
+                      <td>${g.phenotypelist}</td>
                     </tr>
                     `).join(' ')}
                   </tbody>
